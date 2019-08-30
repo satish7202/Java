@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './component/protect-component/AdviserComponent/dashboard/dashboard.component';
 import { LeftsidebarComponent } from './component/left-sidebar/leftsidebar/leftsidebar.component';
 import { SubscriptionComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/subscription.component';
+import { MisComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mis/mis.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,12 @@ const routes: Routes = [
       {
         path:'',
         component:DashboardComponent
+      },
+      {
+        path:'mis',
+        component:MisComponent
       }
+      
      ]
   },
   {

@@ -40,6 +40,7 @@ import { CategoryWiseComponent } from './component/protect-component/AdviserComp
 import { AmcWiseComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mutual-funds/aum/amc-wise/amc-wise.component';
 import { ClientWiseComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mutual-funds/aum/client-wise/client-wise.component';
 import { ApplicantWiseComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mutual-funds/aum/applicant-wise/applicant-wise.component';
+import { MisComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mis/mis.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { ApplicantWiseComponent } from './component/protect-component/AdviserCom
     AmcWiseComponent,
     ClientWiseComponent,
     ApplicantWiseComponent,
+    MisComponent,
   ],
   imports: [
     BrowserModule,
