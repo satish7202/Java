@@ -69,16 +69,15 @@
                             <mat-icon mat-list-icon>radio_button_checked</mat-icon>
                             <span *ngIf="showTabs" class="title" mat-line>Dashboard</span>
                         </a>
-                        <a mat-list-item class="sidenav-link" routerLink="/admin/subscription" (click)="toggle()">
+                        <a mat-list-item class="sidenav-link" routerLink="/admin/subscription">
                             <mat-icon mat-list-icon>favorite</mat-icon>
                             <span *ngIf="showTabs" class="title" mat-line>Subscription</span>
                         </a>
 
-                        <a mat-list-item class="sidenav-link" routerLink="/admin/backoffice" (click)="toggle()">
+                        <a mat-list-item class="sidenav-link" routerLink="/admin/backoffice">
                             <mat-icon mat-list-icon>favorite</mat-icon>
                             <span *ngIf="showTabs" class="title" mat-line>Back Office</span>
                         </a>
-
                     </div>
                 </mat-nav-list>
             </mat-sidenav>
