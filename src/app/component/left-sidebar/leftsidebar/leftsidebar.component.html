@@ -74,6 +74,11 @@
                             <span *ngIf="showTabs" class="title" mat-line>Subscription</span>
                         </a>
 
+                        <a mat-list-item class="sidenav-link" routerLink="/admin/backoffice" (click)="toggle()">
+                            <mat-icon mat-list-icon>favorite</mat-icon>
+                            <span *ngIf="showTabs" class="title" mat-line>Back Office</span>
+                        </a>
+
                     </div>
                 </mat-nav-list>
             </mat-sidenav>
