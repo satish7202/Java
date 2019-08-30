@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  APIEndpoint:'http://dev.ifanow.in:8080/'
+
 };
