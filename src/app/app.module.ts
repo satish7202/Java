@@ -6,10 +6,13 @@ import { MaterialModule } from './material/material';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LeftsidebarComponent } from './component/left-sidebar/leftsidebar/leftsidebar.component';
+import { AuthService } from './auth-service/authService';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LeftsidebarComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,7 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

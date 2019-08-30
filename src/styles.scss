@@ -3,3 +3,12 @@
 @import url('https://fonts.adobe.com/fonts/proxima-nova');
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import'./assets/style/scss/variable';
+@import'./assets/style/scss/_color';
+@import'./assets/style/scss/_helper';
+@import'./assets/style/scss/_common';
+@import'./assets/style/scss/_form';
+@import './assets/style/scss/_sidenavbar';
+@import './assets/style/scss/_card';
+@import'./assets/style/scss/table';
+@import'./assets/style/scss/_footer';
