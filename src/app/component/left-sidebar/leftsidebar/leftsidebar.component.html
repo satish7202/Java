@@ -17,7 +17,7 @@
                 <p class="f-14 f-500 mb-0">Ronak Hindocha</p>
             </div>
             <div class="pt-20">
-                <a mat-list-item class="sidenav-link" routerLink="/admin/mfUpload" (click)="sidenav.toggle()">
+                <a mat-list-item class="sidenav-link" routerLink="/admin/dashboard">
                     <mat-icon mat-list-icon>radio_button_checked</mat-icon>
                     <span class="title" mat-line>Dashboard</span>
                 </a>
@@ -43,18 +43,7 @@
                         <li routerLink="/admin/service" class="c-p">Settings</li>
                     </ul>
                 </div>
-                <a mat-list-item class="sidenav-link" (click)="sidenav.toggle()">
-                    <mat-icon mat-list-icon>local_grocery_store</mat-icon>
-                    <span class="title" mat-line>Transact Online</span>
-                </a>
-                <a mat-list-item class="sidenav-link" (click)="sidenav.toggle()">
-                    <mat-icon mat-list-icon>favorite</mat-icon>
-                    <span class="title" mat-line>Subscriptions</span>
-                </a>
-                <a mat-list-item class="sidenav-link" (click)="sidenav.toggle()">
-                    <mat-icon mat-list-icon>event_note</mat-icon>
-                    <span class="title" mat-line>Back Office</span>
-                </a>
+
             </div>
         </mat-nav-list>
         <mat-sidenav-container class="sidenav-container">
@@ -76,32 +65,15 @@
                         <p class="f-14 f-500 mb-0">Ronak Hindocha</p>
                     </div>
                     <div class="pt-12">
-                        <a mat-list-item class="sidenav-link" routerLink="/admin/mfUpload" (click)="sidenav.toggle()">
+                        <a mat-list-item class="sidenav-link" routerLink="/admin/dashboard">
                             <mat-icon mat-list-icon>radio_button_checked</mat-icon>
                             <span *ngIf="showTabs" class="title" mat-line>Dashboard</span>
                         </a>
-                        <a mat-list-item class="sidenav-link" routerLink="/admin/mis" (click)="toggle()">
+                        <a mat-list-item class="sidenav-link" routerLink="/admin/subscription" (click)="toggle()">
                             <mat-icon mat-list-icon>favorite</mat-icon>
-                            <span *ngIf="showTabs" class="title" mat-line>Clients</span>
+                            <span *ngIf="showTabs" class="title" mat-line>Subscription</span>
                         </a>
-                        <div>
-                            <a mat-list-item class="sidenav-link" (click)="toggle()">
-                                <mat-icon mat-list-icon>dehaze</mat-icon>
-                                <span *ngIf="showTabs" class="title" mat-line>Activity</span>
-                            </a>
-                        </div>
-                        <a mat-list-item class="sidenav-link" routerLink="/admin/transaction">
-                            <mat-icon mat-list-icon>local_grocery_store</mat-icon>
-                            <span *ngIf="showTabs" class="title" mat-line>Transact Online</span>
-                        </a>
-                        <a mat-list-item class="sidenav-link" routerLink="/admin/sub">
-                            <mat-icon mat-list-icon>favorite</mat-icon>
-                            <span *ngIf="showTabs" class="title" mat-line>Subscriptions</span>
-                        </a>
-                        <a mat-list-item class="sidenav-link" routerLink="/admin/service">
-                            <mat-icon mat-list-icon>event_note</mat-icon>
-                            <span *ngIf="showTabs" class="title" mat-line>Back Office</span>
-                        </a>
+
                     </div>
                 </mat-nav-list>
             </mat-sidenav>
@@ -121,13 +93,13 @@
                         <input class="search-field" type="text" placeholder="SEARCH" name="email">
                     </div>
                     <div class="pl-48 hide-on-800 flex right-fixed tablate-none">
-                        <a mat-list-item class="sidenav-link" (click)="sidenav.toggle()">
+                        <a mat-list-item class="sidenav-link">
                             <mat-icon mat-list-icon>notifications_none</mat-icon>
                         </a>
-                        <a mat-list-item class="sidenav-link" (click)="sidenav.toggle()">
+                        <a mat-list-item class="sidenav-link">
                             <mat-icon mat-list-icon>headset_mic</mat-icon>
                         </a>
-                        <a mat-list-item class="sidenav-link" (click)="sidenav.toggle()">
+                        <a mat-list-item class="sidenav-link">
                             <mat-icon mat-list-icon>settings</mat-icon>
                         </a>
                     </div>
@@ -144,13 +116,13 @@
                             <input class="search-field" type="text" placeholder="SEARCH" name="email">
                         </div>
                         <div class="pl-48 flex tabs-right">
-                            <a mat-list-item class="sidenav-link" (click)="sidenav.toggle()">
+                            <a mat-list-item class="sidenav-link">
                                 <mat-icon mat-list-icon>notifications_none</mat-icon>
                             </a>
-                            <a mat-list-item class="sidenav-link" (click)="sidenav.toggle()">
+                            <a mat-list-item class="sidenav-link">
                                 <mat-icon mat-list-icon>headset_mic</mat-icon>
                             </a>
-                            <a mat-list-item class="sidenav-link" (click)="sidenav.toggle()">
+                            <a mat-list-item class="sidenav-link">
                                 <mat-icon mat-list-icon>settings</mat-icon>
                             </a>
                         </div>
