@@ -151,9 +151,17 @@
         padding-left: 20px !important;
         padding-top: 20px !important;
     }
-    // .mat-tab-header {
-    //     border-bottom: 0px;
-    // }
+    .mat-tab-header {
+        border-bottom: 0px;
+        // position: fixed;
+        // margin-top: 4px;
+        // right: 0;
+        // left: 0;
+        // z-index: 1030;
+        // background-color: #fff;
+        // box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0.12), 0px 3px 3px rgba(0, 0, 0, 0.14);
+        
+    }
     li {
         padding-top: 5px;
         padding-bottom: 5px;
@@ -206,7 +214,7 @@
 }
 
 #ui-subscriptions,
-#ui-plans,
+#ui-plans
 {
     @extend .mt-60;
     .example-card .mat-card-header-text {
@@ -305,8 +313,10 @@
 // }
 
 #ui-settings-subs{
+
     .mat-tab-header{
         border-bottom: 0px;
+        margin-right: 12px;
     }
     .mat-tab-label{
         height: 40px !important;
@@ -315,13 +325,16 @@
     .mat-ink-bar{
         display: none !important;
     }
+    .mat-tab-label{
+        color: #595252;
+    }
     .mat-tab-label.mat-tab-label-active{
         border: 1px solid #BCC6CA;
         font-weight: 500;
-font-size: 14px;
-line-height: 16px;
-text-align: center;
-background:transparent; 
-color: #008FFF;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: center;
+        background:transparent; 
+        color: #008FFF;
     }
 }
