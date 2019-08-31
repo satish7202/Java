@@ -13,7 +13,7 @@ export class LeftsidebarComponent implements OnInit {
   smallNavWrapper;
   update;
   showSettings=false;
-  arrow=true;
+  arrow=false;
 
   constructor(private authService:AuthService,private _eref: ElementRef ) { }
 
