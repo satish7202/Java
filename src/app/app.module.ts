@@ -41,6 +41,7 @@ import { AmcWiseComponent } from './component/protect-component/AdviserComponent
 import { ClientWiseComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mutual-funds/aum/client-wise/client-wise.component';
 import { ApplicantWiseComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mutual-funds/aum/applicant-wise/applicant-wise.component';
 import { MisComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mis/mis.component';
+import { HttpService } from './http-service/http-service';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,7 @@ import { MisComponent } from './component/protect-component/AdviserComponent/bac
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService,HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
