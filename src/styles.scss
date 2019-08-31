@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url('https://fonts.adobe.com/fonts/proxima-nova');
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import'./assets/style/scss/variable';
@@ -48,9 +47,9 @@
     text-decoration: none;
     color: #83959D;
 }
-.mat-drawer-side{
-    border-right: 0px;
-}
+// .mat-drawer-side{
+//     border-right: 0px;
+// }
 .main-details {
     .mat-form-field,
     .mat-option {

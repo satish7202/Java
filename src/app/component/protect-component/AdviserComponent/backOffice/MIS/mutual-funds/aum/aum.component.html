@@ -1,1 +1,184 @@
-<p>aum works!</p>
+<div *ngIf="showMainWrapperFlag" class="wrapper-10 mb-15">
+
+    </div>
+    <div *ngIf="categoryshow" class="">
+        <button (click)="showMainWrapper()" mat-raised-button color="warn" class="right mt-10 mb-10 mr-20"> Back</button>
+        <div class="wrapper-20 pb-0">
+            <table class="table table-bordered">
+                <thead class="b-blue t-white">
+                    <tr>
+                        <th>Sr No.</th>
+                        <th>Category Name</th>
+                        <th class="t-right">Current Value</th>
+                        <th class="t-right">% Weight</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="MiscData">
+                    <tr *ngFor="let item of MiscData;index as i">
+                        <td>{{i+1}}</td>
+                        <td>{{item.name}}<i class="material-icons t-blue right b-s c-p f-13 mt-5" *ngIf="showAddBtn" (click)="showSubTableList()">
+                      add
+                      </i>
+                            <i class="material-icons t-blue right b-s c-p f-13 mt-5" *ngIf="showRemoveBtn" (click)="hideSubTableList()">
+                      remove
+                      </i>
+                        </td>
+                        <td class="t-right">{{item.totalAum}}</td>
+                        <td class="t-right">{{item.weightInPercentage}}%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="showSubTable" class="wrapper-25 pt-0 pb-0">
+            <table class="table table-bordered">
+                <thead class="b-blue t-white">
+                    <tr>
+                        <th>Sr No.</th>
+                        <th>Sub Category Name</th>
+                        <th class="t-right">Current Value</th>
+                        <th class="t-right">% Weight</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>OTHERS <i class="material-icons t-blue right b-s c-p f-13 mt-5" *ngIf="showAddBtn" (click)="showSubTableList()">
+                      add
+                      </i>
+                            <i class="material-icons t-blue right b-s c-p f-13 mt-5" *ngIf="showRemoveBtn" (click)="hideSubTableList()">
+                      remove
+                      </i>
+                        </td>
+                        <td class="t-right">13,500</td>
+                        <td class="t-right">0.00%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="showSubTable" class="wrapper-30 pt-0 pb-0">
+            <table class="table table-bordered">
+                <thead class="b-blue t-white">
+                    <tr>
+                        <th>Sr No.</th>
+                        <th>Sub Category Name</th>
+                        <th class="t-right">Current Value</th>
+                        <th class="t-right">% Weight</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>OTHERS <i class="material-icons t-blue right b-s c-p f-13 mt-5" *ngIf="showAddBtn" (click)="showSubTableList()">
+                      add
+                      </i>
+                            <i class="material-icons t-blue right b-s c-p f-13 mt-5" *ngIf="showRemoveBtn" (click)="hideSubTableList()">
+                      remove
+                      </i>
+                        </td>
+                        <td class="t-right">13,500</td>
+                        <td class="t-right">0.00%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="showSubTable" class="wrapper-35 pt-0 pb-0">
+            <table class="table table-bordered">
+                <thead class="b-blue t-white">
+                    <tr>
+                        <th>Sr No.</th>
+                        <th>Sub Category Name</th>
+                        <th class="t-right">Current Value</th>
+                        <th class="t-right">% Weight</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>OTHERS <i class="material-icons t-blue right b-s c-p f-13 mt-5" *ngIf="showAddBtn" (click)="showSubTableList()">
+                      add
+                      </i>
+                            <i class="material-icons t-blue right b-s c-p f-13 mt-5" *ngIf="showRemoveBtn" (click)="hideSubTableList()">
+                      remove
+                      </i>
+                        </td>
+                        <td class="t-right">13,500</td>
+                        <td class="t-right">0.00%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="showSubTable" class="wrapper-40 pt-0 pb-0">
+            <table class="table table-bordered">
+                <thead class="b-blue t-white">
+                    <tr>
+                        <th>Sr No.</th>
+                        <th>Sub Category Name</th>
+                        <th class="t-right">Current Value</th>
+                        <th class="t-right">% Weight</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>OTHERS <i class="material-icons t-blue right b-s c-p f-13 mt-5" *ngIf="showAddBtn" (click)="showSubTableList()">
+                      add
+                      </i>
+                            <i class="material-icons t-blue right b-s c-p f-13 mt-5" *ngIf="showRemoveBtn" (click)="hideSubTableList()">
+                      remove
+                      </i>
+                        </td>
+                        <td class="t-right">13,500</td>
+                        <td class="t-right">0.00%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="showSubTable" class="wrapper-45 pt-0 pb-0">
+            <table class="table table-bordered">
+                <thead class="b-blue t-white">
+                    <tr>
+                        <th>Sr No.</th>
+                        <th>Scheme Name</th>
+                        <th class="t-right">Current Value</th>
+                        <th class="t-right">% Weight</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>OTHERS <i class="material-icons t-blue right b-s c-p f-13 mt-5" *ngIf="showAddBtn" (click)="showSubTableList()">
+                      add
+                      </i>
+                            <i class="material-icons t-blue right b-s c-p f-13 mt-5" *ngIf="showRemoveBtn" (click)="hideSubTableList()">
+                      remove
+                      </i>
+                        </td>
+                        <td class="t-right">13,500</td>
+                        <td class="t-right">0.00%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="showSubTable" class="wrapper-50 pt-0 pb-0">
+            <table class="table table-bordered">
+                <thead class="b-blue t-white">
+                    <tr>
+                        <th>Applicant Name</th>
+                        <th class="t-right">Balance Unit</th>
+                        <th class="t-right">Folio</th>
+                        <th>Current Amount</th>
+                        <th class="t-right">% Weight</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Viral R Patel (HUF) </td>
+                        <td class="t-right">0.00 </td>
+                        <td class="t-right">6573766/63 </td>
+                        <td>22,48,351</td>
+                        <td class="t-right">100.00% </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
