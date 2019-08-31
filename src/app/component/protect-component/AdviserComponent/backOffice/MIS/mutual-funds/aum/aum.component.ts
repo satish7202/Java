@@ -101,22 +101,22 @@ export class AumComponent implements OnInit {
    getFileResponseDataAum(data) {
      console.log(data)
 
-     this.clientTotalAum=data.payLoad.clientTotalAum;
-     this.amcTotalAum=data.payLoad.amcTotalAum;
+     this.clientTotalAum=data.clientTotalAum;
+     this.amcTotalAum=data.amcTotalAum;
    }
     getFileResponseDataForMis(data) {
       console.log(data)
     this.MiscData1=data.payLoad;
     }
     getFileResponseDataForSub(data) {
-      this.category=data.payLoad.category;
-      this.subcategory=data.payLoad.subcategory;
+      this.category=data.category;
+      this.subcategory=data.subcategory;
 
     }
     getFileResponseDataForSubScheme(data) {
       this.MiscData=0;
       console.log(data)
-      this.MiscData=data.payLoad.categories;
+      this.MiscData=data.categories;
     }
     getFileResponseDataForSubSchemeName(data)
     {
