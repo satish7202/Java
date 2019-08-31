@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UpperSliderComponent } from '../../common-subscription-component/upper-slider/upper-slider.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-plans-settings',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlansSettingsComponent implements OnInit {
 
-  constructor() { }
+  constructor( public dialog: MatDialog, ) { }
 
   ngOnInit() {
   }
+
+
+  openFragment(data) {
+    let Fragmentdata = {
+      Flag: data,
+    }
+    const dialogRef = this.dialog.open(UpperSliderComponent, {
+      width: '1400px',
+      data: Fragmentdata,
+      autoFocus:false,
+      panelClass:'dialogBox'
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+  
+    });
+  }
+   
 
 }

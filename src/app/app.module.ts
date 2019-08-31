@@ -91,6 +91,7 @@ import { HttpService } from './http-service/http-service';
     HttpClientModule,
   ],
   providers: [AuthService,HttpService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[UpperSliderComponent]
 })
 export class AppModule { }

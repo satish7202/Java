@@ -1,148 +1,145 @@
 <div class="bg-white pb-36">
-           
-        <div class="wrapper-20">
+
+    <div class="wrapper-20">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="pt-12">PLANS</h3>
+            </div>
+        </div>
+        <div class="pt-20 pr-0">
             <div class="row">
-                <div class="col-md-12">
-                    <h3 class="pt-12">PLANS</h3>
+                <div class="col-md-4 ">
+                    <mat-card class="example-card height-470 bg-grey lter">
+
+                        <mat-card-content>
+                            <p class="text-center">
+                                <i class="material-icons icon-center" (click)="openFragment('plan')">
+                                                                    add   </i>
+                            </p>
+                        </mat-card-content>
+
+                    </mat-card>
                 </div>
-                </div>
-                <div class="pt-20 pr-0">
-                    
-                        
-                            <div class="row">
-                                <div class="col-md-4 ">
-                                    <mat-card class="example-card height-470 bg-grey lter">
-  
-                                        <mat-card-content>
-                                            <p class="text-center">
-                                                <i class="material-icons icon-center" (click)="router()">
-                                                                    add
-                                                                    </i>
-                                            </p>
-                                        </mat-card-content>
-  
-                                    </mat-card>
-                                </div>
-                      
-                                <div class="col-md-4">
-                                    <mat-card class="example-card bg-grey lter p-0">
-                                        <mat-card-header>
-                                            <div class="wrapper-20">
-                                                <mat-card-title class="mb-0 f-24">Starter Plan </mat-card-title>
-                                                <mat-card-subtitle class="pt-4 pb-12 mb-0">PLA123</mat-card-subtitle>
-                                            </div>
-                                        </mat-card-header>
-  
-                                        <mat-card-content class="bg-white mb-0">
-                                          
-                                            <div class="row wrapper-20">
-                                                <div class="col-md-12 p-0">
-                                                    <p class="mb-0 text-primitive f-12">DESCRIPTION</p>
-                                                    <p class="mb-0 pt-8 plan-description pb-20">This plan is ideal for young people who are just starting off their financial journey and want to start saving with a smaller investment amount.</p>
-                                                </div>
-                                              
-                                            </div>
-                                            <div class="row wrapper-20 bt-1 bb-1">
-                                                    <div class="col-md-6 p-0">
-                                                        <p class="f-14 text-primitive">SERVICES</p>
-                                                        <p class="f-24">2</p>
-                                                    </div>
-                                                    <div class="col-md-6 p-0">
-                                                        <p class="f-14 text-primitive">DOCUMENTS</p>
-                                                        <p class="f-24">1</p>
-                                                    </div>
-                                                                
-                                                </div>
-                                          
-                                        </mat-card-content>
-                                        <mat-card-actions class="block text-center pt-20 pb-20">
-                                            <button mat-stroked-button class="btn-header addon mb-12 mt-12 br-0">INFO</button>
-                                        </mat-card-actions>
-                                    </mat-card>
-                                </div>
-                                <div class="col-md-4">
-                                        <mat-card class="example-card bg-grey lter p-0">
-                                            <mat-card-header>
-                                                <div class="wrapper-20">
-                                                    <mat-card-title class="mb-0 f-24">Starter Plan </mat-card-title>
-                                                    <mat-card-subtitle class="pt-4 pb-12 mb-0">PLA123</mat-card-subtitle>
-                                                </div>
-                                            </mat-card-header>
-      
-                                            <mat-card-content class="bg-white mb-0">
-                                              
-                                                <div class="row wrapper-20">
-                                                    <div class="col-md-12 p-0">
-                                                        <p class="mb-0 text-primitive f-12">DESCRIPTION</p>
-                                                        <p class="mb-0 pt-8 plan-description pb-20">This plan is ideal for young people who are just starting off their financial journey and want to start saving with a smaller investment amount.</p>
-                                                    </div>
-                                                  
-                                                </div>
-                                                <div class="row wrapper-20 bt-1 bb-1">
-                                                        <div class="col-md-6 p-0">
-                                                            <p class="f-14 text-primitive">SERVICES</p>
-                                                            <p class="f-24">2</p>
-                                                        </div>
-                                                        <div class="col-md-6 p-0">
-                                                            <p class="f-14 text-primitive">DOCUMENTS</p>
-                                                            <p class="f-24">1</p>
-                                                        </div>
-                                                                    
-                                                    </div>
-                                              
-                                            </mat-card-content>
-                                            <mat-card-actions class="block text-center pt-20 pb-20">
-                                                <button mat-stroked-button class="btn-header addon mb-12 mt-12 br-0">INFO</button>
-                                            </mat-card-actions>
-                                        </mat-card>
-                                    </div>
-                                    <div class="col-md-4 mt-20">
-                                            <mat-card class="example-card bg-grey lter p-0">
-                                                <mat-card-header>
-                                                    <div class="wrapper-20">
-                                                        <mat-card-title class="mb-0 f-24">Next level Plan</mat-card-title>
-                                                        <mat-card-subtitle class="pt-4 pb-12 mb-0">PLA124</mat-card-subtitle>
-                                                    </div>
-                                                </mat-card-header>
-                        
-                                                <mat-card-content class="bg-white mb-0">
-                        
-                                                    <div class="row wrapper-20">
-                                                        <div class="col-md-12 p-0">
-                                                            <p class="mb-0 text-primitive f-12">DESCRIPTION</p>
-                                                            <p class="mb-0 pt-8 plan-description">This plan is ideal for families with young kids. You’re ideally in your 30’s or 40’s and looking for fulfilling family commitments and long term wealth creation and retirement planning.</p>
-                                                        </div>
-                        
-                                                    </div>
-                                                    <div class="row wrapper-20 bt-1 bb-1">
-                                                        <div class="col-md-6 p-0">
-                                                            <p class="f-14 text-primitive">SERVICES</p>
-                                                            <p class="f-24">1</p>
-                                                        </div>
-                                                        <div class="col-md-6 p-0">
-                                                            <p class="f-14 text-primitive">DOCUMENTS</p>
-                                                            <p class="f-24">3</p>
-                                                        </div>
-                        
-                                                    </div>
-                        
-                                                </mat-card-content>
-                                                <mat-card-actions class="block text-center pt-20 pb-20">
-                                                    <button mat-stroked-button class="btn-header addon mb-12 mt-12 br-0">INFO</button>
-                                                </mat-card-actions>
-                                            </mat-card>
-                                        </div>
+
+                <div class="col-md-4">
+                    <mat-card class="example-card bg-grey lter p-0">
+                        <mat-card-header>
+                            <div class="wrapper-20">
+                                <mat-card-title class="mb-0 f-24">Starter Plan </mat-card-title>
+                                <mat-card-subtitle class="pt-4 pb-12 mb-0">PLA123</mat-card-subtitle>
                             </div>
-                           
+                        </mat-card-header>
 
-                        </div>
+                        <mat-card-content class="bg-white mb-0">
 
-                    
-                    <!-- <mat-card-actions class="block text-center pt-20 pb-20">
+                            <div class="row wrapper-20">
+                                <div class="col-md-12 p-0">
+                                    <p class="mb-0 text-primitive f-12">DESCRIPTION</p>
+                                    <p class="mb-0 pt-8 plan-description pb-20">This plan is ideal for young people who are just starting off their financial journey and want to start saving with a smaller investment amount.</p>
+                                </div>
+
+                            </div>
+                            <div class="row wrapper-20 bt-1 bb-1">
+                                <div class="col-md-6 p-0">
+                                    <p class="f-14 text-primitive">SERVICES</p>
+                                    <p class="f-24">2</p>
+                                </div>
+                                <div class="col-md-6 p-0">
+                                    <p class="f-14 text-primitive">DOCUMENTS</p>
+                                    <p class="f-24">1</p>
+                                </div>
+
+                            </div>
+
+                        </mat-card-content>
+                        <mat-card-actions class="block text-center pt-20 pb-20">
+                            <button mat-stroked-button class="btn-header addon mb-12 mt-12 br-0">INFO</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+                <div class="col-md-4">
+                    <mat-card class="example-card bg-grey lter p-0">
+                        <mat-card-header>
+                            <div class="wrapper-20">
+                                <mat-card-title class="mb-0 f-24">Starter Plan </mat-card-title>
+                                <mat-card-subtitle class="pt-4 pb-12 mb-0">PLA123</mat-card-subtitle>
+                            </div>
+                        </mat-card-header>
+
+                        <mat-card-content class="bg-white mb-0">
+
+                            <div class="row wrapper-20">
+                                <div class="col-md-12 p-0">
+                                    <p class="mb-0 text-primitive f-12">DESCRIPTION</p>
+                                    <p class="mb-0 pt-8 plan-description pb-20">This plan is ideal for young people who are just starting off their financial journey and want to start saving with a smaller investment amount.</p>
+                                </div>
+
+                            </div>
+                            <div class="row wrapper-20 bt-1 bb-1">
+                                <div class="col-md-6 p-0">
+                                    <p class="f-14 text-primitive">SERVICES</p>
+                                    <p class="f-24">2</p>
+                                </div>
+                                <div class="col-md-6 p-0">
+                                    <p class="f-14 text-primitive">DOCUMENTS</p>
+                                    <p class="f-24">1</p>
+                                </div>
+
+                            </div>
+
+                        </mat-card-content>
+                        <mat-card-actions class="block text-center pt-20 pb-20">
+                            <button mat-stroked-button class="btn-header addon mb-12 mt-12 br-0">INFO</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+                <div class="col-md-4 mt-20">
+                    <mat-card class="example-card bg-grey lter p-0">
+                        <mat-card-header>
+                            <div class="wrapper-20">
+                                <mat-card-title class="mb-0 f-24">Next level Plan</mat-card-title>
+                                <mat-card-subtitle class="pt-4 pb-12 mb-0">PLA124</mat-card-subtitle>
+                            </div>
+                        </mat-card-header>
+
+                        <mat-card-content class="bg-white mb-0">
+
+                            <div class="row wrapper-20">
+                                <div class="col-md-12 p-0">
+                                    <p class="mb-0 text-primitive f-12">DESCRIPTION</p>
+                                    <p class="mb-0 pt-8 plan-description">This plan is ideal for families with young kids. You’re ideally in your 30’s or 40’s and looking for fulfilling family commitments and long term wealth creation and retirement planning.</p>
+                                </div>
+
+                            </div>
+                            <div class="row wrapper-20 bt-1 bb-1">
+                                <div class="col-md-6 p-0">
+                                    <p class="f-14 text-primitive">SERVICES</p>
+                                    <p class="f-24">1</p>
+                                </div>
+                                <div class="col-md-6 p-0">
+                                    <p class="f-14 text-primitive">DOCUMENTS</p>
+                                    <p class="f-24">3</p>
+                                </div>
+
+                            </div>
+
+                        </mat-card-content>
+                        <mat-card-actions class="block text-center pt-20 pb-20">
+                            <button mat-stroked-button class="btn-header addon mb-12 mt-12 br-0">INFO</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <!-- <mat-card-actions class="block text-center pt-20 pb-20">
                         <button mat-stroked-button class="btn-header addon mb-12 mt-12 br-0">INFO</button>
                     </mat-card-actions>
                 </mat-card> -->
-            </div>
-            
-          
-        </div>
+    </div>
+
+
+</div>
