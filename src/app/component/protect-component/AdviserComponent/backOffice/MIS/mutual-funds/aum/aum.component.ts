@@ -19,12 +19,14 @@ export class AumComponent implements OnInit {
   subcategory;
   MiscData;
   MiscData1;
+  categoryWiseDiv;
 
   constructor(private backoffice: BackOfficeService,private dataService: EventService) { }
   
   teamMemberId=2929;
   ngOnInit() {
     console.log("111111111111111111111222222222222222222222222222")
+    this.categoryWiseDiv=false;
     this.getTotalAum();
 
     this.getSubCatAum()
@@ -128,6 +130,10 @@ export class AumComponent implements OnInit {
     }
     getFilerrorResponse(err) {
      this.dataService.openSnackBar(err, 'Dismiss')
+    }
+    categoryWise()
+    {
+     this.categoryWiseDiv=(this.categoryWiseDiv)?this.categoryWiseDiv=false:this.categoryWiseDiv=true;
     }
 }
 
