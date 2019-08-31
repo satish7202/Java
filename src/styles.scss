@@ -11,6 +11,8 @@
 @import './assets/style/scss/_card';
 @import'./assets/style/scss/table';
 @import'./assets/style/scss/_footer';
+
+
 @mixin heading {
     padding-left: 20px !important;
     padding-top: 20px !important;
@@ -21,12 +23,14 @@
 }
 
 @mixin tab-label {
+    
     font-weight: 500;
     font-size: 13px;
     line-height: 16px;
     color: #595252;
     min-width: 0 !important;
     text-transform: uppercase;
+   
 }
 
 @mixin breadcrumbafter {
@@ -43,10 +47,13 @@
     text-decoration: none;
     color: #83959D;
 }
-
 // .mat-drawer-side{
 //     border-right: 0px;
 // }
+// navbar link height
+.mat-list-base .mat-list-item.mat-list-item-with-avatar{
+    height: 48px !important;
+}
 .mat-ink-bar {
     height: 4.5px !important;
     color: #2680EB !important;
@@ -57,7 +64,6 @@
 .mat-tab-nav-bar.mat-primary .mat-ink-bar {
     background-color: #2680EB !important;
 }
-
 .main-details {
     .mat-form-field,
     .mat-option {
@@ -111,6 +117,7 @@
     // .mat-tab-header {
     //     @include heading;
     // }
+
     li {
         padding-top: 5px;
         padding-bottom: 5px;
@@ -148,9 +155,9 @@
         padding-left: 20px !important;
         padding-top: 20px !important;
     }
-    // .mat-tab-header {
-    //     border-bottom: 0px;
-    // }
+    .mat-tab-header {
+        border-bottom: 0px;
+    }
     li {
         padding-top: 5px;
         padding-bottom: 5px;
@@ -181,6 +188,7 @@
 #mistabs2 {
     .mat-tab-label {
         min-width: 134px !important;
+       
         height: 45px !important;
     }
     .mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination {
@@ -202,7 +210,7 @@
 }
 
 #ui-subscriptions,
-#ui-plans,
+#ui-plans
 {
     @extend .mt-60;
     .example-card .mat-card-header-text {
@@ -247,6 +255,9 @@
     }
 }
 
+
+
+
 .example-card {
     max-width: 368px;
     max-height: 457px !important;
@@ -270,6 +281,7 @@
     float: right;
     text-align: right;
     margin-right: 12px;
+  
 }
 
 #ui-subscriptions .sub-headings .mat-tab-label-container {
@@ -279,50 +291,55 @@
     // margin-top: 125px;
     // padding-top: 16px;
     // padding-bottom: 16px;
-    float: right;
+    float:right;
     z-index: 2;
     margin-top: -4px;
     background: #fff;
 }
-
-#ui-subscriptions .mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination {
+#ui-subscriptions .mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination{
     display: none;
 }
 
-#upper .mat-tab-labels {
+#upper .mat-tab-labels{
     display: block !important;
     text-align: center;
 }
-
 // .mat-tab-label-container{
 //     box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0.12), 0px 3px 3px rgba(0, 0, 0, 0.14);
 // }
-#ui-settings-subs {
-    .mat-tab-header {
+
+#ui-settings-subs{
+
+    .mat-tab-header{
         border-bottom: 0px;
+        margin-right: 12px;
     }
-    .mat-tab-label {
+    .mat-tab-label{
         height: 40px !important;
         margin-top: 20px;
     }
-    .mat-ink-bar {
+    .mat-ink-bar{
         display: none !important;
     }
-    .mat-tab-label.mat-tab-label-active {
+    .mat-tab-label{
+        color: #595252;
+    }
+    .mat-tab-label.mat-tab-label-active{
         border: 1px solid #BCC6CA;
         font-weight: 500;
         font-size: 14px;
         line-height: 16px;
         text-align: center;
-        background: transparent;
+        background:transparent; 
         color: #008FFF;
     }
 }
-
-.dialogBox {
+.dialogBox{
     max-width: 100% !important;
-    height: 100% !important;
-    .mat-dialog-container {
-        padding: 0px !important;
+    width: 100% !important;
+    height: 100%;
+
+    .mat-dialog-container{
+        padding: 0 !important;
     }
 }
