@@ -123,7 +123,7 @@ ul {
     margin: 0;
 }
 .sub-header-fix {
-    position: fixed;
+    // position: fixed;
     top: 64px;
     width: 100%;
     z-index: 97;
@@ -204,16 +204,7 @@ button:focus {
     height: 64px !important;
 }
 
-.mat-ink-bar {
-    height: 4.5px !important;
-    color: #2680EB !important;
-}
 
-.text-blue .mat-tab-label,
-.mat-tab-group.mat-primary .mat-ink-bar,
-.mat-tab-nav-bar.mat-primary .mat-ink-bar {
-    background-color: #2680EB !important;
-}
 
 ::-webkit-scrollbar {
     width: 10px;
