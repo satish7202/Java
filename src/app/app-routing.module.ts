@@ -6,15 +6,22 @@ import { MisComponent } from './component/protect-component/AdviserComponent/bac
 
 
 const routes: Routes = [
+
+  
   {
+    
     path: 'admin', component: LeftsidebarComponent,
     
     children: [
-     
+      {
+        path:'admin',
+        component:DashboardComponent
+      },
       {
         path:'dashboard',
         component:DashboardComponent
       },
+
       {
         path:'',
         component:DashboardComponent
