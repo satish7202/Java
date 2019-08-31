@@ -8,17 +8,13 @@ import { AuthService } from 'src/app/auth-service/authService';
 })
 export class LeftsidebarComponent implements OnInit {
 
-  showTabs;
-  showMainNavBar=true;
-  smallNavWrapper;
-  update;
+  showTabs=true;
   showSettings=false;
-  arrow=true;
+  arrow=false;
 
   constructor(private authService:AuthService,private _eref: ElementRef ) { }
 
   ngOnInit() {
-      this.showTabs=true;
       this.onResize(); 
   }
    
@@ -26,23 +22,18 @@ export class LeftsidebarComponent implements OnInit {
   showMainNavWrapper(){
     $("#d").addClass("width-230");
     $("#d").removeClass("width-60");
-    $('#left').css("margin-left","232px")
-    $("#left").css("transition","0.2s")
-    $("#d").css("transition","0.0s")
-    this.showMainNavBar = false;
-    this.smallNavWrapper =true;
+    $('#left').css("margin-left","230px") 
     this.showTabs=true;
+    this.arrow=false;
   }
 
   showsmallNavWrapper(){
     $("#d").removeClass("width-230");
-    $("#left").css("transition","0.2s")
     $('#left').css("margin-left","65px")
-    $("#d").css("transition","0s")
-  
-    this.showMainNavBar = true;
-    this.smallNavWrapper =false;
+    $('#left').css("transition","margin-left 0.3s")
+    $('#d').css("transition","width 0.2s")
     this.showTabs=false
+    this.arrow=false;
   }
 
   onResize()

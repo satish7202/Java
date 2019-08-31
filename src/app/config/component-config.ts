@@ -1,5 +1,5 @@
 
-  export const componentConfig = {
+  export const appConfig = {
     LOGIN:'futurewise/secure/login',
     FILE_GET:"futurewise/file/list/get",
     RT_FILE_GET:'/file/rt/list/get',
