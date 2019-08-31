@@ -13,6 +13,7 @@ export class LeftsidebarComponent implements OnInit {
   smallNavWrapper;
   update;
   showSettings=false;
+  arrow=true;
 
   constructor(private authService:AuthService,private _eref: ElementRef ) { }
 
@@ -79,6 +80,10 @@ export class LeftsidebarComponent implements OnInit {
     else{
       this.showSettings=false;
     }   
+  }
+  backSections()
+  {
+    this.arrow=this.arrow?this.arrow=false:this.arrow=true
   }
   logout(){
      this.authService.logout();
