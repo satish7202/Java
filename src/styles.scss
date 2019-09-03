@@ -316,7 +316,8 @@
     }
     .mat-tab-label{
         height: 40px !important;
-        margin-top: 20px;
+        margin-top: 15px;
+        margin-bottom: 10px;
     }
     .mat-ink-bar{
         display: none !important;
@@ -342,4 +343,7 @@
     .mat-dialog-container{
         padding: 0 !important;
     }
+}
+#ui-settings-subs .mat-tab-header{
+    box-shadow: none !important;
 }
