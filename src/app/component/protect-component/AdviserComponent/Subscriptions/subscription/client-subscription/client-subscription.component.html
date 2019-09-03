@@ -1,1 +1,44 @@
-<p>client-subscription works!</p>
+<div class="bg-white pb-36 mt-70">
+    <div class="wrapper-20">
+        <div class="row">
+            <div class="col-md-8">
+                <h4 class="pt-8 mb-0">Clients</h4>
+            </div>
+            <div class="col-md-4 right text-right p-0">
+                <i class="material-icons mr-12 icon-light v-sub">
+                    search
+                </i>
+                <button mat-stroked-button class="btn-default addon mr-12"><i
+                        class="material-icons">filter_list</i>FILTERS</button>
+                <button mat-stroked-button class="btn-primary addon"><i class="material-icons">add</i>ADD NEW</button>
+            </div>
+        </div>
+        <table mat-table [dataSource]="dataSource" id="table-low" class="mt-28">
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef class="f-18"> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef class="f-18"> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+          </ng-container>
+        
+          <!-- Weight Column -->
+          <ng-container matColumnDef="num">
+            <th mat-header-cell *matHeaderCellDef class="f-18"> Weight </th>
+            <td mat-cell *matCellDef="let element"> {{element.num}} </td>
+          </ng-container>
+        
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="balance">
+            <th mat-header-cell *matHeaderCellDef class="f-18"> Symbol </th>
+            <td mat-cell *matCellDef="let element"> {{element.balance}} </td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</div>
