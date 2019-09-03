@@ -74,5 +74,9 @@ export class BackOfficeService {
     return response;
   }
 
+  getClientFolioWise(data){
+return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data,10000)
+  }
+
 
 }
