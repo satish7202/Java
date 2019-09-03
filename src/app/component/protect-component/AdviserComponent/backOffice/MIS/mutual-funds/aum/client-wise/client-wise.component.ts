@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AumComponent } from '../aum.component';
 
 @Component({
   selector: 'app-client-wise',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientWiseComponent implements OnInit {
 
-  constructor() { }
+  constructor(private aum:AumComponent) { }
 
   ngOnInit() {
+  }
+  aumReport()
+  {
+   this.aum.aumComponent=true;
   }
 
 }

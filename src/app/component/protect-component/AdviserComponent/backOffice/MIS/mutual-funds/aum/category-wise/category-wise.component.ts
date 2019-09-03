@@ -32,7 +32,6 @@ export class CategoryWiseComponent implements OnInit {
   otherList: any[];
   SolutionOriented: any;
   solutionOrientedList: any[];
-  backToMis=false;
   constructor(private backoffice:BackOfficeService,private dataService: EventService,private aum:AumComponent) { }
   teamMemberId=2929;
   ngOnInit() {
@@ -154,9 +153,8 @@ export class CategoryWiseComponent implements OnInit {
    getFileResponseDataForClientFolioWise(data){
     console.log("DataForClientFolioWise",data)
    }
-   misReport()
+   aumReport()
    {
-    this.backToMis=(this.backToMis)?this.backToMis=false:this.backToMis=true;
-    this.aum.categoryWiseDiv=false;
+    this.aum.aumComponent=true;
    }
 }

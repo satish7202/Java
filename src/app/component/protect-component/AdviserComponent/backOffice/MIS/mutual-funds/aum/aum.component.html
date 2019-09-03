@@ -5,7 +5,7 @@
 </div> -->
 <div id="ui-misreport">
         <div class="bg-white pb-36 b-a ">
-            <div *ngIf="categoryWiseDiv==false"  class="wrapper-20">
+            <div *ngIf="aumComponent==true" class="wrapper-20">
                 <div class="row">
                     <div class="col-md-12">
                         <h3 class="pt-36">Mutual Fund - AUM Report</h3>
@@ -78,7 +78,7 @@
                                                             calendar_today
                                                         </i>
                                                     </div>
-                                                    <div class="col-sm-9 text-left " (click)="categoryWise()">
+                                                    <div class="col-sm-9 text-left " (click)="categoryWise('category')">
                                                         <p class="mb-0 text-custom pt-16 pb-16 " >Category wise</p>
                                                         
                                                     </div>
@@ -93,7 +93,7 @@
                                                             favorite
                                                         </i>
                                                     </div>
-                                                    <div class="col-sm-9 text-left ">
+                                                    <div class="col-sm-9 text-left " (click)="categoryWise('amc')">
                                                         <p class="mb-0 text-custom pt-16 pb-16 ">AMC wise</p>
                                                     </div>
                                                 </div>
@@ -107,7 +107,7 @@
                                                             shopping_cart
                                                         </i>
                                                     </div>
-                                                    <div class="col-sm-9 text-left ">
+                                                    <div class="col-sm-9 text-left " (click)="categoryWise('client')">
                                                         <p class="mb-0 text-custom pt-16 pb-16 ">Client wise</p>
                                                     </div>
                                                 </div>
@@ -121,7 +121,7 @@
                                                             dehaze
                                                         </i>
                                                     </div>
-                                                    <div class="col-sm-9 text-left ">
+                                                    <div class="col-sm-9 text-left " (click)="categoryWise('applicant')">
                                                         <p class="mb-0 text-custom pt-16 pb-16 ">Applicant wise</p>
                                                     </div>
                                                 </div>
@@ -215,8 +215,18 @@
             </div>
             </div>
 </div>
-            <div *ngIf="categoryWiseDiv">
+            <div *ngIf="componentWise=='category'">
                 <app-category-wise></app-category-wise>
             </div>
+            <div *ngIf="componentWise=='amc'">
+                <app-amc-wise></app-amc-wise>
+            </div>
+            <div *ngIf="componentWise=='client'">
+                <app-client-wise></app-client-wise>
+            </div>
+            <div *ngIf="componentWise=='applicant'">
+                <app-applicant-wise></app-applicant-wise>
+            </div>
+            
                 
              
