@@ -42,10 +42,12 @@
     background: #fff;
     // border-left: 1px solid #e8ecef;
 }
-
-.header-fix {
-    // position:fixed;
-    // z-index: 97;
-    // float:right;
-    // right: 0;
+.mat-tab-header{
+    position: fixed;
+    // margin-top: 64px;
+    float: right;
+    width: 100%;
+    padding-right: 18%;
+    z-index: 10;
+    background: #fff !important;
 }
