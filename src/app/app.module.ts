@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LeftsidebarComponent } from './component/left-sidebar/leftsidebar/leftsidebar.component';
@@ -42,7 +42,7 @@ import { ClientWiseComponent } from './component/protect-component/AdviserCompon
 import { ApplicantWiseComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mutual-funds/aum/applicant-wise/applicant-wise.component';
 import { MisComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mis/mis.component';
 import { HttpService } from './http-service/http-service';
-
+import { SlimLoadingBarService, SlimLoadingBarModule } from "ng2-slim-loading-bar";  
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,8 +89,9 @@ import { HttpService } from './http-service/http-service';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    SlimLoadingBarModule.forRoot()  
   ],
-  providers: [AuthService,HttpService],
+  providers: [AuthService,HttpService, ],
   bootstrap: [AppComponent],
   entryComponents:[UpperSliderComponent]
 })

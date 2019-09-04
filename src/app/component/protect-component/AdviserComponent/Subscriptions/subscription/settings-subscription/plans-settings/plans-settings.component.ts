@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material';
   styleUrls: ['./plans-settings.component.scss']
 })
 export class PlansSettingsComponent implements OnInit {
+  button: any;
 
   constructor( public dialog: MatDialog, ) { }
 
@@ -19,11 +20,15 @@ export class PlansSettingsComponent implements OnInit {
     let Fragmentdata = {
       Flag: data,
     }
+
     const dialogRef = this.dialog.open(UpperSliderComponent, {
       width: '1400px',
       data: Fragmentdata,
       autoFocus:false,
-      panelClass:'dialogBox'
+      panelClass:'dialogBox',
+      //  position: { top: `30px`,
+      //  right: `40px`},
+      hasBackdrop: false,
     });
   
     dialogRef.afterClosed().subscribe(result => {
