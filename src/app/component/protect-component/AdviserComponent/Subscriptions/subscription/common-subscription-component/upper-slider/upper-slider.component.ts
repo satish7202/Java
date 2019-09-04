@@ -21,4 +21,6 @@ export class UpperSliderComponent implements OnInit {
     this.dialogRef.close();
   }
 
+
+  
 }

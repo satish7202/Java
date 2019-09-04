@@ -11,5 +11,11 @@ export class OverviewComponent implements OnInit {
 
   ngOnInit() {
   }
-
+openNav() {
+      document.getElementById("myRightSidenav").style.width = "250px";
+           }
+  
+closeNav() {
+    document.getElementById("myRightSidenav").style.width = "0";
+           }
 }
