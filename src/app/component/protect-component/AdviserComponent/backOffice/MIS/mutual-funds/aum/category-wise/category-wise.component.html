@@ -1,13 +1,13 @@
-<div *ngIf="backToMis==false" id="ui-category">
+<div *ngIf="aum.aumComponent==false" id="ui-category">
         <div class="wrapper-20 bg-white">
             <div class="row">
                 <div class="col-md-6 pl-0">
                     <h3 class="pt-8 mb-0">Category Wise AUM</h3>
                 </div>
-                <div (click)="misReport()" class="col-md-6 pr-0">
+                <div class="col-md-6 pr-0">
                     <div class="right text-right">
                         <button mat-stroked-button class="btn-default addon"><i class="material-icons">add</i>XLS</button>
-                        <button mat-stroked-button class="btn-success ml-8 addon">Back</button>
+                        <button mat-stroked-button class="btn-success ml-8 addon" (click)="aumReport()">Back</button>
                     </div>
                 </div>
             </div>
@@ -198,6 +198,6 @@
     
         </div>
     </div>
-    <div *ngIf="expression">
+    <div *ngIf="aum.aumComponent==true">
         <app-aum></app-aum>
     </div>

@@ -19,20 +19,17 @@ export class AumComponent implements OnInit {
   subcategory;
   MiscData;
   MiscData1;
-  categoryWiseDiv;
+  aumComponent=true;
+  componentWise;
+  
 
   constructor(private backoffice: BackOfficeService,private dataService: EventService) { }
   
   teamMemberId=2929;
   ngOnInit() {
-    console.log("111111111111111111111222222222222222222222222222")
-    this.categoryWiseDiv=false;
     this.getTotalAum();
-
     this.getSubCatAum()
-    this.getMisData()
-    this.getSubCatScheme()
-    this.getSubCatSchemeName();
+    this.getMisData();
   }
 
 
@@ -79,19 +76,6 @@ export class AumComponent implements OnInit {
       err => this.getFilerrorResponse(err)
     )
    }
-   getSubCatScheme(){
-     this.backoffice.getSubCatScheme(this.teamMemberId).subscribe(
-       data => this.getFileResponseDataForSubScheme(data),
-       err=> this.getFilerrorResponse(err)
-     )
-   } 
-   getSubCatSchemeName()
-   {
-    this.backoffice.getSubCatSchemeName(this.teamMemberId).subscribe(
-      data => this.getFileResponseDataForSubSchemeName(data),
-      err=> this.getFilerrorResponse(err)
-    )
-   }
    getTotalAumByScheme()
    {
     this.backoffice.getTotalByAumScheme(this.teamMemberId).subscribe(
@@ -101,23 +85,22 @@ export class AumComponent implements OnInit {
    } 
 
    getFileResponseDataAum(data) {
-     console.log(data)
+     console.log("top clients",data)
 
      this.clientTotalAum=data.clientTotalAum;
      this.amcTotalAum=data.amcTotalAum;
    }
     getFileResponseDataForMis(data) {
-      console.log(data)
+      console.log("mis",data)
     this.MiscData1=data.payLoad;
     }
     getFileResponseDataForSub(data) {
+      console.log("inside",data)
       this.category=data.category;
       this.subcategory=data.subcategory;
-
     }
     getFileResponseDataForSubScheme(data) {
-      this.MiscData=0;
-      console.log(data)
+      console.log(":",data)
       this.MiscData=data.categories;
     }
     getFileResponseDataForSubSchemeName(data)
@@ -131,9 +114,11 @@ export class AumComponent implements OnInit {
     getFilerrorResponse(err) {
      this.dataService.openSnackBar(err, 'Dismiss')
     }
-    categoryWise()
-    {
-     this.categoryWiseDiv=(this.categoryWiseDiv)?this.categoryWiseDiv=false:this.categoryWiseDiv=true;
+    categoryWise(value)
+    { 
+      this.componentWise=value;
+      this.aumComponent=false; 
     }
+    
 }
 

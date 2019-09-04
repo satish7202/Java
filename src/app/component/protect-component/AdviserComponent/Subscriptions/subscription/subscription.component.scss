@@ -1,5 +1,23 @@
+<<<<<<< HEAD
 .tabwrper {
     z-index: 999;
     position: fixed !important;
     background-color: red !important;
 }
+=======
+.example-card{
+    height: 457px;
+}
+:host ::ng-deep .mat-tab-header {
+    position: fixed;
+   margin-top: 4px;
+   float: right;
+   width: 100%;
+   padding-right: 18%;
+  
+    // bottom: 20px;
+    z-index: 10;
+    background: #fff !important;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0.12), 0px 3px 3px rgba(0, 0, 0, 0.14);
+}
+>>>>>>> 30c059b5abcc1db87e861b259217fa321b0f6469
