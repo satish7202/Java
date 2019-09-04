@@ -181,6 +181,17 @@
     .mat-progress-bar-fill::after {
         background-color: $white;
     }
+    .mat-tab-header {
+        position: fixed;
+        margin-top: 4px;
+        float: right;
+        width: 100%;
+        padding-right: 18%;
+        // bottom: 20px;
+        z-index: 10;
+        background: #fff !important;
+        box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0.12), 0px 3px 3px rgba(0, 0, 0, 0.14);
+    }
 }
 
 #mistabs1,
@@ -253,8 +264,7 @@
 }
 
 .example-card {
-    max-width: 368px;
-    max-height: 457px !important;
+   
     border: 1px solid rgba(0, 0, 0, 0.12);
 }
 
@@ -304,14 +314,17 @@
 // }
 #ui-settings-subs,
 #ui-mutualsecond-header {
+    box-shadow: 0 !important;
     .mat-tab-header {
         border-bottom: 0px;
         margin-right: 12px;
+       
     }
     .mat-tab-label {
         height: 40px !important;
         margin-top: 15px;
         margin-bottom: 10px;
+        line-height: 2;
     }
     .mat-ink-bar {
         display: none !important;
@@ -321,10 +334,11 @@
     }
     .mat-tab-label.mat-tab-label-active {
         border: 1px solid #BCC6CA;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 16px;
-        text-align: center;
+        // font-weight: 500;
+        // font-size: 14px;
+        // line-height: 16px;
+        // text-align: center;
+        width: auto;
         background: transparent;
         color: #008FFF;
     }
@@ -338,8 +352,62 @@
         padding: 0 !important;
     }
 }
-
+#table-low label{
+    background-color: transparent !important;
+    margin-bottom: 0;
+    padding: 0px 3px;
+}
 .slim-loading-bar-progress {
     z-index: 222;
     position: absolute;
 }
+
+
+// right sidebar 4-9-2019
+
+.right_sidenav {
+    height: 100%;
+    width: 60%;
+    position: fixed;
+    z-index: 222;
+    top: 0;
+    right: 0;
+   background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.5s;
+  
+    border:1px solid #ddd;
+}
+
+.right_sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.right_sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.right_sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+// @media(max-height: 450px) {
+//     .right_sidenav {
+//         padding-top: 15px;
+//     }
+//     .right_sidenav a {
+//         font-size: 18px;
+//     }
+// }
+
+
+//////////////////right sidebar

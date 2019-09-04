@@ -12,49 +12,51 @@
                 <button mat-stroked-button class="btn-primary addon"><i class="material-icons">add</i>ADD NEW</button>
             </div>
         </div>
-        <table mat-table [dataSource]="dataSource" id="table-low" class="mt-28">
-          
-             <ng-container matColumnDef="name">
+        <table mat-table [dataSource]="dataSource" id="table-low" class="mt-8">
+            <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef class="f-18"> Client name </th>
                 <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-              </ng-container>
-       <ng-container matColumnDef="date">
-               <th mat-header-cell *matHeaderCellDef class="f-18"> Date </th>
-               <td mat-cell *matCellDef="let element"> {{element.date}} </td>
-             </ng-container>
-             <ng-container matColumnDef="invoicenum">
-                   <th mat-header-cell *matHeaderCellDef class="f-18"> Invoice number </th>
-                   <td mat-cell *matCellDef="let element"> {{element.invoicenum}} </td>
-                 </ng-container>
-   
-   
-     <!-- Name Column -->
-     <ng-container matColumnDef="email">
-       <th mat-header-cell *matHeaderCellDef class="f-18"> Email </th>
-       <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-     </ng-container>
-     <!-- Weight Column -->
-     <ng-container matColumnDef="status">
-           <th mat-header-cell *matHeaderCellDef class="f-18"> Status </th>
-           <td mat-cell *matCellDef="let element" class="text-success"> {{element.status}} </td>
-         </ng-container>
-     <!-- Weight Column -->
-     <ng-container matColumnDef="duedate">
-       <th mat-header-cell *matHeaderCellDef class="f-18"> Due date </th>
-       <td mat-cell *matCellDef="let element"> {{element.duedate}} </td>
-     </ng-container>
-   
-     <!-- Symbol Column -->
-     <ng-container matColumnDef="amt">
-       <th mat-header-cell *matHeaderCellDef class="f-18"> Amount </th>
-       <td mat-cell *matCellDef="let element"> {{element.amt}} </td>
-     </ng-container>
-     <ng-container matColumnDef="balance">
-           <th mat-header-cell *matHeaderCellDef class="f-18 text-right pr-24"> Balance due </th>
-           <td mat-cell *matCellDef="let element" class="text-right pr-8"> {{element.balance}} </td>
-         </ng-container>
-     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-   </table>
-</div>
+            </ng-container>
+            <ng-container matColumnDef="docname">
+                <th mat-header-cell *matHeaderCellDef class="f-18"> Document name </th>
+                <td mat-cell *matCellDef="let element"> {{element.docname}} </td>
+            </ng-container>
+            <ng-container matColumnDef="plan">
+                <th mat-header-cell *matHeaderCellDef class="f-18"> Plan name </th>
+                <td mat-cell *matCellDef="let element"> {{element.plan}} </td>
+            </ng-container>
+            <!-- Name Column -->
+            <ng-container matColumnDef="servicename">
+                <th mat-header-cell *matHeaderCellDef class="f-18"> Service name </th>
+                <td mat-cell *matCellDef="let element"> {{element.servicename}} </td>
+            </ng-container>
+            <!-- Weight Column -->
+            <ng-container matColumnDef="cdate">
+                <th mat-header-cell *matHeaderCellDef class="f-18"> Created date </th>
+                <td mat-cell *matCellDef="let element"> {{element.cdate}} </td>
+            </ng-container>
+            <!-- Weight Column -->
+            <ng-container matColumnDef="sdate">
+                <th mat-header-cell *matHeaderCellDef class="f-18"> Sent date </th>
+                <td mat-cell *matCellDef="let element"> {{element.sdate}} </td>
+            </ng-container>
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="clientsign">
+                <th mat-header-cell *matHeaderCellDef class="f-18"> Client sign... </th>
+                <td mat-cell *matCellDef="let element"> {{element.clientsign}} </td>
+            </ng-container>
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef class="f-18 pr-24"> Status </th>
+                <td mat-cell *matCellDef="let element" class="greentext"> {{element.status}} </td>
+            </ng-container>
+            <ng-container matColumnDef="icons">
+                <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 2%;"> </th>
+                <td mat-cell *matCellDef="let element" style="width: 2%;"><i class="material-icons iconscolors">
+                more_vert
+                </i></td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
 </div>
