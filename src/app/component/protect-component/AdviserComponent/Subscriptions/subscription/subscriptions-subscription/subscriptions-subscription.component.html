@@ -1,1 +1,69 @@
-<p>subscriptions-subscription works!</p>
+<div class="bg-white pb-36 mt-70" id="ui-invoice">
+    <div class="wrapper-20">
+        <div class="row">
+            <div class="col-md-8">
+                <h4 class="pt-8 mb-0">Subscriptions</h4>
+            </div>
+            <div class="col-md-4 right text-right p-0">
+                <i class="material-icons mr-12 icon-light v-sub">
+                    search
+                </i>
+                <button mat-stroked-button class="btn-default addon mr-12"><i class="material-icons">filter_list</i>FILTERS</button>
+                <button mat-stroked-button class="btn-primary addon"><i class="material-icons">add</i>ADD NEW</button>
+            </div>
+        </div>
+        <table mat-table [dataSource]="dataSource" id="table-low" class="mt-28">
+           
+            <ng-container matColumnDef="client">
+                <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 22%;"> Client & Plan details </th>
+                <td mat-cell *matCellDef="let element" style="width: 22%;"> {{element.client}} </td>
+            </ng-container>
+            <ng-container matColumnDef="service">
+                <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 20%;"> Service name </th>
+                <td mat-cell *matCellDef="let element" style="width: 20%;"> {{element.service}} </td>
+            </ng-container>
+            <ng-container matColumnDef="amt">
+                <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 12%;"> Fee amount </th>
+                <td mat-cell *matCellDef="let element" style="width: 12%;"> {{element.amt}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="sub">
+                <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 10%;"> Subs # </th>
+                <td mat-cell *matCellDef="let element" style="width: 10%;"> {{element.sub}} </td>
+            </ng-container>
+            <!-- Weight Column -->
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 10%;"> Status </th>
+                <td mat-cell *matCellDef="let element" class="greentext" style="width: 10%;"> {{element.status}} </td>
+            </ng-container>
+            <!-- Weight Column -->
+            <ng-container matColumnDef="activation">
+                <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 8%;"> Activation... </th>
+                <td mat-cell *matCellDef="let element" style="width:8%;"> {{element.activation}} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="lastbilling">
+                <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 10%;"> Last billing... </th>
+                <td mat-cell *matCellDef="let element" style="width: 10%;"> {{element.lastbilling}} </td>
+            </ng-container>
+            <ng-container matColumnDef="nextbilling">
+                <th mat-header-cell *matHeaderCellDef class="f-18 text-right pr-24" style="width: 15%;"> Next billing... </th>
+                <td mat-cell *matCellDef="let element" class="text-right pr-8" style="width: 15%;"> {{element.nextbilling}} </td>
+            </ng-container>
+            <ng-container matColumnDef="feemode">
+                <th mat-header-cell *matHeaderCellDef class="f-18 text-right pr-24" style="width: 8%;"> Fee mode</th>
+                <td mat-cell *matCellDef="let element" class="text-right pr-8" style="width: 8%;"> {{element.feemode}} </td>
+            </ng-container>
+            <ng-container matColumnDef="icons">
+                <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 2%;"> </th>
+                <td mat-cell *matCellDef="let element" style="width: 2%;"><i class="material-icons iconscolors">
+                    more_vert
+                    </i></td>
+              </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</div>

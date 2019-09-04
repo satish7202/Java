@@ -42,6 +42,7 @@ import { ClientWiseComponent } from './component/protect-component/AdviserCompon
 import { ApplicantWiseComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mutual-funds/aum/applicant-wise/applicant-wise.component';
 import { MisComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mis/mis.component';
 import { HttpService } from './http-service/http-service';
+import { DocumentsSubscriptionsComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/documents-subscriptions/documents-subscriptions.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { HttpService } from './http-service/http-service';
     ClientWiseComponent,
     ApplicantWiseComponent,
     MisComponent,
+    DocumentsSubscriptionsComponent,
   ],
   imports: [
     BrowserModule,
