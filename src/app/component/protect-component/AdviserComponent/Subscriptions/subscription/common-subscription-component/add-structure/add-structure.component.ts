@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import * as $ from 'jquery';
 @Component({
   selector: 'app-add-structure',
   templateUrl: './add-structure.component.html',
@@ -12,4 +12,7 @@ export class AddStructureComponent implements OnInit {
   ngOnInit() {
   }
 
+  closeNav() {
+    $('#myRightSidenav').css({"width" : ""});
+  }
 }
