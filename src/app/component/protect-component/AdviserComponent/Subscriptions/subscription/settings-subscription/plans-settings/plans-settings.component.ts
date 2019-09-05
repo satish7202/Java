@@ -23,15 +23,10 @@ export class PlansSettingsComponent implements OnInit {
     }
 
     const dialogRef = this.dialog.open(UpperSliderComponent, {
-      position:
-      {
-       top:'0'
-      },
+      width:'1400px',
       data: Fragmentdata,
       autoFocus:false,
       panelClass:'dialogBox',
-      //  position: { top: `30px`,
-      //  right: `40px`},
       hasBackdrop: false,
     });
   
