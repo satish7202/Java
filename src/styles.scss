@@ -264,7 +264,6 @@
 }
 
 .example-card {
-   
     border: 1px solid rgba(0, 0, 0, 0.12);
 }
 
@@ -318,7 +317,6 @@
     .mat-tab-header {
         border-bottom: 0px;
         margin-right: 12px;
-       
     }
     .mat-tab-label {
         height: 40px !important;
@@ -352,30 +350,30 @@
         padding: 0 !important;
     }
 }
-#table-low label{
+
+#table-low label {
     background-color: transparent !important;
     margin-bottom: 0;
     padding: 0px 3px;
 }
+
 .slim-loading-bar-progress {
     z-index: 222;
     position: absolute;
 }
 
-
 // right sidebar 4-9-2019
-
 .right_sidenav {
-     height: 100%;
-     position: fixed;
-     z-index: 222;
-     top: 0;
-     width: 0;
-     right: 0;
-     background-color: #fff;
-     overflow-x: hidden;
-     transition: 0.5s;
-     border:1px solid #ddd;
+    height: 100%;
+    position: fixed;
+    z-index: 222;
+    top: 0;
+    width: 0;
+    right: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    border: 1px solid #ddd;
 }
 
 .right_sidenav a {
@@ -407,6 +405,7 @@
 //         font-size: 18px;
 //     }
 // }
-
-
 //////////////////right sidebar
+.mat-dialog {
+    transition: none;
+}

@@ -15,25 +15,33 @@ export class PlansSettingsComponent implements OnInit {
 
   ngOnInit() {
   }
-
-
   openFragment(data) {
     let Fragmentdata = {
       Flag: data,
     }
 
     const dialogRef = this.dialog.open(UpperSliderComponent, {
-      width:'1400px',
-      data: Fragmentdata,
-      autoFocus:false,
-      panelClass:'dialogBox',
-      hasBackdrop: false,
+       width: '1400px',
+       data: Fragmentdata,
+       autoFocus:false,
+       panelClass:'dialogBox',
+      //  position: { 
+      //    top: `30px`,
+      //    right: `40px`
+      //   },
+      // openFrom:'{
+      //   top: -50,
+      //   width: 30,
+      //   height: 80
+      // }',
+      // closeTo({
+      //   left: 1500
+      // })
+      // hasBackdrop: false,
     });
   
     dialogRef.afterClosed().subscribe(result => {
   
     });
   }
-   
-
 }
