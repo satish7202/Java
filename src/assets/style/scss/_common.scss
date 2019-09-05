@@ -243,7 +243,10 @@ button:focus {
 #uifolios .mat-form-field-appearance-outline .mat-form-field-infix {
     padding: .6em 0 1em 0 !important;
 }
-
+.bd-1{
+    border:2px dotted rgba(0, 0, 0, 0.12) !important;
+    box-shadow: 0px !important;
+}
 .br-1 {
     border-radius: 1px !important;
 }
