@@ -14,8 +14,6 @@ export class PlansSettingsComponent implements OnInit {
 
   ngOnInit() {
   }
-
-
   openFragment(data) {
     let Fragmentdata = {
       Flag: data,
@@ -26,10 +24,10 @@ export class PlansSettingsComponent implements OnInit {
        data: Fragmentdata,
        autoFocus:false,
        panelClass:'dialogBox',
-       position: { 
-         top: `30px`,
-         right: `40px`
-        },
+      //  position: { 
+      //    top: `30px`,
+      //    right: `40px`
+      //   },
       // openFrom:'{
       //   top: -50,
       //   width: 30,
@@ -45,6 +43,4 @@ export class PlansSettingsComponent implements OnInit {
   
     });
   }
-   
-
 }

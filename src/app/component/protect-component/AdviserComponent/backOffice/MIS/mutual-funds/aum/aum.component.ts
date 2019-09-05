@@ -59,7 +59,9 @@ export class AumComponent implements OnInit {
   }
   
   getTotalAum(){
+    alert()
     this.backoffice.getClientTotalAUM(this.teamMemberId).subscribe(
+      
      data => this.getFileResponseDataAum(data),
      err => this.getFilerrorResponse(err)
     )
@@ -85,6 +87,7 @@ export class AumComponent implements OnInit {
    } 
 
    getFileResponseDataAum(data) {
+   
      console.log("top clients",data)
 
      this.clientTotalAum=data.clientTotalAum;
