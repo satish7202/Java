@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UpperSliderComponent } from '../../common-subscription-component/upper-slider/upper-slider.component';
 import { MatDialog } from '@angular/material';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-plans-settings',

@@ -60,49 +60,69 @@ export class CategoryWiseComponent implements OnInit {
     let othertList = [];
     let hybridList = [];
     let solutionOrientedList =[];
-    console.log("category",data)
+  
     this.category=data.category;
     this.subcategory=data.subcategory;
-    this.subcategory.forEach(o => {
-     this.Equity = _.includes(o.name, 'Equity');
-      if(this.Equity == true){
-        equityList.push(o);
-    }
-  
-    this.Debt = _.includes(o.name, 'Debt');
-      if(this.Debt == true){
-        debtList.push(o);
-    }
-    this.Hybrid = _.includes(o.name, 'Hybrid');
-      if(this.Hybrid == true){
-        hybridList.push(o);
-    }
-    this.Other = _.includes(o.name, 'Other');
-      if(this.Other == true){
-        othertList.push(o);
-    }
-    this.SolutionOriented = _.includes(o.name, 'Solution Oriented');
-      if(this.SolutionOriented == true){
-        solutionOrientedList.push(o);
-    }
+    this.category.forEach(c => {
+      c.active=true;
     });
-   console.log('Equity',equityList)
-   console.log('Debt',debtList)
-   console.log('Solution',solutionOrientedList)
-    this.equityList = equityList
-    this.debtList = debtList
-    this.otherList = othertList
-    this.hybridList = hybridList
-    this.solutionOrientedList =  solutionOrientedList
+    this.subcategory.forEach(o => {
+      o.active=true;
+     if(o.name==null)
+     {
+       return;
+     }
+     else{
+      if(o.name.substring(0,o.name.indexOf(' '))=='Equity'){
+        equityList.push(o);
+        return;
+    }
+      else if(o.name.substring(0,o.name.indexOf(' '))=='Debt'){
+        debtList.push(o);
+        return;
+    }
+      else if(o.name.substring(0,o.name.indexOf(' '))=='Hybrid'){
+        hybridList.push(o);
+        return;
+    }
+      else if(o.name.substring(0,o.name.indexOf(' '))=='Other'){
+        othertList.push(o);
+        return;
+    }
+      else{
+        solutionOrientedList.push(o);
+        return;
+    }
+     }
+     });
+     this.category.forEach(c =>
+      {
+        if(c.name=="EQUITY")
+        {
+          c.subcat=equityList;
+        }
+        else if(c.name=="DEBT")
+        {
+          c.subcat=debtList;
+        }
+        else if(c.name=="HYBRID")
+        {
+          c.subcat=hybridList;
+        }
+        else if(c.name=="OTHERS")
+        {
+          c.subcat=othertList;
+        }
+        else{
+          c.subcat=solutionOrientedList;
+        }
+      })
+      console.log(this.category)
 
   }
   sortBySubCategory(){
     this.showSubCategory = ! this.showSubCategory;
   }
-  
-
-
-
   showMainWrapper() {
     this.categoryshow = false;
     this.showMainWrapperFlag = true;
@@ -114,7 +134,9 @@ export class CategoryWiseComponent implements OnInit {
   }
 
   showSubTableList(index,category){
-  this.showMainWrapperFlag = false;
+
+   this.category[index].active=(category)?category=false:category=true;
+   this.showMainWrapperFlag = false;
    this.showSubTable =true;
    this.showAddBtn = false;
    this.showRemoveBtn = true;
