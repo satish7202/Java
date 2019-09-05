@@ -94,7 +94,7 @@ import { SlimLoadingBarService, SlimLoadingBarModule } from "ng2-slim-loading-ba
     HttpClientModule,
     SlimLoadingBarModule.forRoot()  
   ],
-  providers: [AuthService,HttpService, ],
+  providers: [AuthService,HttpService],
   bootstrap: [AppComponent],
   entryComponents:[UpperSliderComponent]
 })
