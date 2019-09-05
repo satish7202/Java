@@ -92,7 +92,7 @@ export class AumComponent implements OnInit {
    }
     getFileResponseDataForMis(data) {
       console.log("mis",data)
-    this.MiscData1=data.payLoad;
+    this.MiscData1=data;
     }
     getFileResponseDataForSub(data) {
       console.log("inside",data)
