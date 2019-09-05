@@ -1,6 +1,6 @@
-tr.mat-header-row,tr.mat-footer-row, tr.mat-row{
-    height: 0px !important;
-}
+// tr.mat-header-row,tr.mat-footer-row, tr.mat-row{
+//     height: 0px !important;
+// }
 
 table {
     width: 100%;
@@ -57,7 +57,13 @@ table {
         
         color: #212121;
         border: 0px !important;
-    }
+	}
+	.greentext{
+		color:#02B875 !important;
+	}
+	.iconscolors{
+		color: #757575 !important;
+	}
 }
 
 #table-high {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import * as $ from 'jquery';
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
@@ -10,12 +10,10 @@ export class OverviewComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
-openNav() {
-      document.getElementById("myRightSidenav").style.width = "250px";
-           }
+    // $("#myRightSidenav").css("width","");
+    }
   
-closeNav() {
-    document.getElementById("myRightSidenav").style.width = "0";
-           }
+openNav() {
+           $("#myRightSidenav").css("width","60%");
+          }
 }
