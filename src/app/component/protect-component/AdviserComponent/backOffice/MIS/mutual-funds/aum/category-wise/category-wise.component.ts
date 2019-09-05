@@ -55,47 +55,91 @@ export class CategoryWiseComponent implements OnInit {
    )
   }
   getFileResponseDataForSub(data) {
-
+    let equityList = [];
+    let debtList = [];
+    let othertList = [];
+    let hybridList = [];
+    let solutionOrientedList =[];
+  
     this.category=data.category;
     this.subcategory=data.subcategory;
     this.category.forEach(c => {
       c.active=true;
-      c.subcat=[];
-      this.subcategory.forEach(o => {
-        o.active=true;
-        let subcat;
-        if(o.name===null)
+    });
+    this.subcategory.forEach(o => {
+      o.active=true;
+     if(o.name==null)
+     {
+       return;
+     }
+     else{
+      if(o.name.substring(0,o.name.indexOf(' '))=='Equity'){
+        equityList.push(o);
+        return;
+    }
+      else if(o.name.substring(0,o.name.indexOf(' '))=='Debt'){
+        debtList.push(o);
+        return;
+    }
+      else if(o.name.substring(0,o.name.indexOf(' '))=='Hybrid'){
+        hybridList.push(o);
+        return;
+    }
+      else if(o.name.substring(0,o.name.indexOf(' '))=='Other'){
+        othertList.push(o);
+        return;
+    }
+      else{
+        solutionOrientedList.push(o);
+        return;
+    }
+     }
+     });
+     this.category.forEach(c =>
+      {
+        if(c.name=="EQUITY")
         {
-          return;
+          c.subcat=equityList;
+        }
+        else if(c.name=="DEBT")
+        {
+          c.subcat=debtList;
+        }
+        else if(c.name=="HYBRID")
+        {
+          c.subcat=hybridList;
+        }
+        else if(c.name=="OTHERS")
+        {
+          c.subcat=othertList;
         }
         else{
-          subcat=o.name.substring(0,o.name.indexOf(' '));
+          c.subcat=solutionOrientedList;
         }
-        if(subcat == 'Equity'){
-         c.subcat.push(o);       
-      }  
-        else if(subcat =='Dept'){
-          c.subcat.push(o); 
-      }
-       else if(subcat=='Hybrid'){
-          c.subcat.push(o); 
-      }
- 
-       else if(subcat=='Other'){
-          c.subcat.push(o); 
-      }
-      else{
-        c.subcat.push(o);
-      }
-      });
-    });
-  
-    console.log("category",this.category)
+      })
+      console.log(this.category)
+
+  }
+  sortBySubCategory(){
+    this.showSubCategory = ! this.showSubCategory;
+  }
+  showMainWrapper() {
+    this.categoryshow = false;
+    this.showMainWrapperFlag = true;
   }
 
-  showSubTableList(index,value){
-    let flag=(value)?value=false:value=true;
-    this.category[index].active=flag;
+  categorywise() {
+    this.categoryshow = true;
+    this.showMainWrapperFlag = false;
+  }
+
+  showSubTableList(index,category){
+
+   this.category[index].active=(category)?category=false:category=true;
+   this.showMainWrapperFlag = false;
+   this.showSubTable =true;
+   this.showAddBtn = false;
+   this.showRemoveBtn = true;
     if(index == 0){
       this.subcategoryList = this.equityList
     }else if(index == 1){
@@ -108,21 +152,29 @@ export class CategoryWiseComponent implements OnInit {
       this.subcategoryList = this.solutionOrientedList
     }
   }
-  // getClientFolioWise(){
-  //   this.backoffice.getClientFolioWise(this.teamMemberId).subscribe(
-  //     data => this.getFileResponseDataForClientFolioWise(data),
-  //    err => this.getFilerrorResponse(err)
-  //   )
-  // }
+
+
+  hideSubTableList(){
+    this.showMainWrapperFlag = false;
+    this.showSubTable = false;
+    this.showAddBtn = true;
+    this.showRemoveBtn = false;
+  }
+  getClientFolioWise(){
+    this.backoffice.getClientFolioWise(this.teamMemberId).subscribe(
+      data => this.getFileResponseDataForClientFolioWise(data),
+     err => this.getFilerrorResponse(err)
+    )
+  }
   getFileResponseDataForSubSchemeName(data){
       console.log("scheme Name",data)
     }
-  //  getFileResponseDataForClientFolioWise(data){
-  //   console.log("DataForClientFolioWise",data)
-  //  }
-   getFilerrorResponse(err) {
-    this.dataService.openSnackBar(err, 'Dismiss')
-  }
+  getFilerrorResponse(err) {
+     this.dataService.openSnackBar(err, 'Dismiss')
+   }
+   getFileResponseDataForClientFolioWise(data){
+    console.log("DataForClientFolioWise",data)
+   }
    aumReport()
    {
     this.aum.aumComponent=true;

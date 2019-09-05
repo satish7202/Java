@@ -42,7 +42,7 @@
                     
                                         </tr>
                                     </thead>
-                                       <tbody *ngFor="let subcategoryList of subcategoryList; let i = index">
+                                       <tbody *ngFor="let subcategoryList of category.subcat; let i = index">
                                             <tr>
                                                 <td>{{i+1}}</td>
                                                 <td>{{subcategoryList.name}}<i *ngIf="subcategoryList.active==true" class="material-icons right b-a f-14 mt-4 c-p">add</i>
