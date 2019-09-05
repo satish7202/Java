@@ -1,11 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { UpperSliderComponent } from '../../common-subscription-component/upper-slider/upper-slider.component';
 import { MatDialog } from '@angular/material';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-plans-settings',
   templateUrl: './plans-settings.component.html',
-  styleUrls: ['./plans-settings.component.scss']
+  styleUrls: ['./plans-settings.component.scss'],
+  animations:[
+    trigger('opebClose',[
+      state('open',style({
+        height:'100%'
+      })),
+      state('close',style({
+        height:'0%'
+      })),
+      transition('open => close',[animate('1000')]),
+      transition('close => open',[animate('1000')])
+    ])
+  ]
 })
 export class PlansSettingsComponent implements OnInit {
   button: any;
@@ -22,7 +35,10 @@ export class PlansSettingsComponent implements OnInit {
     }
 
     const dialogRef = this.dialog.open(UpperSliderComponent, {
-      width: '1400px',
+      position:
+      {
+       top:'0'
+      },
       data: Fragmentdata,
       autoFocus:false,
       panelClass:'dialogBox',

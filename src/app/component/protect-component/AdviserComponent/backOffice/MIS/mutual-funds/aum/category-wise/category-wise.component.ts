@@ -55,69 +55,47 @@ export class CategoryWiseComponent implements OnInit {
    )
   }
   getFileResponseDataForSub(data) {
-    let equityList = [];
-    let debtList = [];
-    let othertList = [];
-    let hybridList = [];
-    let solutionOrientedList =[];
-    console.log("category",data)
+
     this.category=data.category;
     this.subcategory=data.subcategory;
-    this.subcategory.forEach(o => {
-     this.Equity = _.includes(o.name, 'Equity');
-      if(this.Equity == true){
-        equityList.push(o);
-    }
-  
-    this.Debt = _.includes(o.name, 'Debt');
-      if(this.Debt == true){
-        debtList.push(o);
-    }
-    this.Hybrid = _.includes(o.name, 'Hybrid');
-      if(this.Hybrid == true){
-        hybridList.push(o);
-    }
-    this.Other = _.includes(o.name, 'Other');
-      if(this.Other == true){
-        othertList.push(o);
-    }
-    this.SolutionOriented = _.includes(o.name, 'Solution Oriented');
-      if(this.SolutionOriented == true){
-        solutionOrientedList.push(o);
-    }
+    this.category.forEach(c => {
+      c.active=true;
+      c.subcat=[];
+      this.subcategory.forEach(o => {
+        o.active=true;
+        let subcat;
+        if(o.name===null)
+        {
+          return;
+        }
+        else{
+          subcat=o.name.substring(0,o.name.indexOf(' '));
+        }
+        if(subcat == 'Equity'){
+         c.subcat.push(o);       
+      }  
+        else if(subcat =='Dept'){
+          c.subcat.push(o); 
+      }
+       else if(subcat=='Hybrid'){
+          c.subcat.push(o); 
+      }
+ 
+       else if(subcat=='Other'){
+          c.subcat.push(o); 
+      }
+      else{
+        c.subcat.push(o);
+      }
+      });
     });
-   console.log('Equity',equityList)
-   console.log('Debt',debtList)
-   console.log('Solution',solutionOrientedList)
-    this.equityList = equityList
-    this.debtList = debtList
-    this.otherList = othertList
-    this.hybridList = hybridList
-    this.solutionOrientedList =  solutionOrientedList
-
-  }
-  sortBySubCategory(){
-    this.showSubCategory = ! this.showSubCategory;
-  }
   
-
-
-
-  showMainWrapper() {
-    this.categoryshow = false;
-    this.showMainWrapperFlag = true;
+    console.log("category",this.category)
   }
 
-  categorywise() {
-    this.categoryshow = true;
-    this.showMainWrapperFlag = false;
-  }
-
-  showSubTableList(index,category){
-  this.showMainWrapperFlag = false;
-   this.showSubTable =true;
-   this.showAddBtn = false;
-   this.showRemoveBtn = true;
+  showSubTableList(index,value){
+    let flag=(value)?value=false:value=true;
+    this.category[index].active=flag;
     if(index == 0){
       this.subcategoryList = this.equityList
     }else if(index == 1){
@@ -130,29 +108,21 @@ export class CategoryWiseComponent implements OnInit {
       this.subcategoryList = this.solutionOrientedList
     }
   }
-
-
-  hideSubTableList(){
-    this.showMainWrapperFlag = false;
-    this.showSubTable = false;
-    this.showAddBtn = true;
-    this.showRemoveBtn = false;
-  }
-  getClientFolioWise(){
-    this.backoffice.getClientFolioWise(this.teamMemberId).subscribe(
-      data => this.getFileResponseDataForClientFolioWise(data),
-     err => this.getFilerrorResponse(err)
-    )
-  }
+  // getClientFolioWise(){
+  //   this.backoffice.getClientFolioWise(this.teamMemberId).subscribe(
+  //     data => this.getFileResponseDataForClientFolioWise(data),
+  //    err => this.getFilerrorResponse(err)
+  //   )
+  // }
   getFileResponseDataForSubSchemeName(data){
       console.log("scheme Name",data)
     }
-  getFilerrorResponse(err) {
-     this.dataService.openSnackBar(err, 'Dismiss')
-   }
-   getFileResponseDataForClientFolioWise(data){
-    console.log("DataForClientFolioWise",data)
-   }
+  //  getFileResponseDataForClientFolioWise(data){
+  //   console.log("DataForClientFolioWise",data)
+  //  }
+   getFilerrorResponse(err) {
+    this.dataService.openSnackBar(err, 'Dismiss')
+  }
    aumReport()
    {
     this.aum.aumComponent=true;

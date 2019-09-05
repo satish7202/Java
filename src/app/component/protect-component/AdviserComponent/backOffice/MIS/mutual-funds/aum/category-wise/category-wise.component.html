@@ -22,182 +22,43 @@
     
                     </tr>
                 </thead>
-                <tbody>
-                    <tr *ngFor="let category of category; let i = index">
+                <tbody *ngFor="let category of category; let i = index">
+                    <tr>
                         <td>{{i+1}}</td>
-                        <td *ngIf="showAddBtn === true" (click)="showSubTableList(i,category)">{{category.name}} <i class="material-icons right b-a f-14 mt-4 c-p"> add  </i></td>
-                        <td *ngIf="showRemoveBtn === true"  (click)="hideSubTableList()">{{category.name}} <i class="material-icons right b-a f-14 mt-4 c-p"> remove  </i></td>
+                        <td (click)="showSubTableList(i,category.active)">{{category.name}} <i class="material-icons right b-a f-14 mt-4 c-p" *ngIf="category.active==true"> add  </i>
+                        <i class="material-icons right b-a f-14 mt-4 c-p" *ngIf="category.active==false"> remove  </i></td>
                         <td class="text-right">{{category.totalAum}} </td>
                         <td class="text-right">{{category.weightInPercentage}}%</td>
-                    </tr>
-                  
-               <tr>
-                   <td >
-                       <table *ngIf="showSubTable" class="table-low mt-8" id="table-high">
-                            <thead class="bg-light text-dark">
-                                    <tr>
-                                        <th>Sr No.</th>
-                                        <th>Sub Category Name</th>
-                                        <th class="text-right">Current Value</th>
-                                        <th class="text-right">% Weight</th>
-                
-                                    </tr>
-                                </thead>
-                          
-                                        <tr *ngFor="let subcategoryList of subcategoryList; let i = index">
-                                            <td>{{i+1}}</td>
-                                            <td>{{subcategoryList.name}}<i class="material-icons right b-a f-14 mt-4 c-p">
-                                                    add
-                                                    </i> </td>
-                                            <td class="text-right">{{subcategoryList.totalAum}} </td>
-                                            <td class="text-right">{{subcategoryList.weightInPercentage}}%</td>
+                     </tr>
+                     <tr>
+                         <tr>
+                        <table *ngIf="category.active==false" class="table-low mt-8" id="table-high">
+                                <thead class="bg-light text-dark">
+                                        <tr>
+                                            <th>Sr No.</th>
+                                            <th>Sub Category Name</th>
+                                            <th class="text-right">Current Value</th>
+                                            <th class="text-right">% Weight</th>
+                    
                                         </tr>
-                                   
-                       </table>
-                   </td>
-               </tr>
+                                    </thead>
+                                       <tbody *ngFor="let subcategoryList of subcategoryList; let i = index">
+                                            <tr>
+                                                <td>{{i+1}}</td>
+                                                <td>{{subcategoryList.name}}<i *ngIf="subcategoryList.active==true" class="material-icons right b-a f-14 mt-4 c-p">add</i>
+                                                    <i *ngIf="subcategoryList.active==false" class="material-icons right b-a f-14 mt-4 c-p"> remove  </i> </td>
+                                                <td class="text-right">{{subcategoryList.totalAum}} </td>
+                                                <td class="text-right">{{subcategoryList.weightInPercentage}}%</td>
+                                            </tr>
+                                    </tbody>
+                        </table>
+
+                    </tr>
                 </tbody>
             </table>
-    
-            <!-- <div class="wrapper-4">
-    
-                <table class="table-low mt-8" id="table-high">
-                    <thead class="bg-light text-dark">
-                        <tr>
-                            <th>Sr No.</th>
-                            <th>Sub Category Name</th>
-                            <th class="text-right">Current Value</th>
-                            <th class="text-right">% Weight</th>
-    
-                        </tr>
-                    </thead>
-    
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>EQUITY<i class="material-icons right b-a f-14 mt-4 c-p">
-                                    add
-                                    </i> </td>
-    
-                            <td class="text-right">4,80,030 </td>
-                            <td class="text-right">21.00%</td>
-    
-                        </tr>
-                    </tbody>
-    
-                </table>
-            </div>
-            <div class="wrapper-8 pt-4 pb-4">
-    
-                <table class="table-low mt-8" id="table-high">
-                    <thead class="bg-light text-dark">
-                        <tr>
-                            <th>Sr No.</th>
-                            <th>Scheme Name</th>
-                            <th class="text-right">Current Value</th>
-                            <th class="text-right">% Weight</th>
-    
-                        </tr>
-                    </thead>
-    
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>EQUITY <i class="material-icons right b-a f-14 mt-4 c-p">
-                                    add
-                                    </i></td>
-    
-                            <td class="text-right">4,80,030 </td>
-                            <td class="text-right">21.00%</td>
-    
-                        </tr>
-                    </tbody>
-    
-                </table>
-            </div>
-            <div class="wrapper-12 pt-4 pb-4">
-    
-                <table class="table-low mt-8" id="table-high">
-                    <thead class="bg-light text-dark">
-                        <tr>
-                            <th>Applicant Name</th>
-                            <th class="text-right">Balance Unit</th>
-                            <th class="text-right">Folio</th>
-                            <th class="text-right">Current Amount</th>
-                            <th class="text-right">% Weight</th>
-    
-                        </tr>
-                    </thead>
-    
-                    <tbody>
-                        <tr>
-                            <td>Rahul Jain  </td>
-                            <td class="text-right">11,320.76    </td>
-    
-                            <td class="text-right">K126861 </td>
-                            <td class="text-right">3,94,642</td>
-                            <td class="text-right">21.00%</td>
-    
-                        </tr>
-                    </tbody>
-    
-                </table>
-            </div> -->
-            <!-- <div class="wrapper-16 pt-4 pb-4">
-    
-                <table class="table-low mt-8" id="table-high">
-                    <thead class="bg-light text-dark">
-                        <tr>
-                            <th>Sr No.</th>
-                            <th>Category Name</th>
-                            <th class="text-right">Current Value</th>
-                            <th class="text-right">% Weight</th>
-    
-                        </tr>
-                    </thead>
-    
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>EQUITY </td>
-    
-                            <td class="text-right">4,80,030 </td>
-                            <td class="text-right">21.00%</td>
-    
-                        </tr>
-                    </tbody>
-    
-                </table>
-            </div>
-            <div class="wrapper-20 pt-4 pb-4">
-    
-                <table class="table-low mt-8" id="table-high">
-                    <thead class="bg-light text-dark">
-                        <tr>
-                            <th>Sr No.</th>
-                            <th>Category Name</th>
-                            <th class="text-right">Current Value</th>
-                            <th class="text-right">% Weight</th>
-    
-                        </tr>
-                    </thead>
-    
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>EQUITY </td>
-    
-                            <td class="text-right">4,80,030 </td>
-                            <td class="text-right">21.00%</td>
-    
-                        </tr>
-                    </tbody>
-    
-                </table>
-            </div> -->
-    
+   
         </div>
     </div>
-    <div *ngIf="aum.aumComponent==true">
-        <app-aum></app-aum>
-    </div>
+    <div *ngIf="categoryData">
+    <mat-spinner class="loader" [diameter]="30"></mat-spinner>
+</div>
