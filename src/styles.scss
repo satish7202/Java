@@ -343,3 +343,14 @@
     z-index: 222;
     position: absolute;
 }
+
+@keyframes dialogBox {
+    from {
+        top: 0;
+        left: 0;
+    }
+    to {
+        top: 100px;
+        left: 100px;
+    }
+}
