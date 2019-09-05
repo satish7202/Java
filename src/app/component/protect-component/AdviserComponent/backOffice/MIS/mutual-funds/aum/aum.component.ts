@@ -59,7 +59,7 @@ export class AumComponent implements OnInit {
   }
   
   getTotalAum(){
-    alert()
+
     this.backoffice.getClientTotalAUM(this.teamMemberId).subscribe(
       
      data => this.getFileResponseDataAum(data),
