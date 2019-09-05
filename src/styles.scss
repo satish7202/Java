@@ -366,17 +366,16 @@
 // right sidebar 4-9-2019
 
 .right_sidenav {
-    height: 100%;
-    width: 60%;
-    position: fixed;
-    z-index: 222;
-    top: 0;
-    right: 0;
-   background-color: #fff;
-    overflow-x: hidden;
-    transition: 0.5s;
-  
-    border:1px solid #ddd;
+     height: 100%;
+     position: fixed;
+     z-index: 222;
+     top: 0;
+     width: 0;
+     right: 0;
+     background-color: #fff;
+     overflow-x: hidden;
+     transition: 0.5s;
+     border:1px solid #ddd;
 }
 
 .right_sidenav a {
