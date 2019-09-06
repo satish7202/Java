@@ -49,10 +49,21 @@ export class BackOfficeService {
 
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_CLIENT_WISE_TOTALAUM, httpParams)
   }
+  getSipcountGet(data)
+  { 
+    let httpParams=new HttpParams().set('teamMemberId', data);
+
+   return this.http.get(apiConfig.MAIN_URL +appConfig.GET_SIP_COUNT_GET,httpParams);
+  }
+  getAumApplicantWiseTotalaumApplicantName(data)
+  {
+    let httpParams=new HttpParams().set('teamMemberId', data);
+    return this.http.get(apiConfig.MAIN_URL +appConfig.GET_AUM_APPLICANTWISE_TOTAL_AUM_APPLICATION,httpParams);
+  }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data,10000)
   }
-
+ 
 
 
   

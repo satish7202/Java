@@ -11,5 +11,7 @@
     GET_TOTAL_SCHEME_AUM:'futurewise/asset/schemeTotalAum/get',
     GET_TOTAL_AUM_BY_SCHEME:'futurewise/asset/schemeTotalAum/get',
     GET_CLIENT_WISE_TOTALAUM:'futurewise/asset/report/client/totalaum/get',
+    GET_SIP_COUNT_GET:'futurewise/asset/sip/count/get',
+    GET_AUM_APPLICANTWISE_TOTAL_AUM_APPLICATION:'futurewise/asset/aum/applicantWise/totalaum/applicantName/get',
     GET_BASE_64:'futurewise/api/v1/test/base64/decode'
 }
