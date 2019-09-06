@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  // APIEndpoint:'http://dev.ifanow.in:8080/'
- APIEndpoint:'http://192.168.0.6:8080/'
+  APIEndpoint:'http://dev.ifanow.in:8080/'
+//  APIEndpoint:'http://192.168.0.6:8080/'
   // APIEndpoint:'http://23.21.238.140:8090/'
 }
 /*

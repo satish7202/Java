@@ -104,6 +104,30 @@ export class HttpService {
   }
 
 
+
+  // getMethod(url: string, params): Observable<any> {
+  //   let httpParams = new HttpParams();
+  //   const httpOptions = {
+  //     headers: new HttpHeaders().set('authToken', this._userService.getToken())
+  //       .set('Content-Type', 'application/json'),
+  //        params: params
+  //   };
+  //   url = url.trim();
+  //   return this._http
+  //     .get(this.baseUrl + url, httpOptions)
+  //     .map((res: any) => {
+  //       if (res['status'] === 'AUTH_TOKEN_EXPIRED') {
+  //         window.alert('Invalid user, please login');
+  //         this._router.navigate(['login']);
+  //       } 
+  //     });
+  // }
+
+
+
+
+
+
   //------------------------Aman jain code date 22 aug ------------------------------------------------------
 
   get(url: string, params): Observable<any> {
