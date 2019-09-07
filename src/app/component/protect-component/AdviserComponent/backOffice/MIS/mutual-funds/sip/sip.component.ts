@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BackOfficeService } from '../../../back-office.service';
+import { EventService } from 'src/app/Data-service/event.service';
 
 @Component({
   selector: 'app-sip',
@@ -6,10 +8,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sip.component.scss']
 })
 export class SipComponent implements OnInit {
-
-  constructor() { }
-
+  teamMemberId=2929;
+  constructor(private backioffice:BackOfficeService,private dataService:EventService) { }
+ 
   ngOnInit() {
+   this.sipCountGet();
   }
+
+  sipCountGet()
+  {
+    this.backioffice.getSipcountGet(this.teamMemberId).subscribe(
+      data =>this.getsipCountGet(data)
+    )
+  }
+
+  getsipCountGet(data)
+  {
+    console.log("sip count",data)
+  }
+
+  getFilerrorResponse(err) {
+    this.dataService.openSnackBar(err, 'Dismiss')
+   }
 
 }

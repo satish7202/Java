@@ -137,7 +137,7 @@
         font-size: 13px;
         line-height: 16px;
         color: #595252;
-        min-width: 0 !important;
+        // min-width: 0 !important;
         text-transform: uppercase;
     }
     .actions {
@@ -195,9 +195,9 @@
 }
 
 #mistabs1,
-#mistabs2 {
+#mistabs2 ,#siptabs1,#siptabs2{
     .mat-tab-label {
-        min-width: 134px !important;
+        // min-width: 150px !important;
         height: 45px !important;
     }
     .mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination {
