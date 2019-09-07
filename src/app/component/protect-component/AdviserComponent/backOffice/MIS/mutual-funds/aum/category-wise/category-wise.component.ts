@@ -14,6 +14,7 @@ import { AumComponent } from '../aum.component';
 export class CategoryWiseComponent implements OnInit {
   category;
   subcategory;
+  showLoader=true;
   constructor(private backoffice:BackOfficeService,private dataService: EventService,private aum:AumComponent) { }
   teamMemberId=2929;
   selectedCategory;
@@ -62,6 +63,7 @@ export class CategoryWiseComponent implements OnInit {
             sub.showSubCategory=true;
           })
       });
+      this.showLoader=false;
     }  
     showSchemeName(index,subcashowSubcat)
     {

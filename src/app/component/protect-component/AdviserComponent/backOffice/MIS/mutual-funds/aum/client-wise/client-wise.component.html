@@ -1,8 +1,12 @@
+<div *ngIf="showLoader">
+    <mat-spinner class="loader" [diameter]="30"></mat-spinner>
+</div>
+<div *ngIf="showLoader==false">
 <div *ngIf="aum.aumComponent==false">
         <div class="wrapper-20 bg-white">
                 <div class="row">
                     <div class="col-md-6 pl-0">
-                        <h3 class="pt-8 mb-0">Amc Wise AUM</h3>
+                        <h3 class="pt-8 mb-0">Client Wise AUM</h3>
                     </div>
                     <div class="col-md-6 pr-0">
                         <div class="right text-right">
@@ -16,58 +20,79 @@
                     <thead class="text-dark">
                         <tr>
                             <th>Sr No.</th>
-                            <th>Category Name</th>
+                            <th>Client Name</th>
                             <th class="text-right">Current Value</th>
                             <th class="text-right">% Weight</th>
         
                         </tr>
                     </thead>
-                    <tbody >
+                    <tbody *ngFor="let name of clientList; index as i" >
                         <tr>
-                            <td></td>
-                            <td > <i class="material-icons right b-a f-14 mt-4 c-p" > add  </i>
-                            <i class="material-icons right b-a f-14 mt-4 c-p" > remove  </i></td>
-                            <td class="text-right"> </td>
-                            <td class="text-right"></td>
+                            <td>{{i+1}}</td>
+                            <td (click)="getClientSCheme(name,name.show,i)">{{name.name}}<i class="material-icons right b-a f-14 mt-4 c-p" *ngIf="name.show" > add  </i>
+                            <i class="material-icons right b-a f-14 mt-4 c-p" *ngIf="name.show==false" > remove  </i></td>
+                            <td class="text-right">{{name.totalAum}} </td>
+                            <td class="text-right">{{name.weightInPercentage}}</td>
                          </tr>
-                         <tr>
+                        
                              <tr>
-                            <table  class="table-low mt-8 " id="table-high">
+                            <table *ngIf="name.show==false" class="table-low mt-8 " id="table-high">
                                     <thead class="bg-light text-dark">
                                             <tr>
                                                 <th>Sr No.</th>
-                                                <th>Sub Category Name</th>
+                                                <th>Investor Name</th>
                                                 <th class="text-right">Current Value</th>
                                                 <th class="text-right">% Weight</th>
                         
                                             </tr>
                                         </thead>
-                                           <tbody >
+                                           <tbody *ngFor="let investor of name.subList; index as i" >
                                                 <tr>
-                                                    <td></td>
-                                                    <td ><i  class="material-icons right b-a f-14 mt-4 c-p">add</i>
-                                                        <i class="material-icons right b-a f-14 mt-4 c-p"> remove  </i> </td>
-                                                    <td class="text-right"></td>
-                                                    <td class="text-right">}%</td>
+                                                    <td>{{i+1}}</td>
+                                                    <td (click)="getSchemeName(i,investor.showSubCategory)" >{{investor.name}}<i class="material-icons right b-a f-14 mt-4 c-p" *ngIf="investor.showSubCategory==true">add</i>
+                                                        <i class="material-icons right b-a f-14 mt-4 c-p" *ngIf="investor.showSubCategory==false"> remove </i></td>
+                                                    <td class="text-right">{{name.totalAum}}</td>
+                                                    <td class="text-right">{{name.weightInPercentage}}%</td>
                                                 </tr>
-                                                <table >
+                                                <table *ngIf="investor.showSubCategory==false">
                                                     <thead>
                                                         <tr>
                                                         <th>Sr No.</th>
-                                                        <th>Sub Category Name</th>
+                                                        <th>Scheme Name</th>
                                                         <th class="text-right">Current Value</th>
                                                         <th class="text-right">% Weight</th>
                                                         </tr>
                                                     </thead>
                                                     <tr>
-                                                    <tbody >
+                                                    <tbody *ngFor="let scheme of investor.schemes; index as i">
                                                         <tr >
-                                                            <td></td>
-                                                            <td><i class="material-icons right b-a f-14 mt-4 c-p" >add</i>
-                                                                <i  class="material-icons right b-a f-14 mt-4 c-p"> remove  </i> </td>
-                                                            <td class="text-right"> </td>
-                                                            <td class="text-right"></td>
+                                                            <td>{{i+1}}</td>
+                                                            <td (click)="getSchemeName1(i,scheme.showScheme)">{{scheme.schemeName}}<i class="material-icons right b-a f-14 mt-4 c-p" *ngIf="scheme.showScheme" >add</i>
+                                                                <i  class="material-icons right b-a f-14 mt-4 c-p" *ngIf="scheme.showScheme==false"> remove  </i> </td>
+                                                            <td class="text-right">{{scheme.totalAum}}</td>
+                                                            <td class="text-right">{{scheme.weightInPercentage}}</td>
                                                         </tr>
+                                                        <table *ngIf="scheme.showScheme==false">
+                                                            <thead>
+                                                                <tr>
+                                                                <th>Sr No.</th>
+                                                                <th>Scheme Name</th>
+                                                                <th class="text-right">Folio Number</th>
+                                                                <th class="text-right">% Weight</th>
+                                                                </tr>
+                                                            </thead> 
+                                                            <tbody *ngFor="let scheme1 of scheme.schemeList;index as i">
+                                                                <tr>
+                                                                    <td>{{i+1}}</td>
+                                                                    <td>{{scheme1.schemeName}}<td>
+                                                                    <td class="text-right">{{scheme1.folioNumber}}</td>
+                                                                    <td class="text-right">{{scheme1.totalAum}}</td>
+                                                                    <td class="text-right">{{scheme1.balanceUnit}}</td>
+                                                                    <td class="text-right">{{scheme1.weightInPercentage}}</td>
+                                                                </tr>
+                                                            </tbody>
+                                                            
+                                                        </table>
                                                     </tbody>
                                                     
                                                 </table>
@@ -79,4 +104,5 @@
                 </table>
        
             </div>
+     </div>
 </div>

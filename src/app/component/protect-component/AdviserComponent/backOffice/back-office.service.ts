@@ -58,7 +58,23 @@ export class BackOfficeService {
   getAumApplicantWiseTotalaumApplicantName(data)
   {
     let httpParams=new HttpParams().set('teamMemberId', data);
-    return this.http.get(apiConfig.MAIN_URL +appConfig.GET_AUM_APPLICANTWISE_TOTAL_AUM_APPLICATION,httpParams);
+    return this.http.get(apiConfig.MAIN_URL +appConfig.GET_AUM_APPLICANT,httpParams);
+  }
+  getAumApplicantCategory(data)
+  {
+    let httpParams=new HttpParams().set('clientId',data.clientId).set('clientTotalAum',data.clientTotalAum).set('teamMemberId',data.teamMemberId)
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_AUM_APPLICANT_CATEGORY,httpParams);
+  }
+  // /Aum-clientWise
+  getAumClientTotalAum(data)
+  {
+    let httpParams=new HttpParams().set('limit',data.limit).set('offset',data.offset).set('teamMemberId',data.teamMemberId);
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_AUM_CLIENT_TOTALAUM,httpParams);
+  }
+  getAumClientScheme(data)
+  {
+    let httpParams=new HttpParams().set('clientId',data.clientId).set('teamMemberId',data.teamMemberId);
+    return this.http.get(apiConfig.MAIN_URL +appConfig.GET_AUM_CLIENT_SCHEME,httpParams);
   }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data,10000)
