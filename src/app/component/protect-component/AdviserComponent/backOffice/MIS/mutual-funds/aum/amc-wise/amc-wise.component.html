@@ -1,4 +1,82 @@
 <div *ngIf="aum.aumComponent==false">
-    <p>amc-wise works!</p>
-    <button mat-stroked-button class="btn-success ml-8 addon" (click)="aumReport()">Back</button>
+        <div class="wrapper-20 bg-white">
+                <div class="row">
+                    <div class="col-md-6 pl-0">
+                        <h3 class="pt-8 mb-0">Amc Wise AUM</h3>
+                    </div>
+                    <div class="col-md-6 pr-0">
+                        <div class="right text-right">
+                            <button mat-stroked-button class="btn-default addon"><i class="material-icons">add</i>XLS</button>
+                            <button mat-stroked-button class="btn-success ml-8 addon" (click)="aumReport()">Back</button>
+                        </div>
+                    </div>
+                </div>
+        
+                <table class="table-low mt-16" id="table-high" >
+                    <thead class="text-dark">
+                        <tr>
+                            <th>Sr No.</th>
+                            <th>Category Name</th>
+                            <th class="text-right">Current Value</th>
+                            <th class="text-right">% Weight</th>
+        
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr>
+                            <td></td>
+                            <td > <i class="material-icons right b-a f-14 mt-4 c-p" > add  </i>
+                            <i class="material-icons right b-a f-14 mt-4 c-p" > remove  </i></td>
+                            <td class="text-right"> </td>
+                            <td class="text-right"></td>
+                         </tr>
+                         <tr>
+                             <tr>
+                            <table  class="table-low mt-8 " id="table-high">
+                                    <thead class="bg-light text-dark">
+                                            <tr>
+                                                <th>Sr No.</th>
+                                                <th>Sub Category Name</th>
+                                                <th class="text-right">Current Value</th>
+                                                <th class="text-right">% Weight</th>
+                        
+                                            </tr>
+                                        </thead>
+                                           <tbody >
+                                                <tr>
+                                                    <td></td>
+                                                    <td ><i  class="material-icons right b-a f-14 mt-4 c-p">add</i>
+                                                        <i class="material-icons right b-a f-14 mt-4 c-p"> remove  </i> </td>
+                                                    <td class="text-right"></td>
+                                                    <td class="text-right">}%</td>
+                                                </tr>
+                                                <table >
+                                                    <thead>
+                                                        <tr>
+                                                        <th>Sr No.</th>
+                                                        <th>Sub Category Name</th>
+                                                        <th class="text-right">Current Value</th>
+                                                        <th class="text-right">% Weight</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tr>
+                                                    <tbody >
+                                                        <tr >
+                                                            <td></td>
+                                                            <td><i class="material-icons right b-a f-14 mt-4 c-p" >add</i>
+                                                                <i  class="material-icons right b-a f-14 mt-4 c-p"> remove  </i> </td>
+                                                            <td class="text-right"> </td>
+                                                            <td class="text-right"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                    
+                                                </table>
+                                        </tbody>
+                            </table>
+    
+                        </tr>
+                    </tbody>
+                </table>
+       
+            </div>
 </div>
