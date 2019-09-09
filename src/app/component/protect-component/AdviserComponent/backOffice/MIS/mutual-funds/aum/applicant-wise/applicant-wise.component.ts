@@ -12,6 +12,7 @@ export class ApplicantWiseComponent implements OnInit {
   constructor(private aum:AumComponent,private backoffice:BackOfficeService) { }
   teamMemberId=2929;
   applicantName;
+  showLoader=true;
   ngOnInit() {
     this.aumApplicantWiseTotalaumApplicantNameGet();
   }
@@ -24,7 +25,44 @@ export class ApplicantWiseComponent implements OnInit {
   applicantNameGet(data)
   {
     this.applicantName=data;
+    this.showLoader=false;
+  }
+  
+  category(name,index,show)
+  {
+    let obj=
+    {
+      'clientId':name.id,
+      'clientTotalAum':0,
+      'teamMemberId':this.teamMemberId
+    }
+    if(show==false)
+    {
+    this.backoffice.getAumApplicantCategory(obj).subscribe(
+      data => this.sortCategoryApplicant(data,index,show)
+    )
+    }
+    else
+    {
+      this.applicantName[index].show=false;
+    }
+  }
+  sortCategoryApplicant(data,index,show)
+  {
+    console.log("fasdfkasdf",data)
+    let category=data;
+    category.forEach(c =>
+      {
+        c.show=false;
+      })
+ 
+    this.applicantName[index].category=data;
+    this.applicantName[index].show=(show)?show=false:show=true;
 
+  }
+  subCategory(category)
+  {
+    console.log(category)
   }
   aumReport()
   {

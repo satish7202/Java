@@ -84,6 +84,7 @@ import { SlimLoadingBarService, SlimLoadingBarModule } from "ng2-slim-loading-ba
     ApplicantWiseComponent,
     MisComponent,
     DocumentsSubscriptionsComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -93,8 +94,7 @@ import { SlimLoadingBarService, SlimLoadingBarModule } from "ng2-slim-loading-ba
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SlimLoadingBarModule.forRoot(),
-    SidebarModule 
+    SlimLoadingBarModule.forRoot() ,SidebarModule
   ],
   providers: [AuthService,HttpService, ],
   bootstrap: [AppComponent],

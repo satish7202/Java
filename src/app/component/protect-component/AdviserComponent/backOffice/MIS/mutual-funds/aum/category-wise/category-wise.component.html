@@ -1,3 +1,7 @@
+<div *ngIf="showLoader">
+    <mat-spinner class="loader" [diameter]="30"></mat-spinner>
+</div>
+<div *ngIf="showLoader==false">
 <div *ngIf="aum.aumComponent==false" id="ui-category">
         <div class="wrapper-20 bg-white">
             <div class="row">
@@ -80,10 +84,9 @@
    
         </div>
     </div>
+
     <div *ngIf="categoryData">
     <mat-spinner class="loader" [diameter]="30"></mat-spinner>
 </div>
-<!-- <div *ngIf="showLoader">
-    <mat-spinner class="loader" [diameter]="30"></mat-spinner>
-</div> -->
+</div>
 
