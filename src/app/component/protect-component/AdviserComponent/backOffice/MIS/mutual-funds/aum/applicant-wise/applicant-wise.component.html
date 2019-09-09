@@ -37,7 +37,7 @@
                                  </tr>
                                  <tr>
                                      <tr>
-                                    <table *ngIf="name.show==true" class="table-low mt-8 " id="table-high">
+                                    <table *ngIf="name.show" class="table-low mt-8 " id="table-high">
                                             <thead class="bg-light text-dark">
                                                     <tr>
                                                         <th>Sr No.</th>
@@ -50,12 +50,12 @@
                                                    <tbody *ngFor="let category of name.category; index as i" >
                                                         <tr>
                                                             <td>{{i+1}}</td>
-                                                            <td (click)="subCategory(category)" >{{category.name}}<i  class="material-icons right b-a f-14 mt-4 c-p" *ngIf="category.show==false">add</i>
-                                                                <i class="material-icons right b-a f-14 mt-4 c-p" *ngIf="category.show==true"> remove  </i> </td>
+                                                            <td (click)="subCategory(category,category.showCategory,i)" >{{category.name}}<i  class="material-icons right b-a f-14 mt-4 c-p" *ngIf="category.showCategory==false"  >add</i>
+                                                                <i class="material-icons right b-a f-14 mt-4 c-p" *ngIf="category.showCategory==true"> remove  </i> </td>
                                                             <td class="text-right">{{category.totalAum}}</td>
                                                             <td class="text-right">{{category.weightInPercentage}}%</td>
                                                         </tr>
-                                                        <!-- <table >
+                                                        <table *ngIf="category.showSubCategory" >
                                                             <thead>
                                                                 <tr>
                                                                 <th>Sr No.</th>
@@ -65,17 +65,17 @@
                                                                 </tr>
                                                             </thead>
                                                             <tr>
-                                                            <tbody >
+                                                            <tbody *ngFor="let sub of subCategoryList; index as i" >
                                                                 <tr >
-                                                                    <td></td>
-                                                                    <td><i class="material-icons right b-a f-14 mt-4 c-p" >add</i>
+                                                                    <td>{{i+1}}</td>
+                                                                    <td>{{sub.name}}<i class="material-icons right b-a f-14 mt-4 c-p" >add</i>
                                                                         <i  class="material-icons right b-a f-14 mt-4 c-p"> remove  </i> </td>
                                                                     <td class="text-right"> </td>
                                                                     <td class="text-right"></td>
                                                                 </tr>
                                                             </tbody>
                                                             
-                                                        </table> -->
+                                                        </table>
                                                 </tbody>
                                     </table>
             
