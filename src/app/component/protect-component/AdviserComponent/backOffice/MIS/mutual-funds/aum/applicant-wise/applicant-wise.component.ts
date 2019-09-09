@@ -13,6 +13,7 @@ export class ApplicantWiseComponent implements OnInit {
   teamMemberId=2929;
   applicantName;
   showLoader=true;
+  clientId;
   ngOnInit() {
     this.aumApplicantWiseTotalaumApplicantNameGet();
   }
@@ -36,10 +37,11 @@ export class ApplicantWiseComponent implements OnInit {
       'clientTotalAum':0,
       'teamMemberId':this.teamMemberId
     }
+    this.clientId=name.id;
     if(show==false)
     {
     this.backoffice.getAumApplicantCategory(obj).subscribe(
-      data => this.sortCategoryApplicant(data,index,show)
+      data => this.sortCategoryApplicant(data,index,show,name)
     )
     }
     else
@@ -47,22 +49,31 @@ export class ApplicantWiseComponent implements OnInit {
       this.applicantName[index].show=false;
     }
   }
-  sortCategoryApplicant(data,index,show)
+  sortCategoryApplicant(data,index,show,name)
   {
-    console.log("fasdfkasdf",data)
-    let category=data;
-    category.forEach(c =>
-      {
-        c.show=false;
-      })
- 
-    this.applicantName[index].category=data;
+    console.log("fasdfkasdf",data); 
+    name.category=data;
     this.applicantName[index].show=(show)?show=false:show=true;
 
   }
-  subCategory(category)
+  subCategory(category,showCategory,index)
   {
-    console.log(category)
+    let obj=
+    {
+      'categoryId':category.id,
+      'categoryTotalAum':category.totalAum,
+      'clientId':this.clientId,
+      'teamMemberId':this.teamMemberId
+    }
+    this.backoffice.getAumApplicantSubCategory(obj).subscribe(
+      data =>this.getResponseSubCategoryData(data,category,showCategory,index)
+    )
+  }
+  getResponseSubCategoryData(data,category,showCategory,index)
+  {  
+    category.subCategoryList=data;
+    
+    category.subCategoryList[index].showSubCategory=(showCategory)?showCategory=false:showCategory=true;
   }
   aumReport()
   {
