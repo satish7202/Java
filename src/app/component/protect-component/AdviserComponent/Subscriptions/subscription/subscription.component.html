@@ -4,7 +4,8 @@
 
             <mat-tab-group mat-align-tabs="end" animationDuration="0ms">
                 <mat-tab label="DASHBOARD">
-                   <app-dashboard-subscription></app-dashboard-subscription>
+                   <!-- <app-dashboard-subscription></app-dashboard-subscription> -->
+                   <app-invoice-pdf-document></app-invoice-pdf-document>
                 </mat-tab>
                 <mat-tab label="CLIENTS">
                     <app-client-subscription></app-client-subscription>
@@ -12,7 +13,9 @@
                 <mat-tab label="SUBSCRIPTIONS">
                     <app-subscriptions-subscription></app-subscriptions-subscription>
                 </mat-tab>
-                <mat-tab label="QUOTATIONS"> </mat-tab>
+                <mat-tab label="QUOTATIONS"> 
+                    <app-invoice-pdf-document></app-invoice-pdf-document>
+                </mat-tab>
                 <mat-tab label="INVOICES">
                     <app-invoices-subscription></app-invoices-subscription>
                 </mat-tab>

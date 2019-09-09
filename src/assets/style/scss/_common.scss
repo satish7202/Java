@@ -48,7 +48,9 @@ p {
     font-family: "proxima-nova", sans-serif;
 
 }
-
+a,a:hover{
+    text-decoration: none !important;
+}
 .width-230 {
     width: 230px;
     height: 100vh;
@@ -253,7 +255,7 @@ button:focus {
     border-radius: 1px !important;
 }
 .bt-1{
-    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    border-top: 1px solid rgba(0, 0, 0, 0.12) !important;
 } 
 .bb-1{
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
