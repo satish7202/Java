@@ -9,26 +9,27 @@ import { EventService } from 'src/app/Data-service/event.service';
 })
 export class SipComponent implements OnInit {
   teamMemberId=2929;
+  sipCountData: any;
   constructor(private backioffice:BackOfficeService,private dataService:EventService) { }
  
   ngOnInit() {
    this.sipCountGet();
   }
 
-  sipCountGet()
-  {
+  sipCountGet(){
     this.backioffice.getSipcountGet(this.teamMemberId).subscribe(
       data =>this.getsipCountGet(data)
     )
   }
 
-  getsipCountGet(data)
-  {
-    console.log("sip count",data)
+  getsipCountGet(data){
+    console.log("sip count",data);
+    this.sipCountData=data;
   }
 
   getFilerrorResponse(err) {
     this.dataService.openSnackBar(err, 'Dismiss')
    }
+
 
 }
