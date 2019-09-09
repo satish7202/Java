@@ -4,11 +4,7 @@ import { DashboardComponent } from './component/protect-component/AdviserCompone
 import { LeftsidebarComponent } from './component/left-sidebar/leftsidebar/leftsidebar.component';
 import { SubscriptionComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/subscription.component';
 import { MisComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mis/mis.component';
-
-
 const routes: Routes = [
-
-  
   {
     
     path: 'admin', component: LeftsidebarComponent,
