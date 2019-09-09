@@ -65,6 +65,11 @@ export class BackOfficeService {
     let httpParams=new HttpParams().set('clientId',data.clientId).set('clientTotalAum',data.clientTotalAum).set('teamMemberId',data.teamMemberId)
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_AUM_APPLICANT_CATEGORY,httpParams);
   }
+  getAumApplicantSubCategory(data)
+  {
+    let httpParams=new HttpParams().set('categoryId',data.categoryId).set('categoryTotalAum',data.categoryTotalAum).set('clientId',data.clientId).set('teamMemberId',data.teamMemberId)
+    return this.http.get(apiConfig.MAIN_URL +appConfig.GET_AUM_APPLICANT_SUB_CATEGORY,httpParams)
+  }
   // /Aum-clientWise
   getAumClientTotalAum(data)
   {
