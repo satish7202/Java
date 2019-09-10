@@ -418,7 +418,15 @@
 .mat-dialog {
     transition: none;
 }
+mat-tab-group[vertical] .mat-tab-labels {
+    display: flex;
+    flex-direction: column!important;
+}
 
+mat-tab-group[vertical] {
+    display: flex;
+    flex-direction: row!important;
+}
 // invoice pdf documents
 #ui-invoice-pdf-documents{
     .mat-form-field-appearance-legacy .mat-form-field-underline{
