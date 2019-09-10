@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-
+import * as $ from 'jquery';
 @Component({
   selector: 'app-upper-slider',
   templateUrl: './upper-slider.component.html',
@@ -20,7 +20,10 @@ export class UpperSliderComponent implements OnInit {
   dialogClose(){
     this.dialogRef.close();
   }
-
+  open() {
+    $("#myRightSidenav").css("width","60%");
+   
+   }
 
   
 }
