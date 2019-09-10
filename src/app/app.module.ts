@@ -43,7 +43,6 @@ import { ApplicantWiseComponent } from './component/protect-component/AdviserCom
 import { MisComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mis/mis.component';
 import { HttpService } from './http-service/http-service';
 import { DocumentsSubscriptionsComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/documents-subscriptions/documents-subscriptions.component';
-import {SidebarModule} from 'primeng/sidebar';
 import { SlimLoadingBarService, SlimLoadingBarModule } from "ng2-slim-loading-bar";  
 @NgModule({
   declarations: [
@@ -93,7 +92,7 @@ import { SlimLoadingBarService, SlimLoadingBarModule } from "ng2-slim-loading-ba
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SlimLoadingBarModule.forRoot() ,SidebarModule
+    SlimLoadingBarModule.forRoot() 
   ],
   providers: [AuthService,HttpService, ],
   bootstrap: [AppComponent],
