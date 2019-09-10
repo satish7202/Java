@@ -235,24 +235,24 @@
         letter-spacing: 0.2px;
         color: #3F3F3F;
     }
-    button {
-        min-width: 100px !important;
-    }
-    label {
-        background: #004164;
-        border-radius: 4px;
-        letter-spacing: 0.2px;
-        color: #FFFFFF;
-        font-family: "Proxima Nova", sans-serif;
-        font-size: 14px;
-        line-height: 17px;
-        display: inline-block;
-        min-width: 10px;
-        padding: 3px 10px;
-        text-align: center;
-        white-space: nowrap;
-        vertical-align: baseline;
-    }
+    // button {
+    //     min-width: 100px !important;
+    // }
+    // label {
+    //     background: #004164;
+    //     border-radius: 4px;
+    //     letter-spacing: 0.2px;
+    //     color: #FFFFFF;
+    //     font-family: "Proxima Nova", sans-serif;
+    //     font-size: 14px;
+    //     line-height: 17px;
+    //     display: inline-block;
+    //     min-width: 10px;
+    //     padding: 3px 10px;
+    //     text-align: center;
+    //     white-space: nowrap;
+    //     vertical-align: baseline;
+    // }
     .mat-card-header {
         font-family: 'Playfair Display', sans-serif;
         font-style: normal;
@@ -418,3 +418,19 @@
 .mat-dialog {
     transition: none;
 }
+
+// invoice pdf documents
+#ui-invoice-pdf-documents{
+    .mat-form-field-appearance-legacy .mat-form-field-underline{
+        display: none;
+    }
+    .my-btn{
+        width: 36px !important;
+    min-width: 0px !important;
+    padding: 0 !important;
+    }
+    .custom-width .mat-select-value{
+        width: 75%;
+    }
+}
+// invoice pdf documents end

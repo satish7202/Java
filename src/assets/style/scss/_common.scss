@@ -79,7 +79,9 @@ a,a:hover{
 .w-auto {
     height: $auto;
 }
-
+.roboto{
+    font-family: 'Roboto', sans-serif !important;
+}
 // padding & margin
 ul {
     list-style-type: none;
@@ -268,4 +270,13 @@ button:focus {
 }
 .v-sub{
     vertical-align: sub;
+}
+.v-middle{
+    vertical-align: middle !important;
+}
+.l-22{
+    line-height: 22px;
+}
+.l-20{
+    line-height: 20px;
 }
