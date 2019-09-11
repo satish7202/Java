@@ -2,7 +2,7 @@
     <div class="sub-header-fix bl-1">
         <div class="bg-white">
             
-            <mat-tab-group mat-align-tabs="end" animationDuration="0ms">
+            <mat-tab-group mat-align-tabs="end" animationDuration="0ms" (selectedTabChange)="tabClick($event)">
                 
                 <mat-tab label="DASHBOARD">
                    <!-- <app-dashboard-subscription></app-dashboard-subscription> -->
@@ -31,7 +31,9 @@
         </div>
     </div>
 </div>
-<div id="myRightSidenav" class="right_sidenav">           
-    <!-- <app-document-terms-agreement></app-document-terms-agreement> -->
+<div *ngIf="subscriptionTab=='DOCUMENTS'" id="myRightSidenav" class="right_sidenav">           
+    <app-document-terms-agreement></app-document-terms-agreement>
+</div>
+<div *ngIf="subscriptionTab=='SUBSCRIPTIONS'" id="myRightSidenav" class="right_sidenav">           
     <app-subscriptions-rightnav></app-subscriptions-rightnav>
 </div>

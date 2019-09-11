@@ -9,9 +9,14 @@ export class SubscriptionComponent implements OnInit {
   constructor() { }
   ngOnInit() {
   }
-
+   subscriptionTab;
   leftBar()
   {
     $("#myRightSidenav").css("width","60%");
+    // $('#ui-subscriptions').addClass('blur')
+  }
+  tabClick(event)
+  {
+    this.subscriptionTab=event.tab.textLabel;
   }
 }
