@@ -173,7 +173,7 @@
                                     <!-- Position Column -->
                                     <ng-container matColumnDef="name">
                                         <th mat-header-cell *matHeaderCellDef> Client name </th>
-                                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                                        <td mat-cell *matCellDef="let element" (click)="rightSideBar('dashboardSubscription')"> {{element.name}} </td>
                                     </ng-container>
     
                                     <!-- Name Column -->
