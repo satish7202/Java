@@ -1,7 +1,7 @@
-<div class="bg-white pb-36 mt-70" id="ui-invoice">
+<div class="bg-white pb-36 mt-70" id="ui-subs">
     <div class="wrapper-20">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8 p-0">
                 <h4 class="pt-8 mb-0">Subscriptions</h4>
             </div>
             <div class="col-md-4 right text-right p-0">
@@ -12,6 +12,40 @@
                 <button mat-stroked-button class="btn-primary addon"><i class="material-icons">add</i>ADD NEW</button>
             </div>
         </div>
+        <div class="row pt-12">
+                <div class="col-md-8 p-0 custom-tags">
+                        <mat-chip-list aria-label="Fish selection">
+                                <mat-chip class="bg-white b-a c-p f-400 p-12">Live <i class="material-icons text-custom ml-12">
+                                        cancel
+                                        </i></mat-chip>
+                                <mat-chip class="bg-white b-a c-p f-400 p-12">Started <i class="material-icons text-custom ml-12">
+                                        cancel
+                                        </i></mat-chip>
+                                <mat-chip class="bg-white b-a c-p f-400 ">01/04/2018 - 31/03/2019 <i class="material-icons text-custom ml-12">
+                                        cancel
+                                        </i></mat-chip>
+                                
+                              </mat-chip-list>
+                </div>
+               
+                <div class="col-md-4 right text-right p-0">
+                 
+                        <button mat-button mat-stroked-button class="br-0 text-custom pr-0" [matMenuTriggerFor]="menu">FILTERS TWO <i class="material-icons">
+                                arrow_drop_down
+                                </i></button>
+                        <mat-menu #menu="matMenu">
+                          <button mat-menu-item>Item 1</button>
+                          <button mat-menu-item>Item 2</button>
+                        </mat-menu>
+                        <button mat-button mat-stroked-button class="br-0 ml-12 pr-0 text-custom" [matMenuTriggerFor]="menu">FILTERS ONE <i class="material-icons">
+                                arrow_drop_down
+                                </i></button>
+                        <mat-menu #menu="matMenu">
+                          <button mat-menu-item>Item 1</button>
+                          <button mat-menu-item>Item 2</button>
+                        </mat-menu>
+                </div>
+            </div>
         <table mat-table [dataSource]="dataSource" id="table-low" class="mt-8">
            
             <ng-container matColumnDef="client">
