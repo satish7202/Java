@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import * as $ from 'jquery';
 @Component({
   selector: 'app-document-terms-agreement',
   templateUrl: './document-terms-agreement.component.html',
@@ -11,5 +11,9 @@ export class DocumentTermsAgreementComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  Close()
+  {
+    $('#myRightSidenav').css({"width" : ""});
+    $('#myRightSidenav').css({"transition":'0.2s'})
+  }
 }
