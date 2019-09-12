@@ -43,8 +43,11 @@ import { ApplicantWiseComponent } from './component/protect-component/AdviserCom
 import { MisComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mis/mis.component';
 import { HttpService } from './http-service/http-service';
 import { DocumentsSubscriptionsComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/documents-subscriptions/documents-subscriptions.component';
-import {SidebarModule} from 'primeng/sidebar';
-import { SlimLoadingBarService, SlimLoadingBarModule } from "ng2-slim-loading-bar";  
+import { SlimLoadingBarService, SlimLoadingBarModule } from "ng2-slim-loading-bar";
+import { SipAmcWiseComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mutual-funds/sip/sip-amc-wise/sip-amc-wise.component';
+import { SipSchemeWiseComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mutual-funds/sip/sip-scheme-wise/sip-scheme-wise.component';
+import { SipClientWiseComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mutual-funds/sip/sip-client-wise/sip-client-wise.component';
+import { SipApplicantWiseComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mutual-funds/sip/sip-applicant-wise/sip-applicant-wise.component';  
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,6 +86,10 @@ import { SlimLoadingBarService, SlimLoadingBarModule } from "ng2-slim-loading-ba
     ApplicantWiseComponent,
     MisComponent,
     DocumentsSubscriptionsComponent,
+    SipAmcWiseComponent,
+    SipSchemeWiseComponent,
+    SipClientWiseComponent,
+    SipApplicantWiseComponent,
     
   ],
   imports: [
@@ -93,7 +100,7 @@ import { SlimLoadingBarService, SlimLoadingBarModule } from "ng2-slim-loading-ba
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SlimLoadingBarModule.forRoot() ,SidebarModule
+    SlimLoadingBarModule.forRoot() 
   ],
   providers: [AuthService,HttpService, ],
   bootstrap: [AppComponent],
