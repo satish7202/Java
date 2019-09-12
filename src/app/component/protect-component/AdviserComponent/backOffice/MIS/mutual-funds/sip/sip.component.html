@@ -5,7 +5,7 @@
 </div> -->
 <div id="ui-misreport">
         <div class="bg-white pb-36 b-a ">
-            <div  class="wrapper-20">
+            <div *ngIf="sipComponent==true" class="wrapper-20">
                 <div class="row">
                     <div class="col-md-12">
                         <h3 class="pt-36">Mutual Fund - AUM Report</h3>
@@ -19,7 +19,7 @@
     
                                             <h1 class="text-white f-44 f-300 pt-32" >Cr
                                             </h1>
-                                            <p class="f-16 pt-4 text-white">TOTAL AUM</p>
+                                            <p class="f-16 pt-4 text-white">TOTAL SIP BOOK</p>
     
                                         </div>
                                     </div>
@@ -27,23 +27,23 @@
                                         <div class="bg-foliocount br-2 min-height162 pr-20 pl-12">
     
                                             <div class="row pt-12">
-                                                <div class="col-md-5 text-left p-0">
+                                                <div class="col-md-5 text-left p-0" *ngIf="SipData1">
                                                     <div class="pl-12">
-                                                        <h1 class="f-24 text-white mb-0 pb-8">
+                                                        <h1 class="f-24 text-white mb-0 pb-8">{{SipData1.totalCount}}
                                                         </h1>
-                                                        <p class="f-12 text-white mb-0">Folio Count</p>
+                                                        <p class="f-12 text-white mb-0">SIP Count</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-7 p-0 text-right" >
                                                     <h1 class="text-white f-24 mb-0 pb-8"></h1>
-                                                    <p class="f-12 mb-0 text-white">Average Folio Size</p>
+                                                    <p class="f-12 mb-0 text-white">Average SIP</p>
     
                                                 </div>
                                                 <div class="col-md-12 pr-0">
                                                     <div class="pt-20">
                                                         <mat-progress-bar mode="determinate" value="10" class="text-white">
                                                         </mat-progress-bar>
-                                                        <p class="text-white f-12 pt-4 mb-0 pb-8">10 % Clients without MF
+                                                        <p class="text-white f-12 pt-4 mb-0 pb-8">10 % Clients without SIP
                                                         </p>
                                                     </div>
                                                 </div>
@@ -78,8 +78,8 @@
                                                                 calendar_today
                                                             </i>
                                                     </div>
-                                                    <div class="col-sm-9 text-left " >
-                                                        <p class="mb-0 text-custom pt-16 pb-16 ">Category wise</p>
+                                                    <div class="col-sm-9 text-left "  (click)="amcWise('amc')">
+                                                        <p class="mb-0 text-custom pt-16 pb-16 ">AMC Wise</p>
     
                                                     </div>
                                                 </div>
@@ -93,8 +93,8 @@
                                                                 favorite
                                                             </i>
                                                     </div>
-                                                    <div class="col-sm-9 text-left " >
-                                                        <p class="mb-0 text-custom pt-16 pb-16 ">AMC wise</p>
+                                                    <div class="col-sm-9 text-left " (click)="amcWise('scheme')">
+                                                        <p class="mb-0 text-custom pt-16 pb-16 ">Scheme Wise</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -107,8 +107,8 @@
                                                                 shopping_cart
                                                             </i>
                                                     </div>
-                                                    <div class="col-sm-9 text-left " >
-                                                        <p class="mb-0 text-custom pt-16 pb-16 ">Client wise</p>
+                                                    <div class="col-sm-9 text-left " (click)="amcWise('client')">
+                                                        <p class="mb-0 text-custom pt-16 pb-16 ">Client Wise</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -121,8 +121,8 @@
                                                                 dehaze
                                                             </i>
                                                     </div>
-                                                    <div class="col-sm-9 text-left " >
-                                                        <p class="mb-0 text-custom pt-16 pb-16 ">Applicant wise</p>
+                                                    <div class="col-sm-9 text-left " (click)="amcWise('applicant')">
+                                                        <p class="mb-0 text-custom pt-16 pb-16 ">Applicant Wise</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -214,4 +214,16 @@
                 </div>
             </div>
     
+        </div>
+        <div *ngIf="sipcomponentWise=='amc'">
+            <app-sip-amc-wise></app-sip-amc-wise>
+        </div>
+        <div *ngIf="sipcomponentWise=='scheme'">
+            <app-sip-scheme-wise></app-sip-scheme-wise>
+        </div>
+        <div *ngIf="sipcomponentWise=='client'">
+            <app-sip-client-wise></app-sip-client-wise>
+        </div>
+        <div *ngIf="sipcomponentWise=='applicant'">
+            <app-sip-applicant-wise></app-sip-applicant-wise>
         </div>
