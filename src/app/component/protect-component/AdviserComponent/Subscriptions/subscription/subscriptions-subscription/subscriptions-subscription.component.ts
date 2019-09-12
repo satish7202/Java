@@ -41,4 +41,9 @@ export class SubscriptionsSubscriptionComponent implements OnInit {
   {
    this.sub.leftBar();
   }
+  rightbarFees(value)
+  {
+    this.sub.subscriptionTab=value;
+    this.sub.leftBar();
+  }
 }

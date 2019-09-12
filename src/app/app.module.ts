@@ -47,6 +47,8 @@ import { SlimLoadingBarService, SlimLoadingBarModule } from "ng2-slim-loading-ba
 import { InvoicePdfDocumentComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/invoices-subscription/invoice-pdf-document/invoice-pdf-document.component';
 import { DocumentTermsAgreementComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/documents-subscriptions/document-terms-agreement/document-terms-agreement.component';
 import { SubscriptionsRightnavComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/subscriptions-subscription/subscriptions-rightnav/subscriptions-rightnav.component';
+import { SubscriptionModifiyFeeStructureComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/subscriptions-subscription/subscription-modifiy-fee-structure/subscription-modifiy-fee-structure.component';
+import { ClientsDashboardComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/dashboard-subscription/clients-dashboard/clients-dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -88,6 +90,8 @@ import { SubscriptionsRightnavComponent } from './component/protect-component/Ad
     InvoicePdfDocumentComponent,
     DocumentTermsAgreementComponent,
     SubscriptionsRightnavComponent,
+    SubscriptionModifiyFeeStructureComponent,
+    ClientsDashboardComponent,
     
   ],
   imports: [
