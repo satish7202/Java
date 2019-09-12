@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-preferences-settings',
   templateUrl: './preferences-settings.component.html',
@@ -8,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class PreferencesSettingsComponent implements OnInit {
 
   constructor() { }
-
+  viewMode;
   ngOnInit() {
+    this.viewMode="tab1";
   }
 
 }
