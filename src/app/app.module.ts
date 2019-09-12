@@ -43,11 +43,17 @@ import { ApplicantWiseComponent } from './component/protect-component/AdviserCom
 import { MisComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mis/mis.component';
 import { HttpService } from './http-service/http-service';
 import { DocumentsSubscriptionsComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/documents-subscriptions/documents-subscriptions.component';
-import { SlimLoadingBarService, SlimLoadingBarModule } from "ng2-slim-loading-bar";
+
 import { SipAmcWiseComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mutual-funds/sip/sip-amc-wise/sip-amc-wise.component';
 import { SipSchemeWiseComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mutual-funds/sip/sip-scheme-wise/sip-scheme-wise.component';
 import { SipClientWiseComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mutual-funds/sip/sip-client-wise/sip-client-wise.component';
 import { SipApplicantWiseComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mutual-funds/sip/sip-applicant-wise/sip-applicant-wise.component';  
+import { SlimLoadingBarService, SlimLoadingBarModule } from "ng2-slim-loading-bar";  
+import { InvoicePdfDocumentComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/invoices-subscription/invoice-pdf-document/invoice-pdf-document.component';
+import { DocumentTermsAgreementComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/documents-subscriptions/document-terms-agreement/document-terms-agreement.component';
+import { SubscriptionsRightnavComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/subscriptions-subscription/subscriptions-rightnav/subscriptions-rightnav.component';
+import { SubscriptionModifiyFeeStructureComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/subscriptions-subscription/subscription-modifiy-fee-structure/subscription-modifiy-fee-structure.component';
+import { ClientsDashboardComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/dashboard-subscription/clients-dashboard/clients-dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,6 +96,11 @@ import { SipApplicantWiseComponent } from './component/protect-component/Adviser
     SipSchemeWiseComponent,
     SipClientWiseComponent,
     SipApplicantWiseComponent,
+    InvoicePdfDocumentComponent,
+    DocumentTermsAgreementComponent,
+    SubscriptionsRightnavComponent,
+    SubscriptionModifiyFeeStructureComponent,
+    ClientsDashboardComponent,
     
   ],
   imports: [

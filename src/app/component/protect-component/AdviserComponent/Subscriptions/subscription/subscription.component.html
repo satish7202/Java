@@ -1,10 +1,13 @@
 <div id="ui-subscriptions">
     <div class="sub-header-fix bl-1">
         <div class="bg-white">
-
-            <mat-tab-group mat-align-tabs="end" animationDuration="0ms">
+            
+            <mat-tab-group mat-align-tabs="end" animationDuration="0ms" (selectedTabChange)="tabClick($event)">
+                
                 <mat-tab label="DASHBOARD">
                    <app-dashboard-subscription></app-dashboard-subscription>
+                   <!-- <app-invoice-pdf-document></app-invoice-pdf-document> -->
+                   <!-- <app-documents-subscriptions></app-documents-subscriptions> -->
                 </mat-tab>
                 <mat-tab label="CLIENTS">
                     <app-client-subscription></app-client-subscription>
@@ -12,7 +15,9 @@
                 <mat-tab label="SUBSCRIPTIONS">
                     <app-subscriptions-subscription></app-subscriptions-subscription>
                 </mat-tab>
-                <mat-tab label="QUOTATIONS"> </mat-tab>
+                <mat-tab label="QUOTATIONS"> 
+                    <app-invoice-pdf-document></app-invoice-pdf-document>
+                </mat-tab>
                 <mat-tab label="INVOICES">
                     <app-invoices-subscription></app-invoices-subscription>
                 </mat-tab>
@@ -25,4 +30,16 @@
             </mat-tab-group>
         </div>
     </div>
+</div>
+<div *ngIf="subscriptionTab=='DOCUMENTS'" id="myRightSidenav" class="right_sidenav">           
+    <app-document-terms-agreement></app-document-terms-agreement>
+</div>
+<div *ngIf="subscriptionTab=='SUBSCRIPTIONS'" id="myRightSidenav" class="right_sidenav">           
+    <app-subscriptions-rightnav></app-subscriptions-rightnav>
+</div>
+<div *ngIf="subscriptionTab=='subscriptionFees'" id="myRightSidenav" class="right_sidenav">           
+    <app-subscriptions-rightnav></app-subscriptions-rightnav>
+</div>
+<div *ngIf="subscriptionTab=='dashboardSubscription'" id="myRightSidenav" class="right_sidenav">           
+    <app-clients-dashboard></app-clients-dashboard>
 </div>
