@@ -390,7 +390,7 @@
     right: 0;
     background-color: #fff;
     overflow-x: hidden;
-    transition: 0.3s;
+    transition: 0.2s;
     border: 1px solid #ddd;
 }
 
@@ -458,4 +458,20 @@ mat-tab-group[vertical] {
         box-shadow: none !important;
     }
 }
+
+
+#ui-perferences{
+        .vertical-menu {
+ 
+ 
+        display:block !important;
+        background-color: #eee;
+        width: 150px;
+        text-align: center;
+    }
+    a{
+        padding: 8px;
+    }
+}
+
 

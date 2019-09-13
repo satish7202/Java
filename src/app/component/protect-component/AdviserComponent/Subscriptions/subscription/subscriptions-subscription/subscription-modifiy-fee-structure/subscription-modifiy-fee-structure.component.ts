@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-subscription-modifiy-fee-structure',
@@ -11,5 +12,9 @@ export class SubscriptionModifiyFeeStructureComponent implements OnInit {
 
   ngOnInit() {
   }
-
-}
+  Close()
+  {
+    $('#myRightSidenav').css({"width" : ""});
+    $('#myRightSidenav').css({"transition":'0.2s'})
+  }
+} 

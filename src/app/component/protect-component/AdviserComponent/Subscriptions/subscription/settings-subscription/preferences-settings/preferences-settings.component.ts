@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 export class PreferencesSettingsComponent implements OnInit {
 
   constructor() { }
-  viewMode;
+  viewMode='tab1'
   ngOnInit() {
     this.viewMode="tab1";
   }

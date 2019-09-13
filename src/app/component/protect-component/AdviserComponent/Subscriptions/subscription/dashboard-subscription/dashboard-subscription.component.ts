@@ -34,4 +34,9 @@ export class DashboardSubscriptionComponent implements OnInit {
     this.sub.subscriptionTab=value;
     this.sub.leftBar();
   }
+  modifyFees(value)
+  {
+    this.sub.subscriptionTab=value;
+    this.sub.leftBar();
+  }
 }
