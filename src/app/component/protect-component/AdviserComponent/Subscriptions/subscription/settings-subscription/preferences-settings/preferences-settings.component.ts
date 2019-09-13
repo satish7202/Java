@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class PreferencesSettingsComponent implements OnInit {
 
   constructor() { }
-
+  viewMode='tab1'
   ngOnInit() {
   }
 
