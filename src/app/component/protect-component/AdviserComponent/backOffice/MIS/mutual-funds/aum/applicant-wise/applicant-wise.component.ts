@@ -13,7 +13,6 @@ export class ApplicantWiseComponent implements OnInit {
   teamMemberId=2929;
   applicantName;
   showLoader=true;
-  clientId;
   ngOnInit() {
     this.aumApplicantWiseTotalaumApplicantNameGet();
   }
@@ -29,51 +28,80 @@ export class ApplicantWiseComponent implements OnInit {
     this.showLoader=false;
   }
   
-  category(name,index,show)
+  category(applicantData)
   {
     let obj=
     {
-      'clientId':name.id,
-      'clientTotalAum':0,
+      'clientId':applicantData.id,
+      'clientTotalAum':applicantData.totalAum,
       'teamMemberId':this.teamMemberId
     }
-    this.clientId=name.id;
-    if(show==false)
+    if(applicantData.show==false)
     {
     this.backoffice.getAumApplicantCategory(obj).subscribe(
-      data => this.sortCategoryApplicant(data,index,show,name)
+      data => this.sortCategoryApplicant(data,applicantData.show,applicantData)
     )
     }
     else
     {
-      this.applicantName[index].show=false;
+      applicantData.show=false;
     }
   }
-  sortCategoryApplicant(data,index,show,name)
+  sortCategoryApplicant(data,show,applicantData)
   {
-    console.log("fasdfkasdf",data); 
-    name.category=data;
-    this.applicantName[index].show=(show)?show=false:show=true;
+    console.log("fasdfkasdf",data);
+    applicantData.category=data;
+    applicantData.show=(show)?show=false:show=true;
 
   }
-  subCategory(category,showCategory,index)
+  subCategory(category,showCategory,id)
   {
     let obj=
     {
       'categoryId':category.id,
       'categoryTotalAum':category.totalAum,
-      'clientId':this.clientId,
+      'clientId':id,
       'teamMemberId':this.teamMemberId
     }
-    this.backoffice.getAumApplicantSubCategory(obj).subscribe(
-      data =>this.getResponseSubCategoryData(data,category,showCategory,index)
-    )
+    if(showCategory==false)
+    {
+      this.backoffice.getAumApplicantSubCategory(obj).subscribe(
+        data =>this.getResponseSubCategoryData(data,category,showCategory)
+      )
+    }
+    else{
+      category.showCategory=false;
+    }
   }
-  getResponseSubCategoryData(data,category,showCategory,index)
+  getResponseSubCategoryData(data,category,showCategory)
   {  
-    category.subCategoryList=data;
-    
-    category.subCategoryList[index].showSubCategory=(showCategory)?showCategory=false:showCategory=true;
+    console.log(data);
+    category.showCategory=(showCategory)?showCategory=false:showCategory=true;
+    category.subCategoryList=data;  
+  }
+  getScheme(subCat,id)
+  {
+    let obj=
+    {
+      'clientId':id,
+      'subCategoryId':subCat.id,
+      'subCategoryTotalAum':subCat.totalAum,
+      'teamMemberId':this.teamMemberId
+    }
+    if(subCat.showSubCategory==false)
+    {
+      this.backoffice.getAumApplicantScheme(obj).subscribe(
+        data => this.getResponseSchemeData(data,subCat)
+      )
+    }
+    else{
+      subCat.showSubCategory=false;
+    }
+  }
+  getResponseSchemeData(data,subCat)
+  {
+    subCat.schemes=data;
+    subCat.showSubCategory=(subCat.showSubCategory)?subCat.showSubCategory=false:subCat.showSubCategory=true;
   }
   aumReport()
   {

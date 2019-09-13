@@ -21,7 +21,7 @@
                             <thead class="text-dark">
                                 <tr>
                                     <th>Sr No.</th>
-                                    <th>Category Name</th>
+                                    <th>Applicant Name</th>
                                     <th class="text-right">Current Value</th>
                                     <th class="text-right">% Weight</th>
                 
@@ -30,7 +30,7 @@
                             <tbody *ngFor="let name of applicantName; index as i">
                                 <tr>
                                     <td>{{i+1}}</td>
-                                    <td (click)="category(name,i,name.show)" >{{name.name}}<i class="material-icons right b-a f-14 mt-4 c-p" *ngIf="name.show==false"> add  </i>
+                                    <td (click)="category(name)" >{{name.name}}<i class="material-icons right b-a f-14 mt-4 c-p" *ngIf="name.show==false"> add  </i>
                                     <i class="material-icons right b-a f-14 mt-4 c-p" *ngIf="name.show==true" > remove  </i></td>
                                     <td class="text-right">waiting</td>
                                     <td class="text-right">{{name.weightInPercentage}}</td>
@@ -41,7 +41,7 @@
                                             <thead class="bg-light text-dark">
                                                     <tr>
                                                         <th>Sr No.</th>
-                                                        <th>Sub Category Name</th>
+                                                        <th>Category Name</th>
                                                         <th class="text-right">Current Value</th>
                                                         <th class="text-right">% Weight</th>
                                 
@@ -50,12 +50,12 @@
                                                    <tbody *ngFor="let category of name.category; index as i" >
                                                         <tr>
                                                             <td>{{i+1}}</td>
-                                                            <td (click)="subCategory(category,category.showCategory,i)" >{{category.name}}<i  class="material-icons right b-a f-14 mt-4 c-p" *ngIf="category.showCategory==false"  >add</i>
-                                                                <i class="material-icons right b-a f-14 mt-4 c-p" *ngIf="category.showCategory==true"> remove  </i> </td>
+                                                            <td (click)="subCategory(category,category.showCategory,name.id)" >{{category.name}}<i  class="material-icons right b-a f-14 mt-4 c-p" *ngIf="category.showCategory==false">add</i>
+                                                                <i class="material-icons right b-a f-14 mt-4 c-p" *ngIf="category.showCategory"> remove  </i> </td>
                                                             <td class="text-right">{{category.totalAum}}</td>
                                                             <td class="text-right">{{category.weightInPercentage}}%</td>
                                                         </tr>
-                                                        <table *ngIf="category.showSubCategory" >
+                                                        <table *ngIf="category.showCategory" >
                                                             <thead>
                                                                 <tr>
                                                                 <th>Sr No.</th>
@@ -65,14 +65,36 @@
                                                                 </tr>
                                                             </thead>
                                                             <tr>
-                                                            <tbody *ngFor="let sub of subCategoryList; index as i" >
+                                                            <tbody *ngFor="let sub of category.subCategoryList; index as i" >
                                                                 <tr >
                                                                     <td>{{i+1}}</td>
-                                                                    <td>{{sub.name}}<i class="material-icons right b-a f-14 mt-4 c-p" >add</i>
-                                                                        <i  class="material-icons right b-a f-14 mt-4 c-p"> remove  </i> </td>
-                                                                    <td class="text-right"> </td>
-                                                                    <td class="text-right"></td>
+                                                                    <td (click)="getScheme(sub,name.id)">{{sub.name}}<i class="material-icons right b-a f-14 mt-4 c-p" *ngIf="sub.showSubCategory==false" >add</i>
+                                                                        <i  class="material-icons right b-a f-14 mt-4 c-p" *ngIf="sub.showSubCategory"> remove  </i> </td>
+                                                                    <td class="text-right">{{sub.totalAum}} </td>
+                                                                    <td class="text-right">{{sub.weightInPercentage}}</td>
                                                                 </tr>
+                                                                <table *ngIf="sub.showSubCategory">
+                                                                    <thead>
+                                                                        <tr>
+                                                                        <th>Sr No.</th>
+                                                                        <th>Scheme Name</th>
+                                                                        <th class="text-right">Current Value</th>
+                                                                        <th class="text-right">% Weight</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tr>
+                                                                    <tbody *ngFor="let client of sub.schemes; index as i" >
+                                                                        <tr >
+                                                                            <td>{{i+1}}</td>
+                                                                            <td >{{client.schemeName}}<i class="material-icons right b-a f-14 mt-4 c-p" *ngIf="client.showScheme==false">add</i>
+                                                                                <i  class="material-icons right b-a f-14 mt-4 c-p" *ngIf="client.showScheme"> remove  </i> </td>
+                                                                            <td class="text-right">{{client.folioNumber}}</td>
+                                                                            <td class="text-right">{{client.totalAum}}</td>
+                                                                            <td class="text-right">{{client.weightInPercentage}}</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                    
+                                                                </table>
                                                             </tbody>
                                                             
                                                         </table>

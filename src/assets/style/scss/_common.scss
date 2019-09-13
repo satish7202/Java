@@ -48,7 +48,9 @@ p {
     font-family: "proxima-nova", sans-serif;
 
 }
-
+a,a:hover{
+    text-decoration: none !important;
+}
 .width-230 {
     width: 230px;
     height: 100vh;
@@ -77,7 +79,9 @@ p {
 .w-auto {
     height: $auto;
 }
-
+.roboto{
+    font-family: 'Roboto', sans-serif !important;
+}
 // padding & margin
 ul {
     list-style-type: none;
@@ -253,14 +257,26 @@ button:focus {
     border-radius: 1px !important;
 }
 .bt-1{
-    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    border-top: 1px solid rgba(0, 0, 0, 0.12) !important;
 } 
 .bb-1{
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+.bb{
+    border-bottom: 1px solid #DADCE0;
 }
 .br-0{
     border-radius: 0px !important;
 }
 .v-sub{
     vertical-align: sub;
+}
+.v-middle{
+    vertical-align: middle !important;
+}
+.l-22{
+    line-height: 22px;
+}
+.l-20{
+    line-height: 20px;
 }

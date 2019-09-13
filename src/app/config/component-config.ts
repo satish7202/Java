@@ -15,6 +15,7 @@
     GET_AUM_APPLICANT:'futurewise/asset/aum/applicantWise/totalaum/applicantName/get',
     GET_AUM_APPLICANT_CATEGORY:'futurewise/asset/aum/applicantWise/totalaum/applicantsAllCategory/get',
     GET_AUM_APPLICANT_SUB_CATEGORY:'futurewise/asset/aum/applicantWise/totalaum/applicantSubCategory/get',
+    GET_AUM_APPLICANT_SCHEME:'futurewise/asset/aum/applicantWise/totalaum/applicantSchemes/get',
     GET_AUM_CLIENT_TOTALAUM:'futurewise/asset/aum/client/totalaum/get',
     GET_AUM_CLIENT_SCHEME:'futurewise/asset/aum/client/schemes',
     GET_BASE_64:'futurewise/api/v1/test/base64/decode',

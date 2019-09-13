@@ -6,6 +6,17 @@
             color: #000000;
         }
     }
+    h4,h2{
+        font-family: "proxima-nova", sans-serif;
+    }
+}
+hr{
+    border-bottom: 1px solid #DADCE0;
+   width: 90%;
+   margin: 0 auto;
+   
+   display: block;
+
 }
 .bg-red{
     background-color: #FFD8D8
@@ -18,8 +29,9 @@
     background-color: #D01010;
     color: #FFD5D5 !important;
     font-size: 20px;
-    font-family: "Roboto";
+    font-family: "Roboto", sans-serif;
     letter-spacing: 0.2px;
+    
 }
 h1{
     font-family: "Playfair Display";
@@ -28,9 +40,10 @@ font-weight: normal;
 padding-top: 16px;
 line-height: 40px;
 letter-spacing: 0.2px;
+margin-bottom: 0;
 }
 p{
-    font-family: "Roboto";
+    font-family: "Roboto", sans-serif;
 font-style: normal;
 font-weight: normal;
 font-size: 16px;
