@@ -32,7 +32,7 @@ export class CategoryWiseComponent implements OnInit {
   otherList: any[];
   SolutionOriented: any;
   solutionOrientedList: any[];
-  constructor(private backoffice:BackOfficeService,private dataService: EventService,private aum:AumComponent) { }
+  constructor(private backoffice:BackOfficeService,private dataService: EventService,public aum:AumComponent) { }
   teamMemberId=2929;
   ngOnInit() {
     this.getSubCatSchemeName();

@@ -8,7 +8,7 @@ import { AumComponent } from '../aum.component';
 })
 export class ApplicantWiseComponent implements OnInit {
 
-  constructor(private aum:AumComponent) { }
+  constructor(public aum:AumComponent) { }
 
   ngOnInit() {
   }
