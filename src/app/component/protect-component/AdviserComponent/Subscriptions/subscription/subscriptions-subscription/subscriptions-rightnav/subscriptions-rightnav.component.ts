@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+
 @Component({
-  selector: 'app-add-structure',
-  templateUrl: './add-structure.component.html',
-  styleUrls: ['./add-structure.component.scss']
+  selector: 'app-subscriptions-rightnav',
+  templateUrl: './subscriptions-rightnav.component.html',
+  styleUrls: ['./subscriptions-rightnav.component.scss']
 })
-export class AddStructureComponent implements OnInit {
+export class SubscriptionsRightnavComponent implements OnInit {
 
   constructor() { }
 
   ngOnInit() {
   }
-
-  closeNav() {
+  Close()
+  {
     $('#myRightSidenav').css({"width" : ""});
     $('#myRightSidenav').css({"transition":'0.2s'})
   }

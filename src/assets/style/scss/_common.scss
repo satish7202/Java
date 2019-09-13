@@ -279,4 +279,44 @@ button:focus {
 }
 .l-20{
     line-height: 20px;
+
 }
+// .bottom-fixed{
+//     position: fixed;
+//    left: 0;
+//    bottom: 0;
+//    width: 100%;
+//    background-color: red;
+//    color: white;
+//    text-align: center;
+// }
+
+.bottom-fixed {
+    overflow: hidden;
+    background-color: #757575;
+    position: fixed;
+    bottom: 0;
+    width: 60%;
+  }
+  
+//   .bottom-fixed a {
+//     float: left;
+//     display: block;
+//     color: #f2f2f2;
+//     text-align: center;
+//     padding: 14px 16px;
+//     text-decoration: none;
+//     font-size: 17px;
+//   }
+  .text-inherit{
+      text-transform: inherit !important;
+  }
+//   .bottom-fixed a:hover {
+//     background: #f1f1f1;
+//     color: black;
+//   }
+  
+//   .bottom-fixed a.active {
+//     background-color: #4CAF50;
+//     color: white;
+//   }
