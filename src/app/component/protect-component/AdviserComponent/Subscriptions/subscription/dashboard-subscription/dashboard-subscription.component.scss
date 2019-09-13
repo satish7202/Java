@@ -1,0 +1,57 @@
+#ui-dashboard{
+    padding-top: 20px;
+
+    .subscription-summary{
+        p{
+            color: #000000;
+        }
+    }
+    h4,h2{
+        font-family: "proxima-nova", sans-serif;
+    }
+}
+hr{
+    border-bottom: 1px solid #DADCE0;
+   width: 90%;
+   margin: 0 auto;
+   
+   display: block;
+
+}
+.bg-red{
+    background-color: #FFD8D8
+}
+.full-lights{
+    background-color: #F7F8F9;
+   
+}
+.btn-red{
+    background-color: #D01010;
+    color: #FFD5D5 !important;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 0.2px;
+    
+}
+h1{
+    font-family: "Playfair Display";
+font-style: normal;
+font-weight: normal;
+padding-top: 16px;
+line-height: 40px;
+letter-spacing: 0.2px;
+margin-bottom: 0;
+}
+p{
+    font-family: "Roboto", sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 130%;
+letter-spacing: 0.2px;
+color: #004164;
+}
+.btn-red .material-icons{
+    margin-left: 2px;
+    padding-top: 2px;
+}

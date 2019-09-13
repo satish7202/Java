@@ -14,5 +14,6 @@ export class AddStructureComponent implements OnInit {
 
   closeNav() {
     $('#myRightSidenav').css({"width" : ""});
+    $('#myRightSidenav').css({"transition":'0.2s'})
   }
 }

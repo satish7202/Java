@@ -1,1 +1,62 @@
-<p>preferences-settings works!</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h5>Vertical Menu</h5>
+<br>
+<br>
+<div id="ui-perferences">
+<div class="row">
+    <div class="col-md-3">
+        <ul class="vertical-menu">
+            <li (click)="viewMode ='tab1'">Tab 1</li>
+            <li (click)="viewMode ='tab2'">Tab 2</li>
+            <li (click)="viewMode ='tab3'">Tab 3</li>
+            <li (click)="viewMode ='tab4'">Tab 4</li>
+            <li (click)="viewMode ='tab5'">Tab 5</li>
+        </ul>
+    </div>
+    <div class="col-md-9" [ngSwitch]="viewMode">
+        <div *ngSwitchCase="'tab1'">
+            <h2>First Tab</h2>
+            <p>Toggle switch style tab navigation. Currently only works with two tabs.</p>
+            <p>Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla.
+                Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh
+                ultricies vehicula ut id elit. Nulla
+                vitae elit libero, a pharetra augue.</p>
+        </div>
+        <div *ngSwitchCase="'tab2'">
+            <h2>Third Tab</h2>
+            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis
+                consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Cras mattis consectetur
+                purus sit amet fermentum. Aenean eu leo
+                quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+        </div>
+        <div *ngSwitchCase="'tab3'">
+            <h2>Fourth Tab</h2>
+            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis
+                consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Cras mattis consectetur
+                purus sit amet fermentum. Aenean eu leo
+                quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+        </div>
+        <div *ngSwitchCase="'tab4'">
+            <h2>Second Tab</h2>
+            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis
+                consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Cras mattis consectetur
+                purus sit amet fermentum. Aenean eu leo
+                quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+        </div>
+        <div *ngSwitchCase="'tab5'">
+            <h2>Fifth Tab</h2>
+            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis
+                consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Cras mattis consectetur
+                purus sit amet fermentum. Aenean eu leo
+                quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+        </div>
+    </div>
+</div>
+</div>
