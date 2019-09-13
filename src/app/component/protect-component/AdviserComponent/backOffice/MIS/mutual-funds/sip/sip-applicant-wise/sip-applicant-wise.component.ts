@@ -8,7 +8,7 @@ import {SipComponent} from '../sip.component';
 })
 export class SipApplicantWiseComponent implements OnInit {
   showLoader=true;
-  constructor(private backoffice:BackOfficeService,private sip:SipComponent) { }
+  constructor(private backoffice:BackOfficeService,public sip:SipComponent) { }
 
   ngOnInit() {
     this.showLoader = false;

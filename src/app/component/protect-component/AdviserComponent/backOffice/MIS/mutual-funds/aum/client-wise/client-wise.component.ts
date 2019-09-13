@@ -9,7 +9,7 @@ import { BackOfficeService } from '../../../../back-office.service';
 })
 export class ClientWiseComponent implements OnInit {
 
-  constructor(private aum:AumComponent,private backoffice:BackOfficeService) { }
+  constructor(public aum:AumComponent,private backoffice:BackOfficeService) { }
   
   teamMemberId=2929;
   showLoader=true;

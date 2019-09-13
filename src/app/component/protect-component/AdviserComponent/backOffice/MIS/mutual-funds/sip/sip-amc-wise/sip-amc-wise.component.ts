@@ -8,7 +8,7 @@ import {SipComponent} from '../sip.component';
 })
 export class SipAmcWiseComponent implements OnInit {
   showLoader=true;
-  constructor(private backoffice:BackOfficeService,private sip:SipComponent) { }
+  constructor(private backoffice:BackOfficeService,public sip:SipComponent) { }
   teamMemberId=2929;
 
   ngOnInit() {
