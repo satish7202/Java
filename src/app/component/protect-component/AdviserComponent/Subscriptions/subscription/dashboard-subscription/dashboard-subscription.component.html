@@ -185,7 +185,7 @@
                                     <!-- Weight Column -->
                                     <ng-container matColumnDef="amt">
                                         <th mat-header-cell *matHeaderCellDef> Fee amount </th>
-                                        <td mat-cell *matCellDef="let element"> {{element.amt}} </td>
+                                        <td mat-cell *matCellDef="let element" (click)="modifyFees('modifyFees')"> {{element.amt}} </td>
                                     </ng-container>
     
                                     <!-- Symbol Column -->
