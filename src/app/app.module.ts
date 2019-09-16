@@ -102,6 +102,7 @@ import { ClientsDashboardComponent } from './component/protect-component/Adviser
     SubscriptionModifiyFeeStructureComponent,
     ClientsDashboardComponent,
     
+    
   ],
   imports: [
     BrowserModule,
