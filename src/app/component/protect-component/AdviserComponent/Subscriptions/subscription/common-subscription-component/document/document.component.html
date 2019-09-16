@@ -1,5 +1,5 @@
-
-        <mat-toolbar class="bottom-fixed">
+<div  *ngIf="componentFlag=='plansDocuments'">
+      <mat-toolbar class="bottom-fixed">
                 <div class="row w-100">
                     <div class="col-md-6 text-left">
                         <p class="text-white f-16 mb-0 pt-12">Cancel</p>
@@ -107,3 +107,7 @@
                 </div>
             </div>
         </div>
+</div>
+<div *ngIf="componentFlag!='plansDocuments'">
+    This is documents in services
+</div>
