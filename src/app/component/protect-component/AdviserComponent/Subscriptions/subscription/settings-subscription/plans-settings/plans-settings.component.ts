@@ -18,6 +18,7 @@ export class PlansSettingsComponent implements OnInit {
   openFragment(data) {
     let Fragmentdata = {
       Flag: data,
+      id:1
     }
 
     const dialogRef = this.dialog.open(UpperSliderComponent, {
