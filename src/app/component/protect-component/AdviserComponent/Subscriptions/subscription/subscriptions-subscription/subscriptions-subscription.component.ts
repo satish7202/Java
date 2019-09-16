@@ -6,6 +6,7 @@ import {MatChipInputEvent} from '@angular/material/chips';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { SubscriptionComponent } from '../subscription.component';
+import { EventService } from 'src/app/Data-service/event.service';
 export interface PeriodicElement {
   client:string;
   service:string;
@@ -29,7 +30,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class SubscriptionsSubscriptionComponent implements OnInit {
  
-  constructor(private sub:SubscriptionComponent) {
+  constructor(private sub:SubscriptionComponent,private eventService:EventService) {
   }
 
   ngOnInit() {
@@ -39,11 +40,14 @@ export class SubscriptionsSubscriptionComponent implements OnInit {
 
   rightbar()
   {
-   this.sub.leftBar();
+   this.sub.rightBar();
   }
+  sidebarData
+
   rightbarFees(value)
   {
+    this.eventService.sidebarData('subscriptionFees')
     this.sub.subscriptionTab=value;
-    this.sub.leftBar();
+    this.sub.rightBar();
   }
 }
