@@ -54,7 +54,10 @@ import { DocumentTermsAgreementComponent } from './component/protect-component/A
 import { SubscriptionsRightnavComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/subscriptions-subscription/subscriptions-rightnav/subscriptions-rightnav.component';
 import { SubscriptionModifiyFeeStructureComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/subscriptions-subscription/subscription-modifiy-fee-structure/subscription-modifiy-fee-structure.component';
 import { ClientsDashboardComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/dashboard-subscription/clients-dashboard/clients-dashboard.component';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+
 import { InvoiceComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/invoice/invoice.component';
+import { LoginComponent } from './component/no-protected/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -103,6 +106,7 @@ import { InvoiceComponent } from './component/protect-component/AdviserComponent
     SubscriptionModifiyFeeStructureComponent,
     ClientsDashboardComponent,
     InvoiceComponent,
+    LoginComponent,
     
     
   ],
@@ -114,7 +118,8 @@ import { InvoiceComponent } from './component/protect-component/AdviserComponent
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SlimLoadingBarModule.forRoot() 
+    SlimLoadingBarModule.forRoot(),
+    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot() 
   ],
   providers: [AuthService,HttpService],
   bootstrap: [AppComponent],

@@ -1,54 +1,65 @@
-h3{
+h3 {
     font-family: "Playfair Display";
-font-style: normal;
-font-weight: normal;
-font-size: 24px;
-line-height: 32px;
-letter-spacing: 0.2px;
-color: #3F3F3F;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 0.2px;
+    color: #3F3F3F;
 }
-p{
+
+p {
     margin-bottom: 0;
     color: #83959D;
-    
     line-height: 15px;
 }
-h5{
-    font-family: "Proxima Nova",sans-serif;
+
+h5 {
+    font-family: "Proxima Nova", sans-serif;
     font-size: 16px;
     line-height: 19px;
     letter-spacing: 0.2px;
     color: #3F3F3F;
     font-weight: 200;
 }
-.img-icons{
+
+.img-icons {
     padding-top: 36px;
     display: block;
     margin: auto;
     text-align: center;
     width: 70%;
 }
-.notes{
-    font-family: "Roboto",sans-serif;
-font-style: normal;
-font-weight: normal;
-font-size: 16px;
-line-height: 19px;
 
-color: #3F3F3F;
+.notes {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #3F3F3F;
 }
-.form-control{
+
+.form-control {
     height: 50px;
 }
-.form-control:focus{
+
+.form-control:focus {
     box-shadow: none !important;
     border-color: #ced4da !important;
 }
-.ba-danger{
-    border:1px solid #FF6823;
+
+.ba-danger {
+    border: 1px solid #FF6823;
     border-radius: 2px;
-    padding:1px;
+    padding: 1px;
 }
-.min-height{
+
+.min-height {
     min-height: 965px;
+}
+
+.active {
+    background-color: #d90000;
+    color: #fff;
 }
