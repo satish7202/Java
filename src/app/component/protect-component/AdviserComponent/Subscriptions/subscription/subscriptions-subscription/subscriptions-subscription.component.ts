@@ -38,16 +38,10 @@ export class SubscriptionsSubscriptionComponent implements OnInit {
   displayedColumns: string[] = ['client','service','amt','sub','status','activation', 'lastbilling', 'nextbilling','feemode','icons'];
   dataSource = ELEMENT_DATA;
 
-  rightbar()
+  rightbar(value)
   {
+    this.eventService.sidebarData(value)
    this.sub.rightBar();
   }
-  sidebarData
-
-  rightbarFees(value)
-  {
-    this.eventService.sidebarData('subscriptionFees')
-    this.sub.subscriptionTab=value;
-    this.sub.rightBar();
-  }
+  // sidebarData
 }

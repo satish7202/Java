@@ -13,6 +13,11 @@ export class DocumentsSettingsComponent implements OnInit {
 
   ngOnInit() {
   }
+  documentSettingData=[{'title':'Investor agreement','code':'Global'},
+                       {'title':'Investor agreement','code':'Global'},
+                       {'title':'Investor agreement','code':'Global'},
+                       {'title':'Investor agreement','code':'Global'}]
+                       
   openFragment(data) {
     let Fragmentdata = {
       Flag: data,

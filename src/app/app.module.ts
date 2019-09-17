@@ -54,6 +54,7 @@ import { DocumentTermsAgreementComponent } from './component/protect-component/A
 import { SubscriptionsRightnavComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/subscriptions-subscription/subscriptions-rightnav/subscriptions-rightnav.component';
 import { SubscriptionModifiyFeeStructureComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/subscriptions-subscription/subscription-modifiy-fee-structure/subscription-modifiy-fee-structure.component';
 import { ClientsDashboardComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/dashboard-subscription/clients-dashboard/clients-dashboard.component';
+import { InvoiceComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/invoice/invoice.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -101,6 +102,7 @@ import { ClientsDashboardComponent } from './component/protect-component/Adviser
     SubscriptionsRightnavComponent,
     SubscriptionModifiyFeeStructureComponent,
     ClientsDashboardComponent,
+    InvoiceComponent,
     
     
   ],

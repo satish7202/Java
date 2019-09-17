@@ -16,10 +16,10 @@
                     <app-subscriptions-subscription></app-subscriptions-subscription>
                 </mat-tab>
                 <mat-tab label="QUOTATIONS"> 
-                    <app-invoice-pdf-document></app-invoice-pdf-document>
+                    <!-- <app-invoice-pdf-document></app-invoice-pdf-document> -->
                 </mat-tab>
                 <mat-tab label="INVOICES">
-                    <app-invoices-subscription></app-invoices-subscription>
+                    <app-invoices-subscription *ngIf="subscriptionTab=='INVOICES'"></app-invoices-subscription>
                 </mat-tab>
                 <mat-tab label="DOCUMENTS">
                     <app-documents-subscriptions></app-documents-subscriptions>

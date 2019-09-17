@@ -15,7 +15,12 @@ export class ServicesSettingsComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  serviceSettingData=[{'title':'Investment Management','code':'IMA124','feetype':'Fixed','Nature':'Recurring','Mode':'End of period','FEES':'Rs.10,000/Year','PLANS':'3',"MODULES":'12','DOCUMENTS':'0'},
+  {'title':'Investment Management','code':'IMA124','feetype':'Fixed','Nature':'Recurring','Mode':'End of period','FEES':'Rs.10,000/Year','PLANS':'3',"MODULES":'12','DOCUMENTS':'0'},
+  {'title':'Investment Management','code':'IMA124','feetype':'Fixed','Nature':'Recurring','Mode':'End of period','FEES':'Rs.10,000/Year','PLANS':'3',"MODULES":'12','DOCUMENTS':'0'},
+  {'title':'Investment Management','code':'IMA124','feetype':'Fixed','Nature':'Recurring','Mode':'End of period','FEES':'Rs.10,000/Year','PLANS':'3',"MODULES":'12','DOCUMENTS':'0'},
+  {'title':'Investment Management','code':'IMA124','feetype':'Fixed','Nature':'Recurring','Mode':'End of period','FEES':'Rs.10,000/Year','PLANS':'3',"MODULES":'12','DOCUMENTS':'0'},
+  {'title':'Investment Management','code':'IMA124','feetype':'Fixed','Nature':'Recurring','Mode':'End of period','FEES':'Rs.10,000/Year','PLANS':'3',"MODULES":'12','DOCUMENTS':'0'}]
   openFragment(data) {
     let Fragmentdata = {
       Flag: data,
@@ -27,19 +32,6 @@ export class ServicesSettingsComponent implements OnInit {
        data: Fragmentdata,
        autoFocus:false,
        panelClass:'dialogBox',
-      //  position: { 
-      //    top: `30px`,
-      //    right: `40px`
-      //   },
-      // openFrom:'{
-      //   top: -50,
-      //   width: 30,
-      //   height: 80
-      // }',
-      // closeTo({
-      //   left: 1500
-      // })
-      // hasBackdrop: false,
     });
   
     dialogRef.afterClosed().subscribe(result => {

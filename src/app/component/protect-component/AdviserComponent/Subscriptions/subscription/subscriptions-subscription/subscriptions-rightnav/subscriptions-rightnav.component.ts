@@ -24,7 +24,19 @@ export class SubscriptionsRightnavComponent implements OnInit {
   constructor() { }
   displayedColumns: string[] = ['date', 'invoice', 'status', 'ddate','amount','balance'];
   dataSource = ELEMENT_DATA;
+  showSubscription;
+  invoiceData;
+  
+
   ngOnInit() {
+    this.showSubscription=true;
+  }
+  showInvoice(value)
+  {
+    this.invoiceData=value;
+    console.log(this.invoiceData)
+    this.showSubscription=false;
+    
   }
   Close()
   {
