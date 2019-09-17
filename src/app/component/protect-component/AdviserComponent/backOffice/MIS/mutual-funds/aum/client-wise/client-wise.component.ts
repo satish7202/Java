@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AumComponent } from '../aum.component';
 import { BackOfficeService } from '../../../../back-office.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-client-wise',
@@ -9,9 +10,9 @@ import { BackOfficeService } from '../../../../back-office.service';
 })
 export class ClientWiseComponent implements OnInit {
 
-  constructor(private aum:AumComponent,private backoffice:BackOfficeService) { }
+  constructor(private aum:AumComponent,private backoffice:BackOfficeService,private userService:UserService) { }
   
-  teamMemberId=2929;
+ 
   showLoader=true;
   clientList
   selectedClient;
@@ -26,7 +27,7 @@ export class ClientWiseComponent implements OnInit {
     let obj={
       'limit':50,
       'offset':1,
-      'teamMemberId':this.teamMemberId
+      'teamMemberId':this.userService.getTeamMemberId()
     }
     this.backoffice.getAumClientTotalAum(obj).subscribe(
       data => this.clientTotalAum(data)
@@ -38,7 +39,7 @@ export class ClientWiseComponent implements OnInit {
     let obj=
    {
     'clientId':clientname.id,
-    'teamMemberId':this.teamMemberId
+    'teamMemberId':this.userService.getTeamMemberId()
    }
    if(show==true)
    {

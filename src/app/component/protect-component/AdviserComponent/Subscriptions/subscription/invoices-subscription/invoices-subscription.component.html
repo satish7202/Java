@@ -1,3 +1,6 @@
+<div *ngIf="showLoader">
+    <mat-spinner class="loader" [diameter]="30"></mat-spinner>
+</div>
 <div *ngIf="showPdfInvoice==false" class="bg-white pb-36 mt-70" id="ui-invoice">
 <div class="wrapper-20">
     <div class="row">
@@ -15,7 +18,7 @@
     </div>
     <table mat-table [dataSource]="dataSource" id="table-low" class="mt-8">
                  <ng-container matColumnDef="checkbox">
-                    <th mat-header-cell *matHeaderCellDef class="f-18"> <mat-checkbox ></mat-checkbox> </th>
+                    <th mat-header-cell *matHeaderCellDef class="f-18"> <mat-checkbox  color="primary"></mat-checkbox> </th>
                     <td mat-cell *matCellDef="let element"><mat-checkbox></mat-checkbox></td>
                   </ng-container>
             <ng-container matColumnDef="date">
@@ -63,5 +66,5 @@
 </div>
 
 <div *ngIf="showPdfInvoice">
-  <app-invoice-pdf-document></app-invoice-pdf-document>
+  <app-invoice-pdf-document [singleInvoiceData]="singleInvoiceData"></app-invoice-pdf-document>
 </div>

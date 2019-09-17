@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import $ from "jquery";
 import { AuthService } from 'src/app/auth-service/authService';
+import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-leftsidebar',
   templateUrl: './leftsidebar.component.html',
@@ -12,7 +13,7 @@ export class LeftsidebarComponent implements OnInit {
   showSettings=false;
   arrow=false;
 
-  constructor(private authService:AuthService,private _eref: ElementRef ) { }
+  constructor(private authService:AuthService,private _eref: ElementRef,private userService:UserService) { }
 
   ngOnInit() {
       this.onResize(); 
