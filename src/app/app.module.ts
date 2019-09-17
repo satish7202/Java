@@ -116,7 +116,7 @@ import { InvoiceComponent } from './component/protect-component/AdviserComponent
     HttpClientModule,
     SlimLoadingBarModule.forRoot() 
   ],
-  providers: [AuthService,HttpService, ],
+  providers: [AuthService,HttpService],
   bootstrap: [AppComponent],
   entryComponents:[UpperSliderComponent]
 })
