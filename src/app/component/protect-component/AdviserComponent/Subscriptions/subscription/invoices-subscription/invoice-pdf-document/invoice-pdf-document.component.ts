@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InvoicesSubscriptionComponent } from '../invoices-subscription.component';
 
 export interface PeriodicElement {
   name: string;
@@ -28,10 +29,16 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class InvoicePdfDocumentComponent implements OnInit {
 
-  constructor() { }
+  constructor(public invoiveSub:InvoicesSubscriptionComponent) { }
 
   ngOnInit() {
   }
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
+
+  Close()
+  {
+    console.log("fsduyf")
+   this.invoiveSub.showPdfInvoice=false;
+  }
 }

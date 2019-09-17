@@ -7,24 +7,58 @@
             <p class="f-16 mb-0 pt-24 text-center">Add plan details, map services/documents to the selected plan</p>
         </div>
         <div class="col-md-2 text-right">
-            <i class="material-icons f-44 pt-12 c-p" (click)="dialogClose()">
+            <i class="material-icons pt-12 c-p" (click)="dialogClose()">
                                 clear
                                 </i>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12 p-0">
+    <div class="row" *ngIf="this.fragmentData.Flag=='plan'">
+        <div class="col-md-12 p-0"  >
             <mat-tab-group mat-align-tabs="center" animationDuration="0ms">
                 <mat-tab label="OVERVIEW">
-
-                    <app-overview></app-overview>
+                    <app-overview [componentFlag]='Flag' ></app-overview>
                 </mat-tab>
                 <mat-tab label="SERVICES">
-                    <app-services></app-services>
+                    <app-services [componentFlag]='plan'></app-services>
+                </mat-tab>
+                <mat-tab label="DOCUMENTS">
+                    <app-document [componentFlag]='documents'></app-document>
+                </mat-tab>
+
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="row"  *ngIf="this.fragmentData.Flag=='services'">
+        <div class="col-md-12 p-0">
+            <mat-tab-group mat-align-tabs="center" animationDuration="0ms">
+                <mat-tab label="FEE STRUCTURE">
+                    <app-fee-structure></app-fee-structure>
+                </mat-tab>
+                <mat-tab label="PLANS">
+                    <app-plans [componentFlag]='plans'></app-plans>
                 </mat-tab>
                 <mat-tab label="DOCUMENTS">
                     <app-document></app-document>
                 </mat-tab>
+                <mat-tab label="MODULES">
+                    <app-modules></app-modules>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="row" *ngIf="this.fragmentData.Flag=='documents'">
+        <div class="col-md-12 p-0"  >
+            <mat-tab-group mat-align-tabs="center" animationDuration="0ms">
+                <mat-tab label="OVERVIEW">
+                    <app-overview></app-overview>
+                </mat-tab>
+                <mat-tab label="PLANS">
+                    <app-plans></app-plans>
+                </mat-tab>
+                <mat-tab label="SERVICES">
+                    <app-services></app-services>
+                </mat-tab>
+
             </mat-tab-group>
         </div>
     </div>

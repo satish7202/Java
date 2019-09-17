@@ -32,11 +32,11 @@ export class DashboardSubscriptionComponent implements OnInit {
   rightSideBar(value)
   {
     this.sub.subscriptionTab=value;
-    this.sub.leftBar();
+    this.sub.rightBar();
   }
   modifyFees(value)
   {
     this.sub.subscriptionTab=value;
-    this.sub.leftBar();
+    this.sub.rightBar();
   }
 }

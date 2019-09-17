@@ -5,9 +5,9 @@
             <mat-tab-group mat-align-tabs="end" animationDuration="0ms" (selectedTabChange)="tabClick($event)">
                 
                 <mat-tab label="DASHBOARD">
-                   <app-dashboard-subscription></app-dashboard-subscription>
+                   <!-- <app-dashboard-subscription></app-dashboard-subscription> -->
                    <!-- <app-invoice-pdf-document></app-invoice-pdf-document> -->
-                  
+                   <app-settings-subscription></app-settings-subscription>
                 </mat-tab>
                 <mat-tab label="CLIENTS">
                     <app-client-subscription></app-client-subscription>
@@ -16,10 +16,10 @@
                     <app-subscriptions-subscription></app-subscriptions-subscription>
                 </mat-tab>
                 <mat-tab label="QUOTATIONS"> 
-                    <app-invoice-pdf-document></app-invoice-pdf-document>
+                    <!-- <app-invoice-pdf-document></app-invoice-pdf-document> -->
                 </mat-tab>
                 <mat-tab label="INVOICES">
-                    <app-invoices-subscription></app-invoices-subscription>
+                    <app-invoices-subscription *ngIf="subscriptionTab=='INVOICES'"></app-invoices-subscription>
                 </mat-tab>
                 <mat-tab label="DOCUMENTS">
                     <app-documents-subscriptions></app-documents-subscriptions>

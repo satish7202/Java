@@ -56,6 +56,7 @@ import { SubscriptionModifiyFeeStructureComponent } from './component/protect-co
 import { ClientsDashboardComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/dashboard-subscription/clients-dashboard/clients-dashboard.component';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
+import { InvoiceComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/invoice/invoice.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -103,6 +104,7 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
     SubscriptionsRightnavComponent,
     SubscriptionModifiyFeeStructureComponent,
     ClientsDashboardComponent,
+    InvoiceComponent,
     
     
   ],

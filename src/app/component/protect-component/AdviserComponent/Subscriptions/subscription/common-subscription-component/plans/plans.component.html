@@ -1,1 +1,8 @@
-<p>plans works!</p>
+<div *ngIf="componentFlag=='servicesPlans'">
+    <p>This is plans in services</p>
+</div>
+<div *ngIf="componentFlag!='servicesPlans'">
+    <p>
+        This is plans in Document
+    </p>
+</div>

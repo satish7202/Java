@@ -18,7 +18,6 @@
     GET_AUM_APPLICANT_SCHEME:'futurewise/asset/aum/applicantWise/totalaum/applicantSchemes/get',
     GET_AUM_CLIENT_TOTALAUM:'futurewise/asset/aum/client/totalaum/get',
     GET_AUM_CLIENT_SCHEME:'futurewise/asset/aum/client/schemes',
-    GET_BASE_64:'futurewise/api/v1/test/base64/decode',
 
 
     ///////////////////////sip api call//////////////////////////////////
@@ -44,7 +43,7 @@
       AllClient_ByTags_get:'futurewise/asset/allClient/ByTags/get',
       Update_expiryDate:'futurewise/asset/update/expiryDate',
       Update_Password:'futurewise/asset/update/password',
-      Fileorder_Status_Report_Get:'futurewise/asset/fileorder/status/report/get'
+      Fileorder_Status_Report_Get:'futurewise/asset/fileorder/status/report/get',
  
 
 
@@ -53,4 +52,7 @@
 
 
 
+    GET_SUBSCRIPTION_INVOICE:'futurewise/subscriptions/invoices/get',
+    GET_SINGLE_INVOICE:'futurewise/subscriptions/invoice/get',
+    GET_BASE_64:'futurewise/api/v1/test/base64/decode'
 }

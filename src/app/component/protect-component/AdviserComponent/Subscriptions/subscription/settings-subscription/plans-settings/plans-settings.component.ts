@@ -15,9 +15,13 @@ export class PlansSettingsComponent implements OnInit {
 
   ngOnInit() {
   }
+  planSettingData=[{'title':'Starter Plan1','code':'PLA123','DESCRIPTION':'This plan is ideal for young people who are just starting off their financial journey and want to start saving with a smaller investment amount.','SERVICES':'2','DOCUMENTS':'1'},
+                   {'title':'Starter Plan2','code':'PLA123','DESCRIPTION':'This plan is ideal for young people who are just starting off their financial journey and want to start saving with a smaller investment amount.','SERVICES':'2','DOCUMENTS':'1'},
+                   {'title':'Starter Plan3','code':'PLA123','DESCRIPTION':'This plan is ideal for young people who are just starting off their financial journey and want to start saving with a smaller investment amount.','SERVICES':'2','DOCUMENTS':'1'}]
   openFragment(data) {
     let Fragmentdata = {
       Flag: data,
+      id:1
     }
 
     const dialogRef = this.dialog.open(UpperSliderComponent, {
@@ -25,19 +29,6 @@ export class PlansSettingsComponent implements OnInit {
        data: Fragmentdata,
        autoFocus:false,
        panelClass:'dialogBox',
-      //  position: { 
-      //    top: `30px`,
-      //    right: `40px`
-      //   },
-      // openFrom:'{
-      //   top: -50,
-      //   width: 30,
-      //   height: 80
-      // }',
-      // closeTo({
-      //   left: 1500
-      // })
-      // hasBackdrop: false,
     });
   
     dialogRef.afterClosed().subscribe(result => {

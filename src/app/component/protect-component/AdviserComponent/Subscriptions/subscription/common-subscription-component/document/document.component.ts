@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit,Input } from '@angular/core';
+import { UpperSliderComponent } from '../upper-slider/upper-slider.component';
 @Component({
   selector: 'app-document',
   templateUrl: './document.component.html',
@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DocumentComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private upper:UpperSliderComponent) { }
+  @Input() componentFlag:string;
   ngOnInit() {
   }
 
