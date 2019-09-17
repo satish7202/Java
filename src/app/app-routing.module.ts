@@ -4,6 +4,7 @@ import { DashboardComponent } from './component/protect-component/AdviserCompone
 import { LeftsidebarComponent } from './component/left-sidebar/leftsidebar/leftsidebar.component';
 import { SubscriptionComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/subscription.component';
 import { MisComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mis/mis.component';
+import { LoginComponent } from './component/no-protected/login/login.component';
 const routes: Routes = [
   {
     
@@ -14,6 +15,9 @@ const routes: Routes = [
         path:'admin',
         component:DashboardComponent
       },
+   
+
+      
       {
         path:'dashboard',
         component:DashboardComponent
@@ -37,6 +41,10 @@ const routes: Routes = [
   {
     path:'',
     component:LeftsidebarComponent
+  },
+  {
+    path:'login',
+    component:LoginComponent
   },
 
 

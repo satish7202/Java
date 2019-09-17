@@ -6,11 +6,9 @@ export class AuthService {
   constructor(private myRoute: Router ) { }
   
   setToken(token: string) {
-
     localStorage.setItem("token", token)
   }
   getToken() {
-
     return localStorage.getItem("token")
   }
   isLoggednIn() {
@@ -18,8 +16,15 @@ export class AuthService {
     return this.getToken() !== null;
   }
   logout() {
-      
     localStorage.removeItem("token");
     this.myRoute.navigate(["login"]);
+  }
+
+  setUserInfo(info){
+    localStorage.setItem("userInfo", info)
+  }
+
+   getUserInfo(){
+    return localStorage.getItem("userInfo")
   }
 }

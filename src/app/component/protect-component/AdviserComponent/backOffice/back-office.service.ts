@@ -24,6 +24,12 @@ export class BackOfficeService {
     return this.http.get(apiConfig.MAIN_URL + appConfig.FILE_GET, httpParams);
   }
 
+  loginApi(data) {
+    return this.https.post(apiConfig.MAIN_URL + appConfig.LOGIN,data);
+  }
+  
+  
+
   getClientTotalAUM(data) {
     console.log(data)
     let httpParams = new HttpParams().set('teamMemberId', data)
