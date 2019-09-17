@@ -114,7 +114,7 @@ import { ClientsDashboardComponent } from './component/protect-component/Adviser
     HttpClientModule,
     SlimLoadingBarModule.forRoot() 
   ],
-  providers: [AuthService,HttpService, ],
+  providers: [AuthService,HttpService],
   bootstrap: [AppComponent],
   entryComponents:[UpperSliderComponent]
 })
