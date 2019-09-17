@@ -29,9 +29,9 @@
         <p class="pt-8 c-p mb-0"> Activity log</p>
     </div>
 
-    <form [formGroup]="profileForm">
-        <div [froalaEditor] formControlName="firstName">Hello, Froala!</div>
-        <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+    <form [formGroup]="mailForm">
+        <div [froalaEditor] formControlName="mail_body">Hello, Froala!</div>
+        <button type="submit" (click)="onSubmit()" [disabled]="!mailForm.valid">Submit</button>
     </form>
 </div>
 <div class="bottom-fixed wrapper-12">

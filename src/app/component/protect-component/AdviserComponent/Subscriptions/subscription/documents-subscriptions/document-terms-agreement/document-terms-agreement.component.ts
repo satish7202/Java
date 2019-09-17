@@ -18,13 +18,13 @@ export class DocumentTermsAgreementComponent implements OnInit {
     $('#myRightSidenav').css({"width" : ""});
     $('#myRightSidenav').css({"transition":'0.2s'})
   }
-  profileForm = new FormGroup({
-    firstName: new FormControl(''),
+  mailForm = new FormGroup({
+    mail_body: new FormControl(''),
 
   });
 
   onSubmit() {
     // TODO: Use EventEmitter with form value
-    console.warn(this.profileForm.value);
+    console.log(this.mailForm.value);
   }
 }
