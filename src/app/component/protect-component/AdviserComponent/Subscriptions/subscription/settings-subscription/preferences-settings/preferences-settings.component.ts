@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-preferences-settings',
   templateUrl: './preferences-settings.component.html',
@@ -8,7 +7,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class PreferencesSettingsComponent implements OnInit {
 
-  constructor(private userService:UserService) { }
+  constructor() { }
   viewMode='tab1'
   ngOnInit() {
     this.viewMode="tab1";

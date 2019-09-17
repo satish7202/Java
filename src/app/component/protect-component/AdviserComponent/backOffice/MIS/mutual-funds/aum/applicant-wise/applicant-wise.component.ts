@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AumComponent } from '../aum.component';
 import { BackOfficeService } from '../../../../back-office.service';
-import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-applicant-wise',
@@ -10,15 +9,16 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ApplicantWiseComponent implements OnInit {
 
-  constructor(private aum:AumComponent,private backoffice:BackOfficeService,private userService:UserService) { }
+  constructor(private aum:AumComponent,private backoffice:BackOfficeService) { }
   applicantName;
   showLoader=true;
+  teamMemberId=2929;
   ngOnInit() {
     this.aumApplicantWiseTotalaumApplicantNameGet();
   }
   aumApplicantWiseTotalaumApplicantNameGet()
   {
-    this.backoffice.getAumApplicantWiseTotalaumApplicantName(this.userService.getTeamMemberId()).subscribe(
+    this.backoffice.getAumApplicantWiseTotalaumApplicantName(this.teamMemberId).subscribe(
       data => this.applicantNameGet(data)
     )
   }
@@ -34,7 +34,7 @@ export class ApplicantWiseComponent implements OnInit {
     {
       'clientId':applicantData.id,
       'clientTotalAum':applicantData.totalAum,
-      'teamMemberId':this.userService.getTeamMemberId()
+      'teamMemberId':this.teamMemberId
     }
     if(applicantData.show==false)
     {

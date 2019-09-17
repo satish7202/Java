@@ -5,7 +5,6 @@ import * as $ from 'jquery';
 import { BackOfficeService } from '../../../../back-office.service';
 import { EventService } from 'src/app/Data-service/event.service';
 import { AumComponent } from '../aum.component';
-import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-category-wise',
@@ -16,7 +15,8 @@ export class CategoryWiseComponent implements OnInit {
   category;
   subcategory;
   showLoader=true;
-  constructor(private backoffice:BackOfficeService,private dataService: EventService,private aum:AumComponent,private userService:UserService) { }
+  teamMemberId=2929;
+  constructor(private backoffice:BackOfficeService,private dataService: EventService,private aum:AumComponent) { }
 
   selectedCategory;
   ngOnInit() {
@@ -26,7 +26,7 @@ export class CategoryWiseComponent implements OnInit {
 
   getSubCatSchemeName()
   {
-   this.backoffice.getSubCatSchemeName(this.userService.getTeamMemberId()).subscribe(
+   this.backoffice.getSubCatSchemeName(this.teamMemberId).subscribe(
      data => this.getFileResponseDataForSubSchemeName(data),
      err=> this.getFilerrorResponse(err)
    )
