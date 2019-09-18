@@ -15,6 +15,6 @@ export class SubscriptionModifiyFeeStructureComponent implements OnInit {
   Close()
   {
     $('#myRightSidenav').css({"width" : ""});
-    $('#myRightSidenav').css({"transition":'0.2s'})
+    // $('#myRightSidenav').css({"transition":'0.2s'})
   }
 } 

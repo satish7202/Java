@@ -13,7 +13,7 @@ export class LeftsidebarComponent implements OnInit {
   arrow=false;
   userInfo: string;
 
-  constructor(private authService:AuthService,private _eref: ElementRef ) { }
+  constructor(private authService:AuthService,private _eref: ElementRef) { }
 
   ngOnInit() {
       this.onResize(); 

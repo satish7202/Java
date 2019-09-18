@@ -24,7 +24,7 @@
                     <app-documents-subscriptions></app-documents-subscriptions>
                 </mat-tab>
                 <mat-tab label="SETTINGS">
-                    <app-settings-subscription></app-settings-subscription>
+                    <app-settings-subscription *ngIf="subscriptionTab=='SETTINGS'"></app-settings-subscription>
                 </mat-tab>
             </mat-tab-group>
         </div>

@@ -28,6 +28,21 @@ export class SubscriptionService {
     let httpParams=new HttpParams().set('invoiceId',data)
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SINGLE_INVOICE,httpParams);
   }
+  getPreferenceBillerProfile(data)
+  {
+    let httpParams=new HttpParams().set('advisorId',data);
+    return this.http.get(apiConfig.MAIN_URL +appConfig.GET_PREFERENCE_BILLER_PROFILE,httpParams);
+  }
+  getPreferenceInvoiceQuotations(data)
+  {
+    let httpParams=new HttpParams().set('advisorId',data.advisorId).set('type',data.type);
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_PREFERENCE_INVOICE_QUOTATIONS_SUBSCRIPTION,httpParams);
+  }
+  getSubscriptionCompleteStages(data)
+  {
+    // let httpParams=new HttpParams().set('amountReceived',data.amountReceived).set("changesIfAny",data.changesIfAny).set("paymentDate",data.paymentDate).set("paymentMode",data.paymentMode).set("notes",data.notes).set("invoiceId",data.invoiceId);
+    return this.http.post(apiConfig.MAIN_URL + appConfig.DASHBOARD_LETS_BEGIN_SUBSCRIPTION,data)
+  }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data,10000)
   }

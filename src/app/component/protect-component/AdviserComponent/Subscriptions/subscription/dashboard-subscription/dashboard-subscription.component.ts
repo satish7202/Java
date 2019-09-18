@@ -27,6 +27,7 @@ export class DashboardSubscriptionComponent implements OnInit {
 
   ngOnInit() {
   }
+  showSubStep=false;
   displayedColumns: string[] = ['name', 'service', 'amt', 'billing','icons'];
   dataSource = ELEMENT_DATA;
   rightSideBar(value)
@@ -38,5 +39,9 @@ export class DashboardSubscriptionComponent implements OnInit {
   {
     this.sub.subscriptionTab=value;
     this.sub.rightBar();
+  }
+  showSubscriptionSteps()
+  {
+   this.showSubStep=true;
   }
 }
