@@ -45,14 +45,12 @@
       Update_Password:'futurewise/asset/update/password',
       Fileorder_Status_Report_Get:'futurewise/asset/fileorder/status/report/get',
  
-
-
-
-
-
+//////////////////////////////subscription////////////////////////////////////////////
 
 
     GET_SUBSCRIPTION_INVOICE:'futurewise/subscriptions/invoices/get',
     GET_SINGLE_INVOICE:'futurewise/subscriptions/invoice/get',
+    GET_PREFERENCE_BILLER_PROFILE:'futurewise/subscriptions/settings/billerprofile/get',
+    GET_PREFERENCE_INVOICE_QUOTATIONS_SUBSCRIPTION:'futurewise/subscriptions/settings/prefix/get',
     GET_BASE_64:'futurewise/api/v1/test/base64/decode'
 }

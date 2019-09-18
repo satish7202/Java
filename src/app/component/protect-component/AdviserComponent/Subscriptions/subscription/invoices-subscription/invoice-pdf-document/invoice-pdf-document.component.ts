@@ -32,6 +32,7 @@ export class InvoicePdfDocumentComponent implements OnInit {
   constructor(public invoiveSub:InvoicesSubscriptionComponent) { }
   
   @Input() singleInvoiceData;
+
   ngOnInit() {
     
   }
@@ -41,6 +42,5 @@ export class InvoicePdfDocumentComponent implements OnInit {
   Close()
   {
    this.invoiveSub.showPdfInvoice=false;
-   console.log("sarvesh",this.singleInvoiceData)
   }
 }

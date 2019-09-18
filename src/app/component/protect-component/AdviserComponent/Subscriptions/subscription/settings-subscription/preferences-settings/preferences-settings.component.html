@@ -8,17 +8,17 @@
         <div class="row">
             <div class="col-md-2 p-0">
                 <ul class="vertical-menu">
-                    <li (click)="viewMode ='tab1'" routerLinkActive="active" class="b-a c-p">
-                        <button mat-raised-button>Biller profile</button></li>
+                    <li (click)="viewMode ='tab1'" [ngClass]="{'b-a':viewMode =='tab1'}" class="b-a c-p">
+                        Biller profile</li>
 
-                    <li (click)="viewMode ='tab2'" class=" b-a c-p">
-                        <button mat-raised-button>Invoice</button></li>
-                    <li (click)="viewMode ='tab3'" class=" b-a c-p">
-                        <button mat-raised-button>Quotations</button></li>
-                    <li (click)="viewMode ='tab4'" class="b-a c-p">
-                        <button mat-raised-button>Subscriptions</button></li>
-                    <li (click)="viewMode ='tab5'" class="b-a c-p">
-                        <button mat-raised-button>Email settings</button></li>
+                    <li (click)="viewMode ='tab2'" style="border: 1px solid transparant" [ngClass]="{'b-a':viewMode =='tab2'}" class="c-p ">
+                        Invoice</li>
+                    <li (click)="viewMode ='tab3'" [ngClass]="{'b-a':viewMode =='tab3'}" class="c-p">
+                        Quotations</li>
+                    <li (click)="viewMode ='tab4'" [ngClass]="{'b-a':viewMode =='tab4'}" class=" c-p">
+                        Subscriptions</li>
+                    <li (click)="viewMode ='tab5'" [ngClass]="{'b-a':viewMode =='tab5'}" class=" c-p">
+                        Email settings</li>
                 </ul>
 
             </div>
@@ -30,18 +30,17 @@
                                 <button mat-stroked-button class="btn-primary addon"><i class="material-icons">add</i>ADD NEW</button>
                             </div>
                         </div>
-                            <div class="wrapper-16 pt-8">
-                                <div class="row b-a bb-none bg-grey lter pt-20 pb-16">
-                                    <div class="col-md-6">
-                                        <div class="row">
-                                            <div class="col-md-8 p-0">
-                                                <h3 class="mb-0">Acme Financial Advisors</h3>
-                                            </div>
-                                            <div class="col-md-4">
-    
-                                                <button mat-stroked-button class="text-primary br-0">PRIMARY</button>
-                                            </div>
-                                        </div>
+                    </div>
+                    <div class="wrapper-16 pt-8">
+                        <div class="row b-a bg-grey lter pt-20 pb-16">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-8 p-0">
+                                        <h3 class="mb-0">Acme Financial Advisors</h3>
+                                    </div>
+                                    <div class="col-md-4">
+
+                                        <button mat-stroked-button class="text-primary br-0">PRIMARY</button>
                                     </div>
                                 </div>
                             </div>
