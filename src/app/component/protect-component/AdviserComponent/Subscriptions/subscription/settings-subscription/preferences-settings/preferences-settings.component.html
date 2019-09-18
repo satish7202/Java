@@ -11,11 +11,11 @@
                     <li (click)="viewMode ='tab1'" [ngClass]="{'b-a':viewMode =='tab1'}" class="b-a c-p">
                         Biller profile</li>
 
-                    <li (click)="viewMode ='tab2'" style="border: 1px solid transparant" [ngClass]="{'b-a':viewMode =='tab2'}" class="c-p ">
+                    <li (click)="viewMode ='tab2';getPrefixData(1)" style="border: 1px solid transparant" [ngClass]="{'b-a':viewMode =='tab2'}" class="c-p ">
                         Invoice</li>
-                    <li (click)="viewMode ='tab3'" [ngClass]="{'b-a':viewMode =='tab3'}" class="c-p">
+                    <li (click)="viewMode ='tab3';getPrefixData(2)" [ngClass]="{'b-a':viewMode =='tab3'}" class="c-p">
                         Quotations</li>
-                    <li (click)="viewMode ='tab4'" [ngClass]="{'b-a':viewMode =='tab4'}" class=" c-p">
+                    <li (click)="viewMode ='tab4';getPrefixData(3)" [ngClass]="{'b-a':viewMode =='tab4'}" class=" c-p">
                         Subscriptions</li>
                     <li (click)="viewMode ='tab5'" [ngClass]="{'b-a':viewMode =='tab5'}" class=" c-p">
                         Email settings</li>
@@ -117,19 +117,22 @@
                 </div>
 
                 <div *ngSwitchCase="'tab2'">
-                    <div class="wrapper-44">
+                    <div *ngIf="showLoader">
+                         <mat-spinner class="loader" [diameter]="30"></mat-spinner>
+                    </div>
+                    <div class="wrapper-44" *ngIf="showLoader==false">
                         <div class="row pl-44">
                             <div class="col-md-3 pr-0 mr-40">
                                 <h5 class="m-0 f-14 text-black">Invoice prefix</h5>
                                 <div class="form-group pt-12">
-                                    <input type="text" class="form-control br-0" placeholder="INV-19-20-">
+                                    <input type="text" class="form-control br-0" *ngIf="Invoicedata" [(ngModel)]="Invoicedata.prefix" placeholder="INV-19-20-">
                                 </div>
 
                             </div>
                             <div class="col-md-3 pr-0 ">
                                 <h5 class="m-0 f-14 text-black">Invoice next number</h5>
                                 <div class="form-group pt-12">
-                                    <input type="text" class="form-control br-0" placeholder="100231">
+                                    <input type="text" class="form-control br-0" *ngIf="Invoicedata" [(ngModel)]="Invoicedata.nextNumber" placeholder="100231">
                                 </div>
                             </div>
                             <div class="col-md-12 pt-40">
@@ -140,6 +143,9 @@
                     </div>
                 </div>
                 <div *ngSwitchCase="'tab3'">
+                        <div *ngIf="showLoader">
+                                <mat-spinner class="loader" [diameter]="30"></mat-spinner>
+                           </div>
                     <div class="wrapper-44">
                         <div class="row pl-44">
                             <div class="col-md-3 pr-0 mr-40">
@@ -163,6 +169,9 @@
                     </div>
                 </div>
                 <div *ngSwitchCase="'tab4'">
+                     <div *ngIf="showLoader">
+                         <mat-spinner class="loader" [diameter]="30"></mat-spinner>
+                    </div>
                     <div class="wrapper-44">
                         <div class="row pl-44">
                             <div class="col-md-3 pr-0 mr-40">

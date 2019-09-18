@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import * as $ from 'jquery';
 import { SubscriptionService } from '../../../subscription.service';
 @Component({
   selector: 'app-preferences-settings',
@@ -10,25 +8,52 @@ import { SubscriptionService } from '../../../subscription.service';
 export class PreferencesSettingsComponent implements OnInit {
 
   constructor(private subscription:SubscriptionService) { }
-  viewMode='tab1'
+  viewMode='tab1';
+  advisorId=2735;
+  Invoicedata;
+  QuotationsData;
+  SubscriptionData;
+  showLoader=false;
   ngOnInit() {
     this.viewMode="tab1";
-  //   $(document).ready(function(){
-  //     $('ul li a').click(function(){
-  //       $('li a').removeClass("active");
-  //       $(this).addClass("active");
-  //   });
-  // });
   this.getProfileBillerData();
 }
     getProfileBillerData()
     {
-    this.subscription.getPreferenceBillerProfile().subscribe(
+    this.subscription.getPreferenceBillerProfile(this.advisorId).subscribe(
       data => this.getProfileBillerDataResponse(data)
     )
     }
+    getPrefixData(type)
+    {
+      let obj={
+        'advisorId':this.advisorId,
+        'type':type
+      }
+      this.showLoader=true;
+      this.subscription.getPreferenceInvoiceQuotations(obj).subscribe(
+        data =>this.getInvoiceQuotationResponse(data,type)
+      )
+    }
     getProfileBillerDataResponse(data)
     {
-     console.log(data)
+     console.log("jksdfsdfaksdf",data)
+    }
+    getInvoiceQuotationResponse(data,type)
+    {
+      this.showLoader=false;
+      if(type==1)
+      {
+        this.Invoicedata=data; 
+      }
+      else if(type==2)
+      {
+        this.QuotationsData=data
+      }
+      else{
+        this.SubscriptionData=data;
+      }
+      
+
     }
 }

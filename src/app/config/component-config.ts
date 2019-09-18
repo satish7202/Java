@@ -52,5 +52,6 @@
     GET_SINGLE_INVOICE:'futurewise/subscriptions/invoice/get',
     GET_PREFERENCE_BILLER_PROFILE:'futurewise/subscriptions/settings/billerprofile/get',
     GET_PREFERENCE_INVOICE_QUOTATIONS_SUBSCRIPTION:'futurewise/subscriptions/settings/prefix/get',
+    DASHBOARD_LETS_BEGIN_SUBSCRIPTION:'futurewise/subscriptions/dashboard/recordPayment',
     GET_BASE_64:'futurewise/api/v1/test/base64/decode'
 }
