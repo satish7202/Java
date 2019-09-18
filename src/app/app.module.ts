@@ -59,6 +59,10 @@ import { InvoicesComponent } from './component/protect-component/AdviserComponen
 import { SettingsComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/settings/settings.component';
 import { SubscriptionsUpperSliderComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/subscriptions-upper-slider/subscriptions-upper-slider.component';
 import { HelpComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/help/help.component';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+
+import { InvoiceComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/invoice/invoice.component';
+import { LoginComponent } from './component/no-protected/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -111,6 +115,8 @@ import { HelpComponent } from './component/protect-component/AdviserComponent/Su
     SettingsComponent,
     SubscriptionsUpperSliderComponent,
     HelpComponent,
+    InvoiceComponent,
+    LoginComponent,
     
     
   ],
@@ -122,9 +128,10 @@ import { HelpComponent } from './component/protect-component/AdviserComponent/Su
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SlimLoadingBarModule.forRoot() 
+    SlimLoadingBarModule.forRoot(),
+    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot() 
   ],
-  providers: [AuthService,HttpService, ],
+  providers: [AuthService,HttpService],
   bootstrap: [AppComponent],
   entryComponents:[UpperSliderComponent]
 })

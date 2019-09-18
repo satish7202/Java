@@ -26,7 +26,7 @@ import { EventService } from '../Data-service/event.service';
               // server-side error
               errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
             }
-                   this.eventService.openSnackBar(errorMessage,'Dismiss')
+                  //  this.eventService.openSnackBar(errorMessage,'Dismiss')
                    return throwError(errorMessage);
           })
         )

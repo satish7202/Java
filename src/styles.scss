@@ -276,7 +276,30 @@
         color: #3F3F3F;
     }
 }
-
+#ui-service-documents{
+    .example-card .mat-card-header-text {
+        margin: 0 !important;
+    }
+    .mat-card-header {
+        font-family: 'Playfair Display';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .mat-card-header .mat-card-subtitle:not(:first-child) {
+        font-family: "Proxima Nova", sans-serif !important;
+        letter-spacing: 0.2px;
+        line-height: 19px;
+        color: #3F3F3F;
+    }
+    .custom-checkbox .mat-checkbox-inner-container{
+        top:0;
+        right: 0;
+        position: absolute;
+    }
+    
+}
 .example-card {
     border: 1px solid rgba(0, 0, 0, 0.12);
     transition: box-shadow .3s;
@@ -458,20 +481,34 @@ mat-tab-group[vertical] {
         box-shadow: none !important;
     }
 }
-
-
 #ui-perferences{
         .vertical-menu {
  
- 
+        height: 100%;    
         display:block !important;
-        background-color: #eee;
-        width: 150px;
+      
+        width: 100%;
         text-align: center;
+    }
+    li{
+        
+        color: #212121;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: normal;
+        padding: 8px 12px 4px;
+        text-align: left;
+        border-right: 1px solid transparent !important;
+    }
+   
+    li:after{
+        display: none;
     }
     a{
         padding: 8px;
     }
 }
 
-
+.ba-t{
+    border:1px solid transparent !important;
+}

@@ -102,3 +102,12 @@ label{
     z-index: 222;
     background-color: #757575;
 }
+#ui-service-documents{
+.mat-card:not([class*=mat-elevation-z]){
+    box-shadow: none
+}
+img{
+    width: 400px !important;
+}
+
+}
