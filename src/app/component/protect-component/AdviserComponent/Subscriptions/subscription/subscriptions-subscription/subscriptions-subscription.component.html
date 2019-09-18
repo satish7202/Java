@@ -13,41 +13,43 @@
             </div>
         </div>
         <div class="row pt-12">
-                <div class="col-md-8 p-0 custom-tags">
-                        <mat-chip-list aria-label="Fish selection">
-                                <mat-chip class="bg-white b-a c-p f-400 p-12">Live <i class="material-icons text-custom ml-12">
+            <div class="col-md-8 p-0 custom-tags">
+                <mat-chip-list aria-label="Fish selection">
+                    <mat-chip class="bg-white b-a c-p f-400 p-12">Live <i class="material-icons text-custom ml-12">
                                         cancel
                                         </i></mat-chip>
-                                <mat-chip class="bg-white b-a c-p f-400 p-12">Started <i class="material-icons text-custom ml-12">
+                    <mat-chip class="bg-white b-a c-p f-400 p-12">Started <i class="material-icons text-custom ml-12">
                                         cancel
                                         </i></mat-chip>
-                                <mat-chip class="bg-white b-a c-p f-400 ">01/04/2018 - 31/03/2019 <i class="material-icons text-custom ml-12">
+                    <mat-chip class="bg-white b-a c-p f-400 ">01/04/2018 - 31/03/2019 <i class="material-icons text-custom ml-12">
                                         cancel
                                         </i></mat-chip>
-                                
-                              </mat-chip-list>
-                </div>
-               
-                <div class="col-md-4 right text-right p-0">
-                 
-                        <button mat-button mat-stroked-button class="br-0 text-custom pr-0" [matMenuTriggerFor]="menu">FILTERS TWO <i class="material-icons">
-                                arrow_drop_down
-                                </i></button>
-                        <mat-menu #menu="matMenu">
-                          <button mat-menu-item>Item 1</button>
-                          <button mat-menu-item>Item 2</button>
-                        </mat-menu>
-                        <button mat-button mat-stroked-button class="br-0 ml-12 pr-0 text-custom" [matMenuTriggerFor]="menu">FILTERS ONE <i class="material-icons">
-                                arrow_drop_down
-                                </i></button>
-                        <mat-menu #menu="matMenu">
-                          <button mat-menu-item>Item 1</button>
-                          <button mat-menu-item>Item 2</button>
-                        </mat-menu>
-                </div>
+
+                </mat-chip-list>
             </div>
+
+            <div class="col-md-4 right text-right p-0">
+
+                <button mat-button mat-stroked-button class="br-0 text-custom pr-0" [matMenuTriggerFor]="menu">FILTERS TWO <i class="material-icons">
+                                arrow_drop_down
+                                </i></button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item>Item 1</button>
+                    <button mat-menu-item>Item 2</button>
+                </mat-menu>
+                <button mat-button mat-stroked-button class="br-0 ml-12 pr-0 text-custom" [matMenuTriggerFor]="menu">FILTERS ONE <i class="material-icons">
+                                arrow_drop_down
+                                </i></button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item>Item 1</button>
+                    <button mat-menu-item>Item 2</button>
+                </mat-menu>
+            </div>
+        </div>
         <table mat-table [dataSource]="dataSource" id="table-low" class="mt-8">
-           
+
+
+
             <ng-container matColumnDef="client">
                 <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 22%;"> Client & Plan details </th>
                 <td mat-cell *matCellDef="let element" style="width: 22%;" (click)="rightbar('SUBSCRIPTIONS')" class="c-p"> {{element.client}} </td>
@@ -96,16 +98,16 @@
                     more_vert
                     </i>
                     <mat-menu #menu="matMenu">
-                            <a mat-menu-item>View fee structure</a>
-                            <a mat-menu-item>Modify fee structure</a>
-                            <a mat-menu-item class="bt-1">Biller settings</a>
-                            <a mat-menu-item>Payee settings</a>
-                            <a mat-menu-item class="bt-1">Invoice sending mode</a>
-                            <a mat-menu-item class="bt-1">Cancel subscription</a>
-                            <a mat-menu-item>Delete subscription</a>
-                          </mat-menu>
+                        <a mat-menu-item>View fee structure</a>
+                        <a mat-menu-item>Modify fee structure</a>
+                        <a mat-menu-item class="bt-1">Biller settings</a>
+                        <a mat-menu-item>Payee settings</a>
+                        <a mat-menu-item class="bt-1">Invoice sending mode</a>
+                        <a mat-menu-item class="bt-1">Cancel subscription</a>
+                        <a mat-menu-item>Delete subscription</a>
+                    </mat-menu>
                 </td>
-              </ng-container>
+            </ng-container>
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
