@@ -95,22 +95,22 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="row">
-                                        <div class="col-md-6">
-                                           <h4 class="text-black pt-48">Acme Financial Advisors</h4>
+                                        <div *ngIf="singleInvoiceData" class="col-md-6">
+                                           <h4 class="text-black pt-48">{{singleInvoiceData.billerNameAsPerBank}}</h4>
 
-                                            <p class="f-14 text-custom l-20">#46, Street 1,<br/> 
+                                            <p class="f-14 text-custom l-20">{{singleInvoiceData.billerAddress}}, Street 1,<br/> 
                                             Lokhandwala Township<br/>
-                                            Borivali East<br/>
-                                            Mumbai 400 066<br/>
+                                            {{singleInvoiceData.billerCity}} East<br/>
+                                            Mumbai {{singleInvoiceData.billerZipCode}}<br/>
                                             GSTIN: 27AABCF7765A1Z7</p>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div  *ngIf="singleInvoiceData" class="col-md-6">
                                             <h4 class="text-black pt-48">Steve Jobs</h4>
                                             
-                                            <p class="f-14 text-custom l-20">#46, Street 1,<br/> 
+                                            <p class="f-14 text-custom l-20">{{singleInvoiceData.billingAddress}}, Street 1,<br/> 
                                             Lokhandwala Township<br/>
-                                            Borivali East<br/>
-                                            Mumbai 400 066<br/>
+                                            {{singleInvoiceData.billingCity}} East<br/>
+                                            Mumbai {{singleInvoiceData.billingZipCode}}<br/>
                                             GSTIN: 27AABCF7765A1Z7</p>
                                         </div>
                                     </div>
@@ -118,7 +118,7 @@
                             <div class="row pt-44">
                                 <div class="col-md-8">
                                     <p class="text-black f-400" *ngIf="singleInvoiceData"><span class="text-custom f-16" >Invoice no</span>: {{singleInvoiceData.invoiceNumber}}</p>
-                                    <p class="text-black f-400" *ngIf="singleInvoiceData"><span class="text-custom f-16">Invoice date</span>: 28/08/2019</p>
+                                    <p class="text-black f-400" *ngIf="singleInvoiceData"><span class="text-custom f-16">Invoice date</span>: {{singleInvoiceData.invoiceDate | date:'dd/MM/yyyy'}}</p>
                                 </div>
                                 <div class="col-md-4">
                                     <h2 class="text-danger f-400" *ngIf="singleInvoiceData">{{singleInvoiceData.status}}</h2>
@@ -131,7 +131,7 @@
 A/c: 
 A/c No: {{singleInvoiceData.billerAcNumber}}
 IFSC: {{singleInvoiceData.billerIfscCode}}
-Bank: {{singleInvoiceData.billerBankName}} (Akurli road, Kandivali East, Mumbai 400101)</p>
+Bank: {{singleInvoiceData.billerBankName}} (Akurli road, {{singleInvoiceData}}, Mumbai {{singleInvoiceData.billerBranchZipCode}})</p>
                                 </div>
                                 <div class="col-md-5">
                                     <div class="row pt-44">
@@ -154,8 +154,8 @@ Bank: {{singleInvoiceData.billerBankName}} (Akurli road, Kandivali East, Mumbai 
                                         <div class="col-md-8">
                                                 <p class="f-500 roboto pt-8">Total</p>
                                             </div>
-                                            <div class="col-md-4">
-                                                <p class="f-500 roboto pt-8">9,440</p>
+                                            <div *ngIf="singleInvoiceData" class="col-md-4">
+                                                <p class="f-500 roboto pt-8">{{singleInvoiceData.finalAmount}}</p>
                                             </div>
                                         </div>
                                         <div class="row bt-1 bb-1">
