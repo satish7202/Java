@@ -1,4 +1,4 @@
-<div *ngIf="componentFlag=='plansDocuments'">
+<div *ngIf="componentFlag=='plansDocuments' && componentFlag!='clientDocuments' ">
         <mat-toolbar class="bottom-fixed">
             <div class="row w-100">
                 <div class="col-md-6 text-left">
@@ -103,7 +103,7 @@
             </div>
         </div>
     </div>
-    <div *ngIf="componentFlag!='plansDocuments'" id="ui-service-documents">
+    <div *ngIf="componentFlag!='plansDocuments' && componentFlag!='clientDocuments' " id="ui-service-documents">
         <div class="bg-grey lter wrapper-20">
             <h3 class="text-center m-0 head-common">Investment Management Financial Planning</h3>
         </div>
@@ -208,4 +208,7 @@
                   </div>
                 </div>
               </div>
+    </div>
+    <div *ngIf="componentFlag=='clientDocuments' && componentFlag!='plansDocuments'" >
+            This is documents in clients
     </div>
