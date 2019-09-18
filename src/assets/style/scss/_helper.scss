@@ -388,7 +388,9 @@ $lineheight:20px;
 .pt-48 {
     padding-top: $p4*12 !important;
 }
-
+.pt-72{
+    padding-top: 72px !important;
+}
 .pr-0 {
     padding-right: $zeropx !important;
 }
@@ -544,7 +546,9 @@ $lineheight:20px;
 .pl-48 {
     padding-left: $p4*12 !important;
 }
-
+.wrapper-100{
+    padding: 100px;
+}
 // margin
 .m-auto{
     margin: auto !important;
@@ -897,6 +901,9 @@ $lineheight:20px;
 }
 .bt-none{
     border-top: 0px !important;
+}
+.bb-none{
+    border-bottom: 0px !important;
 }
 .c-p {
     cursor: pointer;

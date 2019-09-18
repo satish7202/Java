@@ -1,0 +1,16 @@
+.content-center{
+    display: block;
+    margin:  100px auto;
+    width: 70%;
+}
+h4{
+    font-family: "Playfair Display";
+    line-height: 27px; 
+    letter-spacing: 0.2px;
+    color: #3F3F3F;
+    padding: 16px 24px;
+}
+
+.mat-card:not([class*=mat-elevation-z]){
+    box-shadow: none !important;
+}

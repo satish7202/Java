@@ -23,41 +23,41 @@
                   </ng-container>
             <ng-container matColumnDef="date">
                     <th mat-header-cell *matHeaderCellDef class="f-18"> Date </th>
-                    <td mat-cell *matCellDef="let element"> {{element.dueDate}} </td>
+                    <td mat-cell *matCellDef="let element" class="c-p"> {{element.dueDate}} </td>
                   </ng-container>
                   <ng-container matColumnDef="invoicenum">
                         <th mat-header-cell *matHeaderCellDef class="f-18"> Invoice number </th>
-                        <td mat-cell *matCellDef="let element" (click)="showInvoicePdf(element)"> {{element.invoiceNumber}} </td>
+                        <td mat-cell *matCellDef="let element" (click)="showInvoicePdf(element)" class="c-p"> {{element.invoiceNumber}} </td>
                       </ng-container>
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef class="f-18"> Client name </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            <td mat-cell *matCellDef="let element" class="c-p"> {{element.name}} </td>
           </ng-container>
         
           <!-- Name Column -->
           <ng-container matColumnDef="email">
             <th mat-header-cell *matHeaderCellDef class="f-18"> Email </th>
-            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+            <td mat-cell *matCellDef="let element" class="c-p"> {{element.email}} </td>
           </ng-container>
           <!-- Weight Column -->
           <ng-container matColumnDef="status">
                 <th mat-header-cell *matHeaderCellDef class="f-18"> Status </th>
-                <td mat-cell *matCellDef="let element" class="text-success"> {{element.status}} </td>
+                <td mat-cell *matCellDef="let element" class="text-success c-p"> {{element.status}} </td>
               </ng-container>
           <!-- Weight Column -->
           <ng-container matColumnDef="duedate">
             <th mat-header-cell *matHeaderCellDef class="f-18"> Due date </th>
-            <td mat-cell *matCellDef="let element"> {{element.dueDate}} </td>
+            <td mat-cell *matCellDef="let element" class="c-p"> {{element.dueDate}} </td>
           </ng-container>
         
           <!-- Symbol Column -->
           <ng-container matColumnDef="amt">
             <th mat-header-cell *matHeaderCellDef class="f-18"> Amount </th>
-            <td mat-cell *matCellDef="let element"> {{element.amountReceived}} </td>
+            <td mat-cell *matCellDef="let element" class="c-p"> {{element.amountReceived}} </td>
           </ng-container>
           <ng-container matColumnDef="balance">
                 <th mat-header-cell *matHeaderCellDef class="f-18 text-right pr-24"> Balance due </th>
-                <td mat-cell *matCellDef="let element" class="text-right pr-8"> {{element.balanceDue}} </td>
+                <td mat-cell *matCellDef="let element" class="text-right pr-8 c-p"> {{element.balanceDue}} </td>
               </ng-container>
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
