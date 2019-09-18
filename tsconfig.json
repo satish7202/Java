@@ -19,7 +19,7 @@
       "dom"
     ],"paths": {
       "@angular/core/src/metadata/*": ["./node_modules/@angular/core"]
-    },
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
