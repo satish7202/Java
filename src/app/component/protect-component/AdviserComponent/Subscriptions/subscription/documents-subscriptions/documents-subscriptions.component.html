@@ -1,7 +1,7 @@
 <div class="bg-white pb-36 mt-70" id="ui-invoice">
     <div class="wrapper-20">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8 p-0">
                 <h4 class="pt-8 mb-0">Documents</h4>
             </div>
             <div class="col-md-4 right text-right p-0">
@@ -15,7 +15,7 @@
         <table mat-table [dataSource]="dataSource" id="table-low" class="mt-8">
             <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef class="f-18"> Client name </th>
-                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                <td mat-cell *matCellDef="let element" (click)="leftDocument()"  class="c-p"> {{element.name}} </td>
             </ng-container>
             <ng-container matColumnDef="docname">
                 <th mat-header-cell *matHeaderCellDef class="f-18"> Document name </th>
@@ -51,9 +51,13 @@
             </ng-container>
             <ng-container matColumnDef="icons">
                 <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 2%;"> </th>
-                <td mat-cell *matCellDef="let element" style="width: 2%;"><i class="material-icons iconscolors">
-                more_vert
-                </i></td>
+                <td mat-cell *matCellDef="let element" style="width: 2%;"><i class="material-icons c-p iconscolors" [matMenuTriggerFor]="menu">
+                        more_vert
+                        </i>
+                        <mat-menu #menu="matMenu">
+                                <a mat-menu-item>View document</a>
+                                <a mat-menu-item>Delete document</a>
+                              </mat-menu></td>
             </ng-container>
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

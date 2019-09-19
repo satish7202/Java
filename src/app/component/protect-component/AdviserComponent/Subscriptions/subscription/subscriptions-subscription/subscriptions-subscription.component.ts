@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import {Component, ElementRef, ViewChild, OnInit} from '@angular/core';
+import {FormControl} from '@angular/forms';
+import {MatAutocompleteSelectedEvent, MatAutocomplete} from '@angular/material/autocomplete';
+import {MatChipInputEvent} from '@angular/material/chips';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
+import { SubscriptionComponent } from '../subscription.component';
+import { EventService } from 'src/app/Data-service/event.service';
 export interface PeriodicElement {
   client:string;
   service:string;
@@ -21,11 +29,19 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./subscriptions-subscription.component.scss']
 })
 export class SubscriptionsSubscriptionComponent implements OnInit {
-
-  constructor() { }
+ 
+  constructor(private sub:SubscriptionComponent,private eventService:EventService) {
+  }
 
   ngOnInit() {
   }
   displayedColumns: string[] = ['client','service','amt','sub','status','activation', 'lastbilling', 'nextbilling','feemode','icons'];
   dataSource = ELEMENT_DATA;
+
+  rightbar(value)
+  {
+    this.eventService.sidebarData(value)
+   this.sub.rightBar();
+  }
+  // sidebarData
 }

@@ -11,11 +11,14 @@ export class LeftsidebarComponent implements OnInit {
   showTabs=true;
   showSettings=false;
   arrow=false;
+  userInfo :any;
 
-  constructor(private authService:AuthService,private _eref: ElementRef ) { }
+  constructor(private authService:AuthService,private _eref: ElementRef) { }
 
   ngOnInit() {
       this.onResize(); 
+      this.userInfo = this.authService.getUserInfo();
+      console.log(this.userInfo )
   }
    
 

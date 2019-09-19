@@ -1,11 +1,11 @@
 <mat-sidenav-container (window:resize)="onResize()" class="sidenav-container">
     <mat-sidenav #sidenav mode="side" opened role="navigation">
         <mat-toolbar class="bg-white p-0">
-            <img src="https://res.cloudinary.com/futurewise/image/upload/v1566029063/icons_fakfxf.png" class="w-100">
+            <img src="{{userInfo}}" class="w-100">
         </mat-toolbar>
         <mat-nav-list class="width-230">
             <div class="pt-16">
-                <img src="../../../../assets/images/img1.jpg" class="header-img pt-0 pb-0">
+                <img src="assets/images/img1.jpg" class="header-img pt-0 pb-0">
             </div>
             <div class="main-details">
                 <mat-form-field>
@@ -43,17 +43,16 @@
                         <li routerLink="/admin/service" class="c-p">Settings</li>
                     </ul>
                 </div>
-
             </div>
         </mat-nav-list>
         <mat-sidenav-container class="sidenav-container">
             <mat-sidenav #sidenav mode="side" opened role="navigation">
                 <mat-nav-list id="d" class="width-230 pt-0">
                     <mat-toolbar *ngIf="showTabs" class="bg-white p-0">
-                        <img src="https://res.cloudinary.com/futurewise/image/upload/v1566029063/icons_fakfxf.png" class="w-100">
+                        <img src="{{userInfo}}" class="w-100">
                     </mat-toolbar>
                     <div *ngIf="showTabs" class="pt-16">
-                        <img src="../../../../assets/images/img1.jpg" class="header-img pt-0 pb-0">
+                        <img src="assets/images/img1.jpg" class="header-img pt-0 pb-0">
                     </div>
                     <div *ngIf="showTabs" class="main-details">
                         <mat-form-field>
@@ -74,18 +73,18 @@
                             <span *ngIf="showTabs" class="title" mat-line>Subscription</span>
                         </a>
 
-                        <a mat-list-item class="sidenav-link" (click)="backSections()" >
+                        <a mat-list-item class="sidenav-link" (click)="backSections()">
                             <mat-icon mat-list-icon>favorite</mat-icon>
                             <span *ngIf="showTabs" class="title" mat-line>Back Office 
                                     <i *ngIf="arrow==true " class="material-icons text-right right pr-20">expand_more</i>
                                     <i *ngIf="arrow==false" class="material-icons text-right right pr-20">chevron_right </i>
                             </span>
-                           
+
                         </a>
                         <div *ngIf="arrow==true && showTabs" class="sidenav-link">
-                                <a routerLink="/admin/mis" >Mis Reports</a>
-                              </div>
-                      </div>
+                            <a routerLink="/admin/mis">Mis Reports</a>
+                        </div>
+                    </div>
                 </mat-nav-list>
             </mat-sidenav>
             <mat-sidenav-content id="left">

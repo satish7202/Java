@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
-
+import { UpperSliderComponent } from '../common-subscription-component/upper-slider/upper-slider.component';
+import { MatDialog } from '@angular/material';
+import * as $ from 'jquery';
+import { SubscriptionComponent } from '../subscription.component';
 export interface PeriodicElement {
   name: string;
   email: string;
@@ -22,10 +24,35 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class ClientSubscriptionComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog:MatDialog,public sub:SubscriptionComponent) { }
 
   ngOnInit() {
   }
   displayedColumns: string[] = ['name','email', 'num', 'balance'];
   dataSource = ELEMENT_DATA;
+ 
+ 
+  help(value)
+   {
+    this.sub.subscriptionTab=value;
+    this.sub.help();
+  }
+  openFragment(data) {
+    let Fragmentdata = {
+      Flag: data,
+      id:1
+    }
+
+    const dialogRef = this.dialog.open(UpperSliderComponent, {
+       width: '1400px',
+       data: Fragmentdata,
+       autoFocus:false,
+       panelClass:'dialogBox',
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+  
+    });
+  }
+  
 }

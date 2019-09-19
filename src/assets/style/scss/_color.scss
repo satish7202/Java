@@ -229,7 +229,9 @@ body {
 .bg-header.lter {
     background-color: $text-header-lter !important;
 }
-
+.text-black{
+    color: $black !important;
+}
 .text-primary {
     color: $primary !important;
 }
@@ -314,7 +316,7 @@ button.btn-lg {
 }
 
 button.btn-sm {
-    padding: 5px 10px !important;
+    padding: 0px 8px !important;
     font-size: 12px !important;
     // line-height: 1.5 !important;
     border-radius: 3px;

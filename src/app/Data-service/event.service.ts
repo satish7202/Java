@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +16,19 @@ export class EventService {
       panelClass: ['app-bottom-snackbar']
     });
   }
+
+     private sidebarValue = new BehaviorSubject<any>("");
+     sidebarSubscribeData= this.sidebarValue.asObservable();       
+     sidebarData(message: string) {
+     this.sidebarValue.next(message)
+}
+
+
+private tabValue = new BehaviorSubject<any>("");
+tabChangeData= this.tabValue.asObservable();        
+tabData(message: string) {
+this.tabValue.next(message)
+}
+
 
 }

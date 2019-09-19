@@ -11,6 +11,11 @@
 @import './assets/style/scss/_card';
 @import'./assets/style/scss/table';
 @import'./assets/style/scss/_footer';
+
+
+
+
+
 @mixin heading {
     padding-left: 20px !important;
     padding-top: 20px !important;
@@ -77,6 +82,19 @@
 }
 
 #ui-subscriptions {
+    .cusotm-haeding-main{
+        position: fixed;
+        z-index: 1111;
+        padding: 25px;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 23px;
+        letter-spacing: 0.2px;
+        margin: 0;
+
+    }
     h3.top-head {
         @include heading;
     }
@@ -137,7 +155,7 @@
         font-size: 13px;
         line-height: 16px;
         color: #595252;
-        min-width: 0 !important;
+        // min-width: 0 !important;
         text-transform: uppercase;
     }
     .actions {
@@ -186,18 +204,28 @@
         margin-top: 4px;
         float: right;
         width: 100%;
-        padding-right: 18%;
+      padding-right: 15px;
+       right: 0;      
         // bottom: 20px;
         z-index: 10;
         background: #fff !important;
         box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0.12), 0px 3px 3px rgba(0, 0, 0, 0.14);
     }
 }
-
+#ui-subs{
+    .custom-tags .mat-form-field-infix{
+          padding-top: 4px;
+          border-top:0px !important
+    
+}
+.custom-tags .mat-form-field-appearance-legacy .mat-form-field-underline{
+    display: none;
+}
+}
 #mistabs1,
-#mistabs2 {
+#mistabs2 ,#siptabs1,#siptabs2{
     .mat-tab-label {
-        min-width: 134px !important;
+        // min-width: 150px !important;
         height: 45px !important;
     }
     .mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination {
@@ -230,24 +258,24 @@
         letter-spacing: 0.2px;
         color: #3F3F3F;
     }
-    button {
-        min-width: 100px !important;
-    }
-    label {
-        background: #004164;
-        border-radius: 4px;
-        letter-spacing: 0.2px;
-        color: #FFFFFF;
-        font-family: "Proxima Nova", sans-serif;
-        font-size: 14px;
-        line-height: 17px;
-        display: inline-block;
-        min-width: 10px;
-        padding: 3px 10px;
-        text-align: center;
-        white-space: nowrap;
-        vertical-align: baseline;
-    }
+    // button {
+    //     min-width: 100px !important;
+    // }
+    // label {
+    //     background: #004164;
+    //     border-radius: 4px;
+    //     letter-spacing: 0.2px;
+    //     color: #FFFFFF;
+    //     font-family: "Proxima Nova", sans-serif;
+    //     font-size: 14px;
+    //     line-height: 17px;
+    //     display: inline-block;
+    //     min-width: 10px;
+    //     padding: 3px 10px;
+    //     text-align: center;
+    //     white-space: nowrap;
+    //     vertical-align: baseline;
+    // }
     .mat-card-header {
         font-family: 'Playfair Display', sans-serif;
         font-style: normal;
@@ -262,13 +290,42 @@
         color: #3F3F3F;
     }
 }
-
+#ui-service-documents{
+    .example-card .mat-card-header-text {
+        margin: 0 !important;
+    }
+    .mat-card-header {
+        font-family: 'Playfair Display';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .mat-card-header .mat-card-subtitle:not(:first-child) {
+        font-family: "Proxima Nova", sans-serif !important;
+        letter-spacing: 0.2px;
+        line-height: 19px;
+        color: #3F3F3F;
+    }
+    .custom-checkbox .mat-checkbox-inner-container{
+        top:0;
+        right: 0;
+        position: absolute;
+    }
+    
+}
 .example-card {
     border: 1px solid rgba(0, 0, 0, 0.12);
+    transition: box-shadow .3s;
+    &:hover{
+        box-shadow: 0 0 11px rgba(33,33,33,.2);
+    }
 }
 
 .example-card.height-470 {
-    height: 457px;
+    height: 100%;
+ 
+    
 }
 
 .icon-center {
@@ -372,7 +429,7 @@
     right: 0;
     background-color: #fff;
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: 0.4s;
     border: 1px solid #ddd;
 }
 
@@ -408,4 +465,66 @@
 //////////////////right sidebar
 .mat-dialog {
     transition: none;
+}
+mat-tab-group[vertical] .mat-tab-labels {
+    display: flex;
+    flex-direction: column!important;
+}
+
+mat-tab-group[vertical] {
+    display: flex;
+    flex-direction: row!important;
+}
+// invoice pdf documents
+#ui-invoice-pdf-documents{
+    .mat-form-field-appearance-legacy .mat-form-field-underline{
+        display: none;
+    }
+    .my-btn{
+        width: 36px !important;
+    min-width: 0px !important;
+    padding: 0 !important;
+    }
+    .custom-width .mat-select-value{
+        width: 75%;
+    }
+}
+// invoice pdf documents end
+
+
+#ui-settings-headers{
+    .mat-tab-header{
+        box-shadow: none !important;
+    }
+}
+#ui-perferences{
+        .vertical-menu {
+ 
+        height: 100%;    
+        display:block !important;
+      
+        width: 100%;
+        text-align: center;
+    }
+    li{
+        
+        color: #212121;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: normal;
+        padding: 8px 12px 4px;
+        text-align: left;
+        border: 1px solid transparent !important;
+    }
+   
+    li:after{
+        display: none;
+    }
+    a{
+        padding: 8px;
+    }
+}
+
+.ba-t{
+    border:1px solid transparent !important;
 }

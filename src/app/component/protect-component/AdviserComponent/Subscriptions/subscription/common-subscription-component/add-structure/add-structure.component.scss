@@ -1,0 +1,14 @@
+.content-center{
+    position: absolute;
+    left: 50%;
+   margin-top: 150px;
+    transform: translate(-50%, -50%);
+}
+.bottom-fixed{
+    right: 0;
+    bottom: 0;
+    width: 60%;
+   position: fixed;
+    // z-index: 222;
+    background-color: #757575;
+}

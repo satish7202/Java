@@ -1,7 +1,7 @@
-<div class="bg-white pb-36 mt-70" id="ui-invoice">
+<div class="bg-white pb-36 mt-70" id="ui-subs">
     <div class="wrapper-20">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8 p-0">
                 <h4 class="pt-8 mb-0">Subscriptions</h4>
             </div>
             <div class="col-md-4 right text-right p-0">
@@ -12,25 +12,61 @@
                 <button mat-stroked-button class="btn-primary addon"><i class="material-icons">add</i>ADD NEW</button>
             </div>
         </div>
+        <div class="row pt-12">
+            <div class="col-md-8 p-0 custom-tags">
+                <mat-chip-list aria-label="Fish selection">
+                    <mat-chip class="bg-white b-a c-p f-400 p-12">Live <i class="material-icons text-custom ml-12">
+                                        cancel
+                                        </i></mat-chip>
+                    <mat-chip class="bg-white b-a c-p f-400 p-12">Started <i class="material-icons text-custom ml-12">
+                                        cancel
+                                        </i></mat-chip>
+                    <mat-chip class="bg-white b-a c-p f-400 ">01/04/2018 - 31/03/2019 <i class="material-icons text-custom ml-12">
+                                        cancel
+                                        </i></mat-chip>
+
+                </mat-chip-list>
+            </div>
+
+            <div class="col-md-4 right text-right p-0">
+
+                <button mat-button mat-stroked-button class="br-0 text-custom pr-0" [matMenuTriggerFor]="menu">FILTERS TWO <i class="material-icons">
+                                arrow_drop_down
+                                </i></button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item>Item 1</button>
+                    <button mat-menu-item>Item 2</button>
+                </mat-menu>
+                <button mat-button mat-stroked-button class="br-0 ml-12 pr-0 text-custom" [matMenuTriggerFor]="menu">FILTERS ONE <i class="material-icons">
+                                arrow_drop_down
+                                </i></button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item>Item 1</button>
+                    <button mat-menu-item>Item 2</button>
+                </mat-menu>
+            </div>
+        </div>
         <table mat-table [dataSource]="dataSource" id="table-low" class="mt-8">
-           
+
+
+
             <ng-container matColumnDef="client">
                 <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 22%;"> Client & Plan details </th>
-                <td mat-cell *matCellDef="let element" style="width: 22%;"> {{element.client}} </td>
+                <td mat-cell *matCellDef="let element" style="width: 22%;" (click)="rightbar('SUBSCRIPTIONS')" class="c-p"> {{element.client}} </td>
             </ng-container>
             <ng-container matColumnDef="service">
                 <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 20%;"> Service name </th>
-                <td mat-cell *matCellDef="let element" style="width: 20%;"> {{element.service}} </td>
+                <td mat-cell *matCellDef="let element" style="width: 20%;" class="c-p"> {{element.service}} </td>
             </ng-container>
             <ng-container matColumnDef="amt">
                 <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 12%;"> Fee amount </th>
-                <td mat-cell *matCellDef="let element" style="width: 12%;"> {{element.amt}} </td>
+                <td mat-cell *matCellDef="let element" style="width: 12%;" (click)="rightbar('modifyFees')" class="c-p"> {{element.amt}} </td>
             </ng-container>
 
             <!-- Name Column -->
             <ng-container matColumnDef="sub">
                 <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 10%;"> Subs # </th>
-                <td mat-cell *matCellDef="let element" style="width: 10%;"> {{element.sub}} </td>
+                <td mat-cell *matCellDef="let element" style="width: 10%;" class="c-p"> {{element.sub}} </td>
             </ng-container>
             <!-- Weight Column -->
             <ng-container matColumnDef="status">
@@ -58,10 +94,20 @@
             </ng-container>
             <ng-container matColumnDef="icons">
                 <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 2%;"> </th>
-                <td mat-cell *matCellDef="let element" style="width: 2%;"><i class="material-icons iconscolors">
+                <td mat-cell *matCellDef="let element" style="width: 2%;"><i class="material-icons c-p iconscolors" [matMenuTriggerFor]="menu">
                     more_vert
-                    </i></td>
-              </ng-container>
+                    </i>
+                    <mat-menu #menu="matMenu">
+                        <a mat-menu-item>View fee structure</a>
+                        <a mat-menu-item>Modify fee structure</a>
+                        <a mat-menu-item class="bt-1">Biller settings</a>
+                        <a mat-menu-item>Payee settings</a>
+                        <a mat-menu-item class="bt-1">Invoice sending mode</a>
+                        <a mat-menu-item class="bt-1">Cancel subscription</a>
+                        <a mat-menu-item>Delete subscription</a>
+                    </mat-menu>
+                </td>
+            </ng-container>
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>

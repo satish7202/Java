@@ -36,7 +36,9 @@ $lineheight:20px;
 .f-14 {
     font-size: $smallfont+4 !important;
 }
-
+.f-15{
+    font-size: 15px !important;
+}
 .f-16 {
     font-size: $smallfont+6 !important;
 }
@@ -346,7 +348,9 @@ $lineheight:20px;
 .pt-8 {
     padding-top: $p4*2 !important;
 }
-
+.pt-10{
+    padding-top: 10px !important;
+}
 .pt-12 {
     padding-top: $p4*3 !important;
 }
@@ -386,7 +390,9 @@ $lineheight:20px;
 .pt-48 {
     padding-top: $p4*12 !important;
 }
-
+.pt-72{
+    padding-top: 72px !important;
+}
 .pr-0 {
     padding-right: $zeropx !important;
 }
@@ -542,8 +548,13 @@ $lineheight:20px;
 .pl-48 {
     padding-left: $p4*12 !important;
 }
-
+.wrapper-100{
+    padding: 100px;
+}
 // margin
+.m-auto{
+    margin: auto !important;
+}
 .no-margin,
 .m-none,
 .m-n {
@@ -876,7 +887,9 @@ $lineheight:20px;
 .b-red {
     border: 1px solid $red;
 }
-
+.bl-1{
+    border-left: 1px solid #ddd !important;
+}
 .br-2 {
     border-radius: 2px !important;
 }
@@ -888,7 +901,12 @@ $lineheight:20px;
 .b-s {
     border: 1px solid !important;
 }
-
+.bt-none{
+    border-top: 0px !important;
+}
+.bb-none{
+    border-bottom: 0px !important;
+}
 .c-p {
     cursor: pointer;
 }
