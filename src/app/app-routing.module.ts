@@ -40,7 +40,7 @@ const routes: Routes = [
   },
   {
     path:'',
-    component:LeftsidebarComponent
+    component:LoginComponent
   },
   {
     path:'login',

@@ -10,6 +10,7 @@ export class DocumentComponent implements OnInit {
   constructor(private upper:UpperSliderComponent) { }
   @Input() componentFlag:string;
   ngOnInit() {
+    
   }
 
 }
