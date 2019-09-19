@@ -7,16 +7,16 @@ import { EventService } from 'src/app/Data-service/event.service';
   styleUrls: ['./subscription.component.css']
 })
 export class SubscriptionComponent implements OnInit {
+ 
+  ngOnInit() {
 
+  }
   subscriptionTab;
   constructor(private eventService:EventService) {
     this.eventService.sidebarSubscribeData.subscribe(
       data => this.getFileResponseDataAum(data)
      )
    }
-  ngOnInit() {
-
-        }
 
    getFileResponseDataAum(data){
         console.log(data)
