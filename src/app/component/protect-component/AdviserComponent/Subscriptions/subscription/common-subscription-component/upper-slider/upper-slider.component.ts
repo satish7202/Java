@@ -9,21 +9,22 @@ import * as $ from 'jquery';
 export class UpperSliderComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<UpperSliderComponent>,
     @Inject(MAT_DIALOG_DATA) public fragmentData: any) { }
-    subscriptionType=this.fragmentData;
+  subscriptionType = this.fragmentData;
   ngOnInit() {
     console.log(this.fragmentData)
   }
+
   Flag = 'planOverview';
-  plan='planServices';
-  documents ='plansDocuments';
-  plans='servicesPlans';
-  dialogClose(){
-    this.dialogRef.close();
+  plan = 'planServices';
+  documents = 'plansDocuments';
+  plans = 'servicesPlans';
+  dialogClose() {
+     this.dialogRef.close();
   }
   open() {
-    $("#myRightSidenav").css("width","60%");
-   
-   }
+    $("#myRightSidenav").css("width", "60%");
 
-  
+  }
+
+
 }
