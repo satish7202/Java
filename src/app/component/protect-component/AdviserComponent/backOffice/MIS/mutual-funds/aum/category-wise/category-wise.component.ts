@@ -16,7 +16,7 @@ export class CategoryWiseComponent implements OnInit {
   subcategory;
   showLoader=true;
   teamMemberId=2929;
-  constructor(private backoffice:BackOfficeService,private dataService: EventService,private aum:AumComponent) { }
+  constructor(private backoffice:BackOfficeService,private dataService: EventService,public aum:AumComponent) { }
 
   selectedCategory;
   ngOnInit() {

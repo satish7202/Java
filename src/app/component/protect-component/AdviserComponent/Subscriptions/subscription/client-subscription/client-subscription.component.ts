@@ -30,10 +30,11 @@ export class ClientSubscriptionComponent implements OnInit {
   }
   displayedColumns: string[] = ['name','email', 'num', 'balance'];
   dataSource = ELEMENT_DATA;
+ 
+ 
   help(value)
-  {
+   {
     this.sub.subscriptionTab=value;
-    this.sub.help();
   }
   openFragment(data) {
     let Fragmentdata = {
