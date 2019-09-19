@@ -17,10 +17,10 @@ export class ConfirmDialogComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.dialogData);
-    this.headerData=this.dialogData.header;
-    this.bodyData=this.dialogData.body;
-    this.btn1NoData=this.dialogData.btnNo;
-    this.btn2YesData=this.dialogData.btnYes
+     this.headerData=this.dialogData.header;
+     this.bodyData=this.dialogData.body;
+      this.btn1NoData=this.dialogData.btnNo;
+     this.btn2YesData=this.dialogData.btnYes
   }
 
 }
