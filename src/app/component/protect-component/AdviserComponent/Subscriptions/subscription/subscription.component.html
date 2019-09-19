@@ -1,6 +1,9 @@
 <div id="ui-subscriptions">
     <div class="sub-header-fix bl-1">
         <div class="bg-white">
+            <h1 class="cusotm-haeding-main">Subscriptions</h1>
+            <mat-tab-group mat-align-tabs="end" animationDuration="0ms" [selectedIndex]="selected"
+                (selectedTabChange)="tabClick($event)">
 
             <mat-tab-group mat-align-tabs="end" animationDuration="0ms">
                 <mat-tab label="DASHBOARD">
@@ -25,4 +28,16 @@
             </mat-tab-group>
         </div>
     </div>
+<<<<<<< Updated upstream
+=======
+</div>
+<div  class="right_sidenav">
+    <app-terms-agreement *ngIf="subscriptionTab=='DOCUMENTS'"></app-terms-agreement>
+    <app-terms-agreement *ngIf="subscriptionTab=='QUOTATIONS'"></app-terms-agreement>
+    <app-invoice-history *ngIf="subscriptionTab=='SUBSCRIPTIONS'"></app-invoice-history>
+    <app-invoice-history *ngIf="subscriptionTab=='subscriptionFees'"></app-invoice-history>
+    <app-clients-dashboard *ngIf="subscriptionTab=='dashboardSubscription'"></app-clients-dashboard>
+    <app-modify-fee-structure *ngIf="subscriptionTab=='modifyFees'"></app-modify-fee-structure>
+    <app-help *ngIf="subscriptionTab=='clientHelp'"></app-help>
+>>>>>>> Stashed changes
 </div>
