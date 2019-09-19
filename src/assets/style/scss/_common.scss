@@ -268,6 +268,9 @@ button:focus {
 .br-0{
     border-radius: 0px !important;
 }
+.border-right-1{
+    border-right: 1px solid #ddd;   
+   }
 .v-sub{
     vertical-align: sub;
 }
@@ -361,4 +364,7 @@ color: #3F3F3F;
 // }
 .b-0{
     border:0px !important;
+}
+.l-o{
+    line-height: 0 !important;
 }

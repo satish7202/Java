@@ -1,64 +1,82 @@
 <div class="wrapper-20 bg-grey lter">
-        <h3 class="m-0 text-center f-24">Ronak Hasmukh Hindocha</h3>
-    </div>
+  <h3 class="m-0 text-center head-common">Ronak Hasmukh Hindocha</h3>
+</div>
 
-    
 <div class="bg-white">
-    <div class="wrapper-20">
-        <div class="row">
-            <div class="col-md-12 p-0">
-                    <button mat-stroked-button class="btn-primary br-0 right text-right addon"><i class="material-icons">
-                            add
-                            </i> ADD PLAN</button>
-            </div>
-        </div>
-    </div>
-    <div class="wrapper-40">
-        <h4 class="m-0 text-black">STARTER PLAN</h4>
-        <table mat-table [dataSource]="dataSource" class="mt-8" id="table-low">
-                <ng-container matColumnDef="document">
-                  <th mat-header-cell *matHeaderCellDef> Document name</th>
-                  <td mat-cell *matCellDef="let element"> {{element.document}} </td>
-                </ng-container>
-                <ng-container matColumnDef="plan">
-                  <th mat-header-cell *matHeaderCellDef> Plan name </th>
-                  <td mat-cell *matCellDef="let element"> {{element.plan}} </td>
-                </ng-container>
-            
-                <ng-container matColumnDef="date">
-                  <th mat-header-cell *matHeaderCellDef> Created date </th>
-                  <td mat-cell *matCellDef="let element"> {{element.date}} </td>
-                </ng-container>
+  <div class="wrapper-20">
+      <div class="row">
+          <div class="col-md-12 p-0">
+                <button mat-stroked-button class="btn-primary br-0 right text-right addon"><i class="material-icons">
+                        add</i> ADD PLAN</button>
+                <button mat-button class="right text-right mr-8">HELP</button>
               
-                <ng-container matColumnDef="sdate">
-                  <th mat-header-cell *matHeaderCellDef> Sent date </th>
-                  <td mat-cell *matCellDef="let element"> {{element.sdate}} </td>
+          </div>
+      </div>
+  </div>
+  <div class="wrapper-40 pr-20">
+      <div class="row">
+          <div class="col-md-1 p-0">
+    <button mat-button [matMenuTriggerFor]="menu" class="b-a pr-0">Actions <i class="material-icons">
+            arrow_drop_down
+            </i></button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>Email with eSign request</button>
+          <button mat-menu-item>Email only</button>
+          <button mat-menu-item>Delete document</button>
+        </mat-menu>
+          </div>
+          <div class="col-md-9 p-0">
+                <p class="m-0 text-black text-left pt-8">2 documents selected</p>
+          </div>
+      </div>
+      <table mat-table [dataSource]="dataSource" class="mt-8" id="table-low">
+            <ng-container matColumnDef="checkbox">
+                    <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 2%;"> <mat-checkbox></mat-checkbox> </th>
+                    <td mat-cell *matCellDef="let element" style="width: 2%;">
+                            <mat-checkbox checked="false"></mat-checkbox>
+                    </td>
                 </ng-container>
-                <ng-container matColumnDef="cdate">
-                        <th mat-header-cell *matHeaderCellDef> Client consent date </th>
-                        <td mat-cell *matCellDef="let element"> {{element.cdate}} </td>
-                      </ng-container>
-                     
-                          <ng-container matColumnDef="status">
-                                <th mat-header-cell *matHeaderCellDef> Status </th>
-                                <td mat-cell *matCellDef="let element"> {{element.status}} </td>
-                              </ng-container>
-                                          <ng-container matColumnDef="icons">
-                                                <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 2%;"> </th>
-                                                <td mat-cell *matCellDef="let element" style="width: 2%;"><i class="material-icons c-p iconscolors" [matMenuTriggerFor]="menu" [matMenuTriggerFor]="belowMenu">
-                                                    more_vert
-                                                    </i>
-                                                    <mat-menu #menu="matMenu">
-                                                        <a mat-menu-item>View fee structure</a>
-                                                        <a mat-menu-item>Edit Biller settings</a>
-                                                        <a mat-menu-item class="bt-1">Edit Payee settings</a>
-                                                        <a mat-menu-item>Cancel subscription</a>
-                                                        <a mat-menu-item class="bt-1">Delete subscription</a>
-                                                    </mat-menu>
-                                                </td>
-                                            </ng-container>
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-              </table>
-    </div>
+          <ng-container matColumnDef="document">
+              <th mat-header-cell *matHeaderCellDef> Document name</th>
+              <td mat-cell *matCellDef="let element" class="c-p"> {{element.document}} </td>
+          </ng-container>
+          <ng-container matColumnDef="plan">
+              <th mat-header-cell *matHeaderCellDef> Plan name </th>
+              <td mat-cell *matCellDef="let element"> {{element.plan}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="date">
+              <th mat-header-cell *matHeaderCellDef> Created date </th>
+              <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="sdate">
+              <th mat-header-cell *matHeaderCellDef> Sent date </th>
+              <td mat-cell *matCellDef="let element"> {{element.sdate}} </td>
+          </ng-container>
+          <ng-container matColumnDef="cdate">
+              <th mat-header-cell *matHeaderCellDef> Client consent date </th>
+              <td mat-cell *matCellDef="let element"> {{element.cdate}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef> Status </th>
+              <td mat-cell *matCellDef="let element" class="text-success f-500"> {{element.status}} </td>
+          </ng-container>
+          <ng-container matColumnDef="icons">
+              <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 2%;"> </th>
+              <td mat-cell *matCellDef="let element" style="width: 2%;"><i class="material-icons c-p iconscolors" [matMenuTriggerFor]="menu" [matMenuTriggerFor]="belowMenu">
+                                                  more_vert
+                                                  </i>
+                  <mat-menu #menu="matMenu">
+                      <a mat-menu-item>View document</a>
+                      <a mat-menu-item>Modify document</a>
+                      <a mat-menu-item class="bt-1">Delete subscription</a>
+                  </mat-menu>
+              </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+  </div>
 </div>
