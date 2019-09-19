@@ -5,8 +5,8 @@
             <mat-tab-group mat-align-tabs="end" animationDuration="0ms" (selectedTabChange)="tabClick($event)">
                 
                 <mat-tab label="DASHBOARD">
-                   <!-- <app-dashboard-subscription></app-dashboard-subscription> -->
-                   <app-client-subscription></app-client-subscription>
+                   <app-dashboard-subscription></app-dashboard-subscription>
+              
                 </mat-tab>
                 <mat-tab label="CLIENTS">
                     <app-client-subscription></app-client-subscription>
@@ -31,20 +31,23 @@
     </div>
 </div>
 <div *ngIf="subscriptionTab=='DOCUMENTS'" id="myRightSidenav" class="right_sidenav">           
-    <app-document-terms-agreement></app-document-terms-agreement>
+    <app-terms-agreement></app-terms-agreement>
+</div>
+<div *ngIf="subscriptionTab=='QUOTATIONS'" id="myRightSidenav" class="right_sidenav">           
+    <app-terms-agreement></app-terms-agreement>
 </div>
 <div *ngIf="subscriptionTab=='SUBSCRIPTIONS'" id="myRightSidenav" class="right_sidenav">           
-    <app-subscriptions-rightnav></app-subscriptions-rightnav>
+    <app-invoice-history></app-invoice-history>
 </div>
 <div *ngIf="subscriptionTab=='subscriptionFees'" id="myRightSidenav" class="right_sidenav">           
-    <app-subscriptions-rightnav></app-subscriptions-rightnav>
+    <app-invoice-history></app-invoice-history>
 </div>
 <div *ngIf="subscriptionTab=='dashboardSubscription'" id="myRightSidenav" class="right_sidenav">           
     <app-clients-dashboard></app-clients-dashboard>
 </div>
 <div *ngIf="subscriptionTab=='modifyFees'" id="myRightSidenav" class="right_sidenav">           
-    <app-subscription-modifiy-fee-structure></app-subscription-modifiy-fee-structure>
+    <app-modify-fee-structure></app-modify-fee-structure>
 </div>
-<div  id="myRightSidenav" class="right_sidenav">           
-  <app-help></app-help>
-</div>
+<div *ngIf="subscriptionTab=='clientHelp'" id="myRightSidenav" class="right_sidenav">           
+    <app-help></app-help>
+</div>    

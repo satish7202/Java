@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+
 export interface PeriodicElement {
   date: string;
   invoice: string;
@@ -15,11 +16,11 @@ const ELEMENT_DATA: PeriodicElement[] = [
  
 ];
 @Component({
-  selector: 'app-subscriptions-rightnav',
-  templateUrl: './subscriptions-rightnav.component.html',
-  styleUrls: ['./subscriptions-rightnav.component.scss']
+  selector: 'app-invoice-history',
+  templateUrl: './invoice-history.component.html',
+  styleUrls: ['./invoice-history.component.scss']
 })
-export class SubscriptionsRightnavComponent implements OnInit {
+export class InvoiceHistoryComponent implements OnInit {
 
   constructor() { }
   displayedColumns: string[] = ['date', 'invoice', 'status', 'ddate','amount','balance'];
@@ -42,5 +43,4 @@ export class SubscriptionsRightnavComponent implements OnInit {
   {
     $('#myRightSidenav').css({"width" : ""});
     $('#myRightSidenav').css({"transition":'0.2s'})
-  }
-}
+  }}

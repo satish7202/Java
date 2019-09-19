@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
 import { Button } from 'protractor';
+import { SubscriptionComponent } from '../subscription.component';
 export interface PeriodicElement {
   name: string;
   docname:string;
@@ -23,7 +24,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class QuotationsSubscriptionComponent implements OnInit {
 
-  constructor( public dialog: MatDialog) { }
+  constructor(private sub:SubscriptionComponent, public dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -52,4 +53,8 @@ export class QuotationsSubscriptionComponent implements OnInit {
   
   }
 
+  leftDocument()
+  {
+   this.sub.rightBar();
+  }
 }
