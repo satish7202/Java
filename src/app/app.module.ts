@@ -54,10 +54,16 @@ import { DocumentTermsAgreementComponent } from './component/protect-component/A
 import { SubscriptionsRightnavComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/subscriptions-subscription/subscriptions-rightnav/subscriptions-rightnav.component';
 import { SubscriptionModifiyFeeStructureComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/subscriptions-subscription/subscription-modifiy-fee-structure/subscription-modifiy-fee-structure.component';
 import { ClientsDashboardComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/dashboard-subscription/clients-dashboard/clients-dashboard.component';
+import { QuotationsComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/quotations/quotations.component';
+import { InvoicesComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/invoices/invoices.component';
+import { SettingsComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/settings/settings.component';
+import { SubscriptionsUpperSliderComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/subscriptions-upper-slider/subscriptions-upper-slider.component';
+import { HelpComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/help/help.component';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 import { InvoiceComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/invoice/invoice.component';
 import { LoginComponent } from './component/no-protected/login/login.component';
+import { SubscriptionCompletenessComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/dashboard-subscription/subscription-completeness/subscription-completeness.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -105,8 +111,14 @@ import { LoginComponent } from './component/no-protected/login/login.component';
     SubscriptionsRightnavComponent,
     SubscriptionModifiyFeeStructureComponent,
     ClientsDashboardComponent,
+    QuotationsComponent,
+    InvoicesComponent,
+    SettingsComponent,
+    SubscriptionsUpperSliderComponent,
+    HelpComponent,
     InvoiceComponent,
     LoginComponent,
+    SubscriptionCompletenessComponent,
     
     
   ],

@@ -10,6 +10,7 @@ export interface PeriodicElement {
   duedate: string;
   amt: string;
   balance:string;
+  
 } 
 
 @Component({
@@ -19,10 +20,11 @@ export interface PeriodicElement {
 })
 export class InvoicesSubscriptionComponent implements OnInit {
   dataSource: any;
-
   constructor(private subscription:SubscriptionService) { }
   advisorBillerProfileId=1;
   showPdfInvoice;
+  singleInvoiceData;
+  showLoader=true;
   ngOnInit() {
    this.getInvoiceSubData();
    this.showPdfInvoice=false;
@@ -37,18 +39,19 @@ export class InvoicesSubscriptionComponent implements OnInit {
   {
    const ELEMENT_DATA=data;
    this.dataSource=ELEMENT_DATA;
+   this.showLoader=false;
   }
   displayedColumns: string[] = ['checkbox','date','invoicenum','name','status','email', 'duedate', 'amt','balance'];
   showInvoicePdf(value)
   {
    this.subscription.getSingleInvoiceData(value.id).subscribe(
-     data=>this.getSingleInvoicePdf(data)
+     data=>this.getSingleResponseInvoicePdf(data)
    )
   this.showPdfInvoice=true;
   }
-  getSingleInvoicePdf(data)
+  getSingleResponseInvoicePdf(data)
   {
-    console.log(data)
+    this.singleInvoiceData=data
   }
   
 

@@ -62,6 +62,27 @@
             </mat-tab-group>
         </div>
     </div>
+    <div class="row" *ngIf="this.fragmentData.Flag=='clients'">
+        <div class="col-md-12 p-0">
+            <mat-tab-group mat-align-tabs="center" animationDuration="0ms">
+                <mat-tab label="SUBSCRIPTIONS">
+                    <app-subscriptions-upper-slider></app-subscriptions-upper-slider>
+                </mat-tab>
+                <mat-tab label="QUOTATIONS">
+                    <app-quotations></app-quotations>
+                </mat-tab>
+                <mat-tab label="INVOICES">
+                    <app-invoices></app-invoices>
+                </mat-tab>
+                <mat-tab label="DOCUMENTS">
+                    <app-document [componentFlag]='clientDocuments'></app-document>
+                </mat-tab>
+                <mat-tab label="SETTINGS">
+                    <app-settings></app-settings>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
 </div>
 <div id="myRightSidenav" class="right_sidenav">
     <app-add-structure></app-add-structure>

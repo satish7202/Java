@@ -15,11 +15,12 @@ export class UpperSliderComponent implements OnInit {
   }
 
   Flag = 'planOverview';
-  plan = 'planServices';
-  documents = 'plansDocuments';
-  plans = 'servicesPlans';
-  dialogClose() {
-     this.dialogRef.close();
+  plan='planServices';
+  documents ='plansDocuments';
+  plans='servicesPlans';
+  clientDocuments ='clientDocuments'
+  dialogClose(){
+    this.dialogRef.close();
   }
   open() {
     $("#myRightSidenav").css("width", "60%");

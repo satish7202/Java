@@ -34,4 +34,7 @@ export class SubscriptionComponent implements OnInit {
     console.log(event)
     this.subscriptionTab = event.tab.textLabel;
   }
+  help(){
+    $("#myRightSidenav").css("width","35%");
+  }
 }

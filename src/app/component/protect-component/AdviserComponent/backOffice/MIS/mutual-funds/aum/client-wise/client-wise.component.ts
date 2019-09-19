@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AumComponent } from '../aum.component';
 import { BackOfficeService } from '../../../../back-office.service';
 
+
 @Component({
   selector: 'app-client-wise',
   templateUrl: './client-wise.component.html',
@@ -11,12 +12,13 @@ export class ClientWiseComponent implements OnInit {
 
   constructor(private aum:AumComponent,private backoffice:BackOfficeService) { }
   
-  teamMemberId=2929;
+ 
   showLoader=true;
   clientList
   selectedClient;
   subList;
   selectedInvestor;
+  teamMemberId=2929;
   ngOnInit() {
     this.getClientTotalAum();
   }
