@@ -24,4 +24,11 @@ export class EventService {
 }
 
 
+private tabValue = new BehaviorSubject<any>("");
+tabChangeData= this.tabValue.asObservable();        
+tabData(message: string) {
+this.tabValue.next(message)
+}
+
+
 }

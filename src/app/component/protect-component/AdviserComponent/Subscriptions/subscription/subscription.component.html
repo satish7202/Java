@@ -2,11 +2,10 @@
     <div class="sub-header-fix">
         <div class="bg-white">
             <h1 class="cusotm-haeding-main">Subscriptions</h1>
-            <mat-tab-group mat-align-tabs="end" animationDuration="0ms" (selectedTabChange)="tabClick($event)">
-                
+            <mat-tab-group mat-align-tabs="end" animationDuration="0ms" [selectedIndex]="selected" (selectedTabChange)="tabClick($event)">
+
                 <mat-tab label="DASHBOARD">
-                   <app-dashboard-subscription></app-dashboard-subscription>
-              
+                    <app-dashboard-subscription></app-dashboard-subscription>
                 </mat-tab>
                 <mat-tab label="CLIENTS">
                     <app-client-subscription></app-client-subscription>
@@ -14,8 +13,8 @@
                 <mat-tab label="SUBSCRIPTIONS">
                     <app-subscriptions-subscription></app-subscriptions-subscription>
                 </mat-tab>
-                <mat-tab label="QUOTATIONS"> 
-                   <app-quotations-subscription></app-quotations-subscription>
+                <mat-tab label="QUOTATIONS">
+                    <app-quotations-subscription></app-quotations-subscription>
                 </mat-tab>
                 <mat-tab label="INVOICES">
                     <app-invoices-subscription *ngIf="subscriptionTab=='INVOICES'"></app-invoices-subscription>
@@ -30,24 +29,24 @@
         </div>
     </div>
 </div>
-<div *ngIf="subscriptionTab=='DOCUMENTS'" id="myRightSidenav" class="right_sidenav">           
+<div *ngIf="subscriptionTab=='DOCUMENTS'" id="myRightSidenav" class="right_sidenav">
     <app-terms-agreement></app-terms-agreement>
 </div>
-<div *ngIf="subscriptionTab=='QUOTATIONS'" id="myRightSidenav" class="right_sidenav">           
+<div *ngIf="subscriptionTab=='QUOTATIONS'" id="myRightSidenav" class="right_sidenav">
     <app-terms-agreement></app-terms-agreement>
 </div>
-<div *ngIf="subscriptionTab=='SUBSCRIPTIONS'" id="myRightSidenav" class="right_sidenav">           
+<div *ngIf="subscriptionTab=='SUBSCRIPTIONS'" id="myRightSidenav" class="right_sidenav">
     <app-invoice-history></app-invoice-history>
 </div>
-<div *ngIf="subscriptionTab=='subscriptionFees'" id="myRightSidenav" class="right_sidenav">           
+<div *ngIf="subscriptionTab=='subscriptionFees'" id="myRightSidenav" class="right_sidenav">
     <app-invoice-history></app-invoice-history>
 </div>
-<div *ngIf="subscriptionTab=='dashboardSubscription'" id="myRightSidenav" class="right_sidenav">           
+<div *ngIf="subscriptionTab=='dashboardSubscription'" id="myRightSidenav" class="right_sidenav">
     <app-clients-dashboard></app-clients-dashboard>
 </div>
-<div *ngIf="subscriptionTab=='modifyFees'" id="myRightSidenav" class="right_sidenav">           
+<div *ngIf="subscriptionTab=='modifyFees'" id="myRightSidenav" class="right_sidenav">
     <app-modify-fee-structure></app-modify-fee-structure>
 </div>
-<div *ngIf="subscriptionTab=='clientHelp'" id="myRightSidenav" class="right_sidenav">           
+<div *ngIf="subscriptionTab=='clientHelp'" id="myRightSidenav" class="right_sidenav">
     <app-help></app-help>
-</div>    
+</div>
