@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SubscriptionComponent } from '../subscription.component';
 export interface PeriodicElement {
   name: string;
   docname:string;
@@ -20,10 +21,14 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class QuotationsSubscriptionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sub:SubscriptionComponent) { }
 
   ngOnInit() {
   }
   displayedColumns: string[] = ['name', 'docname', 'plan', 'cdate','sdate','clientsign','status','icons'];
   dataSource = ELEMENT_DATA;
+  leftDocument()
+  {
+   this.sub.rightBar();
+  }
 }
