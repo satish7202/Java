@@ -43,14 +43,13 @@
                         <li routerLink="/admin/service" class="c-p">Settings</li>
                     </ul>
                 </div>
-
             </div>
         </mat-nav-list>
         <mat-sidenav-container class="sidenav-container">
             <mat-sidenav #sidenav mode="side" opened role="navigation">
                 <mat-nav-list id="d" class="width-230 pt-0">
                     <mat-toolbar *ngIf="showTabs" class="bg-white p-0">
-                        <img src="" class="w-100">
+                        <img src="{{userInfo}}" class="w-100">
                     </mat-toolbar>
                     <div *ngIf="showTabs" class="pt-16">
                         <img src="../../../../assets/images/img1.jpg" class="header-img pt-0 pb-0">
