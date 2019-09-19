@@ -64,6 +64,7 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { InvoiceComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/invoice/invoice.component';
 import { LoginComponent } from './component/no-protected/login/login.component';
 import { SubscriptionCompletenessComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/dashboard-subscription/subscription-completeness/subscription-completeness.component';
+import { ConfirmDialogComponent } from './component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -119,6 +120,7 @@ import { SubscriptionCompletenessComponent } from './component/protect-component
     InvoiceComponent,
     LoginComponent,
     SubscriptionCompletenessComponent,
+    ConfirmDialogComponent,
     
     
   ],
@@ -135,6 +137,7 @@ import { SubscriptionCompletenessComponent } from './component/protect-component
   ],
   providers: [AuthService,HttpService],
   bootstrap: [AppComponent],
-  entryComponents:[UpperSliderComponent]
+  entryComponents:[UpperSliderComponent,
+    ConfirmDialogComponent]
 })
 export class AppModule { }

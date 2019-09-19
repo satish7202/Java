@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
+import { Button } from 'protractor';
 export interface PeriodicElement {
   name: string;
   docname:string;
@@ -20,10 +23,33 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class QuotationsSubscriptionComponent implements OnInit {
 
-  constructor() { }
+  constructor( public dialog: MatDialog) { }
 
   ngOnInit() {
   }
   displayedColumns: string[] = ['name', 'docname', 'plan', 'cdate','sdate','clientsign','status','icons'];
   dataSource = ELEMENT_DATA;
+
+
+  openConfirmDialog(){
+    let dialogData = {
+      header: 'Are you sure you want to delete?',
+      body:'if you are interested in some quick pretty solution with css format done',
+      btnYes:'yes',
+      btnNo:'No'
+    }
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+       width: '400px',
+       data: dialogData,
+       autoFocus:false,
+
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+  
+    });
+  
+  }
+
 }
