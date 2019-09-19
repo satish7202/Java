@@ -1,12 +1,7 @@
-<<<<<<< Updated upstream
-import { Component, OnInit } from '@angular/core';
-
-=======
 import { Component, OnInit, Input } from '@angular/core';
 import * as $ from 'jquery';
 import { EventService } from 'src/app/Data-service/event.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
->>>>>>> Stashed changes
 @Component({
   selector: 'app-subscription',
   templateUrl: './subscription.component.html',
