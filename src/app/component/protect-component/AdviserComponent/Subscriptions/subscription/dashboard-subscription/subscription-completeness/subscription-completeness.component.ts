@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardSubscriptionComponent } from '../dashboard-subscription.component';
 import { SubscriptionService } from '../../../subscription.service';
+import { SubscriptionComponent } from '../../subscription.component';
 
 @Component({
   selector: 'app-subscription-completeness',
@@ -9,7 +10,7 @@ import { SubscriptionService } from '../../../subscription.service';
 })
 export class SubscriptionCompletenessComponent implements OnInit {
 
-  constructor(private subscription:SubscriptionService) { }
+  constructor(private subscription:SubscriptionService,public sub:SubscriptionComponent) { }
   advisorId=2735;
   ngOnInit() {
    this.getSubscriptionStagesRecord();
@@ -33,5 +34,10 @@ export class SubscriptionCompletenessComponent implements OnInit {
   getSubStagesRecordResponse(data)
   {
     console.log(data)
+  }
+  goToSelectivePage()
+  {
+    
+   this.sub.subscriptionTab='SETTINGS'
   }
 }

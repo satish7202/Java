@@ -30,8 +30,9 @@ export class ClientSubscriptionComponent implements OnInit {
   }
   displayedColumns: string[] = ['name','email', 'num', 'balance'];
   dataSource = ELEMENT_DATA;
-  help()
+  help(value)
   {
+    this.sub.subscriptionTab=value;
     this.sub.help();
   }
   openFragment(data) {
@@ -45,19 +46,6 @@ export class ClientSubscriptionComponent implements OnInit {
        data: Fragmentdata,
        autoFocus:false,
        panelClass:'dialogBox',
-      //  position: { 
-      //    top: `30px`,
-      //    right: `40px`
-      //   },
-      // openFrom:'{
-      //   top: -50,
-      //   width: 30,
-      //   height: 80
-      // }',
-      // closeTo({
-      //   left: 1500
-      // })
-      // hasBackdrop: false,
     });
   
     dialogRef.afterClosed().subscribe(result => {
