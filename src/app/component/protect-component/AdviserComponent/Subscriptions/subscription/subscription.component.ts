@@ -12,9 +12,13 @@ export class SubscriptionComponent implements OnInit {
 
   }
   subscriptionTab;
+  selected: any;
   constructor(private eventService:EventService) {
     this.eventService.sidebarSubscribeData.subscribe(
       data => this.getFileResponseDataAum(data)
+     )
+     this.eventService.tabChangeData.subscribe(
+      data => this.gettabChangeData(data)
      )
    }
 
@@ -23,6 +27,12 @@ export class SubscriptionComponent implements OnInit {
         this.subscriptionTab=data;
         this.rightBar();
    }
+   gettabChangeData(data){
+     console.log(data)
+     if(data === 'client'){
+       this.selected = 1;
+     }
+  }
   
    
   rightBar()
