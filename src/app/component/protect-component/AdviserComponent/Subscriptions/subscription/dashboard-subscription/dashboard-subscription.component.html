@@ -24,15 +24,15 @@
                         <div class="bt-1">
                             <p class="text-center pt-12 f-300 pb-16 f-18 mb-0">Subscription summary</p>
                             <div class="row pt-12">
-                                <div class="col-md-4">
+                                <div class="col-md-4 c-p">
                                     <p class="f-300 f-18">Total</p>
                                     <h4 class="text-left pl-20">128</h4>
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-5 c-p">
                                     <p class="f-300 f-18">This month</p>
                                     <h4 class="text-left pl-12">12</h4>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 c-p">
                                     <p class="f-300 f-18">  Today</p>
                                     <h4 class="text-left pl-4">1</h4>
                                 </div>
@@ -50,13 +50,13 @@
                                             </i>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="pl-20 pr-20">
+                                    <div class="pl-20 pr-20 c-p">
                                         <p class="f-300 f-18 mb-0">Total sales</p>
                                         <h2 class="text-primary mb-0 pb-28 pt-8">75,000</h2>
                                     </div>
                                 </div>
                                 <div class="col-md-6 p-0">
-                                    <div class="pr-20 pl-20">
+                                    <div class="pr-20 pl-20 c-p">
                                         <p class="f-300 f-18 mb-0">Fee received</p>
                                         <h2 class="text-primary mb-0 pb-28 pt-8">46,000</h2>
 
@@ -72,14 +72,13 @@
                                              </i>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="pl-20 pr-20">
+                                    <div class="pl-20 pr-20 c-p">
                                         <p class="f-300 f-18 mb-0">Docs sent </p>
                                         <h2 class="f-26 text-primary mb-0 pb-28 pt-8">25</h2>
                                     </div>
                                 </div>
                                 <div class="col-md-6 pr-0">
-                                    <div class="pl-20 pr-20">
-
+                                    <div class="pl-20 pr-20 c-p">
                                         <p class="f-300 f-18 mb-0">Docs signed </p>
                                         <h2 class="f-26 text-primary mb-0 pb-28 pt-8">25</h2>
                                     </div>
@@ -93,12 +92,12 @@
                                                     </i>
                         <div class="pl-20 pr-20">
                             <p class="f-300 f-18 pt-28 mb-0">Receivables summary</p>
-                            <h2 class="text-primary pt-8 pb-36 mb-0">1,23,670</h2>
+                            <h2 class="text-primary pt-8 pb-36 mb-0 c-p">1,23,670</h2>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 pl-0 mt-28">
-                    <div class="row bg-white pb-32">
+                    <div class="row bg-white pb-28">
                         <div class="col-md-12 pt-8">
                             <i class="material-icons pt-8 right text-right text-custom f-32 f-700">
                                         more_horiz
@@ -174,15 +173,15 @@
                             <table mat-table [dataSource]="dataSource" id="table-low" class="mt-8">
                                 <ng-container matColumnDef="name">
                                     <th mat-header-cell *matHeaderCellDef> Client name </th>
-                                    <td mat-cell *matCellDef="let element" (click)="rightSideBar('subscriptionFees')"> {{element.name}} </td>
+                                    <td mat-cell *matCellDef="let element" (click)="rightSideBar('subscriptionFees')" class="c-p"> {{element.name}} </td>
                                 </ng-container>
                                 <ng-container matColumnDef="service">
                                     <th mat-header-cell *matHeaderCellDef> Service name </th>
-                                    <td mat-cell *matCellDef="let element"> {{element.service}} </td>
+                                    <td mat-cell *matCellDef="let element" class="c-p"> {{element.service}} </td>
                                 </ng-container>
                                 <ng-container matColumnDef="amt">
                                     <th mat-header-cell *matHeaderCellDef> Fee amount </th>
-                                    <td mat-cell *matCellDef="let element" (click)="modifyFees('modifyFees')"> {{element.amt}} </td>
+                                    <td mat-cell *matCellDef="let element" (click)="modifyFees('modifyFees')" class="c-p"> {{element.amt}} </td>
                                 </ng-container>
                                 <ng-container matColumnDef="billing">
                                     <th mat-header-cell *matHeaderCellDef> Next billing... </th>
@@ -190,7 +189,7 @@
                                 </ng-container>
                                 <ng-container matColumnDef="icons">
                                     <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 2%;"> </th>
-                                    <td mat-cell *matCellDef="let element" style="width: 2%;"><i class="material-icons iconscolors">
+                                    <td mat-cell *matCellDef="let element" style="width: 2%;"><i class="material-icons c-p iconscolors">
                                 more_vert
                                 </i></td>
                                 </ng-container>
