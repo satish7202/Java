@@ -18,7 +18,8 @@ export class UpperSliderComponent implements OnInit {
   plan='planServices';
   documents ='plansDocuments';
   plans='servicesPlans';
-  clientDocuments ='clientDocuments'
+  clientDocuments ='clientDocuments';
+  servicesDocuments='servicesDocuments'
   dialogClose(){
     this.dialogRef.close();
   }

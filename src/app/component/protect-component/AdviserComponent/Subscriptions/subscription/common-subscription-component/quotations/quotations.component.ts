@@ -21,6 +21,6 @@ export class QuotationsComponent implements OnInit {
 
   ngOnInit() {
   }
-  displayedColumns: string[] = ['service', 'amt', 'type', 'subs','status','date','bdate','ndate','mode','icons'];
+  displayedColumns: string[] = ['document','plan', 'date', 'sdate','cdate','status','icons'];
   dataSource = ELEMENT_DATA;
 }

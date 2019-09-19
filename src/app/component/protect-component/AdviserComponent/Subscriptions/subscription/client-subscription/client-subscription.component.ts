@@ -35,6 +35,7 @@ export class ClientSubscriptionComponent implements OnInit {
   help(value)
    {
     this.sub.subscriptionTab=value;
+    this.sub.help();
   }
   openFragment(data) {
     let Fragmentdata = {
