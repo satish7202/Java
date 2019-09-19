@@ -65,6 +65,7 @@ import { ConfirmDialogComponent } from './component/protect-component/common-com
 import { ModifyFeeStructureComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/modify-fee-structure/modify-fee-structure.component';
 import { TermsAgreementComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/terms-agreement/terms-agreement.component';
 import { InvoiceHistoryComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/invoice-history/invoice-history.component';
+import { DialogComponent } from './component/dialog/dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -122,6 +123,7 @@ import { InvoiceHistoryComponent } from './component/protect-component/AdviserCo
     ModifyFeeStructureComponent,
     TermsAgreementComponent,
     InvoiceHistoryComponent,
+    DialogComponent
     
   ],
   imports: [
