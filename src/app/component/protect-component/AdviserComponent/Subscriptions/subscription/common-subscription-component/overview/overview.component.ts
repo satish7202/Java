@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter,Input} from '@angular/core';
 import * as $ from 'jquery';
 import { UpperSliderComponent } from '../upper-slider/upper-slider.component';
 @Component({
@@ -9,6 +9,9 @@ import { UpperSliderComponent } from '../upper-slider/upper-slider.component';
 export class OverviewComponent implements OnInit {
 
   constructor(private upper:UpperSliderComponent) { }
+
+   
+@Input() componentFlag:string;
 
   ngOnInit() {
     // $("#myRightSidenav").css("width","");

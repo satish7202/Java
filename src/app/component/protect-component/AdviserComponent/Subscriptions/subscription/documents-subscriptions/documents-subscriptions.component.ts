@@ -31,6 +31,6 @@ export class DocumentsSubscriptionsComponent implements OnInit {
 
   leftDocument()
  {
-  this.sub.leftBar();
+  this.sub.rightBar();
  }
 }

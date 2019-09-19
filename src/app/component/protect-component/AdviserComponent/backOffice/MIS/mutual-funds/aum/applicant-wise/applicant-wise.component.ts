@@ -9,10 +9,10 @@ import { BackOfficeService } from '../../../../back-office.service';
 })
 export class ApplicantWiseComponent implements OnInit {
 
-  constructor(public aum:AumComponent,private backoffice:BackOfficeService) { }
-  teamMemberId=2929;
+  constructor(private aum:AumComponent,private backoffice:BackOfficeService) { }
   applicantName;
   showLoader=true;
+  teamMemberId=2929;
   ngOnInit() {
     this.aumApplicantWiseTotalaumApplicantNameGet();
   }

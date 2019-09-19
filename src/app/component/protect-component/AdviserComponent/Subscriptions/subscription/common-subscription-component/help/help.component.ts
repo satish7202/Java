@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 @Component({
-  selector: 'app-document-terms-agreement',
-  templateUrl: './document-terms-agreement.component.html',
-  styleUrls: ['./document-terms-agreement.component.scss']
+  selector: 'app-help',
+  templateUrl: './help.component.html',
+  styleUrls: ['./help.component.scss']
 })
-export class DocumentTermsAgreementComponent implements OnInit {
+export class HelpComponent implements OnInit {
 
   constructor() { }
 
@@ -16,4 +16,5 @@ export class DocumentTermsAgreementComponent implements OnInit {
     $('#myRightSidenav').css({"width" : ""});
     $('#myRightSidenav').css({"transition":'0.2s'})
   }
+
 }

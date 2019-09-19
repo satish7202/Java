@@ -24,6 +24,12 @@ export class BackOfficeService {
     return this.http.get(apiConfig.MAIN_URL + appConfig.FILE_GET, httpParams);
   }
 
+  loginApi(data) {
+    return this.https.post(apiConfig.MAIN_URL + appConfig.LOGIN,data);
+  }
+  
+  
+
   getClientTotalAUM(data) {
     console.log(data)
     let httpParams = new HttpParams().set('teamMemberId', data)
@@ -91,6 +97,79 @@ export class BackOfficeService {
   }
  
 
+//---------------------------------------- sip data call--------------------------------------
+
+// Date - 10 dec 2019
+
+GET_EXPIRING(){
+  return this.http.get(apiConfig.MAIN_URL + appConfig.GET_EXPIRING,null);
+}
+
+GET_expired(){
+  return this.http.get(apiConfig.MAIN_URL + appConfig.GET_expired,null);
+}
+
+GET_SIP_REJECTION(){
+  return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SIP_REJECTION,null);
+}
+GET_SIP_SCHEME_SEARCH(){
+  return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SIP_SCHEME_SEARCH,null);
+}
+
+GET_SIP_AMC(){
+  return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SIP_AMC,null);
+}
+
+GET_SIP_AMC_SCHEME(){
+  return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SIP_AMC_SCHEME,null);
+}
+
+GET_SIP_INVERSTORS(){
+  return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SIP_INVERSTORS,null);
+}
+
+Scheme_Investors_Applicants(){
+  return this.http.get(apiConfig.MAIN_URL + appConfig.Scheme_Investors_Applicants,null);
+}
+
+Sip_Schemewise_Get(){
+  return this.http.get(apiConfig.MAIN_URL + appConfig.Sip_Schemewise_Get,null);
+}
+Scheme_Wise_Investor_Get(){
+  return this.http.get(apiConfig.MAIN_URL + appConfig.Scheme_Wise_Investor_Get,null);
+}
+
+scheme_wise_Applicants_Get(){
+  return this.http.get(apiConfig.MAIN_URL + appConfig.scheme_wise_Applicants_Get,null);
+}
+
+//---------------------------------------- sip data call--------------------------------------
+
+
+//------------------------------------back office api call ------------------------------------
+AllClient_get(){
+  return this.http.get(apiConfig.MAIN_URL + appConfig.AllClient_get,null);
+}
+
+AllClient_ByName_get(){
+  return this.http.get(apiConfig.MAIN_URL + appConfig.AllClient_ByName_get,null);
+}
+AllClient_ByTags_get(){
+  return this.http.get(apiConfig.MAIN_URL + appConfig.AllClient_ByTags_get,null);
+}
+Update_expiryDate(){
+  return this.http.get(apiConfig.MAIN_URL + appConfig.Update_expiryDate,null);
+}
+Update_Password(){
+  return this.http.get(apiConfig.MAIN_URL + appConfig.Update_Password,null);
+}
+Fileorder_Status_Report_Get(){
+  return this.http.get(apiConfig.MAIN_URL + appConfig.Fileorder_Status_Report_Get,null);
+}
+
+
+
+
 
   
 
@@ -98,21 +177,18 @@ export class BackOfficeService {
   URL = 'https://api.punkapi.com/v2/beers';
 
   public responseCache = new Map();
-
   public getBeerList(): Observable<any> {
     const beersFromCache = this.responseCache.get(this.URL);
     if (beersFromCache) {
       return of(beersFromCache);
     }
-
-
     const response = this.https.get<any>(this.URL);
     response.subscribe(beers => this.responseCache.set(this.URL, beers));
     return response;
   }
 
   getClientFolioWise(data){
-return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data,10000)
+    return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data,10000)
   }
 
 

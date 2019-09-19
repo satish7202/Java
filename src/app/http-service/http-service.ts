@@ -135,7 +135,7 @@ export class HttpService {
     const httpOptions = {
       headers: new HttpHeaders().set('authToken', this._userService.getToken())
         .set('Content-Type', 'application/json'),
-      params
+        params
     };
     url = url.trim();
     return this._http

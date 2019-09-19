@@ -8,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class SettingsSubscriptionComponent implements OnInit {
 
   constructor() { }
-
+  
   ngOnInit() {
   }
-
+   selectedTab;
+  tabClick(value)
+  {
+   this.selectedTab=value.tab.textLabel;
+  }
 }

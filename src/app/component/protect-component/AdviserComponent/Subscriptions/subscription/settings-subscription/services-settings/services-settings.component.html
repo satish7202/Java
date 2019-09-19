@@ -6,23 +6,23 @@
         </div>
     
         <div class="row">
-            <div class="col-md-4 ">
+            <div class="col-md-4 mt-20">
                 <mat-card class="example-card height-470 bg-grey lter">
     
                     <mat-card-content>
                         <p class="text-center">
-                            <i class="material-icons icon-center">   add  </i>
+                            <i class="material-icons icon-center" (click)="openFragment('services')">   add  </i>
                         </p>
                     </mat-card-content>
     
                 </mat-card>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mt-20" *ngFor="let singleService of serviceSettingData">
                 <mat-card class="example-card bg-grey lter p-0">
                     <mat-card-header>
                         <div class="wrapper-20">
-                            <mat-card-title class="mb-0 f-24">Investment Management </mat-card-title>
-                            <mat-card-subtitle class="pt-4 pb-12">IMA124</mat-card-subtitle>
+                            <mat-card-title class="mb-0 f-24">{{singleService.title}}</mat-card-title>
+                            <mat-card-subtitle class="pt-4 pb-12">{{singleService.code}}</mat-card-subtitle>
                         </div>
                     </mat-card-header>
     
@@ -31,257 +31,41 @@
                         <div class="row wrapper-20">
                             <div class="col-md-6 p-0">
                                 <p class="mb-0 text-primitive f-12">FEE TYPE</p>
-                                <label class="bg-header mt-4">Fixed</label>
+                                <label class="bg-header mt-4">{{singleService.feetype}}</label>
                             </div>
                             <div class="col-md-6 p-0">
                                 <p class="f-12 mb-0 text-primitive">BILLING NATURE</p>
-                                <p class="f-18 pt-4 mb-0">Recurring</p>
+                                <p class="f-18 pt-4 mb-0">{{singleService.Nature}}</p>
                             </div>
                         </div>
                         <div class="row wrapper-20 pt-0">
                             <div class="col-md-6 p-0">
                                 <p class="mb-0 text-primitive f-12">BILLING MODE</p>
-                                <p class="mb-0 f-18">End of period</p>
+                                <p class="mb-0 f-18">{{singleService.Mode}}</p>
                             </div>
                             <div class="col-md-6 p-0">
                                 <p class="f-12 mb-0 text-primitive">FEES</p>
-                                <p class="f-18 mb-0">Rs.10,000/Year</p>
+                                <p class="f-18 mb-0">{{singleService.FEES}}</p>
                             </div>
                         </div>
                         <div class="row wrapper-20 bt-1 bb-1">
                             <div class="col-md-4 p-0">
                                 <p class="f-14 text-primitive">PLANS</p>
-                                <p class="f-24">3</p>
+                                <p class="f-24">{{singleService.PLANS}}</p>
                             </div>
                             <div class="col-md-4 p-0">
                                 <p class="f-14 text-primitive">MODULES</p>
-                                <p class="f-24">12</p>
+                                <p class="f-24">{{singleService.MODULES}}</p>
                             </div>
                             <div class="col-md-4 p-0">
                                 <p class="f-14 text-primitive">DOCUMENTS</p>
-                                <p class="f-24">0</p>
+                                <p class="f-24">{{singleService.DOCUMENTS}}</p>
                             </div>
     
                         </div>
                     </mat-card-content>
                     <mat-card-actions class="block text-center pt-20 pb-20 mb-0">
                         <button mat-stroked-button class="btn-header addon mb-12 mt-8 br-0">INFO</button>
-                    </mat-card-actions>
-                </mat-card>
-            </div>
-            <div class="col-md-4">
-                <mat-card class="example-card bg-grey lter p-0">
-                    <mat-card-header>
-                        <div class="wrapper-20">
-                            <mat-card-title class="mb-0 f-24">Investment Management Financial Planning</mat-card-title>
-                            <mat-card-subtitle class="pt-4 mb-0">IMA125</mat-card-subtitle>
-                        </div>
-                    </mat-card-header>
-    
-                    <mat-card-content class="bg-white mb-0">
-    
-                        <div class="row wrapper-20">
-                            <div class="col-md-6 p-0">
-                                <p class="mb-0 text-primitive f-12">FEE TYPE</p>
-                                <label class="bg-header mt-4">Fixed</label>
-                            </div>
-                            <div class="col-md-6 p-0">
-                                <p class="f-12 mb-0 text-primitive">BILLING NATURE</p>
-                                <p class="f-18 pt-4 mb-0">Recurring</p>
-                            </div>
-                        </div>
-                        <div class="row wrapper-20 pt-0">
-                            <div class="col-md-6 p-0">
-                                <p class="mb-0 text-primitive f-12">BILLING MODE</p>
-                                <p class="mb-0 f-18">End of period</p>
-                            </div>
-                            <div class="col-md-6 p-0">
-                                <p class="f-12 mb-0 text-primitive">FEES</p>
-                                <p class="f-18 mb-0">Rs.10,000/Year</p>
-                            </div>
-                        </div>
-                        <div class="row wrapper-20 bt-1 bb-1">
-                            <div class="col-md-4 p-0">
-                                <p class="f-14 text-primitive">PLANS</p>
-                                <p class="f-24">3</p>
-                            </div>
-                            <div class="col-md-4 p-0">
-                                <p class="f-14 text-primitive">MODULES</p>
-                                <p class="f-24">12</p>
-                            </div>
-                            <div class="col-md-4 p-0">
-                                <p class="f-14 text-primitive">DOCUMENTS</p>
-                                <p class="f-24">0</p>
-                            </div>
-    
-                        </div>
-                    </mat-card-content>
-                    <mat-card-actions class="block text-center pt-20 pb-20 mb-0">
-                        <button mat-stroked-button class="btn-header addon mb-12 mt-8 br-0">INFO</button>
-                    </mat-card-actions>
-                </mat-card>
-            </div>
-        </div>
-    </div>
-    <div class="wrapper-20">
-        <div class="row">
-            <div class="col-md-4">
-                <mat-card class="example-card bg-grey lter p-0">
-                    <mat-card-header>
-                        <div class="wrapper-20">
-                            <mat-card-title class="mb-0 f-24">Investment Management </mat-card-title>
-                            <mat-card-subtitle class="pt-4 pb-12">IMA123</mat-card-subtitle>
-                        </div>
-                    </mat-card-header>
-    
-                    <mat-card-content class="bg-white mb-0">
-    
-                        <div class="row wrapper-20">
-                            <div class="col-md-6 p-0">
-                                <p class="mb-0 text-primitive f-12">FEE TYPE</p>
-                                <label class="bg-header mt-4">Fixed</label>
-                            </div>
-                            <div class="col-md-6 p-0">
-                                <p class="f-12 mb-0 text-primitive">BILLING NATURE</p>
-                                <p class="f-18 pt-4 mb-0">Recurring</p>
-                            </div>
-                        </div>
-                        <div class="row wrapper-20 pt-0">
-                            <div class="col-md-6 p-0">
-                                <p class="mb-0 text-primitive f-12">BILLING MODE</p>
-                                <p class="mb-0 f-18">End of period</p>
-                            </div>
-                            <div class="col-md-6 p-0">
-                                <p class="f-12 mb-0 text-primitive">FEES</p>
-                                <p class="f-18 mb-0">Rs.10,000/Year</p>
-                            </div>
-                        </div>
-                        <div class="row wrapper-20 bt-1 bb-1">
-                            <div class="col-md-4 p-0">
-                                <p class="f-14 text-primitive">PLANS</p>
-                                <p class="f-24">3</p>
-                            </div>
-                            <div class="col-md-4 p-0">
-                                <p class="f-14 text-primitive">MODULES</p>
-                                <p class="f-24">12</p>
-                            </div>
-                            <div class="col-md-4 p-0">
-                                <p class="f-14 text-primitive">DOCUMENTS</p>
-                                <p class="f-24">0</p>
-                            </div>
-    
-                        </div>
-                    </mat-card-content>
-                    <mat-card-actions class="block text-center pt-20 pb-20">
-                        <button mat-stroked-button class="btn-primary addon mb-12 mt-8 br-4">INFO</button>
-                    </mat-card-actions>
-                </mat-card>
-            </div>
-            <div class="col-md-4">
-                <mat-card class="example-card bg-grey lter p-0">
-                    <mat-card-header>
-                        <div class="wrapper-20">
-                            <mat-card-title class="mb-0 f-24">Investment Management Financial Planning</mat-card-title>
-                            <mat-card-subtitle class="mb-0">
-                                <p class="mb-0 pt-16 text-custom f-12">This is a long description of text which comes.</p>
-                            </mat-card-subtitle>
-                        </div>
-                    </mat-card-header>
-    
-                    <mat-card-content class="bg-white mb-0">
-    
-                        <div class="row wrapper-20">
-                            <div class="col-md-6 p-0">
-                                <p class="mb-0 text-primitive f-12">FEE TYPE</p>
-                                <label class="bg-header mt-4">Fixed</label>
-                            </div>
-                            <div class="col-md-6 p-0">
-                                <p class="f-12 mb-0 text-primitive">BILLING NATURE</p>
-                                <p class="f-18 pt-4 mb-0">Recurring</p>
-                            </div>
-                        </div>
-                        <div class="row wrapper-20 pt-0">
-                            <div class="col-md-6 p-0">
-                                <p class="mb-0 text-primitive f-12">BILLING MODE</p>
-                                <p class="mb-0 f-18">End of period</p>
-                            </div>
-                            <div class="col-md-6 p-0">
-                                <p class="f-12 mb-0 text-primitive">FEES</p>
-                                <p class="f-18 mb-0">Rs.10,000/Year</p>
-                            </div>
-                        </div>
-                        <div class="row wrapper-20 bt-1 bb-1">
-                            <div class="col-md-4 p-0">
-                                <p class="f-14 text-primitive" routerLink="/admin/plan">PLANS</p>
-                                <p class="f-24">3</p>
-                            </div>
-                            <div class="col-md-4 p-0">
-                                <p class="f-14 text-primitive">MODULES</p>
-                                <p class="f-24">12</p>
-                            </div>
-                            <div class="col-md-4 p-0">
-                                <p class="f-14 text-primitive">DOCUMENTS</p>
-                                <p class="f-24">0</p>
-                            </div>
-    
-                        </div>
-                    </mat-card-content>
-                    <mat-card-actions class="block text-center pt-20 pb-20">
-                        <button mat-stroked-button class="btn-primary addon mb-12 mt-8 br-4">INFO</button>
-                    </mat-card-actions>
-                </mat-card>
-            </div>
-            <div class="col-md-4">
-                <mat-card class="example-card bg-grey lter p-0">
-                    <mat-card-header>
-                        <div class="wrapper-20">
-                            <mat-card-title class="mb-0 f-24">Investment Management Financial Planning</mat-card-title>
-                            <mat-card-subtitle class="pt-4 mb-0">
-                                <p class="mb-0 pt-16 text-custom f-12">This is a long description of text which comes.</p>
-                            </mat-card-subtitle>
-                        </div>
-                    </mat-card-header>
-    
-                    <mat-card-content class="bg-white mb-0">
-    
-                        <div class="row wrapper-20">
-                            <div class="col-md-6 p-0">
-                                <p class="mb-0 text-primitive f-12">FEE TYPE</p>
-                                <label class="bg-header mt-4">Fixed</label>
-                            </div>
-                            <div class="col-md-6 p-0">
-                                <p class="f-12 mb-0 text-primitive">BILLING NATURE</p>
-                                <p class="f-18 pt-4 mb-0">Recurring</p>
-                            </div>
-                        </div>
-                        <div class="row wrapper-20 pt-0">
-                            <div class="col-md-6 p-0">
-                                <p class="mb-0 text-primitive f-12">BILLING MODE</p>
-                                <p class="mb-0 f-18">End of period</p>
-                            </div>
-                            <div class="col-md-6 p-0">
-                                <p class="f-12 mb-0 text-primitive">FEES</p>
-                                <p class="f-18 mb-0">Rs.10,000/Year</p>
-                            </div>
-                        </div>
-                        <div class="row wrapper-20 bt-1 bb-1">
-                            <div class="col-md-4 p-0">
-                                <p class="f-14 text-primitive">PLANS</p>
-                                <p class="f-24">3</p>
-                            </div>
-                            <div class="col-md-4 p-0">
-                                <p class="f-14 text-primitive">MODULES</p>
-                                <p class="f-24">12</p>
-                            </div>
-                            <div class="col-md-4 p-0">
-                                <p class="f-14 text-primitive">DOCUMENTS</p>
-                                <p class="f-24">0</p>
-                            </div>
-    
-                        </div>
-                    </mat-card-content>
-                    <mat-card-actions class="block text-center pt-20 pb-20">
-                        <button mat-stroked-button class="btn-primary addon mb-12 mt-8 br-4">INFO</button>
                     </mat-card-actions>
                 </mat-card>
             </div>
