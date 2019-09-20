@@ -1,12 +1,14 @@
 <div class="row bb-1">
-    <div class="col-md-10 p-0">
-        <h3 class="mb-0 wrapper-20">MODIFY FEE STRUCTURE123</h3>
+    <div class="col-md-8 p-0">
+        <h3 class="mb-0 wrapper-16">MODIFY FEE STRUCTURE</h3>
     </div>
-    <div class="col-md-2 text-right">
-        <i class="material-icons pt-20 c-p" (click)="Close()"> clear</i>
+    <div class="col-md-4 text-right">
+        <div class="wrapper-12">
+            <button mat-stroked-button class="br-0 btn-primary mr-20">EDIT</button>
+        <i class="material-icons c-p v-middle" (click)="Close()"> clear</i>
+    </div>
     </div>
 </div>
-
 <div class="wrapper-20 pt-36 mb-44 pb-44">
     <p class="text-primary">VARIABLE </p>
     <h4 class="mb-0 pt-16">Investment management - AUM Linked fee</h4>
@@ -16,8 +18,8 @@
         </div>
         <div class="col-md-7">
                   <mat-radio-group>
-                    <mat-radio-button value="auto" class="b-a pt-8 pr-40 pl-20">Recurring</mat-radio-button>
-                    <mat-radio-button value="auto" class="b-a pt-8 pr-40 pl-20">Once</mat-radio-button>
+                    <mat-radio-button value="1" class="b-a-custom text-primary pt-8 pr-40 pl-20 custom-radio">Recurring</mat-radio-button>
+                    <mat-radio-button value="2" class="b-a pt-8 pr-40 pl-20">Once</mat-radio-button>
                   </mat-radio-group>
         </div>
     </div>
@@ -26,19 +28,24 @@
             <h5 class="text-right pt-12 mb-0">Bill every</h5>
         </div>
         <div class="col-md-7">
-                <mat-form-field appearance="outline">
-                      
-                        <input matInput placeholder="1">
-                       
-                        
-                      </mat-form-field>
-            <button mat-button [matMenuTriggerFor]="menu" class="b-a">Months <i class="material-icons ml-44 text-custom">
-                arrow_drop_down
-                </i></button>
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item>Item 1</button>
-              <button mat-menu-item>Item 2</button>
-            </mat-menu>
+            <div class="row">
+                <div class="col-md-6 p-0">
+                        <div class="form-group">
+                                <input type="text" class="form-control br-0">
+                       </div>
+                </div>
+                <div class="col-md-6 p-0">
+                        <button mat-button [matMenuTriggerFor]="menu" class="b-a br-0 min-39">Months <i class="material-icons ml-44 text-custom">
+                                arrow_drop_down
+                                </i></button>
+                            <mat-menu #menu="matMenu">
+                              <button mat-menu-item>Item 1</button>
+                              <button mat-menu-item>Item 2</button>
+                            </mat-menu>
+                </div>
+            </div>
+               
+            
         </div>
     </div>
     <div class="row pt-28">
