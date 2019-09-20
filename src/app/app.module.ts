@@ -66,6 +66,7 @@ import { ModifyFeeStructureComponent } from './component/protect-component/Advis
 import { TermsAgreementComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/terms-agreement/terms-agreement.component';
 import { InvoiceHistoryComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/invoice-history/invoice-history.component';
 import { BillerProfileAdvisorComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/biller-profile-advisor/biller-profile-advisor.component';
+import { PlanRightsliderComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/plan-rightslider/plan-rightslider.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -124,6 +125,7 @@ import { BillerProfileAdvisorComponent } from './component/protect-component/Adv
     TermsAgreementComponent,
     InvoiceHistoryComponent,
     BillerProfileAdvisorComponent,
+    PlanRightsliderComponent,
     
   ],
   imports: [
