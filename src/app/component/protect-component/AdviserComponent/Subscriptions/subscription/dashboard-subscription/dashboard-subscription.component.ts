@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SubscriptionComponent } from '../subscription.component';
+import { subscriptionInject } from '../../subscription-inject.service';
+import { EventService } from 'src/app/Data-service/event.service';
 
 export interface PeriodicElement {
   name: string;
@@ -23,22 +25,17 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class DashboardSubscriptionComponent implements OnInit {
 
-  constructor(private sub:SubscriptionComponent) { }
+  constructor(public subInjectService:subscriptionInject,public eventService:EventService) { }
 
   ngOnInit() {
   }
   showSubStep=false;
   displayedColumns: string[] = ['name', 'service', 'amt', 'billing','icons'];
   dataSource = ELEMENT_DATA;
-  rightSideBar(value)
+  Open(value,state)
   {
-    this.sub.subscriptionTab=value;
-    this.sub.rightBar();
-  }
-  modifyFees(value)
-  {
-    this.sub.subscriptionTab=value;
-    this.sub.rightBar();
+    this.eventService.sidebarData(value)
+    this.subInjectService.rightSideData(state);
   }
   showSubscriptionSteps()
   {

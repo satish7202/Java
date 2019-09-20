@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DashboardSubscriptionComponent } from '../dashboard-subscription.component';
 import { SubscriptionService } from '../../../subscription.service';
 import { SubscriptionComponent } from '../../subscription.component';
+import { EventService } from 'src/app/Data-service/event.service';
 
 @Component({
   selector: 'app-subscription-completeness',
@@ -10,7 +11,8 @@ import { SubscriptionComponent } from '../../subscription.component';
 })
 export class SubscriptionCompletenessComponent implements OnInit {
 
-  constructor(private subscription:SubscriptionService,public sub:SubscriptionComponent) { }
+  constructor(private subscription:SubscriptionService,public sub:SubscriptionComponent,
+    public eventService: EventService) { }
   advisorId=2735;
   ngOnInit() {
    this.getSubscriptionStagesRecord();
@@ -36,8 +38,12 @@ export class SubscriptionCompletenessComponent implements OnInit {
     console.log(data)
   }
   goToSelectivePage()
-  {
-    
+  { 
    this.sub.subscriptionTab='SETTINGS'
+  }
+
+  currentTabs(value){
+    console.log(value)
+    this.eventService.tabData(value)
   }
 }

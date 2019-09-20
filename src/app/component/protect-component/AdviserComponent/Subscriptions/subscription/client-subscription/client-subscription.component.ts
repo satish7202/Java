@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UpperSliderComponent } from '../common-subscription-component/upper-slider/upper-slider.component';
 import { MatDialog } from '@angular/material';
-import * as $ from 'jquery';
 import { SubscriptionComponent } from '../subscription.component';
 export interface PeriodicElement {
   name: string;

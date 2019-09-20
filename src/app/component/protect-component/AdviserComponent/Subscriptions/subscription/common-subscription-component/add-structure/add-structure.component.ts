@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
+
+import { SubscriptionComponent } from '../../subscription.component';
 @Component({
   selector: 'app-add-structure',
   templateUrl: './add-structure.component.html',
@@ -7,13 +8,13 @@ import * as $ from 'jquery';
 })
 export class AddStructureComponent implements OnInit {
 
-  constructor() { }
+  constructor(public subscription:SubscriptionComponent) { }
 
   ngOnInit() {
   }
 
   closeNav() {
-    $('#myRightSidenav').css({"width" : ""});
-    $('#myRightSidenav').css({"transition":'0.2s'})
+    this.subscription.currentState='close';
+
   }
 }

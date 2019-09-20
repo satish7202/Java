@@ -1,5 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { UpperSliderComponent } from '../upper-slider/upper-slider.component';
+import { MatDialogRef } from '@angular/material';
 export interface PeriodicElement {
   document: string;
   plan: string;
@@ -20,7 +21,7 @@ export interface PeriodicElement {
 })
 export class DocumentComponent implements OnInit {
 
-  constructor(private upper:UpperSliderComponent) { }
+  constructor(public dialogRef:MatDialogRef<DocumentComponent>) { }
   @Input() componentFlag:string;
   ngOnInit() {
     

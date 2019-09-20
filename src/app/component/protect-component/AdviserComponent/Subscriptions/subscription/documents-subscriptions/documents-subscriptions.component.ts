@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SubscriptionComponent } from '../subscription.component';
+import { subscriptionInject } from '../../subscription-inject.service';
+
 
 export interface PeriodicElement {
   name: string;
@@ -22,15 +23,15 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class DocumentsSubscriptionsComponent implements OnInit {
 
-  constructor(private sub:SubscriptionComponent) { }
+  constructor(public subInjectService:subscriptionInject ) { }
 
   ngOnInit() {
   }
   displayedColumns: string[] = ['name','docname','plan', 'servicename', 'cdate','sdate','clientsign','status','icons'];
   dataSource = ELEMENT_DATA;
 
-  leftDocument()
+  Open(value)
  {
-  this.sub.rightBar();
+   this.subInjectService.rightSideData(value);
  }
 }

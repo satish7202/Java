@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter,Input} from '@angular/core';
 import * as $ from 'jquery';
 import { UpperSliderComponent } from '../upper-slider/upper-slider.component';
+import { MatDialogRef } from '@angular/material';
+
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
@@ -8,7 +10,7 @@ import { UpperSliderComponent } from '../upper-slider/upper-slider.component';
 })
 export class OverviewComponent implements OnInit {
 
-  constructor(private upper:UpperSliderComponent) { }
+  constructor(private upper:UpperSliderComponent,public dialogRef:MatDialogRef<OverviewComponent>) { }
 
    
 @Input() componentFlag:string;
@@ -21,4 +23,7 @@ openNav() {
   
       this.upper.open();    
           }
+dialogClose(){
+    this.dialogRef.close();
+  }          
 }

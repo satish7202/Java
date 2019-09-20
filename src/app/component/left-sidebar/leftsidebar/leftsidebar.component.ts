@@ -17,10 +17,10 @@ export class LeftsidebarComponent implements OnInit {
 
   ngOnInit() {
       this.onResize(); 
-      this.userInfo = this.authService.getUserInfo();
-      console.log(this.userInfo )
+      this.userInfo = this.authService.getUserInfo()
+      console.log(this.userInfo)
   }
-   
+    
 
   showMainNavWrapper(){
     $("#d").addClass("width-230");

@@ -1,5 +1,5 @@
 import { Component, OnInit,Input} from '@angular/core';
-import { UpperSliderComponent } from '../upper-slider/upper-slider.component';
+import { MatDialogRef } from '@angular/material';
 @Component({
   selector: 'app-plans',
   templateUrl: './plans.component.html',
@@ -7,9 +7,11 @@ import { UpperSliderComponent } from '../upper-slider/upper-slider.component';
 })
 export class PlansComponent implements OnInit {
 
-  constructor(private upper:UpperSliderComponent) { }
+  constructor(public dialogRef:MatDialogRef<PlansComponent>) { }
   @Input() componentFlag:string;
   ngOnInit() {
   }
-
+  dialogClose(){
+    this.dialogRef.close();
+  }
 }

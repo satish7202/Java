@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
+import { SubscriptionComponent } from '../../subscription.component';
+
 
 export interface PeriodicElement {
   date: string;
@@ -22,7 +23,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class InvoiceHistoryComponent implements OnInit {
 
-  constructor() { }
+  constructor(public subscription:SubscriptionComponent) { }
   displayedColumns: string[] = ['date', 'invoice', 'status', 'ddate','amount','balance'];
   dataSource = ELEMENT_DATA;
   showSubscription;
@@ -41,6 +42,6 @@ export class InvoiceHistoryComponent implements OnInit {
   }
   Close()
   {
-    $('#myRightSidenav').css({"width" : ""});
-    $('#myRightSidenav').css({"transition":'0.2s'})
+    this.subscription.currentState='close';
+
   }}
