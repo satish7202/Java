@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import * as $ from 'jquery';
+import { SubscriptionComponent } from '../../subscription.component';
 
 @Component({
   selector: 'app-terms-agreement',
@@ -9,14 +9,13 @@ import * as $ from 'jquery';
 })
 export class TermsAgreementComponent implements OnInit {
 
-  constructor() { }
+  constructor(public subscription:SubscriptionComponent) { }
 
   ngOnInit() {
   }
   Close()
   {
-    $('#myRightSidenav').css({"width" : ""});
-    $('#myRightSidenav').css({"transition":'0.2s'})
+    this.subscription.currentState='close';
   }
   mailForm = new FormGroup({
     mail_body: new FormControl(''),

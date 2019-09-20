@@ -1,17 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
 import { EventService } from 'src/app/Data-service/event.service';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 @Component({
   selector: 'app-subscription',
   templateUrl: './subscription.component.html',
-  styleUrls: ['./subscription.component.css']
+  styleUrls: ['./subscription.component.css'],
+  animations:[
+    trigger('openClose',[
+      state('open',style({
+        width:'60%'
+      })),
+      state('close',style({
+        width:'0%'
+      })),
+      transition('close => open',[animate('0.3s')]),
+      transition('open => close',[animate('0.1s')]) 
+    ])
+  ]
 })
 export class SubscriptionComponent implements OnInit {
- 
+  
+  currentState;
   ngOnInit() {
-
+   this.currentState='close'
   }
   subscriptionTab;
+  
   selected: any;
   constructor(private eventService:EventService) {
     this.eventService.sidebarSubscribeData.subscribe(
@@ -37,7 +51,7 @@ export class SubscriptionComponent implements OnInit {
    
   rightBar()
   {
-    $("#myRightSidenav").css("width","60%");
+    this.currentState='open';   
   }
   tabClick(event)
   {
@@ -45,6 +59,6 @@ export class SubscriptionComponent implements OnInit {
     this.subscriptionTab = event.tab.textLabel;
   }
   help(){
-    $("#myRightSidenav").css("width","35%");
+   
   }
 }

@@ -29,24 +29,12 @@
         </div>
     </div>
 </div>
-<div *ngIf="subscriptionTab=='DOCUMENTS'" id="myRightSidenav" class="right_sidenav">
-    <app-terms-agreement></app-terms-agreement>
-</div>
-<div *ngIf="subscriptionTab=='QUOTATIONS'" id="myRightSidenav" class="right_sidenav">
-    <app-terms-agreement></app-terms-agreement>
-</div>
-<div *ngIf="subscriptionTab=='SUBSCRIPTIONS'" id="myRightSidenav" class="right_sidenav">
-    <app-invoice-history></app-invoice-history>
-</div>
-<div *ngIf="subscriptionTab=='subscriptionFees'" id="myRightSidenav" class="right_sidenav">
-    <app-invoice-history></app-invoice-history>
-</div>
-<div *ngIf="subscriptionTab=='dashboardSubscription'" id="myRightSidenav" class="right_sidenav">
-    <app-clients-dashboard></app-clients-dashboard>
-</div>
-<div *ngIf="subscriptionTab=='modifyFees'" id="myRightSidenav" class="right_sidenav">
-    <app-modify-fee-structure></app-modify-fee-structure>
-</div>
-<div *ngIf="subscriptionTab=='clientHelp'" id="myRightSidenav" class="right_sidenav">
-    <app-help></app-help>
+<div [@openClose]="currentState" class="right_sidenav">
+    <app-terms-agreement *ngIf="subscriptionTab=='DOCUMENTS'"></app-terms-agreement>
+    <app-terms-agreement *ngIf="subscriptionTab=='QUOTATIONS'"></app-terms-agreement>
+    <app-invoice-history *ngIf="subscriptionTab=='SUBSCRIPTIONS'"></app-invoice-history>
+    <app-invoice-history *ngIf="subscriptionTab=='subscriptionFees'"></app-invoice-history>
+    <app-clients-dashboard *ngIf="subscriptionTab=='dashboardSubscription'"></app-clients-dashboard>
+    <app-modify-fee-structure *ngIf="subscriptionTab=='modifyFees'"></app-modify-fee-structure>
+    <app-help *ngIf="subscriptionTab=='clientHelp'"></app-help>
 </div>

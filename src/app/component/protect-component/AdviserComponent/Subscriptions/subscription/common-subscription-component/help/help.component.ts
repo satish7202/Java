@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
+import { SubscriptionComponent } from '../../subscription.component';
 @Component({
   selector: 'app-help',
   templateUrl: './help.component.html',
@@ -7,14 +7,13 @@ import * as $ from 'jquery';
 })
 export class HelpComponent implements OnInit {
 
-  constructor() { }
+  constructor(public subscription:SubscriptionComponent) { }
 
   ngOnInit() {
   }
   Close()
   {
-    $('#myRightSidenav').css({"width" : ""});
-    $('#myRightSidenav').css({"transition":'0.2s'})
+    this.subscription.currentState='close';
   }
 
 }
