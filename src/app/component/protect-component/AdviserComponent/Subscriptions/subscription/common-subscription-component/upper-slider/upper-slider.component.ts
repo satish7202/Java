@@ -25,7 +25,7 @@ export class UpperSliderComponent implements OnInit {
     this.dialogRef.close();
   }
   open() {
-    this.subscription.currentState='open';
+    // this.subscription.currentState='open';
   }
 
 
