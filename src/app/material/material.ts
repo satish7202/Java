@@ -34,9 +34,12 @@ import {
   MatToolbarModule,
   MatTooltipModule,
 } from'@angular/material';
+// import { DialogModule } from '@angular/cdk-experimental/dialog';
+// import {MatDialogModule} from '../component/overridden/dialog';
 
 @NgModule({
   imports: [
+    // DialogModule,
     MatAutocompleteModule,
     MatButtonModule,
     MatButtonToggleModule,
@@ -71,6 +74,7 @@ import {
     MatTooltipModule,
   ],
   exports: [
+    // DialogModule,
     MatAutocompleteModule,
     MatButtonModule,
     MatButtonToggleModule,
