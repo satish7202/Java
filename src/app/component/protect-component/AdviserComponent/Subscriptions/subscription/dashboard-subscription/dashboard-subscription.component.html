@@ -173,7 +173,7 @@
                             <table mat-table [dataSource]="dataSource" id="table-low" class="mt-8">
                                 <ng-container matColumnDef="name">
                                     <th mat-header-cell *matHeaderCellDef> Client name </th>
-                                    <td mat-cell *matCellDef="let element" (click)="rightSideBar('subscriptionFees')" class="c-p"> {{element.name}} </td>
+                                    <td mat-cell *matCellDef="let element" (click)="Open('SUBSCRIPTIONS','open')" class="c-p"> {{element.name}} </td>
                                 </ng-container>
                                 <ng-container matColumnDef="service">
                                     <th mat-header-cell *matHeaderCellDef> Service name </th>
@@ -181,7 +181,7 @@
                                 </ng-container>
                                 <ng-container matColumnDef="amt">
                                     <th mat-header-cell *matHeaderCellDef> Fee amount </th>
-                                    <td mat-cell *matCellDef="let element" (click)="modifyFees('modifyFees')" class="c-p"> {{element.amt}} </td>
+                                    <td mat-cell *matCellDef="let element" (click)="Open('modifyFees','open')" class="c-p"> {{element.amt}} </td>
                                 </ng-container>
                                 <ng-container matColumnDef="billing">
                                     <th mat-header-cell *matHeaderCellDef> Next billing... </th>

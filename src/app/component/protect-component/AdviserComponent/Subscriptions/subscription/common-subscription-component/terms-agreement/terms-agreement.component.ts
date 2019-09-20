@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { SubscriptionComponent } from '../../subscription.component';
+import { subscriptionInject } from '../../../subscription-inject.service';
 
 @Component({
   selector: 'app-terms-agreement',
@@ -9,13 +9,13 @@ import { SubscriptionComponent } from '../../subscription.component';
 })
 export class TermsAgreementComponent implements OnInit {
 
-  constructor(public subscription:SubscriptionComponent) { }
+  constructor(public subInjectService:subscriptionInject ) { }
 
   ngOnInit() {
   }
-  Close()
+  Close(value)
   {
-    this.subscription.currentState='close';
+    this.subInjectService.rightSideData(value)
   }
   mailForm = new FormGroup({
     mail_body: new FormControl(''),

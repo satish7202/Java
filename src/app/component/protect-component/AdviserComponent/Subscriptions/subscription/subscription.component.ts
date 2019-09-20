@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from 'src/app/Data-service/event.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { from } from 'rxjs';
+import { subscriptionInject } from '../subscription-inject.service';
 @Component({
   selector: 'app-subscription',
   templateUrl: './subscription.component.html',
@@ -27,12 +29,15 @@ export class SubscriptionComponent implements OnInit {
   subscriptionTab;
   
   selected: any;
-  constructor(private eventService:EventService) {
+  constructor(private eventService:EventService,private subinject:subscriptionInject) {
     this.eventService.sidebarSubscribeData.subscribe(
       data => this.getFileResponseDataAum(data)
      )
      this.eventService.tabChangeData.subscribe(
       data => this.gettabChangeData(data)
+     )
+     this.subinject.rightSideBarData.subscribe(
+       data =>this.getRightSliderData(data)
      )
    }
 
@@ -46,6 +51,11 @@ export class SubscriptionComponent implements OnInit {
      if(data === 'client'){
        this.selected = 1;
      }
+  }
+  getRightSliderData(value)
+  {
+    this.currentState=value
+    console.log(value)
   }
   
    
