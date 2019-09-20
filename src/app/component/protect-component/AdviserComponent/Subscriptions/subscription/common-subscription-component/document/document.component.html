@@ -2,7 +2,7 @@
     <mat-toolbar class="bottom-fixed">
         <div class="row w-100">
             <div class="col-md-6 text-left">
-                <p class="text-white f-16 mb-0 pt-12">Cancel</p>
+                <p class="text-white f-16 mb-0 pt-12 c-p" (click)="dialogClose()">Cancel</p>
             </div>
             <div class="col-md-6 text-right">
                 <button type="button" mat-stroked-button class="btn-bottom br-0">Save</button>
@@ -12,7 +12,7 @@
     <div class="bg-grey lter">
         <div class="row">
             <div class="col-md-12">
-                <h2>Starter Plan</h2> {{componentFlag}}
+                <h2>Starter Plan</h2>
             </div>
         </div>
     </div>
@@ -211,7 +211,7 @@
     <div class="bottom-fixed wrapper-12">
         <div class="row">
             <div class="col-md-4">
-                <h5 class="mb-0 pt-8 text-white">Cancel</h5>
+                <h5 class="mb-0 pt-8 text-white c-p" (click)="dialogClose()">Cancel</h5>
             </div>
             <div class="col-md-4">
                 <h5 class="mb-0 pt-8 text-white text-center">Help</h5>

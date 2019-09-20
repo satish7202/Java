@@ -16,7 +16,7 @@
                                         </i>
                             </div>
                             <div class="col-md-10 p-0" (click)="goToSelectivePage()">
-                                <h4 class="mb-0">Create Plans, Services & Documents</h4>
+                                <h4 class="mb-0 c-p">Create Plans, Services & Documents</h4>
                                 <p class="text-primitive mb-0 f-14 pt-8">Adding these will set up the foundation for your RIA practice.</p>
                             </div>
                         </div>
@@ -28,8 +28,8 @@
                                         more_horiz
                                         </i>
                             </div>
-                            <div class="col-md-10 p-0">
-                                <h4 class="mb-0">Set up your Biller profile</h4>
+                            <div class="col-md-10 p-0"  (click)="currentTabs('6')">
+                                <h4 class="mb-0 c-p">Set up your Biller profile</h4>
                                 <p class="text-primitive mb-0 f-14 pt-8">These details show up in the invoices your clients will receive.</p>
                             </div>
                         </div>
@@ -41,8 +41,8 @@
                                         more_horiz
                                         </i>
                             </div>
-                            <div class="col-md-10 p-0" (click)="currentTabs('client')">
-                                <h4 class="mb-0">Add Plan to a client</h4>
+                            <div class="col-md-10 p-0" (click)="currentTabs('1')">
+                                <h4 class="mb-0 c-p">Add Plan to a client</h4>
                                 <p class="text-primitive mb-0 f-14 pt-8">Kickstart your core workflow with a client and unfold the magic. Add a Plan to take things forward.</p>
                             </div>
                         </div>
@@ -54,8 +54,8 @@
                                         more_horiz
                                         </i>
                             </div>
-                            <div class="col-md-10 p-0">
-                                <h4 class="mb-0">Send Quotation to a client</h4>
+                            <div class="col-md-10 p-0" (click)="currentTabs('3')">
+                                <h4 class="mb-0 c-p">Send Quotation to a client</h4>
                                 <p class="text-primitive mb-0 f-14 pt-8">Once you’ve added a Plan, you can send out a Quotation to the client, get their approval before the actual billing starts.</p>
                             </div>
                         </div>
@@ -67,8 +67,8 @@
                                         more_horiz
                                         </i>
                             </div>
-                            <div class="col-md-10 p-0">
-                                <h4 class="mb-0">Send Document for eSign</h4>
+                            <div class="col-md-10 p-0" (click)="currentTabs('5')">
+                                <h4 class="mb-0 c-p" >Send Document for eSign</h4>
                                 <p class="text-primitive mb-0 f-14 pt-8">Email documents to client with one click. Client can review them and proceed for e-singing using Aadhaar based eSign.</p>
                             </div>
                         </div>
@@ -80,10 +80,16 @@
                                         more_horiz
                                         </i>
                             </div>
+                            <div class="col-md-10 p-0" (click)="currentTabs('4')">
+                                    <h4 class="mb-0 c-p">Record Payment</h4>
+                                    <p class="text-primitive mb-0 f-14 pt-8">Email documents to client with one click. Client can review them and proceed for e-singing using Aadhaar based eSign.</p>
+                            </div>
+                         </div>   
                     </mat-card>
 
                     </div>
                     <div class="col-md-6 pt-12">
+                      <mat-card>
                         <div class="b-a">
                             <img src="assets/images/svg/Dashboard1.svg" class="w-100">
                             <p class="f-22">What is Subscriptions?</p>

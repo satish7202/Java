@@ -29,10 +29,8 @@ export class SubscriptionComponent implements OnInit {
    }
    gettabChangeData(data){
      console.log(data)
-     if(data === 'client'){
-       this.selected = 1;
-     }
-  }
+     this.selected = data;
+    }
   
    
   rightBar()
