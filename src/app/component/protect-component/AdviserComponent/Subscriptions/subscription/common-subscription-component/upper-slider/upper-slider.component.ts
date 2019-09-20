@@ -1,7 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import * as $ from 'jquery';
-import {animate, state, style, transition, trigger} from "@angular/animations";
+import { SubscriptionComponent } from '../../subscription.component';
 @Component({
   selector: 'app-upper-slider',
   templateUrl: './upper-slider.component.html',
@@ -50,7 +49,7 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
 export class UpperSliderComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<UpperSliderComponent>,
     @Inject(MAT_DIALOG_DATA) public fragmentData: any) { }
-  subscriptionType = this.fragmentData;
+  subscriptionType 
   ngOnInit() {
 
     console.log(this.fragmentData)
@@ -66,8 +65,7 @@ export class UpperSliderComponent implements OnInit {
     this.dialogRef.close();
   }
   open() {
-    $("#myRightSidenav").css("width", "60%");
-
+    // this.subscription.currentState='open';
   }
 
 

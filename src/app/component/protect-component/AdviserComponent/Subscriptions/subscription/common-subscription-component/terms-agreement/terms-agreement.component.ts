@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import * as $ from 'jquery';
+import { subscriptionInject } from '../../../subscription-inject.service';
 
 @Component({
   selector: 'app-terms-agreement',
@@ -9,14 +9,13 @@ import * as $ from 'jquery';
 })
 export class TermsAgreementComponent implements OnInit {
 
-  constructor() { }
+  constructor(public subInjectService:subscriptionInject ) { }
 
   ngOnInit() {
   }
-  Close()
+  Close(value)
   {
-    $('#myRightSidenav').css({"width" : ""});
-    $('#myRightSidenav').css({"transition":'0.2s'})
+    this.subInjectService.rightSideData(value)
   }
   mailForm = new FormGroup({
     mail_body: new FormControl(''),

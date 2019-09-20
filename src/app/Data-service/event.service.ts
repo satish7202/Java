@@ -21,14 +21,11 @@ export class EventService {
      sidebarSubscribeData= this.sidebarValue.asObservable();       
      sidebarData(message: string) {
      this.sidebarValue.next(message)
-}
-
-
-private tabValue = new BehaviorSubject<any>("");
-tabChangeData= this.tabValue.asObservable();        
-tabData(message: string) {
-this.tabValue.next(message)
-}
-
-
+}  
+ 
+      private tabValue = new BehaviorSubject<any>("");
+      tabChangeData= this.tabValue.asObservable();        
+      tabData(message: string) {
+      this.tabValue.next(message)
+      }
 }

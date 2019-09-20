@@ -38,8 +38,7 @@ export class SubscriptionCompletenessComponent implements OnInit {
     console.log(data)
   }
   goToSelectivePage()
-  {
-    
+  { 
    this.sub.subscriptionTab='SETTINGS'
   }
 
