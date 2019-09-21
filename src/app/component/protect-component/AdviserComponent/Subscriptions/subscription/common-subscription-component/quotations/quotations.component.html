@@ -2,7 +2,7 @@
     <h3 class="m-0 text-center head-common">Ronak Hasmukh Hindocha</h3>
 </div>
 
-<div class="bg-white">
+<div *ngIf="quotationDesign=='true'" class="bg-white">
     <div class="wrapper-20">
         <div class="row">
             <div class="col-md-12 p-0">
@@ -20,9 +20,9 @@
                         arrow_drop_down
                     </i></button>
                 <mat-menu #menu="matMenu">
-                    <button mat-menu-item (click)="openESign('eSign','open')">Email with eSign request</button>
-                    <button mat-menu-item>Email only</button>
-                    <button mat-menu-item>Delete document</button>
+                    <button mat-menu-item (click)="openQuotationsESign('eSignQuotations','open')">Email with eSign request</button>
+                    <button mat-menu-item (click)="changeDisplay('email')">Email only</button>
+                    <button mat-menu-item (click)="deleteModal()">Delete document</button>
                 </mat-menu>
             </div>
             <div class="col-md-9 p-0">
@@ -63,7 +63,7 @@
 
             <ng-container matColumnDef="status">
                 <th mat-header-cell *matHeaderCellDef> Status </th>
-                <td mat-cell *matCellDef="let element" class="text-success f-500"> {{element.status}} </td>
+                <td mat-cell *matCellDef="let element" class="text-success f-500" (click)="changeDisplay('termsAgreement')"> {{element.status}} </td>
             </ng-container>
             <ng-container matColumnDef="icons">
                 <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 2%;"> </th>
@@ -83,3 +83,25 @@
         </table>
     </div>
 </div>
+
+
+<!-- email quotation inner part -->
+<div *ngIf="quotationDesign=='false'">
+        <button (click)="changeDisplay('completeSteps')">OK</button>
+        <button (click)="changeDisplay('Bummer')">Cancel</button>
+    </div>
+    
+    <div *ngIf="quotationDesign=='Bummer'">
+        <button (click)="changeDisplay('false')">GO BACk</button>
+        <button>CLOSE</button>
+    </div>
+    
+    <div *ngIf="quotationDesign=='completeSteps'">
+        <button>CLOSE</button>
+    </div>
+    <div>
+    <app-terms-agreement *ngIf="quotationDesign=='termsAgreement'"></app-terms-agreement>
+    <div>
+    <div>
+            <app-terms-agreement *ngIf="quotationDesign=='email'"></app-terms-agreement> 
+    </div>

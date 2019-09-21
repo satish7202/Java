@@ -1,7 +1,8 @@
-
 import {Component,OnInit} from '@angular/core';
 import { EventService } from 'src/app/Data-service/event.service';
 import { subscriptionInject } from '../../subscription-inject.service';
+import { MatDialog } from '@angular/material';
+import { DeleteSubscriptionComponent } from '../common-subscription-component/delete-subscription/delete-subscription.component';
 export interface PeriodicElement {
   client:string;
   service:string;
@@ -25,7 +26,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class SubscriptionsSubscriptionComponent implements OnInit {
  
-  constructor(public subInjectService:subscriptionInject,private eventService:EventService) {
+  constructor(public dialog:MatDialog,public subInjectService:subscriptionInject,private eventService:EventService) {
   }
 
   ngOnInit() {
@@ -37,6 +38,30 @@ export class SubscriptionsSubscriptionComponent implements OnInit {
   {
     this.eventService.sidebarData(value)
     this.subInjectService.rightSideData(state);
+  }
+  delete(data){
+    let Fragmentdata = {
+      Flag: data,
+    }
+    if(data=="deleteSubscription"){
+          const dialogRef = this.dialog.open(DeleteSubscriptionComponent, {
+            width: '20%',
+            height:'40%',
+            data: Fragmentdata,
+            autoFocus:false,
+          });
+          dialogRef.afterClosed().subscribe(result => {
+          });
+    }else{  
+          const dialogRef = this.dialog.open(DeleteSubscriptionComponent, {
+          width: '50%',
+          height:'50%',
+          data: Fragmentdata,
+          autoFocus:false,
+         });
+         dialogRef.afterClosed().subscribe(result => {
+         });
+    }
   }
  
 }

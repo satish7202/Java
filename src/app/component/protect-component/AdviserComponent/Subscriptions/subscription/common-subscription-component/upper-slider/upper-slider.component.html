@@ -84,3 +84,12 @@
         </div>
     </div>
 </div>
+
+<div [@upperRightSlider]="State" class="right_sidenav">
+     <app-plan-rightslider *ngIf="rightSliderData=='planRightSlider'"></app-plan-rightslider>
+     <app-email-quotation *ngIf="rightSliderData=='eSignQuotations'"></app-email-quotation>
+     <app-invoice *ngIf="rightSliderData=='invoice'"></app-invoice>
+     <app-payee-settings *ngIf="rightSliderData=='payeeSettings'"></app-payee-settings>
+     <app-email-quotation *ngIf="rightSliderData=='eSignDocument'"></app-email-quotation>
+</div>
+
