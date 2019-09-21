@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UpperSliderComponent } from '../common-subscription-component/upper-slider/upper-slider.component';
 import { MatDialog } from '@angular/material';
 import { SubscriptionComponent } from '../subscription.component';
+import { EventService } from 'src/app/Data-service/event.service';
+import { subscriptionInject } from '../../subscription-inject.service';
 export interface PeriodicElement {
   name: string;
   email: string;
@@ -23,7 +25,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class ClientSubscriptionComponent implements OnInit {
 
-  constructor(public dialog:MatDialog,public sub:SubscriptionComponent) { }
+  constructor(public dialog:MatDialog,public eventService:EventService,public subInjectService:subscriptionInject) { }
 
   ngOnInit() {
   }
@@ -31,10 +33,10 @@ export class ClientSubscriptionComponent implements OnInit {
   dataSource = ELEMENT_DATA;
  
  
-  help(value)
-   {
-    this.sub.subscriptionTab=value;
-    this.sub.help();
+  Open(value,state)
+  {
+    this.eventService.sidebarData(value)
+    this.subInjectService.rightSideData(state);
   }
   openFragment(data) {
     let Fragmentdata = {
