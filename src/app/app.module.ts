@@ -67,6 +67,8 @@ import { TermsAgreementComponent } from './component/protect-component/AdviserCo
 import { InvoiceHistoryComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/invoice-history/invoice-history.component';
 import { BillerProfileAdvisorComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/biller-profile-advisor/biller-profile-advisor.component';
 import { PlanRightsliderComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/plan-rightslider/plan-rightslider.component';
+import { EmailQuotationComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/email-quotation/email-quotation.component';
+import { PayeeSettingsComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/payee-settings/payee-settings.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -126,6 +128,8 @@ import { PlanRightsliderComponent } from './component/protect-component/AdviserC
     InvoiceHistoryComponent,
     BillerProfileAdvisorComponent,
     PlanRightsliderComponent,
+    EmailQuotationComponent,
+    PayeeSettingsComponent,
     
   ],
   imports: [

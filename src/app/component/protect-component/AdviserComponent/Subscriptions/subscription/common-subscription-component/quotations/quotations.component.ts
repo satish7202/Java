@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { subscriptionInject } from '../../../subscription-inject.service';
+import { EventService } from 'src/app/Data-service/event.service';
+
+import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
+import { MatDialog } from '@angular/material';
 export interface PeriodicElement {
   document: string;
   plan: string;
@@ -19,10 +24,49 @@ export interface PeriodicElement {
 })
 export class QuotationsComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public subInjectService:subscriptionInject,private eventService:EventService,public dialog: MatDialog) {
+    this.subInjectService.closeRightSlider.subscribe(
+      data => this.getQuotationDesignData(data)
+    )
+   }
+  quotationDesign;
   ngOnInit() {
+   this.quotationDesign='true';
   }
   displayedColumns: string[] = ['checkbox','document','plan', 'date', 'sdate','cdate','status','icons'];
   dataSource = ELEMENT_DATA;
+  openQuotationsESign(value,state)
+  {
+    this.subInjectService.rightSliderData(state)
+    this.eventService.sliderData(value)
+  } 
+  getQuotationDesignData(data)
+  {
+    this.quotationDesign=data;
+  }
+  changeDisplay(value)
+  {
+    this.quotationDesign=value;
+  }
+  deleteModal()
+  {
+    let dialogData = {
+      header: 'Are you sure you want to delete?',
+      body:'if you are interested in some quick pretty solution with css format done',
+      btnYes:'yes',
+      btnNo:'No'
+    }
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+       width: '400px',
+       data: dialogData,
+       autoFocus:false,
+
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+  
+    });
+  
+  }
 }

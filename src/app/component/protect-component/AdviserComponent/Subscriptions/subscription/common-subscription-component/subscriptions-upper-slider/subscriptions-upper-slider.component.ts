@@ -35,8 +35,8 @@ export class SubscriptionsUpperSliderComponent implements OnInit {
   
   openPlanSlider(value,state)
   { 
-    // this.eventService.sidebarData(value)
-    this.subInjectService.rightSideData(state);
+    this.eventService.sliderData(value);
+    this,this.subInjectService.rightSliderData(state)
   }
 
 }

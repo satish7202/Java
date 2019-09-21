@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { subscriptionInject } from '../../../subscription-inject.service';
 
 @Component({
   selector: 'app-plan-rightslider',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanRightsliderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public subInjectService:subscriptionInject ) { }
 
   ngOnInit() {
   }
-
+  Close(state)
+  {
+    this.subInjectService.rightSliderData(state)
+  }
 }
