@@ -23,7 +23,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class InvoiceHistoryComponent implements OnInit {
 
-  constructor(public subscription:SubscriptionComponent) { }
+  constructor() { }
   displayedColumns: string[] = ['date', 'invoice', 'status', 'ddate','amount','balance'];
   dataSource = ELEMENT_DATA;
   showSubscription;
@@ -40,8 +40,9 @@ export class InvoiceHistoryComponent implements OnInit {
     this.showSubscription=false;
     
   }
-  Close()
-  {
-    this.subscription.currentState='close';
+  // Close()
+  // {
+  //   this.subscription.currentState='close';
 
-  }}
+  // }}
+}

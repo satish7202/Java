@@ -1,10 +1,30 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { SubscriptionComponent } from '../../subscription.component';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+import { EventService } from 'src/app/Data-service/event.service';
+import { subscriptionInject } from '../../../subscription-inject.service';
 @Component({
   selector: 'app-upper-slider',
   templateUrl: './upper-slider.component.html',
   styleUrls: ['./upper-slider.component.scss'],
+  animations:[
+    trigger('upperRightSlider',[
+      state('open',style({
+        width:'60%'
+      })),
+      state('close',style({
+        width:'0%'
+      })),
+      state('closeSlider',style({
+        width:'0%'  
+      })),
+      transition('close => open',[animate('0.3s')]),
+      transition('open => close',[animate('0.1s')]),
+      transition('open => closeSLider',[animate('0s')]),
+      transition('closeSlider => open',[animate('0.3s')]) 
+    ])
+  ]
   /*animations: [
     // Note: The `enter` animation transitions to `transform: none`, because for some reason
     // specifying the transform explicitly, causes IE both to blur the dialog content and
@@ -46,12 +66,21 @@ import { SubscriptionComponent } from '../../subscription.component';
     ])
   ]*/
 })
-export class UpperSliderComponent implements OnInit {
-  constructor(public dialogRef: MatDialogRef<UpperSliderComponent>,
-    @Inject(MAT_DIALOG_DATA) public fragmentData: any) { }
-  subscriptionType 
-  ngOnInit() {
 
+export class UpperSliderComponent implements OnInit {
+  constructor(private eventService:EventService,private subinject:subscriptionInject,public dialogRef: MatDialogRef<UpperSliderComponent>,
+    @Inject(MAT_DIALOG_DATA) public fragmentData: any) { 
+      this.eventService.rightSliderData.subscribe(
+        data =>this.getTabValueData(data)
+      )
+      this.subinject.rightslider.subscribe(
+        data =>this.getStateData(data)
+      )
+    }
+    State;
+    rightSliderData;
+    ngOnInit() {
+    this.State='close'
     console.log(this.fragmentData)
   }
 
@@ -64,8 +93,16 @@ export class UpperSliderComponent implements OnInit {
   dialogClose(){
     this.dialogRef.close();
   }
-  open() {
-    // this.subscription.currentState='open';
+  
+  getStateData(data)
+  {
+    this.State=data;
+   console.log('state',data)
+  }
+  getTabValueData(data)
+  {
+    this.rightSliderData=data;
+    console.log('value',data)
   }
 
 

@@ -98,13 +98,11 @@
                     more_vert
                     </i>
                     <mat-menu #menu="matMenu">
-                        <a mat-menu-item>View fee structure</a>
-                        <a mat-menu-item>Modify fee structure</a>
-                        <a mat-menu-item class="bt-1">Biller settings</a>
-                        <a mat-menu-item>Payee settings</a>
-                        <a mat-menu-item class="bt-1">Invoice sending mode</a>
-                        <a mat-menu-item class="bt-1">Cancel subscription</a>
-                        <a mat-menu-item>Delete subscription</a>
+                        <a mat-menu-item (click)="Open('modifyFees','open')" >View & Modify fee structure</a>
+                        <a mat-menu-item class="bt-1" (click)="Open('billerSettings','open')">Change Biller</a>
+                        <a mat-menu-item (click)="Open('payeeSettings','open')">Change Payee</a>
+                        <a mat-menu-item class="bt-1" (click)="delete('cancelSubscription')">Cancel subscription</a>
+                        <a mat-menu-item (click)="delete('deleteSubscription')">Delete subscription</a>
                     </mat-menu>
                 </td>
             </ng-container>
