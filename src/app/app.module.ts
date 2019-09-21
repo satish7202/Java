@@ -66,6 +66,9 @@ import { ModifyFeeStructureComponent } from './component/protect-component/Advis
 import { TermsAgreementComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/terms-agreement/terms-agreement.component';
 import { InvoiceHistoryComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/invoice-history/invoice-history.component';
 import { BillerProfileAdvisorComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/biller-profile-advisor/biller-profile-advisor.component';
+import { SubscriptionPopupComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/subscription-popup/subscription-popup.component';
+import { DeleteSubscriptionComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/delete-subscription/delete-subscription.component';
+import { BillerSettingsComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/biller-settings/biller-settings.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -124,6 +127,9 @@ import { BillerProfileAdvisorComponent } from './component/protect-component/Adv
     TermsAgreementComponent,
     InvoiceHistoryComponent,
     BillerProfileAdvisorComponent,
+    SubscriptionPopupComponent,
+    DeleteSubscriptionComponent,
+    BillerSettingsComponent,
     
   ],
   imports: [
@@ -140,6 +146,6 @@ import { BillerProfileAdvisorComponent } from './component/protect-component/Adv
   providers: [AuthService,HttpService],
   bootstrap: [AppComponent],
   entryComponents:[UpperSliderComponent,
-    ConfirmDialogComponent]
+    ConfirmDialogComponent,SubscriptionPopupComponent,DeleteSubscriptionComponent]
 })
 export class AppModule { }

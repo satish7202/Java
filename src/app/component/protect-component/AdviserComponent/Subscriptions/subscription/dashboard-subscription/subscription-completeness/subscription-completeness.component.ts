@@ -3,6 +3,8 @@ import { DashboardSubscriptionComponent } from '../dashboard-subscription.compon
 import { SubscriptionService } from '../../../subscription.service';
 import { SubscriptionComponent } from '../../subscription.component';
 import { EventService } from 'src/app/Data-service/event.service';
+import { MatDialog } from '@angular/material';
+import { SubscriptionPopupComponent } from '../../common-subscription-component/subscription-popup/subscription-popup.component';
 
 @Component({
   selector: 'app-subscription-completeness',
@@ -10,8 +12,8 @@ import { EventService } from 'src/app/Data-service/event.service';
   styleUrls: ['./subscription-completeness.component.scss']
 })
 export class SubscriptionCompletenessComponent implements OnInit {
-
-  constructor(private subscription:SubscriptionService,public sub:SubscriptionComponent,
+  button: any;
+  constructor(public dialog:MatDialog,private subscription:SubscriptionService,public sub:SubscriptionComponent,
     public eventService: EventService) { }
   advisorId=2735;
   ngOnInit() {
@@ -46,4 +48,20 @@ export class SubscriptionCompletenessComponent implements OnInit {
     console.log(value)
     this.eventService.tabData(value)
   }
+  openPopup(data){
+    let Fragmentdata = {
+      Flag: data,
+    }
+    const dialogRef = this.dialog.open(SubscriptionPopupComponent, {
+      width: '70%',
+      height:'100%',
+      data: Fragmentdata,
+      autoFocus:false,
+     
+   });
+   dialogRef.afterClosed().subscribe(result => {
+
+  });
+  }
+
 }
