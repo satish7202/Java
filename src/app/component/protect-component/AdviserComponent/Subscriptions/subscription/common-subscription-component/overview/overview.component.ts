@@ -21,7 +21,7 @@ export class OverviewComponent implements OnInit {
   
 openNav() {
   
-      this.upper.open();    
+      // this.upper.open();    
           }
 dialogClose(){
     this.dialogRef.close();
