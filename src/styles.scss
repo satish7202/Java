@@ -11,11 +11,8 @@
 @import './assets/style/scss/_card';
 @import'./assets/style/scss/table';
 @import'./assets/style/scss/plugin';
+@import'./assets/style/scss/progressbar';
 @import'./assets/style/scss/_footer';
-
-
-
-
 
 @mixin heading {
     padding-left: 20px !important;
@@ -525,7 +522,33 @@ mat-tab-group[vertical] {
         padding: 8px;
     }
 }
+#ui-biller-tabs{
+    margin-top: 40px;
 
-.ba-t{
-    border:1px solid transparent !important;
+    
+.mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination{
+    display: none !important;
+
+}
+.mat-tab-header{
+    border-bottom: 0px !important;
+}
+.mat-ink-bar{
+    display: none !important;
+}
+.mat-tab-label{
+    // border-right:1px solid #ddd;
+    border-bottom-color: transparent !important;
+    height: 50px !important;
+    min-width: 75px;
+     
+}
+.mat-tab-body-wrapper{
+    border:1px solid #ddd;
+   
+}
+.mat-tab-label-active{
+    border:1px solid #ddd;
+    border-bottom: 0px !important;
+}
 }

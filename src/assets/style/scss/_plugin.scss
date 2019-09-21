@@ -1,9 +1,14 @@
 #ui-froala{
+   
+    width: 100%;
     .second-toolbar{
         display: none !important;
     }
-    .fr-box.fr-basic .fr-element{
+    .fr-wrapper{
+        z-index: 0;
+    }
+    .fr-wrapper.show-placeholder .fr-placeholder{
         height: 615px;
-        width: 840px;
+        margin-top: 8px;
     }
 }

@@ -10,21 +10,236 @@
         </div>
     </div>
 </div>
-<!-- <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" data-toggle="tab" href="#home"  >Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#menu1">Menu</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#menu2">Menu 2</a>
-        </li>
-      </ul>
-      
-     
-      <div class="tab-content">
-        <div class="tab-pane container active" id="home">...</div>
-        <div class="tab-pane container fade" id="menu1">...</div>
-        <div class="tab-pane container fade" id="menu2">...</div>
-      </div> -->
+<div class="wrapper-40">
+<mat-tab-group animationDuration="0ms" id="ui-biller-tabs">
+  <mat-tab label="Profile" class="active">
+    <div class="">
+      <div class="row pt-40">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-5">
+              <h5 class="text-right m-0 pt-8">GSTIN Number</h5>
+            </div>
+            <div class="col-md-7">
+              <div class="form-group">
+                <input type="text" class="form-control br-0 text-left">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5">
+              <h5 class="text-right m-0 pt-8">PAN</h5>
+            </div>
+            <div class="col-md-7">
+              <div class="form-group">
+                <input type="text" class="form-control br-0 text-left">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5">
+              <h5 class="text-right m-0 pt-8">Address</h5>
+            </div>
+            <div class="col-md-7">
+              <div class="form-group">
+                <textarea class="form-control br-0" rows="5"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5">
+              <h5 class="text-right m-0 pt-8">State </h5>
+            </div>
+            <div class="col-md-7">
+              <div class="form-group">
+                <input type="text" class="form-control br-0 text-left">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5">
+              <h5 class="text-right m-0 pt-8">Country</h5>
+            </div>
+            <div class="col-md-7">
+              <div class="form-group">
+                <input type="text" class="form-control br-0 text-left">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5">
+              <h5 class="text-right m-0 pt-8">PAN</h5>
+            </div>
+            <div class="col-md-7">
+              <div class="form-group">
+                <input type="text" class="form-control br-0 text-left">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5">
+              <h5 class="text-right m-0 pt-8">Taxable</h5>
+            </div>
+            <div class="col-md-7">
+              <mat-radio-group aria-label="Select an option">
+                <mat-radio-button value="1">Yes</mat-radio-button>
+                <mat-radio-button value="2">No</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Logo" class="b-a">
+    <div class="wrapper-40">
+      <div class="row pt-40">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-5">
+              <h5 class="text-right m-0 pt-8">Your Logo</h5>
+            </div>
+            <div class="col-md-7">
+              <img src="https://res.cloudinary.com/futurewise/image/upload/v1566029063/icons_fakfxf.png" class="t-70 b-a">
+              <div class="row pt-16">
+                <div class="col-md-12 p-0">
+                  <button mat-stroked-button class="br-0 btn-primary mr-12">UPLOAD LOGO</button>
+                  <button mat-stroked-button class="br-0 text-primary">CANCEL</button>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Bank details">
+    <div class="row pt-40">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-5">
+            <h5 class="text-right m-0 pt-8">Name on Bank A/C</h5>
+          </div>
+          <div class="col-md-7">
+            <div class="form-group">
+              <input type="text" class="form-control br-0 text-left">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5">
+            <h5 class="text-right m-0 pt-8">Bank name </h5>
+          </div>
+          <div class="col-md-7">
+            <div class="form-group">
+              <input type="text" class="form-control br-0 text-left">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5">
+            <h5 class="text-right m-0 pt-8">Account No.</h5>
+          </div>
+          <div class="col-md-7">
+            <div class="form-group">
+              <input type="text" class="form-control br-0 text-left">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5">
+            <h5 class="text-right m-0 pt-8">IFSC Code </h5>
+          </div>
+          <div class="col-md-7">
+            <div class="form-group">
+              <input type="text" class="form-control br-0 text-left">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5">
+            <h5 class="text-right m-0 pt-8">Bank Address</h5>
+          </div>
+          <div class="col-md-7">
+            <div class="form-group">
+              <textarea class="form-control br-0" rows="5"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5">
+            <h5 class="text-right m-0 pt-8">State </h5>
+          </div>
+          <div class="col-md-7">
+            <div class="form-group">
+              <input type="text" class="form-control br-0 text-left">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5">
+            <h5 class="text-right m-0 pt-8">State </h5>
+          </div>
+          <div class="col-md-7">
+            <div class="form-group">
+              <input type="text" class="form-control br-0 text-left">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5">
+            <h5 class="text-right m-0 pt-8">Country </h5>
+          </div>
+          <div class="col-md-7">
+            <div class="form-group">
+              <input type="text" class="form-control br-0 text-left">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Miscellaneous">
+      <div class="row pt-40">
+          <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-5">
+        <h5 class="text-right m-0 pt-8">Footnote Description</h5>
+        <span class="text-right">This will appear in invoices</span>
+      </div>
+      <div class="col-md-7">
+        <div class="form-group">
+          <textarea class="form-control br-0" rows="5"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5">
+        <h5 class="text-right m-0 pt-8">Terms & Conditions</h5>
+        <span class="text-right">This will appear in invoices</span>
+      </div>
+      <div class="col-md-7">
+        <div class="form-group">
+          <textarea class="form-control br-0" rows="5"></textarea>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+
+</div>
+<div class="bottom-fixed wrapper-12 pb-8">
+    <div class="row">
+        <div class="col-md-4">
+            <h5 class="mb-0 pt-8 text-white c-p" (click)="dialogClose()">Cancel</h5>
+        </div>
+        <div class="col-md-8 right text-right">
+            <button mat-button class="btn-bottom br-0 text-inherit">SAVE & NEXT <i class="material-icons">
+                arrow_drop_up
+                </i></button>
+        </div>
+    </div>
+</div>
