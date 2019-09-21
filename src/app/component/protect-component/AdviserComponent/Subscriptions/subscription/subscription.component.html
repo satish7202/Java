@@ -36,7 +36,7 @@
     <app-invoice-history *ngIf="subscriptionTab=='subscriptionFees'"></app-invoice-history>
     <app-clients-dashboard *ngIf="subscriptionTab=='dashboardSubscription'"></app-clients-dashboard>
     <app-modify-fee-structure *ngIf="subscriptionTab=='modifyFees'"></app-modify-fee-structure>
-    <!-- <app-biller-profile-advisor  ></app-biller-profile-advisor> -->
+    <app-biller-profile-advisor *ngIf="subscriptionTab=='billerProfile'" ></app-biller-profile-advisor>
     <app-help *ngIf="subscriptionTab=='clientHelp'"></app-help>
     
 </div>
