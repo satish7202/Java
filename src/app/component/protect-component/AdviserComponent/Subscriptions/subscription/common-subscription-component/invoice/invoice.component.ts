@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { subscriptionInject } from '../../../subscription-inject.service';
 export interface PeriodicElement {
   document: string;
   plan: string;
@@ -19,14 +20,14 @@ export interface PeriodicElement {
 })
 export class InvoiceComponent implements OnInit {
 
-  constructor() { }
+  constructor(public subInjectService:subscriptionInject) { }
   @Input() invoiceData;
   ngOnInit() {
   
   }
-  Close()
+  Close(state)
   {
-    // this.subRight.showSubscription=true;
+    this.subInjectService.rightSliderData(state)
   }
   displayedColumns: string[] = ['checkbox','document','plan', 'date', 'sdate','cdate','status','icons'];
   dataSource = ELEMENT_DATA;

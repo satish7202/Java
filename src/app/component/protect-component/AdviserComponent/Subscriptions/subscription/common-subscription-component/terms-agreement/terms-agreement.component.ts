@@ -18,7 +18,7 @@ export class TermsAgreementComponent implements OnInit {
     this.subInjectService.rightSideData(value)
   }
   mailForm = new FormGroup({
-    mail_body: new FormControl(''),
+    mail_body: new FormControl('<h2>GENERAL RELEASE OF LIABILITY INSTRUCTIONS</h2>'),
 
   });
 

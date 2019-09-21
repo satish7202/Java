@@ -70,6 +70,8 @@ import { SubscriptionPopupComponent } from './component/protect-component/Advise
 import { DeleteSubscriptionComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/delete-subscription/delete-subscription.component';
 import { BillerSettingsComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/biller-settings/biller-settings.component';
 import { PlanRightsliderComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/plan-rightslider/plan-rightslider.component';
+import { EmailQuotationComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/email-quotation/email-quotation.component';
+import { PayeeSettingsComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/payee-settings/payee-settings.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -132,6 +134,8 @@ import { PlanRightsliderComponent } from './component/protect-component/AdviserC
     DeleteSubscriptionComponent,
     BillerSettingsComponent,
     PlanRightsliderComponent,
+    EmailQuotationComponent,
+    PayeeSettingsComponent,
     
   ],
   imports: [

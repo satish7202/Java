@@ -1,0 +1,14 @@
+#ui-froala{
+   
+    width: 100%;
+    .second-toolbar{
+        display: none !important;
+    }
+    .fr-wrapper{
+        z-index: 0;
+    }
+    .fr-wrapper.show-placeholder .fr-placeholder{
+        height: 615px;
+        margin-top: 8px;
+    }
+}

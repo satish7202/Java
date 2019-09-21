@@ -29,10 +29,16 @@
         <p class="pt-8 c-p mb-0"> Activity log</p>
     </div>
 
-    <form [formGroup]="mailForm">
+  
+</div>
+<div class="wrapper-12">
+    <h3 class="mb-8 mt-20">Terms of agreement</h3>
+<div class="row">
+    <form [formGroup]="mailForm" id="ui-froala">
         <div [froalaEditor] formControlName="mail_body">Hello, Froala!</div>
-        <button type="submit" (click)="onSubmit()" [disabled]="!mailForm.valid">Submit</button>
+        <button type="submit" (click)="onSubmit()" [disabled]="!mailForm.valid" class="mt-16">Submit</button>
     </form>
+</div>
 </div>
 <div class="bottom-fixed wrapper-12">
     <div class="row">

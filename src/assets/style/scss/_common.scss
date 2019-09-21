@@ -371,6 +371,10 @@ color: #3F3F3F;
 .b-a-custom{
     border:1px solid #008FFF !important;
 }
+.ba-t{
+    border:1px solid transparent !important;
+}
 .form-control:focus{
     box-shadow: none !important;
+    border-color: #ced4da !important;
 }

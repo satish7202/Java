@@ -16,16 +16,23 @@ export class EventService {
       panelClass: ['app-bottom-snackbar']
     });
   }
+  // right slider part
+  private sidebarValue = new BehaviorSubject<any>("");
+  sidebarSubscribeData = this.sidebarValue.asObservable();
+  sidebarData(message: string) {
+    this.sidebarValue.next(message)
+  }
 
-     private sidebarValue = new BehaviorSubject<any>("");
-     sidebarSubscribeData= this.sidebarValue.asObservable();       
-     sidebarData(message: string) {
-     this.sidebarValue.next(message)
-}  
- 
-      private tabValue = new BehaviorSubject<any>("");
-      tabChangeData= this.tabValue.asObservable();        
-      tabData(message: string) {
-      this.tabValue.next(message)
-      }
+  private tabValue = new BehaviorSubject<any>("");
+  tabChangeData = this.tabValue.asObservable();
+  tabData(message: string) {
+    this.tabValue.next(message)
+  }
+   // upper slider part
+   private rightSliderValue =new BehaviorSubject("");
+   rightSliderData = this.rightSliderValue.asObservable();
+   sliderData(msg:string)
+   {
+     this.rightSliderValue.next(msg)
+   }
 }
