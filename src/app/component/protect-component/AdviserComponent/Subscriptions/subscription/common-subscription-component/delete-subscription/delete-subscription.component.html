@@ -1,0 +1,22 @@
+<div *ngIf="fragmentData.Flag=='deleteSubscription'">
+<h3  class="f-bold">DELETE SUBSCRIPTION</h3>
+<br>
+<h5>Are you sure you want to delete the subscriptions?</h5>
+<br>
+<h5>This cannot be undone</h5>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>CANCEL</button>
+    <button mat-button class="text-danger">DELETE</button>
+  </mat-dialog-actions>
+</div> 
+<div *ngIf="fragmentData.Flag=='cancelSubscription'">
+  <h3  class="f-bold">CANCEL SUBSCRIPTION</h3>
+<br>
+<h5>This service can be used by the client till the end of term and the subscription will be cancelled on <b>27/06/2020</b></h5>
+<button mat-stroked-button class="btn-primary addon">Cancel on Next Renewal</button>
+<br>
+<br>
+<h5>Cancelling the subscription immediately will not allow the client to use the service here after</h5>
+<button mat-stroked-button class="btn-primary addon">Cancel Immediately</button>
+</div>
+

@@ -66,6 +66,9 @@ import { ModifyFeeStructureComponent } from './component/protect-component/Advis
 import { TermsAgreementComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/terms-agreement/terms-agreement.component';
 import { InvoiceHistoryComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/invoice-history/invoice-history.component';
 import { BillerProfileAdvisorComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/biller-profile-advisor/biller-profile-advisor.component';
+import { SubscriptionPopupComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/subscription-popup/subscription-popup.component';
+import { DeleteSubscriptionComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/delete-subscription/delete-subscription.component';
+import { BillerSettingsComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/biller-settings/biller-settings.component';
 import { PlanRightsliderComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/plan-rightslider/plan-rightslider.component';
 import { EmailQuotationComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/email-quotation/email-quotation.component';
 import { PayeeSettingsComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/payee-settings/payee-settings.component';
@@ -127,6 +130,9 @@ import { PayeeSettingsComponent } from './component/protect-component/AdviserCom
     TermsAgreementComponent,
     InvoiceHistoryComponent,
     BillerProfileAdvisorComponent,
+    SubscriptionPopupComponent,
+    DeleteSubscriptionComponent,
+    BillerSettingsComponent,
     PlanRightsliderComponent,
     EmailQuotationComponent,
     PayeeSettingsComponent,
@@ -146,6 +152,6 @@ import { PayeeSettingsComponent } from './component/protect-component/AdviserCom
   providers: [AuthService,HttpService],
   bootstrap: [AppComponent],
   entryComponents:[UpperSliderComponent,
-    ConfirmDialogComponent]
+    ConfirmDialogComponent,SubscriptionPopupComponent,DeleteSubscriptionComponent]
 })
 export class AppModule { }
