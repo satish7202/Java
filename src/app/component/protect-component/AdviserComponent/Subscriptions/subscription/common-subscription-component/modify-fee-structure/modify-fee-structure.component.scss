@@ -8,3 +8,20 @@
 .mat-standard-chip{
     font-size: 13px !important; 
 }
+::ng-deep .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+      /*click effect color change*/
+    background-color: #008FFF !important;
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: #008FFF !important;   /*inner circle color change*/
+}
+::ng-deep .mat-radio-outer-circle:nth-child(1){
+    border-color: #008FFF !important;
+}
+::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+   border-color: #008FFF !important; /*outer ring color change*/
+}
+.min-39{
+    min-height: 39px !important;
+}
