@@ -128,13 +128,10 @@ import { PlanRightsliderComponent } from './component/protect-component/AdviserC
     TermsAgreementComponent,
     InvoiceHistoryComponent,
     BillerProfileAdvisorComponent,
-<<<<<<< HEAD
     SubscriptionPopupComponent,
     DeleteSubscriptionComponent,
     BillerSettingsComponent,
-=======
     PlanRightsliderComponent,
->>>>>>> 7bab81fe63bc36b5f2065251bfccd465d187c476
     
   ],
   imports: [
