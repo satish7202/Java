@@ -69,6 +69,7 @@ import { BillerProfileAdvisorComponent } from './component/protect-component/Adv
 import { SubscriptionPopupComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/subscription-popup/subscription-popup.component';
 import { DeleteSubscriptionComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/delete-subscription/delete-subscription.component';
 import { BillerSettingsComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/biller-settings/biller-settings.component';
+import { PlanRightsliderComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/plan-rightslider/plan-rightslider.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -127,9 +128,13 @@ import { BillerSettingsComponent } from './component/protect-component/AdviserCo
     TermsAgreementComponent,
     InvoiceHistoryComponent,
     BillerProfileAdvisorComponent,
+<<<<<<< HEAD
     SubscriptionPopupComponent,
     DeleteSubscriptionComponent,
     BillerSettingsComponent,
+=======
+    PlanRightsliderComponent,
+>>>>>>> 7bab81fe63bc36b5f2065251bfccd465d187c476
     
   ],
   imports: [

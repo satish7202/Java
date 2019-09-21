@@ -56,9 +56,9 @@ export class PreferencesSettingsComponent implements OnInit {
     //     this.SubscriptionData=data;
     //   }   
     // }
-    Open(state)
+    Open(value,state)
     {
-      // this.eventService.sidebarData(value)
+      this.eventService.sidebarData(value)
       this.subInjectService.rightSideData(state);
       
     }

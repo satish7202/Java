@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { subscriptionInject } from '../../../subscription-inject.service';
+import { EventService } from 'src/app/Data-service/event.service';
 export interface PeriodicElement {
   service: string;
   amt: string;
@@ -24,10 +26,17 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class SubscriptionsUpperSliderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public subInjectService:subscriptionInject,private eventService:EventService) { }
 
   ngOnInit() {
   }
   displayedColumns: string[] = ['service', 'amt', 'type', 'subs','status','date','bdate','ndate','mode','icons'];
   dataSource = ELEMENT_DATA;
+  
+  openPlanSlider(value,state)
+  { 
+    // this.eventService.sidebarData(value)
+    this.subInjectService.rightSideData(state);
+  }
+
 }
