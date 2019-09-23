@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { HttpService } from 'src/app/http-service/http-service';
 import { apiConfig } from 'src/app/config/main-config';
 import { appConfig } from 'src/app/config/component-config';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 class CacheItem<T> {
   url: string;
   timestampCached: number;
@@ -20,7 +21,7 @@ export class SubscriptionService {
    
   getInvoiceData(data)
   {
-    let httpParams=new HttpParams().set('advisorBillerProfileId',data);
+    let httpParams=new HttpParams().set('advisorId',data.advisorId);
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SUBSCRIPTION_INVOICE,httpParams);
   }
   getSingleInvoiceData(data)
@@ -39,9 +40,39 @@ export class SubscriptionService {
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_PREFERENCE_INVOICE_QUOTATIONS_SUBSCRIPTION,httpParams);
   }
   getSubscriptionCompleteStages(data)
-  {
-    // let httpParams=new HttpParams().set('amountReceived',data.amountReceived).set("changesIfAny",data.changesIfAny).set("paymentDate",data.paymentDate).set("paymentMode",data.paymentMode).set("notes",data.notes).set("invoiceId",data.invoiceId);
+  { 
+    let httpParams=new HttpParams().set('advisorId',data.advisorId).set('type',data.type);
     return this.http.post(apiConfig.MAIN_URL + appConfig.DASHBOARD_LETS_BEGIN_SUBSCRIPTION,data)
+  }
+  getSubscriptionClientsList(data)
+  {
+    let httpParams=new HttpParams().set('id',data.id);
+     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_CLIENT_SUBSCRIPTION_LIST,httpParams)
+  }
+  getSubscriptionClientsQuotations(data)
+  {
+    let httpParams=new HttpParams().set('clientId',data.clientId);
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_CLIENT_SUBSCRIPTION_QUOTATIONS_LIST,httpParams);
+  }
+  getSubscriptionClientsInvoices(data)
+  { 
+    let httpParams=new HttpParams().set('clientId',data.clientId);
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_CLIENT_SUBSCRIPTION_INVOICES_LIST,httpParams)
+  }
+  getSubscriptionClientsSettingProfile(data)
+  {
+    let httpParams=new HttpParams().set('clientId',data.clientId);
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_CLIENT_SUBSCRIPTION_SETTING_PROFILE,httpParams)
+  }
+  getSubscriptionQuotationData(data)
+  {
+    let httpParams=new HttpParams().set('advisorId',data.advisorId)
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SUBSCRIPTION_QUOTATIONS,httpParams)
+  }
+  getSubscriptionSubscriptionData(data)
+  {
+    let httpParams=new HttpParams().set('advisorBillerProfileId',data.advisorBillerProfileId);
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SUBSCRIPTION_SUBSCRIPTION,httpParams)
   }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data,10000)

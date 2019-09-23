@@ -53,5 +53,11 @@
     GET_PREFERENCE_BILLER_PROFILE:'futurewise/subscriptions/settings/billerprofile/get',
     GET_PREFERENCE_INVOICE_QUOTATIONS_SUBSCRIPTION:'futurewise/subscriptions/settings/prefix/get',
     DASHBOARD_LETS_BEGIN_SUBSCRIPTION:'futurewise/subscriptions/dashboard/recordPayment',
+    GET_CLIENT_SUBSCRIPTION_LIST:'futurewise/subscriptions/clients/get',
+    GET_CLIENT_SUBSCRIPTION_QUOTATIONS_LIST:'futurewise/subscriptions/clients/quotations/get',
+    GET_CLIENT_SUBSCRIPTION_INVOICES_LIST:'futurewise/subscriptions/clients/invoices/get',
+    GET_CLIENT_SUBSCRIPTION_SETTING_PROFILE:'futurewise/subscriptions/clients/settings/profiles/get',
+    GET_SUBSCRIPTION_QUOTATIONS:'futurewise/subscriptions/quotations/get',
+    GET_SUBSCRIPTION_SUBSCRIPTION:'futurewise/subscriptions/subscription/get',
     GET_BASE_64:'futurewise/api/v1/test/base64/decode'
 }

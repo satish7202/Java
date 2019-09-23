@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material';
 import { SubscriptionComponent } from '../subscription.component';
 import { EventService } from 'src/app/Data-service/event.service';
 import { subscriptionInject } from '../../subscription-inject.service';
+import { SubscriptionService } from '../../subscription.service';
 export interface PeriodicElement {
   name: string;
   email: string;
@@ -25,14 +26,28 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class ClientSubscriptionComponent implements OnInit {
 
-  constructor(public dialog:MatDialog,public eventService:EventService,public subInjectService:subscriptionInject) { }
+  constructor(public dialog:MatDialog,public eventService:EventService,public subInjectService:subscriptionInject,private subService:SubscriptionService) { }
 
   ngOnInit() {
+    console.log("clients")
+    // this.getClientSubscriptionList();
   }
   displayedColumns: string[] = ['name','email', 'num', 'balance'];
   dataSource = ELEMENT_DATA;
- 
- 
+  
+  getClientSubscriptionList()
+  {
+    let obj={
+       'id':2808
+    }
+   this.subService.getSubscriptionClientsList(obj).subscribe(
+     data =>this.getClientListRespobnse(data)
+   )
+  }
+   getClientListRespobnse(data)
+   {
+    console.log('sdfsdfa',data)
+   }
   Open(value,state)
   {
     this.eventService.sidebarData(value)

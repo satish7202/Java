@@ -8,13 +8,13 @@
                     <app-dashboard-subscription></app-dashboard-subscription>
                 </mat-tab>
                 <mat-tab label="CLIENTS">
-                    <app-client-subscription></app-client-subscription>
+                    <app-client-subscription *ngIf="subscriptionTab=='CLIENTS'"></app-client-subscription>
                 </mat-tab>
                 <mat-tab label="SUBSCRIPTIONS">
-                    <app-subscriptions-subscription></app-subscriptions-subscription>
+                    <app-subscriptions-subscription *ngIf="subscriptionTab=='SUBSCRIPTIONS'"></app-subscriptions-subscription>
                 </mat-tab>
                 <mat-tab label="QUOTATIONS">
-                    <app-quotations-subscription></app-quotations-subscription>
+                    <app-quotations-subscription *ngIf="subscriptionTab=='QUOTATIONS'"></app-quotations-subscription>
                 </mat-tab>
                 <mat-tab label="INVOICES">
                     <app-invoices-subscription *ngIf="subscriptionTab=='INVOICES'"></app-invoices-subscription>

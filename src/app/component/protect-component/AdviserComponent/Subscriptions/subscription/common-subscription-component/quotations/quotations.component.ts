@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { subscriptionInject } from '../../../subscription-inject.service';
-import { EventService } from 'src/app/Data-service/event.service';
+import {Component, OnInit} from '@angular/core';
+import {subscriptionInject} from '../../../subscription-inject.service';
+import {EventService} from 'src/app/Data-service/event.service';
+
 
 import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material';
 import { SubscriptionPopupComponent } from '../subscription-popup/subscription-popup.component';
+import { SubscriptionService } from '../../../subscription.service';
 export interface PeriodicElement {
   document: string;
   plan: string;
@@ -13,10 +15,7 @@ export interface PeriodicElement {
   cdate: string;
   status:string;
  } 
- const ELEMENT_DATA: PeriodicElement[] = [
-  {document: "Scope of work", plan: 'Starter plan', date: "25/08/2019", sdate: '25/08/2019',cdate: '25/08/2019',status:'READY TO SEND'},
   
-];
 
 @Component({
   selector: 'app-quotations',
@@ -25,64 +24,91 @@ export interface PeriodicElement {
 })
 export class QuotationsComponent implements OnInit {
 
-  constructor(public subInjectService:subscriptionInject,private eventService:EventService,public dialog: MatDialog) {
+  constructor(public subInjectService:subscriptionInject,private eventService:EventService,public dialog: MatDialog,private subAService:SubscriptionService) {
     this.subInjectService.closeRightSlider.subscribe(
       data => this.getQuotationDesignData(data)
     )
-   }
+  }
+
   quotationDesign;
+
   ngOnInit() {
    this.quotationDesign='true';
+   console.log("quotation")
+   this.getQuotationsList();
   }
   displayedColumns: string[] = ['checkbox','document','plan', 'date', 'sdate','cdate','status','icons'];
-  dataSource = ELEMENT_DATA;
-  openQuotationsESign(value,state)
+  dataSource;
+  getQuotationsList()
   {
+    let obj={
+      'clientId':2970
+    }
+    this.subAService.getSubscriptionClientsQuotations(obj).subscribe(
+      data =>this.getQuotationsListResponse(data)
+    )
+  } 
+  getQuotationsListResponse(data){
+    console.log("dsfgasdfsdf",data);
+    this.dataSource=data
+  }
+  openQuotationsESign(value, state) {
     this.subInjectService.rightSliderData(state)
     this.eventService.sliderData(value)
-  } 
-  getQuotationDesignData(data)
-  {
-    this.quotationDesign=data;
   }
-  changeDisplay(value)
-  {
-    this.quotationDesign=value;
+
+  getQuotationDesignData(data) {
+    this.quotationDesign = data;
   }
-  deleteModal()
-  {
-    let dialogData = {
-      header: 'Are you sure you want to delete?',
-      body:'if you are interested in some quick pretty solution with css format done',
-      btnYes:'yes',
-      btnNo:'No'
+
+  changeDisplay(value) {
+    this.quotationDesign = value;
+  }
+
+  deleteModal(value) {
+    const dialogData = {
+      data: value,
+      header: 'DELETE',
+      body: 'Are you sure you want to delete the document GD?',
+      body2: 'This cannot be undone',
+      btnYes: 'CANCEL',
+      btnNo: 'DELETE',
+      positiveMethod: () => {
+        console.log('11111111111111111111111111111111111111111111');
+      },
+      negativeMethod: () => {
+        console.log('2222222222222222222222222222222222222');
+      }
     }
+    console.log(dialogData+"11111111111111");
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-       width: '400px',
-       data: dialogData,
-       autoFocus:false,
+      width: '400px',
+      data: dialogData,
+      autoFocus: false,
+
 
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
-  
+
     });
-  
+
   }
-  openPopup(data){
+
+  openPopup(data) {
     let Fragmentdata = {
       Flag: data,
     }
     const dialogRef = this.dialog.open(SubscriptionPopupComponent, {
       width: '70%',
-      height:'100%',
+      height: '100%',
       data: Fragmentdata,
-      autoFocus:false,
-     
-   });
-   dialogRef.afterClosed().subscribe(result => {
+      autoFocus: false,
 
-  });
+    });
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
   }
 }

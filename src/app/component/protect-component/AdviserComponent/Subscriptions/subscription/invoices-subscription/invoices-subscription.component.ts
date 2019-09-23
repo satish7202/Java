@@ -21,7 +21,7 @@ export interface PeriodicElement {
 export class InvoicesSubscriptionComponent implements OnInit {
   dataSource: any;
   constructor(private subscription:SubscriptionService) { }
-  advisorBillerProfileId=1;
+  
   showPdfInvoice;
   singleInvoiceData;
   showLoader=true;
@@ -31,13 +31,18 @@ export class InvoicesSubscriptionComponent implements OnInit {
   }
   getInvoiceSubData()
   {
-    this.subscription.getInvoiceData(this.advisorBillerProfileId).subscribe(
+    let obj={
+     'advisorId':2735
+    }
+
+    this.subscription.getInvoiceData(obj).subscribe(
       data =>this.getInvoiceResponseData(data)
     )
   }
   getInvoiceResponseData(data)
   {
-   const ELEMENT_DATA=data;
+    console.log(data)
+    const ELEMENT_DATA=data;
    this.dataSource=ELEMENT_DATA;
    this.showLoader=false;
   }
