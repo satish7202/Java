@@ -32,12 +32,15 @@ export class QuotationsSubscriptionComponent implements OnInit {
   dataSource = ELEMENT_DATA;
 
 
-  openConfirmDialog(){
+  deleteModal(value)
+  {
     let dialogData = {
-      header: 'Are you sure you want to delete?',
-      body:'if you are interested in some quick pretty solution with css format done',
-      btnYes:'yes',
-      btnNo:'No'
+      data:value,
+      header: 'DELETE',
+      body:'Are you sure you want to delete the document?',
+      body2:'This cannot be undone',
+      btnYes:'CANCEL',
+      btnNo:'DELETE'
     }
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {

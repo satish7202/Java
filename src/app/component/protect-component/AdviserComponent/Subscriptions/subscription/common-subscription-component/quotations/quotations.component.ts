@@ -49,13 +49,21 @@ export class QuotationsComponent implements OnInit {
   {
     this.quotationDesign=value;
   }
-  deleteModal()
+  deleteModal(value)
   {
     let dialogData = {
-      header: 'Are you sure you want to delete?',
-      body:'if you are interested in some quick pretty solution with css format done',
-      btnYes:'yes',
-      btnNo:'No'
+      data:value,
+      header: 'DELETE',
+      body:'Are you sure you want to delete the document?',
+      body2:'This cannot be undone',
+      btnYes:'CANCEL',
+      btnNo:'DELETE',
+      positiveMethod:() => {
+        console.log("11111111111111111111111111111111111111111111");
+      },
+      negativeMethod:() => {
+        console.log("2222222222222222222222222222222222222");
+      }
     }
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
