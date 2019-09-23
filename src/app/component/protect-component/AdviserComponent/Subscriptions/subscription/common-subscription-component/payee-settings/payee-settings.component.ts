@@ -24,6 +24,7 @@ export class PayeeSettingsComponent implements OnInit {
   }
   Close(state)
   { 
-    (this.settingsModal=='payeeSettings')?this.subInjectService.rightSliderData(state):this.subInjectService.rightSideData(state); 
+    this.subInjectService.rightSliderData(state)
+    // this.subInjectService.rightSideData(state); 
   }
 }
