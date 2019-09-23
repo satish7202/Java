@@ -46,7 +46,7 @@ export class SubscriptionsSubscriptionComponent implements OnInit {
     if(data=="deleteSubscription"){
           const dialogRef = this.dialog.open(DeleteSubscriptionComponent, {
             width: '20%',
-            height:'40%',
+            // height:'40%',
             data: Fragmentdata,
             autoFocus:false,
           });

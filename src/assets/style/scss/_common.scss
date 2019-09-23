@@ -339,9 +339,10 @@ button:focus {
     }
    
 }
-.ba-green{
-    border: 3px solid #02B875 !important;
+.ba-green,.ba-blue{
+    border: 3px solid #008FFF !important;
 }
+
 .button-fix{
     right: 0;
     position: fixed;
