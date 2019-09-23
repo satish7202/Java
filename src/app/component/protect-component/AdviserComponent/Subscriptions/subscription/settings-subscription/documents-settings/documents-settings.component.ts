@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UpperSliderComponent } from '../../common-subscription-component/upper-slider/upper-slider.component';
 import { MatDialog } from '@angular/material';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { EventService } from 'src/app/Data-service/event.service';
+import { subscriptionInject } from '../../../subscription-inject.service';
 @Component({
   selector: 'app-documents-settings',
   templateUrl: './documents-settings.component.html',
@@ -9,7 +11,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 export class DocumentsSettingsComponent implements OnInit {
   button:any;
-  constructor(public dialog: MatDialog,) { }
+  constructor(public dialog: MatDialog,public eventService:EventService,public subInjectService:subscriptionInject) { }
 
   ngOnInit() {
   }
@@ -17,7 +19,13 @@ export class DocumentsSettingsComponent implements OnInit {
                        {'title':'Investor agreement','code':'Global'},
                        {'title':'Investor agreement','code':'Global'},
                        {'title':'Investor agreement','code':'Global'}]
-                       
+
+   
+   Open(value,state)
+  {
+    this.eventService.sidebarData(value)
+    this.subInjectService.rightSideData(state);
+  }                     
   openFragment(data) {
     let Fragmentdata = {
       Flag: data,
