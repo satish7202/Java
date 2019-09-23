@@ -51,8 +51,8 @@
                         more_vert
                         </i>
                     <mat-menu #menu="matMenu">
-                        <a mat-menu-item>View document</a>
-                        <a mat-menu-item (click)="openConfirmDialog()">Delete document</a>
+                        <a mat-menu-item (click)="Open('open')">View document</a>
+                        <a mat-menu-item (click)="deleteModal('QUOTATION')">Delete document</a>
                     </mat-menu>
                 </td>
             </ng-container>

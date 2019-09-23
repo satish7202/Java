@@ -246,7 +246,7 @@
                       <mat-menu #menu="matMenu">
                         <button mat-menu-item (click)="openDocumentESign('eSignDocument','open')">Email with eSign request</button>
                         <button mat-menu-item (click)="changeDisplay('email')">Email only</button>
-                        <button mat-menu-item class="b-t" (click)="deleteModal()">Delete documents</button>
+                        <button mat-menu-item class="b-t" (click)="deleteModal('DOCUMENT')">Delete documents</button>
                       </mat-menu>
                         </div>
                         <div class="col-md-9 p-0">
@@ -296,9 +296,8 @@
                                                                 more_vert
                                                                 </i>
                                 <mat-menu #menu="matMenu">
-                                    <a mat-menu-item>View document</a>
-                                    <a mat-menu-item>Modify document</a>
-                                    <a mat-menu-item class="bt-1">Delete document</a>
+                                    <a mat-menu-item>View & Modify document</a>
+                                    <a mat-menu-item class="bt-1"(click)="deleteModal('DOCUMENT')">Delete document</a>
                                 </mat-menu>
                             </td>
                         </ng-container>

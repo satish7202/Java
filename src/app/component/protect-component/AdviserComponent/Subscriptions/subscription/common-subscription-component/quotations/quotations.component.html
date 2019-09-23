@@ -22,7 +22,7 @@
                 <mat-menu #menu="matMenu">
                     <button mat-menu-item (click)="openQuotationsESign('eSignQuotations','open')">Email with eSign request</button>
                     <button mat-menu-item (click)="changeDisplay('email')">Email only</button>
-                    <button mat-menu-item (click)="deleteModal()">Delete document</button>
+                    <button mat-menu-item (click)="deleteModal('QUOTATION')">Delete document</button>
                 </mat-menu>
             </div>
             <div class="col-md-9 p-0">
@@ -72,9 +72,8 @@
                         more_vert
                     </i>
                     <mat-menu #menu="matMenu">
-                        <a mat-menu-item>View document</a>
-                        <a mat-menu-item>Modify document</a>
-                        <a mat-menu-item class="bt-1">Delete subscription</a>
+                        <a mat-menu-item>View & Modify document</a>
+                        <a mat-menu-item class="bt-1" (click)="deleteModal('QUOTATION')">Delete quotation</a>
                     </mat-menu>
                 </td>
             </ng-container>
