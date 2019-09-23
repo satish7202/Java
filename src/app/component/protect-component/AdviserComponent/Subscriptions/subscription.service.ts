@@ -39,9 +39,14 @@ export class SubscriptionService {
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_PREFERENCE_INVOICE_QUOTATIONS_SUBSCRIPTION,httpParams);
   }
   getSubscriptionCompleteStages(data)
-  {
-    // let httpParams=new HttpParams().set('amountReceived',data.amountReceived).set("changesIfAny",data.changesIfAny).set("paymentDate",data.paymentDate).set("paymentMode",data.paymentMode).set("notes",data.notes).set("invoiceId",data.invoiceId);
+  { 
+    let httpParams=new HttpParams().set('advisorId',data.advisorId).set('type',data.type);
     return this.http.post(apiConfig.MAIN_URL + appConfig.DASHBOARD_LETS_BEGIN_SUBSCRIPTION,data)
+  }
+  getSubscriptionClientsList(data)
+  {
+    let httpParams=new HttpParams();
+     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_CLIENT_SUBSCRIPTION_LIST,data)
   }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data,10000)
