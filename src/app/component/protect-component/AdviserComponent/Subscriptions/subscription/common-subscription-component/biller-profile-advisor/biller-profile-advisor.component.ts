@@ -14,6 +14,6 @@ export class BillerProfileAdvisorComponent implements OnInit {
   }
   Close(value)
   {
-    this.subInjectService.rightSideData(value)
+    this.subInjectService.rightSideData(value)  
   }
 }

@@ -12,11 +12,16 @@ import { subscriptionInject } from '../subscription-inject.service';
       state('open',style({
         width:'60%'
       })),
+      state('openHelp',style({
+        width:'35%'
+      })),
       state('close',style({
         width:'0%'
       })),
       transition('close => open',[animate('0.3s')]),
-      transition('open => close',[animate('0.1s')]) 
+      transition('open => close',[animate('0.1s')]), 
+      transition('close => openHelp',[animate('0.3s')]),
+      transition('openHelp => close',[animate('0.1s')]) 
     ])
   ]
 })
@@ -44,7 +49,11 @@ export class SubscriptionComponent implements OnInit {
    getFileResponseDataAum(data){
         console.log(data)
         this.subscriptionTab=data;
+        if(data =='clientHelp' || data=='documentHelp'){
+        this.rightBarHelp(); 
+        }else{
         this.rightBar();
+        }
    }
    gettabChangeData(data){
      console.log(data)
@@ -60,6 +69,10 @@ export class SubscriptionComponent implements OnInit {
   rightBar()
   {
     this.currentState='open';   
+  }
+  rightBarHelp()
+  {
+    this.currentState='openHelp';
   }
   tabClick(event)
   {
