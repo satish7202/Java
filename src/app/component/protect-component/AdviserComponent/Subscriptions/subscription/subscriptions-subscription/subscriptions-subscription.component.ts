@@ -3,6 +3,7 @@ import { EventService } from 'src/app/Data-service/event.service';
 import { subscriptionInject } from '../../subscription-inject.service';
 import { MatDialog } from '@angular/material';
 import { DeleteSubscriptionComponent } from '../common-subscription-component/delete-subscription/delete-subscription.component';
+import { SubscriptionService } from '../../subscription.service';
 export interface PeriodicElement {
   client:string;
   service:string;
@@ -26,14 +27,27 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class SubscriptionsSubscriptionComponent implements OnInit {
  
-  constructor(public dialog:MatDialog,public subInjectService:subscriptionInject,private eventService:EventService) {
+  constructor(public dialog:MatDialog,public subInjectService:subscriptionInject,private eventService:EventService,private subService:SubscriptionService) {
   }
 
   ngOnInit() {
+   this.getSubscriptionList();
   }
   displayedColumns: string[] = ['client','service','amt','sub','status','activation', 'lastbilling', 'nextbilling','feemode','icons'];
   dataSource = ELEMENT_DATA;
-
+  getSubscriptionList()
+  {
+    let obj={
+      'advisorBillerProfileId':12345
+    }
+    this.subService.getSubscriptionSubscriptionData(obj).subscribe(
+      data=> this.getSubscriptionListResponse(data)
+    )
+  }
+  getSubscriptionListResponse(data)
+  {
+    console.log(data)
+  }
   Open(value,state)
   {
     this.eventService.sidebarData(value)

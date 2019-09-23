@@ -25,9 +25,11 @@ export class InvoiceComponent implements OnInit {
   ngOnInit() {
   
   }
+ @Input() invoiceTab;
   Close(state)
-  {
-    this.subInjectService.rightSliderData(state)
+  { 
+    (this.invoiceTab=='invoiceUpperSlider')?this.subInjectService.rightSliderData(state):this.subInjectService.rightSideData(state)
+    
   }
   displayedColumns: string[] = ['checkbox','document','plan', 'date', 'sdate','cdate','status','icons'];
   dataSource = ELEMENT_DATA;

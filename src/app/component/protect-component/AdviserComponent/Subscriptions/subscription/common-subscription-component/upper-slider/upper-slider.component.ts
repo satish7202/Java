@@ -68,6 +68,7 @@ import { subscriptionInject } from '../../../subscription-inject.service';
 })
 
 export class UpperSliderComponent implements OnInit {
+  subscriptionTab: any;
   constructor(private eventService:EventService,private subinject:subscriptionInject,public dialogRef: MatDialogRef<UpperSliderComponent>,
     @Inject(MAT_DIALOG_DATA) public fragmentData: any) { 
       this.eventService.rightSliderData.subscribe(
@@ -103,6 +104,11 @@ export class UpperSliderComponent implements OnInit {
   {
     this.rightSliderData=data;
     console.log('value',data)
+  }
+  tabClick(event)
+  {
+    console.log(event)
+    this.subscriptionTab = event.tab.textLabel;
   }
 
 

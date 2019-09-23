@@ -10,12 +10,12 @@
                 </div>
             </div>
         </div> 
-        <div class="d-flex justify-content-center">
+        <div *ngFor="let profileData of SettingProfileData" class="d-flex justify-content-center">
             <div class="row">
               <div class="wrapper-100 pb-32 pt-8">
                 <div class="row b-a bg-grey lter pt-20 pb-20">
                     <div class="col-md-8">
-                            <h3 class="mb-0 pt-8">Ronak Hindocha</h3>
+                            <h3 class="mb-0 pt-8">{{profileData.name}}</h3>
                     </div>
                     <div class="col-md-4">
                             <i class="material-icons text-right right text-custom pt-4 f-28">
@@ -31,19 +31,19 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <p>CUSTOMER TYPE</p>
-                                        <h5>Business</h5>
+                                        <h5>{{profileData.customerType}}</h5>
                                     </div>
                                     <div class="col-md-3">
                                         <p>PAN</p>
-                                        <h5>AABCF7680A</h5>
+                                        <h5>{{profileData.pan}}</h5>
                                     </div>
                                     <div class="col-md-3">
                                             <p>GST TREATMENT</p>
-                                            <h5>Regsitered Business - Regular</h5>
+                                            <h5>{{profileData.gstTreatment}}</h5>
                                         </div>
                                         <div class="col-md-3">
                                             <p>GST</p>
-                                            <h5>27AABCF7680A1Z7</h5>
+                                            <h5>{{profileData.gstin}}</h5>
                                         </div>
                                 </div>
                             </div>
@@ -59,15 +59,15 @@
                                     </div>
                                     <div class="col-md-3 p-0">
                                             <p>DISPLAY NAME</p>
-                                            <h5>ABC Industrial automation Pvt. Ltd.</h5>
+                                            <h5>{{profileData.companyDisplayName}}</h5>
                                             <div class="col-md-12 block p-0 pt-24">
                                                     <p>EMAIL</p>
-                                                    <h5>firstname.lastname@abcautomation.com</h5>
+                                                    <h5>{{profileData.email}}</h5>
                                                 </div>
                                         </div>
                                         <div class="col-md-3 p-0">
                                                 <p>COMPANY NAME</p>
-                                                <h5>ABC Industrial automation Pvt. Ltd.</h5>
+                                                <h5>{{profileData.companyName}}</h5>
                                             </div>
                                    
                                 </div>
@@ -79,7 +79,7 @@
                 </div>
                 
             </div>
-            <div class="d-flex justify-content-center">
+            <!-- <div class="d-flex justify-content-center">
                     <div class="row">
                       <div class="wrapper-100 pt-8">
                         <div class="row b-a bg-grey lter pt-20 pb-20">
@@ -148,7 +148,7 @@
                         </div>
                         
                     </div>
-     
+      -->
                     <mat-toolbar class="bottom-fixed">
                             <div class="row w-100">
                                 <div class="col-md-12 text-left">

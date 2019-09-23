@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from 'src/app/Data-service/event.service';
 import { subscriptionInject } from '../../../subscription-inject.service';
+import { SubscriptionService } from '../../../subscription.service';
 export interface PeriodicElement {
   Invoicenumber: string;
   date: string;
@@ -11,12 +12,6 @@ export interface PeriodicElement {
   Amount:string;
   Balancedue:string;
  } 
- const ELEMENT_DATA: PeriodicElement[] = [
-  {date: "25/08/2019", Invoicenumber: 'Starter plan', Servicename: "25/08/2019", Billedto: '25/08/2019',status: '25/08/2019',Duedate:'READY TO SEND',Amount:'efwwe',Balancedue:'ewff'},
-  {date: "25/08/2019", Invoicenumber: 'Starter plan', Servicename: "25/08/2019", Billedto: '25/08/2019',status: '25/08/2019',Duedate:'READY TO SEND',Amount:'efwwe',Balancedue:'ewff'},
-  {date: "25/08/2019", Invoicenumber: 'Starter plan', Servicename: "25/08/2019", Billedto: '25/08/2019',status: '25/08/2019',Duedate:'READY TO SEND',Amount:'efwwe',Balancedue:'ewff'},
-  {date: "25/08/2019", Invoicenumber: 'Starter plan', Servicename: "25/08/2019", Billedto: '25/08/2019',status: '25/08/2019',Duedate:'READY TO SEND',Amount:'efwwe',Balancedue:'ewff'}
-];
 @Component({
   selector: 'app-invoices',
   templateUrl: './invoices.component.html',
@@ -24,17 +19,33 @@ export interface PeriodicElement {
 })
 export class InvoicesComponent implements OnInit {
 
-  constructor(public subInjectService:subscriptionInject,private eventService:EventService) { }
+  constructor(public subInjectService:subscriptionInject,private eventService:EventService,private subService:SubscriptionService) { }
 
   ngOnInit() {
+    this.getInvoiceList();
+    console.log("CLIENT INVOICE ")
   }
   displayedColumns: string[] = ['checkbox','date','Invoice number','Service name','Billed to', 'status', 'Duedate','Amount','Balance due','icons'];
-  dataSource = ELEMENT_DATA;
+  dataSource;
   
+  getInvoiceList()
+  {
+    let obj={
+     'clientId':2970
+    }
+   this.subService.getSubscriptionClientsInvoices(obj).subscribe(
+     data => this.getInvoiceListResponse(data)
+   )
+  }
+  getInvoiceListResponse(data)
+  {
+    console.log(data)
+    this.dataSource=data
+  }
   openInvoice(value,state)
   {
     
-        this.eventService.sliderData(value);
+    this.eventService.sliderData(value);
     this,this.subInjectService.rightSliderData(state)
   }
 

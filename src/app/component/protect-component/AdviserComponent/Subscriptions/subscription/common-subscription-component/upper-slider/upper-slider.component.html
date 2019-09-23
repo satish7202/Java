@@ -64,21 +64,21 @@
     </div>
     <div class="row" *ngIf="this.fragmentData.Flag=='clients'">
         <div class="col-md-12 p-0">
-            <mat-tab-group mat-align-tabs="center" animationDuration="0ms">
+            <mat-tab-group mat-align-tabs="center" animationDuration="0ms" (selectedTabChange)="tabClick($event)">
                 <mat-tab label="SUBSCRIPTIONS">
                     <app-subscriptions-upper-slider></app-subscriptions-upper-slider>
                 </mat-tab>
-                <mat-tab label="QUOTATIONS">
-                    <app-quotations></app-quotations>
+                <mat-tab label="QUOTATIONS" >
+                    <app-quotations *ngIf="subscriptionTab=='QUOTATIONS'"></app-quotations>
                 </mat-tab>
                 <mat-tab label="INVOICES">
-                    <app-invoices></app-invoices>
+                    <app-invoices *ngIf="subscriptionTab=='INVOICES'"></app-invoices>
                 </mat-tab>
                 <mat-tab label="DOCUMENTS">
                     <app-document [componentFlag]='clientDocuments'></app-document>
                 </mat-tab>
                 <mat-tab label="SETTINGS">
-                    <app-settings></app-settings>
+                    <app-settings *ngIf="subscriptionTab=='SETTINGS'"></app-settings>
                 </mat-tab>
             </mat-tab-group>
         </div>
@@ -88,7 +88,7 @@
 <div [@upperRightSlider]="State" class="right_sidenav">
      <app-plan-rightslider *ngIf="rightSliderData=='planRightSlider'"></app-plan-rightslider>
      <app-email-quotation *ngIf="rightSliderData=='eSignQuotations'"></app-email-quotation>
-     <app-invoice *ngIf="rightSliderData=='invoice'"></app-invoice>
+     <app-invoice [invoiceTab]="rightSliderData" *ngIf="rightSliderData=='invoiceUpperSlider'"></app-invoice>
      <app-payee-settings *ngIf="rightSliderData=='payeeSettings'"></app-payee-settings>
      <app-email-quotation *ngIf="rightSliderData=='eSignDocument'"></app-email-quotation>
 </div>

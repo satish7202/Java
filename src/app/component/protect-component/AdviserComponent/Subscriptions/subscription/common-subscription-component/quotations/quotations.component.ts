@@ -5,6 +5,7 @@ import { EventService } from 'src/app/Data-service/event.service';
 import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material';
 import { SubscriptionPopupComponent } from '../subscription-popup/subscription-popup.component';
+import { SubscriptionService } from '../../../subscription.service';
 export interface PeriodicElement {
   document: string;
   plan: string;
@@ -13,10 +14,7 @@ export interface PeriodicElement {
   cdate: string;
   status:string;
  } 
- const ELEMENT_DATA: PeriodicElement[] = [
-  {document: "Scope of work", plan: 'Starter plan', date: "25/08/2019", sdate: '25/08/2019',cdate: '25/08/2019',status:'READY TO SEND'},
   
-];
 
 @Component({
   selector: 'app-quotations',
@@ -25,7 +23,7 @@ export interface PeriodicElement {
 })
 export class QuotationsComponent implements OnInit {
 
-  constructor(public subInjectService:subscriptionInject,private eventService:EventService,public dialog: MatDialog) {
+  constructor(public subInjectService:subscriptionInject,private eventService:EventService,public dialog: MatDialog,private subAService:SubscriptionService) {
     this.subInjectService.closeRightSlider.subscribe(
       data => this.getQuotationDesignData(data)
     )
@@ -33,9 +31,24 @@ export class QuotationsComponent implements OnInit {
   quotationDesign;
   ngOnInit() {
    this.quotationDesign='true';
+   console.log("quotation")
+   this.getQuotationsList();
   }
   displayedColumns: string[] = ['checkbox','document','plan', 'date', 'sdate','cdate','status','icons'];
-  dataSource = ELEMENT_DATA;
+  dataSource;
+  getQuotationsList()
+  {
+    let obj={
+      'clientId':2970
+    }
+    this.subAService.getSubscriptionClientsQuotations(obj).subscribe(
+      data =>this.getQuotationsListResponse(data)
+    )
+  } 
+  getQuotationsListResponse(data){
+    console.log("dsfgasdfsdf",data);
+    this.dataSource=data
+  }
   openQuotationsESign(value,state)
   {
     this.subInjectService.rightSliderData(state)
