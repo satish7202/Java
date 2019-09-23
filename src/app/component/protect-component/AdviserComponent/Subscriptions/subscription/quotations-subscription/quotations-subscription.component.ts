@@ -7,15 +7,15 @@ export interface PeriodicElement {
   name: string;
   docname:string;
   plan:string;
-  
+
   cdate:string;
   sdate: string;
   clientsign: string;
   status:string;
-} 
+}
 const ELEMENT_DATA: PeriodicElement[] = [
   {name: 'Neelam Singh',docname: 'Scope of work', plan: 'Starter plan',  cdate: '25/08/2019', sdate: '25/08/2019', clientsign: '25/08/2019',status:'READY TO SEND'},
-   
+
 ];
 @Component({
   selector: 'app-quotations-subscription',
@@ -34,13 +34,19 @@ export class QuotationsSubscriptionComponent implements OnInit {
 
   deleteModal(value)
   {
-    let dialogData = {
-      data:value,
+    const dialogData = {
+      data: value,
       header: 'DELETE',
-      body:'Are you sure you want to delete the document?',
-      body2:'This cannot be undone',
-      btnYes:'CANCEL',
-      btnNo:'DELETE'
+      body: 'Are you sure you want to delete the document GD?',
+      body2: 'This cannot be undone',
+      btnYes: 'CANCEL',
+      btnNo: 'DELETE',
+      positiveMethod: () => {
+        console.log('11111111111111111111111111111111111111111111');
+      },
+      negativeMethod: () => {
+        console.log('2222222222222222222222222222222222222');
+      }
     }
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
@@ -49,11 +55,11 @@ export class QuotationsSubscriptionComponent implements OnInit {
        autoFocus:false,
 
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
-  
+
     });
-  
+
   }
 
   Open(value)
