@@ -4,6 +4,7 @@ import { MatDialogRef, MatDialog } from '@angular/material';
 import { subscriptionInject } from '../../../subscription-inject.service';
 import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
 import { EventService } from 'src/app/Data-service/event.service';
+import { SubscriptionPopupComponent } from '../subscription-popup/subscription-popup.component';
 export interface PeriodicElement {
   document: string;
   plan: string;
@@ -34,6 +35,24 @@ export class DocumentComponent implements OnInit {
   @Input() componentFlag:string;
   ngOnInit() {
     this.documentDesign='true'
+  }
+  openPopup(data){
+    let Fragmentdata = {
+      Flag: data,
+    }
+    const dialogRef = this.dialog.open(SubscriptionPopupComponent, {
+      width: '70%',
+      height:'100%',
+      data: Fragmentdata,
+      autoFocus:false,
+     
+   });
+   dialogRef.afterClosed().subscribe(result => {
+
+  });
+  }
+  dialogClose(){
+    this.dialogRef.close();
   }
   openDocumentESign(value,state)
   {

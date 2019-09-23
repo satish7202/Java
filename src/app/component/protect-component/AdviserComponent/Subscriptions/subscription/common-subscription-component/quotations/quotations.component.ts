@@ -4,6 +4,7 @@ import { EventService } from 'src/app/Data-service/event.service';
 
 import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material';
+import { SubscriptionPopupComponent } from '../subscription-popup/subscription-popup.component';
 export interface PeriodicElement {
   document: string;
   plan: string;
@@ -68,5 +69,20 @@ export class QuotationsComponent implements OnInit {
   
     });
   
+  }
+  openPopup(data){
+    let Fragmentdata = {
+      Flag: data,
+    }
+    const dialogRef = this.dialog.open(SubscriptionPopupComponent, {
+      width: '70%',
+      height:'100%',
+      data: Fragmentdata,
+      autoFocus:false,
+     
+   });
+   dialogRef.afterClosed().subscribe(result => {
+
+  });
   }
 }

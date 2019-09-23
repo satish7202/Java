@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SubscriptionComponent } from '../../subscription.component';
+import { subscriptionInject } from '../../../subscription-inject.service';
 @Component({
   selector: 'app-help',
   templateUrl: './help.component.html',
@@ -7,13 +8,13 @@ import { SubscriptionComponent } from '../../subscription.component';
 })
 export class HelpComponent implements OnInit {
 
-  constructor(public subscription:SubscriptionComponent) { }
+  constructor(public subInjectService:subscriptionInject) { }
 
   ngOnInit() {
   }
-  Close()
+  Close(value)
   {
-    this.subscription.currentState='close';
+    this.subInjectService.rightSideData(value)
   }
 
 }
