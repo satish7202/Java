@@ -1,1 +1,117 @@
-<p>add-fixed-fee works!</p>
+<div class="row bb-1">
+    <div class="col-md-8 p-0">
+        <h3 class="mb-0 wrapper-16">ADD FEE STRUCTURE</h3>
+    </div>
+    <div class="col-md-4 text-right">
+        <div class="wrapper-12">
+            <!-- <button mat-stroked-button class="br-0 btn-primary mr-20">EDIT</button> -->
+        <i class="material-icons c-p v-middle" (click)="Close('close')"> clear</i>
+    </div>
+    </div>
+</div>
+<div class="row pt-28">
+    <div class="col-md-5">
+        <h5 class="text-right pt-12 mb-0">Service Name</h5>
+    </div>  
+    <div class="col-md-7">
+        <div class="row">
+            <div class="col-md-5 p-0">
+                    <div class="form-group">
+                            <input type="text" class="form-control br-0">
+                   </div>
+            </div>
+        </div>    
+    </div>
+</div>
+<div class="row pt-28">
+    <div class="col-md-5">
+        <h5 class="text-right pt-12 mb-0">Code</h5>
+    </div>  
+    <div class="col-md-7">
+        <div class="row">
+            <div class="col-md-5 p-0">
+                    <div class="form-group">
+                            <input type="text" class="form-control br-0">
+                   </div>
+            </div>
+        </div>    
+    </div>
+</div>
+<div class="row pt-28">
+    <div class="col-md-5">
+        <h5 class="text-right pt-12 mb-0">Discription</h5>
+    </div>  
+    <div class="col-md-7">
+        <div class="row">
+            <div class="col-md-5 p-0">
+                    <div class="form-group mb-0">
+                            <textarea class="form-control" rows="3"></textarea>
+                   </div>
+                   <div class="col-md-12">
+                       <p class="mb-0 f-12 text-custom">optional</p>
+                   </div>
+            </div>
+        </div>    
+    </div>
+</div>
+<div class="row pt-28">
+    <div class="col-md-5">
+        <h5 class="text-right pt-12 mb-0">Fees</h5>
+    </div>  
+    <div class="col-md-7">
+        <div class="row">
+            <div class="col-md-5 p-0">
+                    <div class="form-group">
+                            <input type="text" class="form-control br-0">
+                   </div>
+            </div>
+        </div>    
+    </div>
+</div>
+<div class="row pt-28">
+    <div class="col-md-5">
+        <h5 class="text-right pt-12 mb-0">Billing nature</h5>
+    </div>
+    <div class="col-md-7">
+              <mat-radio-group>
+                <mat-radio-button value="1" class="b-a-custom text-primary pt-8 pr-40 pl-20 custom-radio">Recurring</mat-radio-button>
+                <mat-radio-button value="2" class="b-a pt-8 pr-40 pl-20 pr-72">Once</mat-radio-button>
+              </mat-radio-group>
+    </div>
+</div>
+<div class="row pt-28">
+    <div class="col-md-5">
+        <h5 class="text-right pt-12 mb-0">Bill every</h5>
+    </div>  
+    <div class="col-md-7">
+        <div class="row">
+            <div class="col-md-5 p-0">
+                    <div class="form-group">
+                            <input type="text" class="form-control br-0">
+                   </div>
+            </div>
+            <div class="col-md-5 p-0">
+                    <button mat-button [matMenuTriggerFor]="menu" class="b-a br-0 min-39">Months <i class="material-icons ml-44 text-custom">
+                            arrow_drop_down
+                            </i></button>
+                        <mat-menu #menu="matMenu">
+                          <button mat-menu-item>Item 1</button>
+                          <button mat-menu-item>Item 2</button>
+                        </mat-menu>
+            </div>
+        </div>
+           
+        
+    </div>
+</div>
+<div class="row pt-28">
+    <div class="col-md-5">
+        <h5 class="text-right pt-12 mb-0">Billing Mode</h5>
+    </div>
+    <div class="col-md-7">
+              <mat-radio-group>
+                <mat-radio-button value="1" class="b-a-custom text-primary pt-8 pr-40 pl-20 custom-radio">Start of period</mat-radio-button>
+                <mat-radio-button value="2" class="b-a pt-8 pr-40 pl-20 pr-72">End od period</mat-radio-button>
+              </mat-radio-group>
+    </div>
+</div>
