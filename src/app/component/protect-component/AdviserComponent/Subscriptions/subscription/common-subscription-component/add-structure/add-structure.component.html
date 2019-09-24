@@ -1,66 +1,67 @@
 <div class="bg-white">
-        
-        <div class="row bb-1">
-            <div class="col-md-10 border-right-1 p-0">
-                <p class="f-16 mb-0 pt-24 pb-24 pl-20 text-left">Add plan details</p>
-            </div>
-            <div class="col-md-2">
-                <i class="material-icons closebtn pt-12 pb-12 c-p" (click)="closeNav('close')">
-                close
-                </i>
-            </div>
-            
+
+    <div class="row bb-1">
+        <div class="col-md-10 border-right-1 p-0">
+            <p class="f-16 mb-0 pt-24 pb-24 pl-20 text-left">Add plan details</p>
         </div>
-       
-        <div class="content-center">
+        <div class="col-md-2">
+            <i class="material-icons closebtn pt-12 pb-12 c-p" (click)="closeNav('close')">
+                close
+            </i>
+        </div>
+
+    </div>
+
+    <div class="content-center">
         <div class="row pt-40">
             <div class="col-md-12">
                 <div class="row">
+                    <form [formGroup]="planData">
                     <div class="col-md-4">
                         <p class="f-16 mb-0 pt-20">Plan name</p>
                     </div>
                     <div class="col-md-8">
                         <mat-form-field appearance="outline">
-                            <input matInput>
+                            <input matInput formControlName="planName" [(ngModel)]="planName" >
                         </mat-form-field>
                         <div class="col-sm-12 text-right p-0">
-                                <p class="mb-0 text-primitive pt-8">0 / 20</p>
-                            </div>
-                       
+                            <p class="mb-0 text-primitive pt-8">0 / 20</p>
+                        </div>
+
                     </div>
-              
+
                     <div class="col-md-4">
                         <p class="f-16 mb-0 pt-20">Code </p>
                     </div>
                     <div class="col-md-8">
-    
-                            <mat-form-field appearance="outline">
-   
-                                    <input matInput>
-                                   
-                                  </mat-form-field>
+
+                        <mat-form-field appearance="outline">
+
+                            <input matInput formControlName="code">
+
+                        </mat-form-field>
                         <div class="col-sm-12 text-right p-0">
-                                <p class="mb-0 text-primitive pt-8">0 / 10</p>
-                            </div>
-                                 
+                            <p class="mb-0 text-primitive pt-8">0 / 10</p>
+                        </div>
+
                     </div>
-                
+
                     <div class="col-md-4">
                         <p class="f-16 mb-0 pt-24">Description</p>
                     </div>
                     <div class="col-md-8">
                         <mat-form-field appearance="outline">
-                            <textarea matInput></textarea>
+                            <textarea matInput formControlName="description"></textarea>
                         </mat-form-field>
                         <div class="col-sm-12 text-right p-0">
-                        <p class="mb-0 text-primitive pt-8">0 / 00</p>
+                            <p class="mb-0 text-primitive pt-8">0 / 00</p>
+                        </div>
                     </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
-      
+        <button (click)="submitPlanData()">Submit</button>
+
     </div>
-    </div>
-    
-    
+</div>
