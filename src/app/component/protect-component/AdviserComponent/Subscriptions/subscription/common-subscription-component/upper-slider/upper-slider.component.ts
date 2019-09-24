@@ -1,6 +1,5 @@
 import {Component, OnInit, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {SubscriptionComponent} from '../../subscription.component';
 import {trigger, state, style, transition, animate} from '@angular/animations';
 import {EventService} from 'src/app/Data-service/event.service';
 import {subscriptionInject} from '../../../subscription-inject.service';

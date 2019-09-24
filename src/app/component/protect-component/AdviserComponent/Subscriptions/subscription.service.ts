@@ -74,6 +74,11 @@ export class SubscriptionService {
     let httpParams=new HttpParams().set('advisorId',data.advisorId).set('dateType',data.dateType).set('order',data.order);
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SUBSCRIPTION_SUBSCRIPTION,httpParams)
   }
+  getSettingPlanServiceData(data)
+  { 
+    let httpParams=new HttpParams().set('advisorId',data.advisorId).set('planId',data.planId)
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SUBSCRIPTION_PLAN_SERVICE,httpParams)
+  }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data,10000)
   }

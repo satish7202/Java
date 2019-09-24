@@ -1,24 +1,9 @@
-<!-- <p>{{headerData}}</p>
-<p>{{bodyData}}</p>
-<p><button>{{btn1NoData}}</button></p>
-<p><button>{{btn2YesData}}</button></p> -->
-
-
-    <h3 class="m-0 pb-28">DELETE SUBSCRIPTION</h3>
-    <p class="pt-28 pb-28 mb-0 text-black f-16">Are you sure you want to delete the subscription? </p>
-        <p class="mb-0 text-black f-16">This cannot be undone.</p>
+ <h3 class="m-0 pb-28">{{headerData}} {{data}}</h3>
+    <p class="pt-28 pb-28 mb-0 text-black f-16">{{bodyData}} </p>
+        <p class="mb-0 text-black f-16">{{bodyData2}}</p>
                 <div class="row pt-44">
                 <div class="col-md-12 pr-0 right text-right">
-                        <button mat-button class="text-custom f-500 c-p">CANCEL</button>
-                        <button mat-button class="text-danger f-500 c-p">DELETE</button>
+                        <button mat-button class="text-custom f-500 c-p" (click)="clickButton2()">{{btn2YesData}}</button>
+                        <button mat-button class="text-danger f-500 c-p"  (click)="clickButton1()">{{btn1NoData}}</button>
                 </div>
                 </div>
-               
-           
-      
-<p>{{headerData}} {{data}}</p>
-<p>{{bodyData}}</p>
-<br>
-<p>{{bodyData2}}</p>
-<p><button (click)="clickButton1()">{{btn1NoData}}</button></p>
-<p><button (click)="clickButton2()">{{btn2YesData}}</button></p>

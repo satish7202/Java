@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-import { SubscriptionComponent } from '../../subscription.component';
+import { subscriptionInject } from '../../../subscription-inject.service';
+import { FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-add-structure',
   templateUrl: './add-structure.component.html',
@@ -8,13 +8,20 @@ import { SubscriptionComponent } from '../../subscription.component';
 })
 export class AddStructureComponent implements OnInit {
 
-  constructor(public subscription:SubscriptionComponent) { }
-
+  constructor(private subinject: subscriptionInject,private fb:FormBuilder) { }
+  planName;
   ngOnInit() {
   }
-
-  closeNav() {
-    this.subscription.currentState='close';
-
+    planData=this.fb.group({
+    planName:[''],
+    code:[''],
+    description:['']
+  })
+  submitPlanData()
+  {
+    console.log(this.planName)
+  }
+  closeNav(state) {
+    this.subinject.rightSliderData(state)
   }
 }

@@ -1,139 +1,76 @@
 <div *ngIf="componentFlag=='planServices'">
-<div class="bg-grey lter" >
+    <div class="bg-grey lter">
         <div class="row">
             <div class="col-md-12">
                 <h2>Starter Plan</h2>
             </div>
         </div>
-        </div>
-        <div class="bg-white"  >
-            <div class="wrapper-20">
-                <div class="row">
+    </div>
+    <div class="bg-white">
+        <div class="wrapper-20">
+            <div class="row">
                 <div class="col-md-10 p-0 pt-8 text-center">
                     <div class="row text-right content">
-                    <div class="col-md-11 p-0">
+                        <div class="col-md-11 p-0">
                             <p>Map services to the selected plan.</p>
-                    </div>
-                    <div class="col-md-1 text-left p-0">
-        
+                        </div>
+                        <div class="col-md-1 text-left p-0">
+
                             <i class="material-icons text-primary">
-                                    error_outline
-                                    </i>
+                                error_outline
+                            </i>
+                        </div>
                     </div>
-                </div>
                 </div>
                 <div class="col-md-2 right text-right p-0 button-fix">
-                        <button mat-stroked-button class="btn-primary">2 Services mapped</button>
+                    <button mat-stroked-button class="btn-primary">2 Services mapped</button>
                 </div>
             </div>
-            </div>
-            <div class="wrapper-40">
-                <div class="row text-center padder-80">
-                    <div class="col-md-4 pl-10 pr-10">
-                            
-                        <div class="box">
-                                
-                            <div class="bg-grey lter text-left">
-                                    <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
+        </div>
+        <div class="wrapper-40">
+            <div class="row text-center padder-80">
+                <div *ngFor="let serviceData of planServiceData" class="col-md-4 pl-10 pr-10">
 
-                                            <div class="pl-24 pt-20">
-                                <h3 class="f-24 p-0 mb-0">Investment Management </h3>
-                                <p class="mb-0 pb-32 pt-4">IMA124</p>
-                                </div>
+                    <div [ngClass]="{'box':serviceData.selected,'b-a':serviceData.selected==false }" (click)="selectService(serviceData)">
+
+                        <div class="bg-grey lter text-left">
+                            <mat-checkbox class="custom-checkbox" checked="false" color="primary" *ngIf="serviceData.selected"></mat-checkbox>
+
+                            <div class="pl-24 pt-20">
+                                <h3 class="f-24 p-0 mb-0">{{serviceData.serviceName}} </h3>
+                                <p class="mb-0 pb-32 pt-4">{{serviceData.serviceCode}}</p>
                             </div>
-                            <div class="pl-8 pt-20 pb-28">
+                        </div>
+                        <div class="pl-8 pt-20 pb-28">
                             <div class="row pt-24 text-left">
                                 <div class="col-md-6">
                                     <p class="text-primitive f-12">FEE TYPE</p>
-                                    <label>Fixed</label>
+                                    <label>{{serviceData.feeType}}</label>
                                 </div>
                                 <div class="col-md-6">
                                     <p class="text-primitive f-12">BILLING NATURE</p>
-                                    <p class="f-18">Recurring</p>
+                                    <p class="f-18" *ngIf="serviceData.billingNature==1">Recurring</p>
+                                    <p class="f-18" *ngIf="serviceData.billingNature==0">One Time</p>
                                 </div>
                             </div>
                             <div class="row pt-24 text-left">
-                                    <div class="col-md-6">
-                                        <p class="text-primitive f-12">BILLING MODE</p>
-                                        <p class="f-18">End of period</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p class="text-primitive f-12">FEES</p>
-                                        <p class="f-18">Rs.10,000/Year</p>
-                                    </div>
+                                <div class="col-md-6">
+                                    <p class="text-primitive f-12">BILLING MODE</p>
+                                    <p class="f-18" *ngIf="serviceData.billingMode==1">End of period</p>
                                 </div>
+                                <div class="col-md-6">
+                                    <p class="text-primitive f-12">FEES</p>
+                                    <p class="f-18" *ngIf="serviceData.feeType=='fixed'">Rs.{{serviceData.amount}}/Year</p>
+                                    <p class="f-18" *ngIf="serviceData.feeType=='variable'">{{serviceData.amount}}%year</p>
                                 </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-4 pl-10 pr-10">
-                            <div class="box">
-                                
-                                    <div class="bg-grey lter text-left">
-                                            <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
-                                                    <div class="pl-24 pt-20">
-                                        <h3 class="f-24 p-0 mb-0">Annual Retainer </h3>
-                                        <p class="mb-0 pb-32 pt-4">IMA125</p>
-                                        </div>
-                                    </div>
-                                    <div class="pl-8 pt-20 pb-28">
-                                    <div class="row pt-24 text-left">
-                                        <div class="col-md-6">
-                                            <p class="text-primitive f-12">FEE TYPE</p>
-                                            <label>Variable</label>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p class="text-primitive f-12">BILLING NATURE</p>
-                                            <p class="f-18">Recurring</p>
-                                        </div>
-                                    </div>
-                             <div class="row pt-24 text-left">
-                                            <div class="col-md-6">
-                                                <p class="text-primitive f-12">BILLING MODE</p>
-                                                <p class="f-18">End of period</p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p class="text-primitive f-12">FEES</p>
-                                                <p class="f-18">0.5%/Year</p>
-                                            </div>
-                                        </div>
-                                        </div>
-                                </div>
-                    </div>
-                    <div class="col-md-4 pl-10 pr-10"> 
-                            <div class="box b-a">
-                                    <div class="bg-grey lter text-left">
-                                                    <div class="pl-24 pt-20">
-                                        <h3 class="f-24 p-0 mb-0">Financial Planning </h3>
-                                        <p class="mb-0 pb-36 pt-4">IMA125</p>
-                                        </div>
-                                    </div>
-                                    <div class="pl-8 pt-20 pb-28">
-                                    <div class="row pt-24 text-left">
-                                        <div class="col-md-6">
-                                            <p class="text-primitive f-12">FEE TYPE</p>
-                                            <label>Fixed</label>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p class="text-primitive f-12">BILLING NATURE</p>
-                                            <p class="f-18">Once</p>
-                                        </div>
-                                    </div>
-                                    <div class="row pt-24 text-left">
-                                            <div class="col-md-6">
-                                                <p class="text-primitive f-12">BILLING MODE</p>
-                                                <p class="f-18">End of period</p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p class="text-primitive f-12">FEES</p>
-                                                <p class="f-18">Rs.20,000/Year</p>
-                                            </div>
-                                        </div>
-                                        </div>
-                                </div>
-                    </div>
                 </div>
+
             </div>
         </div>
+    </div>
 </div>
 
 <div *ngIf="componentFlag!='planServices'">

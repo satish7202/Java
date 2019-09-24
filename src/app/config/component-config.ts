@@ -59,5 +59,6 @@
     GET_CLIENT_SUBSCRIPTION_SETTING_PROFILE:'futurewise/subscriptions/clients/settings/profiles/get',
     GET_SUBSCRIPTION_QUOTATIONS:'futurewise/subscriptions/quotations/get',
     GET_SUBSCRIPTION_SUBSCRIPTION:'futurewise/subscriptions/subscription/get',
+    GET_SUBSCRIPTION_PLAN_SERVICE:'futurewise/subscriptions/settings/plan-service/get',
     GET_BASE_64:'futurewise/api/v1/test/base64/decode'
 }

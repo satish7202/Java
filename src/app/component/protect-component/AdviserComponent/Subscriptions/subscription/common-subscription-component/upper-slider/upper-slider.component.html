@@ -86,6 +86,7 @@
 </div>
 
 <div [@upperRightSlider]="State" class="right_sidenav">
+    <app-add-structure *ngIf="rightSliderData=='addPlanDetails'"></app-add-structure>
      <app-plan-rightslider *ngIf="rightSliderData=='planRightSlider'"></app-plan-rightslider>
      <app-email-quotation *ngIf="rightSliderData=='eSignQuotations'"></app-email-quotation>
      <app-invoice [invoiceTab]="rightSliderData" *ngIf="rightSliderData=='invoiceUpperSlider'"></app-invoice>

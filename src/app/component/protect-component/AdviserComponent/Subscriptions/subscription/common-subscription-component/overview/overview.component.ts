@@ -1,6 +1,4 @@
-import { Component, OnInit, Output, EventEmitter,Input} from '@angular/core';
-import * as $ from 'jquery';
-import { UpperSliderComponent } from '../upper-slider/upper-slider.component';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { subscriptionInject } from '../../../subscription-inject.service';
 import { EventService } from 'src/app/Data-service/event.service';
@@ -12,30 +10,20 @@ import { EventService } from 'src/app/Data-service/event.service';
 })
 export class OverviewComponent implements OnInit {
 
-  constructor(public subInjectService:subscriptionInject,private eventService:EventService,private upper:UpperSliderComponent,public dialogRef:MatDialogRef<OverviewComponent>) { }
+  constructor(private eventService: EventService, private subinject: subscriptionInject, public dialogRef: MatDialogRef<OverviewComponent>) { }
 
-   
-@Input() componentFlag:string;
+
+  @Input() componentFlag: string;
 
   ngOnInit() {
-    // $("#myRightSidenav").css("width","");
-    }
-  
-openNav() {
-  
-      // this.upper.open();    
-          }
-dialogClose(){
+
+  }
+
+  openNav(value, state) {
+    this.eventService.sliderData(value);
+    this.subinject.rightSliderData(state)
+  }
+  dialogClose() {
     this.dialogRef.close();
-  }  
-  openPlanSliderBlank(value,state)
-  { 
-    this.eventService.sliderData(value);
-    this,this.subInjectService.rightSliderData(state)
-  }    
-  openPlanSliderQuotation(value,state)
-  { 
-    this.eventService.sliderData(value);
-    this,this.subInjectService.rightSliderData(state)
-  }      
+  }
 }
