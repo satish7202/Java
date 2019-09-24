@@ -138,8 +138,8 @@ import { CreateSubscriptionComponent } from './component/protect-component/Advis
     PlanRightsliderComponent,
     EmailQuotationComponent,
     PayeeSettingsComponent,
-    CreateSubscriptionComponent,
-    DialogComponent
+    DialogComponent,
+    CreateSubscriptionComponent
     
   ],
   imports: [
