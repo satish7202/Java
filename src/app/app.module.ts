@@ -72,6 +72,7 @@ import { BillerSettingsComponent } from './component/protect-component/AdviserCo
 import { PlanRightsliderComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/plan-rightslider/plan-rightslider.component';
 import { EmailQuotationComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/email-quotation/email-quotation.component';
 import { PayeeSettingsComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/payee-settings/payee-settings.component';
+import { DialogComponent } from './component/dialog/dialog.component';
 import { CreateSubscriptionComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/create-subscription/create-subscription.component';
 @NgModule({
   declarations: [
@@ -138,6 +139,7 @@ import { CreateSubscriptionComponent } from './component/protect-component/Advis
     EmailQuotationComponent,
     PayeeSettingsComponent,
     CreateSubscriptionComponent,
+    DialogComponent
     
   ],
   imports: [

@@ -25,6 +25,6 @@ export class PayeeSettingsComponent implements OnInit {
   Close(state)
   { 
     this.subInjectService.rightSliderData(state)
-    // this.subInjectService.rightSideData(state); 
+   this.subInjectService.rightSideData(state); 
   }
 }
