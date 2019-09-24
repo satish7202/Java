@@ -71,7 +71,7 @@ export class SubscriptionService {
   }
   getSubscriptionSubscriptionData(data)
   {
-    let httpParams=new HttpParams().set('advisorBillerProfileId',data.advisorBillerProfileId);
+    let httpParams=new HttpParams().set('advisorId',data.advisorId).set('dateType',data.dateType).set('order',data.order);
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SUBSCRIPTION_SUBSCRIPTION,httpParams)
   }
   base_64Data(data) {

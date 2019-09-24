@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SubscriptionComponent } from '../../subscription.component';
+
 @Component({
   selector: 'app-modify-fee-structure',
   templateUrl: './modify-fee-structure.component.html',
@@ -7,13 +7,9 @@ import { SubscriptionComponent } from '../../subscription.component';
 })
 export class ModifyFeeStructureComponent implements OnInit {
 
-  constructor(public subscription:SubscriptionComponent) { }
+  constructor() { }
 
   ngOnInit() {
   }
-  Close()
-  {
-    this.subscription.currentState='close';
-
-  }
+ 
 }

@@ -39,7 +39,9 @@ export class SubscriptionsSubscriptionComponent implements OnInit {
   getSubscriptionList()
   {
     let obj={
-      'advisorBillerProfileId':12345
+      'advisorId':12345,
+      'dateType':0,
+      'order':0
     }
     this.subService.getSubscriptionSubscriptionData(obj).subscribe(
       data=> this.getSubscriptionListResponse(data)
