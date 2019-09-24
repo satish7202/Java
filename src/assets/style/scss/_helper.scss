@@ -344,7 +344,9 @@ $lineheight:20px;
 .pt-4 {
     padding-top: $p4 !important;
 }
-
+.pt-6{
+    padding-top: $p4 +2 !important;
+}
 .pt-8 {
     padding-top: $p4*2 !important;
 }
@@ -547,6 +549,9 @@ $lineheight:20px;
 
 .pl-48 {
     padding-left: $p4*12 !important;
+}
+.pl-120{
+    padding-left: 120px !important
 }
 .wrapper-100{
     padding: 100px;
@@ -830,6 +835,9 @@ $lineheight:20px;
 
 .ml-48 {
     margin-left: $p4*12 !important;
+}
+.ml-120 {
+    margin-left: 120px !important;
 }
 
 .block {

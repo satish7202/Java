@@ -86,17 +86,64 @@
 
 <!-- email quotation inner part -->
 <div *ngIf="quotationDesign=='false'">
-        <button (click)="changeDisplay('completeSteps')">OK</button>
-        <button (click)="changeDisplay('Bummer')">Cancel</button>
+       
+
+        <div class="wrapper-40">
+        <p>Dear Ronak Hasmukh Hindocha,</p>
+        <p>The information provided below requires your consent so that we can proceed further and do the needful from our end.</p>
+        <p>Please review it carefully and click on the OK button below to give your consent.</p>
+        <div class="row pt-28">
+            <div class="col-md-3 p-0 bg-grey lter">
+                <h5 class="m-0 text-header wrapper-8">Scope of work</h5>
+            </div>
+        </div>
+        <div class="row pt-20 pb-44">
+            <div class="col-md-3 p-0 bg-grey lter">
+                <h5 class="m-0 text-header wrapper-8">Terms of service</h5>
+            </div>
+        </div>
+        <mat-checkbox class="f-14 mt-44" checked="false">I have read and agree with the above information. <a href="#" class="text-primary">Consent T&C</a></mat-checkbox>
+        <div class="pt-36">
+            <button mat-stroked-button class="btn-primary br-0 mr-20" (click)="changeDisplay('completeSteps')">Ok</button>
+            <button mat-stroked-button class="br-0" (click)="changeDisplay('Bummer')">Cancel</button>
+        </div>
+        </div>
     </div>
     
     <div *ngIf="quotationDesign=='Bummer'">
-        <button (click)="changeDisplay('false')">GO BACk</button>
-        <button>CLOSE</button>
+        <div class="wrapper-100">
+            <div class="row">
+                <div class="col-md-6 roboto pt-20 pl-120">
+                        <h5 class="f-700 m-0 pl-120"> Bummer!</h5>
+                        <p class="pb-20 pt-28 pl-120 text-black">  What happened there? FYI, We’ve been notified of this. </p>
+                        <p class="pl-120 text-black"> We will get back to you shortly. Meanwhile, you can contact us if you have any concerns.</p>
+                        <p class="pl-120 text-black">PS: Please do note that without your explicit consent, we cannot proceed further.</p>
+                <button mat-stroked-button class="br-0 btn-primary mt-24 ml-120 pl-8" (click)="changeDisplay('false')"><i class="material-icons mr-8">
+                        arrow_back
+                        </i>GO BACK</button>
+                <button mat-stroked-button class="br-0 text-primary mt-8 ml-20">CLOSE</button>
+                </div>
+                <div class="col-md-6">
+                    <img src="assets/images/svg/dialogs3.svg" class="t-80">
+                </div>
+            </div>
+        </div>
     </div>
     
     <div *ngIf="quotationDesign=='completeSteps'">
-        <button>CLOSE</button>
+        <div class="wrapper-100">
+            <div class="row">
+                <div class="col-md-6 roboto pt-20 pl-120">
+                <h5 class="f-700 m-0 pl-120">Thank You!</h5>
+                <p class="pb-20 pt-28 pl-120 text-black">Your consent has been recorded. </p>
+                <p class="pl-120 text-black">Feel free to Contact us if you have any questions. </p>
+                <button mat-stroked-button class="br-0 text-primary mt-24 ml-120">CLOSE</button>
+                </div>
+                <div class="col-md-6">
+                    <img src="assets/images/svg/dialogs3.svg" class="t-65">
+                </div>
+            </div>
+        </div>
     </div>
     <div>
     <app-terms-agreement *ngIf="quotationDesign=='termsAgreement'"></app-terms-agreement>
