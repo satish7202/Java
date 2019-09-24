@@ -16,11 +16,11 @@ export class FeeStructureComponent implements OnInit {
   openPlanSliderFee(value,state)
   { 
     this.eventService.sliderData(value);
-    this,this.subInjectService.rightSliderData(state)
+    this.subInjectService.rightSliderData(state)
   }
   openPlanSliderVariable(value,state)
   { 
     this.eventService.sliderData(value);
-    this,this.subInjectService.rightSliderData(state)
+    this.subInjectService.rightSliderData(state)
   }
 }
