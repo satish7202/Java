@@ -2,6 +2,8 @@ import { Component, OnInit, Output, EventEmitter,Input} from '@angular/core';
 import * as $ from 'jquery';
 import { UpperSliderComponent } from '../upper-slider/upper-slider.component';
 import { MatDialogRef } from '@angular/material';
+import { subscriptionInject } from '../../../subscription-inject.service';
+import { EventService } from 'src/app/Data-service/event.service';
 
 @Component({
   selector: 'app-overview',
@@ -10,7 +12,7 @@ import { MatDialogRef } from '@angular/material';
 })
 export class OverviewComponent implements OnInit {
 
-  constructor(private upper:UpperSliderComponent,public dialogRef:MatDialogRef<OverviewComponent>) { }
+  constructor(public subInjectService:subscriptionInject,private eventService:EventService,private upper:UpperSliderComponent,public dialogRef:MatDialogRef<OverviewComponent>) { }
 
    
 @Input() componentFlag:string;
@@ -25,5 +27,15 @@ openNav() {
           }
 dialogClose(){
     this.dialogRef.close();
-  }          
+  }  
+  openPlanSliderBlank(value,state)
+  { 
+    this.eventService.sliderData(value);
+    this,this.subInjectService.rightSliderData(state)
+  }    
+  openPlanSliderQuotation(value,state)
+  { 
+    this.eventService.sliderData(value);
+    this,this.subInjectService.rightSliderData(state)
+  }      
 }
