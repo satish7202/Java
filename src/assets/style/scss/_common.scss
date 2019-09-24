@@ -331,7 +331,6 @@ button:focus {
     .mat-checkbox-inner-container{
         height: 20px;
         width: 20px;
-        background: #02B875;
         
     }
     .mat-checkbox-frame{
@@ -379,3 +378,35 @@ color: #3F3F3F;
     box-shadow: none !important;
     border-color: #ced4da !important;
 }
+#ui-stepper{
+    .mat-horizontal-stepper-header .mat-step-icon{
+        margin-right: 0 !important;
+    }
+    .mat-step-label{
+        min-width: auto;
+    }
+    .mat-stepper-horizontal-line{
+        margin: 0 -25px;
+    }
+    .mat-step-header .mat-step-icon-selected{
+        background-color:#008FFF !important; 
+        color: #fff !important;
+    }
+    .mat-step-header .mat-step-icon{
+        background-color: #F5F7F7;
+        
+    }
+    .mat-step-icon{
+        height: 49px;
+        width: 49px;
+        color: #000000;
+    }
+    .mat-horizontal-content-container{
+        padding: 0;
+    }
+    .mat-horizontal-stepper-header-container{
+        width: 80%;
+        margin: 0 auto;
+    }
+    }
+ 
