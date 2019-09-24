@@ -91,6 +91,13 @@
      <app-invoice [invoiceTab]="rightSliderData" *ngIf="rightSliderData=='invoiceUpperSlider'"></app-invoice>
      <app-payee-settings *ngIf="rightSliderData=='payeeSettings'"></app-payee-settings>
      <app-email-quotation *ngIf="rightSliderData=='eSignDocument'"></app-email-quotation>
+<<<<<<< HEAD
      <app-create-subscription [modifyFeeTabChange]="rightSliderData" *ngIf="rightSliderData=='createSub'"></app-create-subscription>
+=======
+     <app-create-subscription *ngIf="rightSliderData=='createSub'"></app-create-subscription>
+     <app-add-variable-fee *ngIf="rightSliderData=='varibleFee'"></app-add-variable-fee>
+     <app-add-fixed-fee  *ngIf="rightSliderData=='fixedFee'"></app-add-fixed-fee>
+
+>>>>>>> c2eadd7e836e10567f722c236fd00e0b1fc07b08
 </div>
 
