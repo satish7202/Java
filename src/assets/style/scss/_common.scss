@@ -13,7 +13,9 @@ h5 {
     font-weight: $normal;
     letter-spacing: 0.2px;
 }
-
+label{
+    margin: 0 !important;
+}
 h1 {
     font-size: $textlg;
     line-height: 35px;
@@ -141,6 +143,12 @@ ul {
     background: #fff;
     
     
+}
+.popup-header-fix-60{
+    position: fixed;
+    width: 60%;
+    z-index: 10;
+    background: #fff !important;
 }
 .wrapperauto {
     width: 100% !important;
@@ -291,7 +299,7 @@ button:focus {
     border: 3px solid #008FFF !important;
 }
 .mat-radio-button{
-    min-width: 158px;
+    min-width: 152px;
 }
 .button-fix{
     right: 0;
@@ -314,6 +322,15 @@ color: #3F3F3F;
 }
 .l-o{
     line-height: 0 !important;
+}
+.min-39{
+    min-height: 39px;
+}
+.min-38{
+    min-height: 38px;
+}
+.min-138{
+    min-width: 138px !important;
 }
 .b-a-custom{
     border:1px solid #008FFF !important;

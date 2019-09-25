@@ -473,7 +473,11 @@ mat-tab-group[vertical] {
 }
 #ui-biller-tabs{
     margin-top: 40px;
+    margin-bottom: 40px;
 
+    .mat-tab-body-content{
+        overflow: hidden !important;
+    }
     
 .mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination{
     display: none !important;
