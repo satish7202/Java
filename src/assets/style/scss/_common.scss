@@ -13,7 +13,9 @@ h5 {
     font-weight: $normal;
     letter-spacing: 0.2px;
 }
-
+label{
+    margin: 0 !important;
+}
 h1 {
     font-size: $textlg;
     line-height: 35px;
@@ -114,7 +116,6 @@ li {
 
 .mat-drawer-inner-container {
     overflow: hidden !important;
-    // box-shadow: inset -5px 0px 4px 0px rgba(0, 0, 0, 0.25);
 }
 .mat-header-cell {
     color: rgba(0, 0, 0, .54);
@@ -127,24 +128,27 @@ ul {
     margin: 0;
 }
 .sub-header-fix {
-    // position: fixed;
     top: 64px;
     width: 100%;
     z-index: 97;
     height: 64px;
     right: 0;
-    
     box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0.12), 0px 3px 3px rgba(0, 0, 0, 0.14);
 }
 .second-fixed{
     position: fixed;
-  
     width: 100% !important;
     z-index: 2;
     right: 1%;
     background: #fff;
     
     
+}
+.popup-header-fix-60{
+    position: fixed;
+    width: 60%;
+    z-index: 10;
+    background: #fff !important;
 }
 .wrapperauto {
     width: 100% !important;
@@ -154,21 +158,7 @@ ul {
 .row {
     margin: 0 !important;
 }
-.mt-65 {
-    margin-top: 65px;
-}
-.mt-70 {
-    margin-top: 70px;
-}
-.mt-80 {
-    margin-top: 80px;
-}
-.mt-60 {
-    margin-top: 60px !important;
-}
-.mt-150{
-    margin-top: 150px;
-}
+
 .mat-drawer-content {
     overflow: auto !important;
     overflow-x: hidden !important;
@@ -208,9 +198,6 @@ button:focus {
 .mat-tab-label {
     height: 64px !important;
 }
-
-
-
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -282,18 +269,7 @@ button:focus {
 }
 .l-20{
     line-height: 20px;
-
 }
-// .bottom-fixed{
-//     position: fixed;
-//    left: 0;
-//    bottom: 0;
-//    width: 100%;
-//    background-color: red;
-//    color: white;
-//    text-align: center;
-// }
-
 .bottom-fixed {
     overflow: hidden;
     background-color: #757575;
@@ -301,28 +277,9 @@ button:focus {
     bottom: 0;
     width: 60%;
   }
-  
-//   .bottom-fixed a {
-//     float: left;
-//     display: block;
-//     color: #f2f2f2;
-//     text-align: center;
-//     padding: 14px 16px;
-//     text-decoration: none;
-//     font-size: 17px;
-//   }
   .text-inherit{
       text-transform: inherit !important;
   }
-//   .bottom-fixed a:hover {
-//     background: #f1f1f1;
-//     color: black;
-//   }
-  
-//   .bottom-fixed a.active {
-//     background-color: #4CAF50;
-//     color: white;
-//   }
 .custom-checkbox{
     float: right;
     text-align: right;
@@ -341,7 +298,9 @@ button:focus {
 .ba-green,.ba-blue{
     border: 3px solid #008FFF !important;
 }
-
+.mat-radio-button{
+    min-width: 152px;
+}
 .button-fix{
     right: 0;
     position: fixed;
@@ -358,15 +317,20 @@ line-height: 32px;
 letter-spacing: 0.2px;
 color: #3F3F3F;
 }
-// .mat-menu-content:not(:empty){
-//     padding-top: 0px !important;
-//     padding-bottom: 0px !important;
-// }
 .b-0{
     border:0px !important;
 }
 .l-o{
     line-height: 0 !important;
+}
+.min-39{
+    min-height: 39px;
+}
+.min-38{
+    min-height: 38px;
+}
+.min-138{
+    min-width: 138px !important;
 }
 .b-a-custom{
     border:1px solid #008FFF !important;
@@ -384,9 +348,12 @@ color: #3F3F3F;
     }
     .mat-step-label{
         min-width: auto;
+        color: #BCC6CA !important;
+        padding-top: 12px !important;
     }
+   
     .mat-stepper-horizontal-line{
-        margin: 0 -25px;
+        margin: 0 -80px;
     }
     .mat-step-header .mat-step-icon-selected{
         background-color:#008FFF !important; 
@@ -400,6 +367,9 @@ color: #3F3F3F;
         height: 49px;
         width: 49px;
         color: #000000;
+        position: relative;
+        left: 15%;
+        top: 13%;
     }
     .mat-horizontal-content-container{
         padding: 0;
@@ -407,6 +377,14 @@ color: #3F3F3F;
     .mat-horizontal-stepper-header-container{
         width: 80%;
         margin: 0 auto;
+        padding-top: 18px;
     }
+    .mat-step-header{
+        display: block !important;
+        height: 80px;
     }
+    .mat-step-header.cdk-keyboard-focused, .mat-step-header.cdk-program-focused, .mat-step-header:hover{
+        background-color: transparent !important;
+    }
+}
  

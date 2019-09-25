@@ -1,150 +1,136 @@
-<div class="row bb-1">
-    <div class="col-md-8 p-0">
-        <h3 class="mb-0 wrapper-16">ADD FEE STRUCTURE</h3>
+<div class="popup-header-fix-60">
+        <div class="row bb-1">
+            <div class="col-md-8 p-0">
+                <h3 class="mb-0 wrapper-16">ADD FEE STRUCTURE</h3>
+            </div>
+            <div class="col-md-4 text-right">
+                <div class="wrapper-12">
+                    <!-- <button mat-stroked-button class="br-0 btn-primary mr-20">EDIT</button> -->
+                    <i class="material-icons c-p v-middle" (click)="Close('close')"> clear</i>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4 text-right">
-        <div class="wrapper-12">
-            <!-- <button mat-stroked-button class="br-0 btn-primary mr-20">EDIT</button> -->
-        <i class="material-icons c-p v-middle" (click)="Close('close')"> clear</i>
-    </div>
-    </div>
-</div>
-<div class="wrapper-16 pb-44 mb-44">
-<div class="row pt-28">
-    <div class="col-md-5">
-        <h5 class="text-right pt-12 mb-0">Service Name</h5>
-    </div>  
-    <div class="col-md-7">
-        <div class="row">
-            <div class="col-md-5 p-0">
-                    <div class="form-group">
+    <div class="wrapper-16 pt-44 pb-44 mb-44">
+        <div class="row pt-40">
+            <div class="col-md-5">
+                <h5 class="text-right pt-4 mb-0">Service Name</h5>
+                <p class="m-0 text-custom f-12 right roboto">This name will appear in invoices</p>
+            </div>
+            <div class="col-md-5 pr-0">
+                <div class="form-group mb-0">
+                    <input type="text" class="form-control br-0">
+                </div>
+                <div class="col-md-12">
+                    <p class="mb-0 f-12 text-custom text-right pt-4">0/20</p>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-28">
+            <div class="col-md-5">
+                <h5 class="text-right pt-8 mb-0">Code</h5>
+            </div>
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-md-5 p-0">
+                        <div class="form-group mb-0">
                             <input type="text" class="form-control br-0">
-                   </div>
-                   <div class="row">
-                   <div class="col-md-12">
-                        <p class="mb-0 f-12 text-custom text-right">1/20</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="mb-0 f-12 text-custom text-right pt-4">0/10</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>    
-    </div>
-</div>
-<div class="row pt-28">
-    <div class="col-md-5">
-        <h5 class="text-right pt-12 mb-0">Code</h5>
-    </div>  
-    <div class="col-md-7">
-        <div class="row">
-            <div class="col-md-5 p-0">
-                    <div class="form-group">
-                            <input type="text" class="form-control br-0">
-                   </div>
-                   <div class="row">
-                   <div class="col-md-12">
+        </div>
+        <div class="row pt-28">
+            <div class="col-md-5">
+                <h5 class="text-right pt-12 mb-0">Description</h5>
+            </div>
+            <div class="col-md-5 pr-0">
+    
+                <div class="form-group mb-0">
+                    <textarea class="form-control br-0" rows="3"></textarea>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="mb-0 f-12 text-custom">optional</p>
+                    </div>
+                    <div class="col-md-6">
                         <p class="mb-0 f-12 text-custom text-right">1/10</p>
                     </div>
+    
+                </div>
+    
+            </div>
+        </div>
+        <div class="row pt-28">
+            <div class="col-md-5">
+                <h5 class="text-right pt-8 mb-0">Fee type</h5>
+            </div>
+            <div class="col-md-5 pr-0">
+                <div class="form-group mb-0">
+                    <input type="text" class="form-control br-0">
                 </div>
             </div>
-        </div>    
-    </div>
-</div>
-<div class="row pt-28">
-    <div class="col-md-5">
-        <h5 class="text-right pt-12 mb-0">Discription</h5>
-    </div>  
-    <div class="col-md-7">
-        <div class="row">
-            <div class="col-md-5 p-0">
-                    <div class="form-group mb-0">
-                            <textarea class="form-control" rows="3"></textarea>
-                   </div>
-                   <div class="row">
-                       <div class="col-md-6">
-                            <p class="mb-0 f-12 text-custom">optional</p>
-                       </div>
-                       <div class="col-md-6">
-                            <p class="mb-0 f-12 text-custom text-right">1/10</p>
-                       </div>
-                      
-                   </div>
+        </div>
+        <div class="row pt-28">
+            <div class="col-md-5">
+                <h5 class="text-right pt-12 mb-0">Billing nature</h5>
             </div>
-        </div>    
-    </div>
-</div>
-<div class="row pt-28">
-    <div class="col-md-5">
-        <h5 class="text-right pt-12 mb-0">Fees</h5>
-    </div>  
-    <div class="col-md-7">
-        <div class="row">
-            <div class="col-md-5 p-0">
-                    <div class="form-group">
-                            <input type="text" class="form-control br-0">
-                   </div>
-            </div>
-        </div>    
-    </div>
-</div>
-<div class="row pt-28">
-    <div class="col-md-5">
-        <h5 class="text-right pt-12 mb-0">Billing nature</h5>
-    </div>
-    <div class="col-md-7">
-              <mat-radio-group>
-                <mat-radio-button value="1" class="b-a-custom text-primary pt-8 pr-40 pl-20 custom-radio">Recurring</mat-radio-button>
-                <mat-radio-button value="2" class="b-a pt-8 pr-40 pl-20 pr-72">Once</mat-radio-button>
-              </mat-radio-group>
-    </div>
-</div>
-<div class="row pt-28">
-    <div class="col-md-5">
-        <h5 class="text-right pt-12 mb-0">Bill every</h5>
-    </div>  
-    <div class="col-md-7">
-        <div class="row">
-            <div class="col-md-5 p-0">
-                    <div class="form-group">
-                            <input type="text" class="form-control br-0">
-                   </div>
-            </div>
-            <div class="col-md-5 p-0">
-                    <button mat-button [matMenuTriggerFor]="menu" class="b-a br-0 min-39">Months <i class="material-icons ml-44 text-custom">
-                            arrow_drop_down
-                            </i></button>
-                        <mat-menu #menu="matMenu">
-                          <button mat-menu-item>Item 1</button>
-                          <button mat-menu-item>Item 2</button>
-                        </mat-menu>
+            <div class="col-md-6">
+                <mat-radio-group>
+                        <mat-radio-button value="1" class="b-a-custom text-primary wrapper-8">Recurring</mat-radio-button>
+                        <mat-radio-button value="2" class="b-a text-custom wrapper-8">Once</mat-radio-button>
+                </mat-radio-group>
             </div>
         </div>
-           
-        
+        <div class="row pt-28">
+            <div class="col-md-5">
+                <h5 class="text-right pt-12 mb-0">Bill every</h5>
+            </div>
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-md-5 p-0">
+                        <div class="form-group mb-0">
+                            <input type="text" class="form-control br-0">
+                        </div>
+                    </div>
+                    <div class="col-md-4 p-0">
+                            <button mat-stroked-button class="br-0 min-38 t-92 text-custom">Months <i class="material-icons right pt-6 text-custom">
+                                    arrow_drop_down
+                                    </i></button>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+        <div class="row pt-28">
+            <div class="col-md-5">
+                <h5 class="text-right pt-12 mb-0">Billing Mode</h5>
+            </div>
+            <div class="col-md-7">
+                <mat-radio-group>
+                    <mat-radio-button value="1" class="b-a-custom text-primary wrapper-8" checked="false">Start of period</mat-radio-button>
+                    <mat-radio-button value="2" class="b-a text-custom wrapper-8">End of period</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
     </div>
-</div>
-<div class="row pt-28">
-    <div class="col-md-5">
-        <h5 class="text-right pt-12 mb-0">Billing Mode</h5>
-    </div>
-    <div class="col-md-7">
-              <mat-radio-group>
-                <mat-radio-button value="1" class="b-a-custom text-primary pt-8 pr-40 pl-20 custom-radio">Start of period</mat-radio-button>
-                <mat-radio-button value="2" class="b-a pt-8 pr-40 pl-20 pr-72">End od period</mat-radio-button>
-              </mat-radio-group>
-    </div>
-</div>
-</div>
-<div class="bottom-fixed wrapper-12">
+    <div class="bottom-fixed wrapper-12">
         <div class="row">
             <div class="col-md-4">
-              <h5 class="mb-0 pt-8 text-white c-p" (click)="Close()">Cancel</h5>
+                <h5 class="mb-0 pt-8 text-white c-p" (click)="Close()">Cancel</h5>
             </div>
             <div class="col-md-8 right text-right">
-                  <button mat-button [matMenuTriggerFor]="menu" class="btn-bottom br-0 text-inherit">Save</button>
-                  <mat-menu #menu="matMenu">
+                <button mat-button [matMenuTriggerFor]="menu" class="btn-bottom br-0 text-inherit">Save</button>
+                <mat-menu #menu="matMenu">
                     <button mat-menu-item>Item 1</button>
                     <button mat-menu-item>Item 2</button>
-                  </mat-menu>
-                  
+                </mat-menu>
+    
             </div>
         </div>
-      </div>
+    </div>
