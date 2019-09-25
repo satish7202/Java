@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input} from '@angular/core';
+import { subscriptionInject } from '../../../subscription-inject.service';
 
 @Component({
   selector: 'app-overview-blank-quotation',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OverviewBlankQuotationComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public subInjectService:subscriptionInject) { }
+  @Input () blankOverview:any;
   ngOnInit() {
   }
-
+  
+  Close(state)
+  {
+    this.subInjectService.rightSliderData(state); 
+  }
 }

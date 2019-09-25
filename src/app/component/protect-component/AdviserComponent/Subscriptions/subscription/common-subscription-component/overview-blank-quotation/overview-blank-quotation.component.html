@@ -1,1 +1,9 @@
-<p>overview-blank- works!</p>
+<div *ngIf="blankOverview=='blank'">
+    <p>overview-blank- works!</p>
+    <button (click)="Close('close')">clear</button>
+</div>
+
+<div *ngIf="blankOverview=='quotation'">
+    <p>quotation-works!</p>
+    <button (click)="Close('close')">clear</button>
+ </div>   

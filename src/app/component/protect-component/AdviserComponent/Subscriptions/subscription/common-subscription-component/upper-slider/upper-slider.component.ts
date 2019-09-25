@@ -91,7 +91,7 @@ export class UpperSliderComponent implements OnInit {
   plans = 'servicesPlans';
   clientDocuments = 'clientDocuments';
   servicesDocuments = 'servicesDocuments'
-
+  blankOverview;
   dialogClose() {
     this.dialogRef.close();
   }
@@ -102,6 +102,7 @@ export class UpperSliderComponent implements OnInit {
   }
 
   getTabValueData(data) {
+    this.blankOverview=data;        
     this.rightSliderData = data;
     console.log('value', data)
   }
