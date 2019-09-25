@@ -9,7 +9,7 @@ export class subscriptionInject
   // right slider part
   private openCloseRightSlider = new BehaviorSubject<any>("");
   rightSideBarData=this.openCloseRightSlider.asObservable();
-  rightSideData(msg:string)
+  rightSideData(msg)
   {
     this.openCloseRightSlider.next(msg);
   }
@@ -37,5 +37,14 @@ export class subscriptionInject
   rightDocumentSlider(msg:string)
   {
     this.openDocument.next(msg)
+  }
+
+  // billerProfileData
+
+  private billerData=new BehaviorSubject("");
+  singleProfileData=this.billerData.asObservable();
+  addSingleProfile(obj)
+  {
+    this.billerData.next(obj)
   }
 }

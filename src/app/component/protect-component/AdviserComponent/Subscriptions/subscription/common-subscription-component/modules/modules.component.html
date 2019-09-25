@@ -1,41 +1,38 @@
 <div class="bg-grey lter wrapper-20">
-        <h3 class="text-center m-0 head-common">Investment Management Financial Planning</h3>
-    </div>
-    <div class="bg-white">
-        <div class="wrapper-20">
-            <div class="row">
-                <div class="col-md-10 p-0 pt-8 text-center">
-                    <div class="row text-right content">
-                        <div class="col-md-11 p-0">
-                            <p class="pt-4">Map documents to the selected plan.</p>
-                        </div>
-                        <div class="col-md-1 text-left p-0">
-    
-                            <i class="material-icons text-primary">
-                                        error_outline
-                                        </i>
-                        </div>
+    <h3 class="text-center m-0 head-common">Investment Management Financial Planning</h3>
+</div>
+<div class="bg-white">
+    <div class="wrapper-20">
+        <div class="row">
+            <div class="col-md-10 p-0 pt-8 text-center">
+                <div class="row text-right content">
+                    <div class="col-md-11 p-0">
+                        <p class="pt-4">Map documents to the selected plan.</p>
+                    </div>
+                    <div class="col-md-1 text-left p-0">
+
+                        <i class="material-icons text-primary">
+                            error_outline
+                        </i>
                     </div>
                 </div>
-                <div class="col-md-2 right text-right p-0 button-fix">
-                    <button mat-stroked-button class="btn-primary br-0">3 Modules mapped</button>
-                </div>
             </div>
-            <div class="row">
-                <div class="col-md-10">
-                    <h5 class="pt-28 pb-16 pl-16 m-0">Financial planning</h5>
-                    <div class="row">
-                        <div class="col-md-3">
+            <div class="col-md-2 right text-right p-0 button-fix">
+                <button mat-stroked-button class="btn-primary br-0">3 Modules mapped</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <h5 class="pt-28 pb-16 pl-16 m-0">Financial planning</h5>
+                <div class="row">
+                    <div (click)="selectModule(singleFinancialModule)"
+                        *ngFor="let singleFinancialModule of financialPlanningData" class="col-md-3">
+                        <div *ngIf="singleFinancialModule.checked==false">
                             <div class="b-a wrapper-16 box-height">
-                                <h3 class="pt-10">Goal tracker</h3>
+                                <h3 class="pt-10">{{singleFinancialModule.name}}</h3>
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <div class="b-a wrapper-16 box-height">
-                                <h3 class="pt-10">Insurance planning</h3>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
+                        <div *ngIf="singleFinancialModule.checked">
                             <div class="ba-blue-2 box-height">
                                 <div class="row">
                                     <div class="col-md-12 p-0">
@@ -43,141 +40,7 @@
                                     </div>
                                 </div>
                                 <div class="wrapper-16 pt-0">
-                                    <h3 class="text-center m-0">Risk profiling</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="ba-blue-2 box-height">
-                                <div class="row">
-                                    <div class="col-md-12 p-0">
-                                        <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
-                                    </div>
-                                </div>
-                                <div class="wrapper-16 pt-0">
-                                    <h3 class="text-center m-0">Risk profiling</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-10">
-                    <h5 class="pt-44 pb-16 pl-16 mb-0">Online transaction</h5>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="ba-blue-2 box-height">
-                                <div class="row">
-                                    <div class="col-md-12 p-0">
-                                        <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
-                                    </div>
-                                </div>
-                                <div class="wrapper-16 pt-0">
-                                    <h3 class="text-center m-0">Risk profiling</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="b-a wrapper-16 box-height">
-                                <h3 class="pt-10">Insurance planning</h3>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="ba-blue-2 box-height">
-                                <div class="row">
-                                    <div class="col-md-12 p-0">
-                                        <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
-                                    </div>
-                                </div>
-                                <div class="wrapper-16 pt-0">
-                                    <h3 class="text-center m-0">Risk profiling</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-10">
-                    <h5 class="pt-44 pb-16 pl-16 mb-0">Multi asset view</h5>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="ba-blue-2 box-height">
-                                <div class="row">
-                                    <div class="col-md-12 p-0">
-                                        <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
-                                    </div>
-                                </div>
-                                <div class="wrapper-16 pt-0">
-                                    <h3 class="text-center m-0">Risk profiling</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="ba-blue-2 box-height">
-                                <div class="row">
-                                    <div class="col-md-12 p-0">
-                                        <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
-                                    </div>
-                                </div>
-                                <div class="wrapper-16 pt-0">
-                                    <h3 class="text-center m-0">Risk profiling</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="ba-blue-2 box-height">
-                                <div class="row">
-                                    <div class="col-md-12 p-0">
-                                        <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
-                                    </div>
-                                </div>
-                                <div class="wrapper-16 pt-0">
-                                    <h3 class="text-center m-0">Risk profiling</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-10">
-                    <h5 class="pt-44 pb-16 pl-16 mb-0">Multi asset view</h5>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="ba-blue-2 box-height">
-                                <div class="row">
-                                    <div class="col-md-12 p-0">
-                                        <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
-                                    </div>
-                                </div>
-                                <div class="wrapper-16 pt-0">
-                                    <h3 class="text-center m-0">Risk profiling</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="ba-blue-2 box-height">
-                                <div class="row">
-                                    <div class="col-md-12 p-0">
-                                        <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
-                                    </div>
-                                </div>
-                                <div class="wrapper-16 pt-0">
-                                    <h3 class="text-center m-0">Risk profiling</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="ba-blue-2 box-height">
-                                <div class="row">
-                                    <div class="col-md-12 p-0">
-                                        <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
-                                    </div>
-                                </div>
-                                <div class="wrapper-16 pt-0">
-                                    <h3 class="text-center m-0">Risk profiling</h3>
+                                    <h3 class="text-center m-0">{{singleFinancialModule.name}}</h3>
                                 </div>
                             </div>
                         </div>
@@ -185,17 +48,115 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="bottom-fixed wrapper-12 w-100">
-            <div class="row">
-              <div class="col-md-4">
-                <h5 class="mb-0 pt-8 text-white c-p" (click)="dialogClose()">Cancel</h5>
-              </div>
-              <div class="col-md-4">
-                    <h5 class="mb-0 pt-8 text-white text-center">Help</h5>
-              </div>
-              <div class="col-md-4 right text-right">
-                <button mat-button class="btn-bottom br-0 text-inherit">SAVE</button>
-              </div>
+        <div class="row">
+            <div class="col-md-10">
+                <h5 class="pt-44 pb-16 pl-16 mb-0">Online transaction</h5>
+                <div class="row">
+                    <div (click)="selectModule(singleonlineModule)" *ngFor="let singleonlineModule of onlineTransaction"
+                        class="col-md-3">
+                        <div *ngIf="singleonlineModule.checked==false">
+                            <div class="b-a wrapper-16 box-height">
+                                <h3 class="pt-10">{{singleonlineModule.name}}</h3>
+                            </div>
+                        </div>
+                        <div *ngIf="singleonlineModule.checked">
+                            <div class="ba-blue-2 box-height">
+                                <div class="row">
+                                    <div class="col-md-12 p-0">
+                                        <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
+                                    </div>
+                                </div>
+                                <div class="wrapper-16 pt-0">
+                                    <h3 class="text-center m-0">{{singleonlineModule.name}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <h5 class="pt-44 pb-16 pl-16 mb-0">Multi asset view</h5>
+                <div class="row">
+                    <div (click)="selectModule(singleMultiModule)" *ngFor="let singleMultiModule of multiAssetView"
+                        class="col-md-3">
+                        <div *ngIf="singleMultiModule.checked==false">
+                            <div class="b-a wrapper-16 box-height">
+                                <h3 class="pt-10">{{singleMultiModule.name}}</h3>
+                            </div>
+                        </div>
+                        <div *ngIf="singleMultiModule.checked">
+                            <div class="ba-blue-2 box-height">
+                                <div class="row">
+                                    <div class="col-md-12 p-0">
+                                        <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
+                                    </div>
+                                </div>
+                                <div class="wrapper-16 pt-0">
+                                    <h3 class="text-center m-0">{{singleMultiModule.name}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="row">
+            <div class="col-md-10">
+                <h5 class="pt-44 pb-16 pl-16 mb-0">Multi asset view</h5>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="ba-blue-2 box-height">
+                            <div class="row">
+                                <div class="col-md-12 p-0">
+                                    <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
+                                </div>
+                            </div>
+                            <div class="wrapper-16 pt-0">
+                                <h3 class="text-center m-0">Risk profiling</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="ba-blue-2 box-height">
+                            <div class="row">
+                                <div class="col-md-12 p-0">
+                                    <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
+                                </div>
+                            </div>
+                            <div class="wrapper-16 pt-0">
+                                <h3 class="text-center m-0">Risk profiling</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="ba-blue-2 box-height">
+                            <div class="row">
+                                <div class="col-md-12 p-0">
+                                    <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
+                                </div>
+                            </div>
+                            <div class="wrapper-16 pt-0">
+                                <h3 class="text-center m-0">Risk profiling</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</div>
+<div class="bottom-fixed wrapper-12 w-100">
+    <div class="row">
+        <div class="col-md-4">
+            <h5 class="mb-0 pt-8 text-white c-p" (click)="dialogClose()">Cancel</h5>
+        </div>
+        <div class="col-md-4">
+            <h5 class="mb-0 pt-8 text-white text-center">Help</h5>
+        </div>
+        <div class="col-md-4 right text-right">
+            <button mat-button class="btn-bottom br-0 text-inherit">SAVE</button>
+        </div>
+    </div>
+</div>

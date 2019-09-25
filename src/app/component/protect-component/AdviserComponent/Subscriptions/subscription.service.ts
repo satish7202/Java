@@ -39,6 +39,15 @@ export class SubscriptionService {
     let httpParams=new HttpParams().set('advisorId',data.advisorId).set('type',data.type);
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_PREFERENCE_INVOICE_QUOTATIONS_SUBSCRIPTION,httpParams);
   }
+  updatePreferenceInvoiceQuotationsSubscription(data)
+  { 
+    let httpParams=new HttpParams().set('advisorId',data.advisorId).set('id',data.id).set('nextNumber',data.nextNumber).set('prefix',data.prefix).set('type',data.type);
+    return this.http.put(apiConfig.MAIN_URL + appConfig.UPDATE_PREFERENCE_INVOICE_QUOTATIONS_SUBSCRIPTION,httpParams)
+  }
+  savePreferenceInvoiceQuotationsSubscription(data)
+  {
+   let httpParams=new HttpParams().set('advisorId',data.advisorId).set('id',data.id).set('nextNumber',data.nextNumber).set('prefix',data.prefix).set('type',data.type);
+  }
   getSubscriptionCompleteStages(data)
   { 
     let httpParams=new HttpParams().set('advisorId',data.advisorId).set('type',data.type);
