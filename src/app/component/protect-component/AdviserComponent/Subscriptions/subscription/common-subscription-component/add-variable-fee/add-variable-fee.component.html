@@ -1,1 +1,158 @@
-<p>add-variable-fee works!</p>
+<div class="row bb-1">
+        <div class="col-md-8 p-0">
+            <h3 class="mb-0 wrapper-16">ADD VARIABLE FEE STRUCTURE</h3>
+        </div>
+        <div class="col-md-4 text-right">
+            <div class="wrapper-12">
+                <!-- <button mat-stroked-button class="br-0 btn-primary mr-20">EDIT</button> -->
+            <i class="material-icons c-p v-middle" (click)="Close('close')"> clear</i>
+        </div>
+        </div>
+    </div>
+    <div class="wrapper-16 pb-44 mb-44">
+            <div class="row pt-28">
+                    <div class="col-md-5">
+                        <h5 class="text-right pt-12 mb-0">Service Name</h5>
+                    </div>  
+                    <div class="col-md-7">
+                        <div class="row">
+                            <div class="col-md-5 p-0">
+                                    <div class="form-group">
+                                            <input type="text" class="form-control br-0">
+                                   </div>
+                                   <div class="col-md-12">
+                                        <p class="mb-0 f-12 text-custom text-right">1/20</p>
+                                    </div>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+                <div class="row pt-28">
+                    <div class="col-md-5">
+                        <h5 class="text-right pt-12 mb-0">Code</h5>
+                    </div>  
+                    <div class="col-md-7">
+                        <div class="row">
+                            <div class="col-md-5 p-0">
+                                    <div class="form-group">
+                                            <input type="text" class="form-control br-0">
+                                   </div>
+                                   <div class="col-md-12">
+                                        <p class="mb-0 f-12 text-custom text-right">1/10</p>
+                                    </div>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+                <div class="row pt-28">
+                    <div class="col-md-5">
+                        <h5 class="text-right pt-12 mb-0">Discription</h5>
+                    </div>  
+                    <div class="col-md-7">
+                        <div class="row">
+                            <div class="col-md-5 p-0">
+                                    <div class="form-group mb-0">
+                                            <textarea class="form-control" rows="3"></textarea>
+                                   </div>
+                                   <div class="col-md-12">
+                                       <p class="mb-0 f-12 text-custom">optional</p>
+                                   </div>
+                                   <div class="col-md-12">
+                                        <p class="mb-0 f-12 text-custom text-right">1/10</p>
+                                    </div>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+    <div class="row pt-28">
+        <div class="col-md-5">
+            <h5 class="text-right pt-12 mb-0">Bill every</h5>
+        </div>  
+        <div class="col-md-7">
+            <div class="row">
+                <div class="col-md-5 p-0">
+                        <div class="form-group">
+                                <input type="text" class="form-control br-0">
+                       </div>
+                </div>
+                <div class="col-md-5 p-0">
+                        <button mat-button [matMenuTriggerFor]="menu" class="b-a br-0 min-39">Months <i class="material-icons ml-44 text-custom">
+                                arrow_drop_down
+                                </i></button>
+                            <mat-menu #menu="matMenu">
+                              <button mat-menu-item>Item 1</button>
+                              <button mat-menu-item>Item 2</button>
+                            </mat-menu>
+                </div>
+            </div>
+               
+            
+        </div>
+    </div>
+    <div class="row pt-28">
+            <div class="col-md-5">
+                <h5 class="text-right pt-12 mb-0">Mutual fund fees</h5>
+                <p class="mb-0 f-12 text-custom text-right">Enter yearly rates here even if your <br>charging mode is monthly or quarterly.<br> We will calculate accordingly.</p>
+            </div>
+            <div class="col-md-7">
+                     
+            </div>
+        </div>
+        <div class="row pt-44">
+                <div class="col-md-5">
+                    <h5 class="text-right pt-12 mb-0">Other asset class fees</h5>
+                    <p class="mb-0 f-12 text-custom text-right">This includes assets like stocks,<br> insurance, FD, real estate, gold etc. You <br>can add or remove asset classes.</p>
+                </div>
+                <div class="col-md-7">
+                    
+                        <div class="row">
+                            <div class="col-md-10 p-0">
+                                    <div class="b-a wrapper-12">
+                        <mat-chip-list aria-label="Fish selection">
+                                <mat-chip class="custom-chips-color f-13 f-400 wrapper-16"><i class="material-icons mr-8 text-custom f-16">
+                                        check
+                                        </i>Life Insurance</mat-chip>
+                                <mat-chip class="custom-chips-color f-13 f-400 wrapper-16"><i class="material-icons mr-8 text-custom f-16">
+                                                check
+                                                </i>Recurring Deposite</mat-chip>
+                                <mat-chip class="f-14 f-400 wrapper-16">Retirement Accounts</mat-chip>
+                                <mat-chip class="f-14 f-400 wrapper-16">Post Office Scheme</mat-chip>
+                                <mat-chip class="custom-chips-color f-13 f-400 wrapper-16"><i class="material-icons mr-8 text-custom f-16">
+                                                        check
+                                                        </i>Gold</mat-chip>
+                                <mat-chip class="f-13 f-400 wrapper-16">Stocks</mat-chip>
+                                <mat-chip class="custom-chips-color f-13 f-400 wrapper-16"><i class="material-icons mr-8 text-custom f-16">
+                                        check
+                                        </i>Insurance</mat-chip>
+                                <mat-chip class="custom-chips-color f-13 f-400 wrapper-16"><i class="material-icons mr-8 text-custom f-16">
+                                        check
+                                        </i>Real Estate</mat-chip>
+                                <mat-chip class="custom-chips-color f-13 f-400 wrapper-16"><i class="material-icons mr-8 text-custom f-16">
+                                        check
+                                        </i>Fixed Deposits</mat-chip>
+                              </mat-chip-list>
+                            </div>
+                            </div>
+                            <div class="col-md-2 p-0">
+                                <h5 class="b-a wrapper-8 pl-12 mb-0">1.0%</h5>
+                            </div>
+                           
+                </div>
+            </div>
+            </div>
+    </div>
+    <div class="bottom-fixed wrapper-12">
+            <div class="row">
+                <div class="col-md-4">
+                  <h5 class="mb-0 pt-8 text-white c-p" (click)="Close()">Cancel</h5>
+                </div>
+                <div class="col-md-8 right text-right">
+                      <button mat-button [matMenuTriggerFor]="menu" class="btn-bottom br-0 text-inherit">Save</button>
+                      <mat-menu #menu="matMenu">
+                        <button mat-menu-item>Item 1</button>
+                        <button mat-menu-item>Item 2</button>
+                      </mat-menu>
+                      
+                </div>
+            </div>
+          </div>
