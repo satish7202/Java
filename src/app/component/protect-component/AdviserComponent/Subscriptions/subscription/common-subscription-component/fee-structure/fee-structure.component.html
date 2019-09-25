@@ -6,21 +6,22 @@
         </div>
     </div>
     <div class="row pt-40">
-        <div class="col-md-6">
-                <mat-card class="b-a p-0" (click)="openPlanSliderFee('fixedFee','open')">
+        <div class="col-md-6" (click)="selectFees(singleFeeData)" *ngFor="let singleFeeData of feeStructureServiceData">
+                <mat-card class="b-a p-0" [ngClass]="{'b-a':singleFeeData.checked==false,'p-0':singleFeeData.checked==false,'ba-green':singleFeeData.checked,'p-0':singleFeeData.checked}" (click)="openPlanSliderFee('fixedFee','open')">
                     <div class="row bg-grey lter">
                         <div class="col-md-12 p-0">
-                            <h4 class="f-20">Fixed fee</h4>
+                                <mat-checkbox class="custom-checkbox" checked="false" *ngIf="singleFeeData.checked"></mat-checkbox>
+                            <h4 class="f-20">{{singleFeeData.type}}</h4>
                         </div>
                     </div>
                     <div class="col-md-12 p-0">
-                        <h5 class="p-20">Choose this fee type if you want to charge a fixed fee. E.g. for Plan writing etc.</h5>
+                        <h5 class="p-20">{{singleFeeData.Description}}</h5>
                     </div>
                 </mat-card>
 
             </div>
-            <div class="col-md-6">
-                    <mat-card class="p-0 ba-green" (click)="openPlanSliderVariable('varibleFee','open')">
+            <!-- <div class="col-md-6">
+                    <mat-card class="p-0 ba-green" (click)="openPlanSliderFee('varibleFee','open')">
                             <div class="row bg-grey lter">
                                 <div class="col-md-12 p-0">
                                     <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
@@ -31,7 +32,7 @@
                                 <h5 class="p-20">Choose this fee type if you want to charge a variable fee. E.g. for AUM linked fee.</h5>
                             </div>
                         </mat-card>
-            </div>
+            </div> -->
         </div>
     </div>
     </div>
