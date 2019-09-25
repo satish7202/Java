@@ -1,4 +1,4 @@
-<div *ngIf="showLoader">
+<!-- <div *ngIf="showLoader">
     <mat-spinner class="loader" [diameter]="30"></mat-spinner>
 </div>
 <div *ngIf="showPdfInvoice==false" class="bg-white pb-36 mt-70" id="ui-invoice">
@@ -37,24 +37,21 @@
                 <th mat-header-cell *matHeaderCellDef class="f-18"> Client name </th>
                 <td mat-cell *matCellDef="let element" class="c-p"> {{element.clientName}} </td>
             </ng-container>
-
-            <!-- Name Column -->
             <ng-container matColumnDef="email">
                 <th mat-header-cell *matHeaderCellDef class="f-18"> Email </th>
                 <td mat-cell *matCellDef="let element" class="c-p"> {{element.email}} </td>
             </ng-container>
-            <!-- Weight Column -->
+
             <ng-container matColumnDef="status">
                 <th mat-header-cell *matHeaderCellDef class="f-18"> Status </th>
                 <td mat-cell *matCellDef="let element" [ngClass]="{'text-danger':element.status=='OVERDUE','text-primary':element.status=='SENT','text-success':element.status=='PAID'}" ngcl class="c-p"> {{element.status}} </td>
             </ng-container>
-            <!-- Weight Column -->
+
             <ng-container matColumnDef="duedate">
                 <th mat-header-cell *matHeaderCellDef class="f-18"> Due date </th>
                 <td mat-cell *matCellDef="let element"> {{element.dueDate | date:'dd/MM/yyyy'}} </td>
             </ng-container>
 
-            <!-- Symbol Column -->
             <ng-container matColumnDef="amt">
                 <th mat-header-cell *matHeaderCellDef class="f-18"> Amount </th>
                 <td mat-cell *matCellDef="let element" class="c-p"> {{element.amountReceived}} </td>
@@ -71,4 +68,106 @@
 
 <div *ngIf="showPdfInvoice">
     <app-invoice-pdf-document></app-invoice-pdf-document>
-</div>
+</div> -->
+
+<div class="bg-white pb-36 mt-70">
+        <div class="row">
+            <div class="col-md-10">
+                <h2 class="m-0 pl-12 pt-12">Edit Invoice of INV-19-20-103201</h2>
+            </div>
+            <div class="col-md-2">
+                <i class="material-icons right pt-20 pr-20 c-p"> clear </i>
+            </div>
+        </div>
+        <div class="row pt-40">
+            <div class="col-md-3">
+                <h5 class="m-0 text-right pt-8">Client name </h5>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <input type="text" class="form-control br-0">
+                </div>
+                <div class="row">
+                    <div class="col-md-6 p-0">
+                        <p class="m-0 text-custom f-12">BILLER ADDRESS</p>
+                        <p class="m-0 text-black">#46, Street 1,
+                            <br> Lokhandwala Township
+                            <br> Borivali East
+                            <br> Mumbai 400 066
+                        </p>
+                        <p class="m-0 text-primary">CHANGE</p>
+                    </div>
+                    <div class="col-md-6 p-0">
+                        <p class="m-0 text-custom f-12">PAYEE ADDRESS</p>
+                        <p class="m-0 text-black">#46, Street 1,
+                            <br> Lokhandwala Township
+                            <br> Borivali East
+                            <br> Mumbai 400 066
+                        </p>
+                        <p class="m-0 text-primary">CHANGE</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper-20">
+            <div class="bt-grey">
+                <div class="row pt-28">
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h5 class="m-0 pt-8">Invoice No.</h5>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group mb-0">
+                                    <input type="email" class="form-control br-0">
+                                </div>
+                                <div class="col-md-12">
+                                    <p class="m-0 text-custom f-12 text-right pt-4"> 0 / 10</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                            <div class="row">
+                                    <div class="col-md-4 p-0">
+                                        <h5 class="m-0 pt-8">Invoice Date</h5>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group mb-0">
+                                            <input type="email" class="form-control br-0">
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                    <div class="col-md-4">
+                            <div class="row">
+                                    <div class="col-md-4">
+                                        <h5 class="m-0 pt-8">Due Date</h5>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group mb-0">
+                                            <input type="email" class="form-control br-0">
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+                <div class="wrapper-28">
+                <div class="row bg-grey lter">
+                    <div class="col-md-6">
+                        <p class="m-0 text-black">Service Details</p>
+                    </div>
+                    <div class="col-md-2">
+                            <p class="m-0 text-black">Price </p>
+                    </div>
+                    <div class="col-md-2">
+                            <p class="m-0 text-black">Tax</p>
+                    </div>
+                    <div class="col-md-2">
+                            <p class="m-0 text-black">Amount</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
