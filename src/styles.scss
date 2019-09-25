@@ -46,11 +46,6 @@
     text-decoration: none;
     color: #83959D;
 }
-
-// .mat-drawer-side{
-//     border-right: 0px;
-// }
-// navbar link height
 .mat-list-base .mat-list-item.mat-list-item-with-avatar {
     height: 48px !important;
 }
@@ -130,9 +125,6 @@
     h3.top-head {
         @include heading;
     }
-    // .mat-tab-header {
-    //     @include heading;
-    // }
     li {
         padding-top: 5px;
         padding-bottom: 5px;
@@ -153,7 +145,6 @@
         font-size: 13px;
         line-height: 16px;
         color: #595252;
-        // min-width: 0 !important;
         text-transform: uppercase;
     }
     .actions {
@@ -202,9 +193,8 @@
         margin-top: 4px;
         float: right;
         width: 100%;
-      padding-right: 15px;
-       right: 0;      
-        // bottom: 20px;
+        padding-right: 15px;
+        right: 0;      
         z-index: 10;
         background: #fff !important;
         box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0.12), 0px 3px 3px rgba(0, 0, 0, 0.14);
@@ -256,24 +246,6 @@
         letter-spacing: 0.2px;
         color: #3F3F3F;
     }
-    // button {
-    //     min-width: 100px !important;
-    // }
-    // label {
-    //     background: #004164;
-    //     border-radius: 4px;
-    //     letter-spacing: 0.2px;
-    //     color: #FFFFFF;
-    //     font-family: "Proxima Nova", sans-serif;
-    //     font-size: 14px;
-    //     line-height: 17px;
-    //     display: inline-block;
-    //     min-width: 10px;
-    //     padding: 3px 10px;
-    //     text-align: center;
-    //     white-space: nowrap;
-    //     vertical-align: baseline;
-    // }
     .mat-card-header {
         font-family: 'Playfair Display', sans-serif;
         font-style: normal;
@@ -345,9 +317,6 @@
     position: fixed;
     width: 85%;
     padding-right: 30px;
-    // margin-top: 125px;
-    // padding-top: 16px;
-    // padding-bottom: 16px;
     float: right;
     z-index: 2;
     margin-top: -4px;
@@ -362,10 +331,6 @@
     display: block !important;
     text-align: center;
 }
-
-// .mat-tab-label-container{
-//     box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0.12), 0px 3px 3px rgba(0, 0, 0, 0.14);
-// }
 #ui-settings-subs,
 #ui-mutualsecond-header {
     box-shadow: 0 !important;
@@ -387,10 +352,6 @@
     }
     .mat-tab-label.mat-tab-label-active {
         border: 1px solid #BCC6CA;
-        // font-weight: 500;
-        // font-size: 14px;
-        // line-height: 16px;
-        // text-align: center;
         width: auto;
         background: transparent;
         color: #008FFF;
@@ -451,16 +412,6 @@
     font-size: 36px;
     margin-left: 50px;
 }
-
-// @media(max-height: 450px) {
-//     .right_sidenav {
-//         padding-top: 15px;
-//     }
-//     .right_sidenav a {
-//         font-size: 18px;
-//     }
-// }
-//////////////////right sidebar
 .mat-dialog {
     transition: none;
 }
@@ -488,8 +439,6 @@ mat-tab-group[vertical] {
     }
 }
 // invoice pdf documents end
-
-
 #ui-settings-headers{
     .mat-tab-header{
         box-shadow: none !important;
@@ -524,7 +473,11 @@ mat-tab-group[vertical] {
 }
 #ui-biller-tabs{
     margin-top: 40px;
+    margin-bottom: 40px;
 
+    .mat-tab-body-content{
+        overflow: hidden !important;
+    }
     
 .mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination{
     display: none !important;
