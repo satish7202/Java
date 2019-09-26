@@ -50,6 +50,28 @@ export class HttpService {
       });
   }
 
+  put(url: string, body, options?): Observable<any> {
+    let httpOptions = {
+      headers: new HttpHeaders().set('authToken', this._userService.getToken())
+        .set('Content-Type', 'application/json')
+    };
+    if (options != undefined) {
+      httpOptions = options;
+    }
+    return this._http
+      .put(this.baseUrl + url, body, httpOptions)
+      .map((res:any) => {
+        if (res['status'] === 'AUTH_TOKEN_EXPIRED') {
+          window.alert('Invalid user, please login');
+          this._router.navigate(['login']);
+        } else {
+          return res;
+        }
+      })
+      .catch((err) => {
+        return Observable.throw(err);
+      });
+  }
 
   deleteExpiredCache() {
     this.cacheMap.forEach(entry => {

@@ -15,9 +15,10 @@ export class SubscriptionCompletenessComponent implements OnInit {
   button: any;
   constructor(public dialog:MatDialog,private subscription:SubscriptionService,public sub:SubscriptionComponent,
     public eventService: EventService) { }
-  advisorId=2735;
+  advisorId=2727;
   ngOnInit() {
    this.getSubscriptionStagesRecord();
+   this.getDashboardResponse();
   }
 
   getSubscriptionStagesRecord()
@@ -34,7 +35,17 @@ export class SubscriptionCompletenessComponent implements OnInit {
       data => this.getSubStagesRecordResponse(data)
     )
   }
-   
+  getDashboardResponse()
+  {
+     
+    this.subscription.getDashboardSubscriptionResponse(this.advisorId).subscribe(
+      data => this.getDashboardData(data)
+    )
+  }
+  getDashboardData(data)
+  {
+    console.log(data)
+  }
   getSubStagesRecordResponse(data)
   {
     console.log(data)
@@ -63,5 +74,6 @@ export class SubscriptionCompletenessComponent implements OnInit {
 
   });
   }
+  
 
 }

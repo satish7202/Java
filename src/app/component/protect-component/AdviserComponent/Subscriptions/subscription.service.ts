@@ -44,6 +44,11 @@ export class SubscriptionService {
     let httpParams=new HttpParams().set('advisorId',data.advisorId).set('type',data.type);
     return this.http.post(apiConfig.MAIN_URL + appConfig.DASHBOARD_LETS_BEGIN_SUBSCRIPTION,data)
   }
+  getDashboardSubscriptionResponse(data)
+  {
+    let httpParams=new HttpParams().set('advisorId',data);
+    return this.http.get(apiConfig.MAIN_URL + appConfig.DASHBOARD_SUBSCRIPTION_LETS_BEGIN,httpParams);
+  }
   getSubscriptionClientsList(data)
   {
     let httpParams=new HttpParams().set('id',data.id);
@@ -78,6 +83,16 @@ export class SubscriptionService {
   { 
     let httpParams=new HttpParams().set('advisorId',data.advisorId).set('planId',data.planId)
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SUBSCRIPTION_PLAN_SERVICE,httpParams)
+  }
+  cancelSubscriptionData(data)
+  {
+    let httpParams=new HttpParams().set('advisorId',data);
+    return this.http.put(apiConfig.MAIN_URL + appConfig.CANCEL_SUBSCRIPTION,httpParams);
+  }
+  deleteSubscriptionData(data)
+  {
+    let httpParams=new HttpParams().set('advisorId',data);
+    return this.http.put(apiConfig.MAIN_URL + appConfig.DELETE_SUBSCRIPTION,httpParams);
   }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data,10000)

@@ -75,11 +75,11 @@
                                 <i class="material-icons b-a wrapper-4 c-p ml-8">delete</i>
                             </div>
                             <div class="col-md-4 right text-right">
-                                    <button mat-stroked-button class="btn-primary br-0 mt-12 mb-12">RECORD PAYMENT</button>
+                                    <button mat-stroked-button class="btn-primary br-0 mt-12 mb-12" (click)="recordPayment()">RECORD PAYMENT</button>
                             </div>
                         </div>
 
-                        <div class="b-a m-20 pb-28">
+                        <div class="b-a m-20 pb-28" *ngIf="showRecord==false">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="row">
@@ -170,6 +170,101 @@ Bank: {{singleInvoiceData.billerBankName}} (Akurli road, {{singleInvoiceData}}, 
                                 </div>
                             </div>
                         </div>
+                            </div>
+                            <div *ngIf="showRecord==true" class="wrapper-20"> 
+                                    <h4 class="mb-0 pt-16">Record Payment</h4>
+                                <div class="justify-content-center pt-40">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h5 class="m-0">Amount Received</h5>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <input type="amt" class="form-control">
+                                              </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h5 class="m-0">Charges,if any</h5>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <input type="charge" class="form-control">
+                                              </div>
+                                              <div class="col-md-12">
+                                                    <p class="f-12 m-0 text-left text-custom pt-4">Assistive text</p>
+                                              </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h5 class="m-0">TDS</h5>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control">
+                                              </div>
+                                              <div class="col-md-12">
+                                                    <p class="f-12 m-0 text-left text-custom pt-4">Assistive text</p>
+                                              </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h5 class="m-0">Payment Date</h5>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control">
+                                              </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h5 class="m-0">payment Mode</h5>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control">
+                                              </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h5 class="m-0">GST Treatment</h5>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control">
+                                              </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h5 class="m-0">Notes</h5>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <textarea class="form-control" rows="5"></textarea>
+                                              </div>
+                                              <div class="col-md-12 row">
+                                                    <p class="f-12 m-0 text-left text-custom pt-4">Optional</p>
+                                                    <p class="f-12 m-0 text-right text-custom pt-4">0 / 10</p>
+                                                </div>
+                                        </div>
+                                    </div>
+                                  
+                                    <div class="row right text-right">
+                                            <div class="col-md-4">
+                                            <h5 class="mat-stroked-button br-0 disabled" (click)="cancel()">CANCEL</h5>
+                                            </div>
+                                            <div class="col-md-8 ">
+                                                <button mat-button  class="btn-bottom br-0 text-inherit">SAVE</button>
+                                            </div>
+                                        </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
