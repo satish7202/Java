@@ -12,9 +12,10 @@ export class BillerSettingsComponent implements OnInit {
 
   ngOnInit() {
   }
-  Close(value)
+  Close(state)
   {
-    this.subInjectService.rightSideData(value)
+    this.subInjectService.rightSideData(state);
+    this.subInjectService.rightSliderData(state); 
   }
   planSettingData=[{'title':'RONAK HINDOCHA','code':'ARN123','Address':'#46,Street 1,Lokhandwala Township,Borivali East,Mumbai 400 066'},
                    {'title':'RUPA HINDOCHA','code':'ARN124','Address':'#46,Street 1,Lokhandwala Township,Borivali East,Mumbai 400 066'},

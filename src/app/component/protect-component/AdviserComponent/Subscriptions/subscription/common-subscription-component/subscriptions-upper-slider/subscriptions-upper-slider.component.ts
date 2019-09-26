@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { subscriptionInject } from '../../../subscription-inject.service';
 import { EventService } from 'src/app/Data-service/event.service';
+import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
+import { MatDialog } from '@angular/material';
+import { DeleteSubscriptionComponent } from '../delete-subscription/delete-subscription.component';
 export interface PeriodicElement {
   service: string;
   amt: string;
@@ -26,7 +29,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class SubscriptionsUpperSliderComponent implements OnInit {
 
-  constructor(public subInjectService:subscriptionInject,private eventService:EventService) { }
+  constructor(public subInjectService:subscriptionInject,private eventService:EventService,public dialog:MatDialog) { }
 
   ngOnInit() {
   }
@@ -37,6 +40,44 @@ export class SubscriptionsUpperSliderComponent implements OnInit {
   { 
     this.eventService.sliderData(value);
     this,this.subInjectService.rightSliderData(state)
+  }
+  deleteModal(value)
+  {
+    let dialogData = {
+      data:value,
+      header: 'DELETE',
+      body:'Are you sure you want to delete the document?',
+      body2:'This cannot be undone',
+      btnYes:'CANCEL',
+      btnNo:'DELETE'
+    }
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+       width: '400px',
+       data: dialogData,
+       autoFocus:false,
+
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+  
+    });
+  
+  }
+  delete(data){
+    let Fragmentdata = {
+      Flag: data,
+    }
+    if(data=="cancelSubscription"){
+          const dialogRef = this.dialog.open(DeleteSubscriptionComponent, {
+            width: '20%',
+            // height:'40%',
+            data: Fragmentdata,
+            autoFocus:false,
+          });
+          dialogRef.afterClosed().subscribe(result => {
+          });
+    }
   }
 
 }

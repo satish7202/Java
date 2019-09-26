@@ -20,7 +20,7 @@
     <div class="wrapper-20">
         <div class="row">
             <div class="col-md-12 p-0">
-                    <button mat-stroked-button class="btn-primary br-0 right text-right addon"><i class="material-icons">
+                    <button mat-stroked-button class="btn-primary br-0 right text-right addon" (click)="openPlanSlider('planRightSlider','open')"><i class="material-icons">
                             add
                             </i> ADD PLAN</button>
             </div>
@@ -80,10 +80,10 @@
                                                     </i>
                                                     <mat-menu #menu="matMenu">
                                                         <a mat-menu-item>View fee structure</a>
-                                                        <a mat-menu-item>Edit Biller settings</a>
-                                                        <a mat-menu-item class="bt-1">Edit Payee settings</a>
-                                                        <a mat-menu-item>Cancel subscription</a>
-                                                        <a mat-menu-item class="bt-1">Delete subscription</a>
+                                                        <a mat-menu-item (click)="openPlanSlider('billerSettings','open')">Edit Biller settings</a>
+                                                        <a mat-menu-item class="bt-1" (click)="openPlanSlider('payeeSettings','open')">Edit Payee settings</a>
+                                                        <a mat-menu-item (click)="delete('cancelSubscription')">Cancel subscription</a>
+                                                        <a mat-menu-item class="bt-1" (click)="deleteModal('SUBSCRIPTION')">Delete subscription</a>
                                                     </mat-menu>
                                                 </td>
                                             </ng-container>
