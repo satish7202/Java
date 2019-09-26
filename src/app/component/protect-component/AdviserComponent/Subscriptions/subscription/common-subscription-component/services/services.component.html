@@ -23,15 +23,15 @@
                     </div>
                 </div>
                 <div class="col-md-2 right text-right p-0 button-fix">
-                    <button mat-stroked-button class="btn-primary">2 Services mapped</button>
+                    <button mat-stroked-button class="btn-primary">{{mappedData.length}} Services mapped</button>
                 </div>
             </div>
         </div>
         <div class="wrapper-40">
             <div class="row text-center padder-80">
-                <div *ngFor="let serviceData of planServiceData" class="col-md-4 pl-10 pr-10">
+                <div *ngFor="let serviceData of planServiceData; index as i" class="col-md-4 pl-10 pr-10 pb-28">
 
-                    <div [ngClass]="{'box':serviceData.selected,'b-a':serviceData.selected==false }" (click)="selectService(serviceData)">
+                    <div [ngClass]="{'box':serviceData.selected,'b-a':serviceData.selected==false }" (click)="selectService(serviceData,i)">
 
                         <div class="bg-grey lter text-left">
                             <mat-checkbox class="custom-checkbox" checked="false" color="primary" *ngIf="serviceData.selected"></mat-checkbox>
@@ -70,9 +70,19 @@
 
             </div>
         </div>
+        <div *ngIf="componentFlag!='planServices'">
+                <p>This is services in Documents</p>
+            </div>
+            <mat-toolbar class="bottom-fixed">
+                    <div class="row w-100">
+                        <div class="col-md-6 text-left">
+                            <p class="text-white f-16 mb-0 pt-12 c-p" (click)="dialogClose()">Cancel</p>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <button type="button" mat-stroked-button class="btn-bottom br-0" (click)="savePlanMapToService()">Save</button>
+                        </div>
+                    </div>
+                </mat-toolbar>
     </div>
 </div>
 
-<div *ngIf="componentFlag!='planServices'">
-    <p>This is services in Documents</p>
-</div>

@@ -88,8 +88,21 @@ export class SubscriptionService {
     let httpParams=new HttpParams().set('advisorId',data.advisorId).set('planId',data.planId)
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SUBSCRIPTION_PLAN_SERVICE,httpParams)
   }
+  addSettingPlanOverviewData(data)
+  {
+    let httpParams=new HttpParams().set('advisorId',data.advisorId).set('createdDate',data.createdDate).set('description',data.description).set('id',data.id).set('isActive',data.isActive).set('isPublic',data.isPublic).set('lastUpdatedDate',data.lastUpdatedDate).set('logoUrl',data.logoUrl).set('name',data.name).set('planRepoId',data.planRepoId);
+    return this.http.post(apiConfig.MAIN_URL +appConfig.ADD_SETTING_PLAN_OVERVIEW,httpParams)
+  }
+  mapServiceToPlanData(data)
+  { 
+    return this.http.post(apiConfig.MAIN_URL + appConfig.MAP_SERVICE_TO_PLAN,data)
+  }
+  getPlanDocumentsData(data)
+  {
+    let httpParams=new HttpParams().set('advisorId',data.advisorId).set('planId',data.planId);
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_PLAN_DOCUMENTS_DATA,httpParams)
+  }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data,10000)
   }
 }
-

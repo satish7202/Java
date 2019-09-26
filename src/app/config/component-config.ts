@@ -62,5 +62,8 @@
     GET_SUBSCRIPTION_QUOTATIONS:'futurewise/subscriptions/quotations/get',
     GET_SUBSCRIPTION_SUBSCRIPTION:'futurewise/subscriptions/subscription/get',
     GET_SUBSCRIPTION_PLAN_SERVICE:'futurewise/subscriptions/settings/plan-service/get',
+    ADD_SETTING_PLAN_OVERVIEW:'futurewise/subscriptions/addPlan/get',
+    MAP_SERVICE_TO_PLAN:'futurewise/subscriptions/settings/plan/mapservice',
+    GET_PLAN_DOCUMENTS_DATA:'futurewise/subscriptions/settings/plan-document/get',
     GET_BASE_64:'futurewise/api/v1/test/base64/decode'
 }
