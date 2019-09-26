@@ -17,4 +17,5 @@ export class OverviewBlankQuotationComponent implements OnInit {
   {
     this.subInjectService.rightSliderData(state); 
   }
+
 }
