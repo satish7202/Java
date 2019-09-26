@@ -200,11 +200,19 @@
                                     <td mat-cell *matCellDef="let element"> {{element.billing}} </td>
                                 </ng-container>
                                 <ng-container matColumnDef="icons">
-                                    <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 2%;"> </th>
-                                    <td mat-cell *matCellDef="let element" style="width: 2%;"><i class="material-icons c-p iconscolors">
-                                more_vert
-                                </i></td>
-                                </ng-container>
+                                        <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 2%;"> </th>
+                                        <td mat-cell *matCellDef="let element" style="width: 2%;"><i class="material-icons c-p iconscolors" [matMenuTriggerFor]="menu">
+                                            more_vert
+                                            </i>
+                                            <mat-menu #menu="matMenu">
+                                                <a mat-menu-item (click)="Open('modifyFees','open')" >View & Modify fee structure</a>
+                                                <a mat-menu-item class="bt-1" (click)="Open('billerSettings','open')">Change Biller</a>
+                                                <a mat-menu-item (click)="Open('payeeSettings','open')">Change Payee</a>
+                                                <a mat-menu-item class="bt-1" (click)="delete('cancelSubscription')">Cancel subscription</a>
+                                                <a mat-menu-item (click)="deleteModal('SUBSCRIPTION')">Delete subscription</a>
+                                            </mat-menu>
+                                        </td>
+                                    </ng-container>
                                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                             </table>

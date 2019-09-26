@@ -50,6 +50,28 @@ export class HttpService {
       });
   }
 
+  put(url: string, body, options?): Observable<any> {
+    let httpOptions = {
+      headers: new HttpHeaders().set('authToken', this._userService.getToken())
+        .set('Content-Type', 'application/json')
+    };
+    if (options != undefined) {
+      httpOptions = options;
+    }
+    return this._http
+      .put(this.baseUrl + url, body, httpOptions)
+      .map((res:any) => {
+        if (res['status'] === 'AUTH_TOKEN_EXPIRED') {
+          window.alert('Invalid user, please login');
+          this._router.navigate(['login']);
+        } else {
+          return res;
+        }
+      })
+      .catch((err) => {
+        return Observable.throw(err);
+      });
+  }
 
   deleteExpiredCache() {
     this.cacheMap.forEach(entry => {
@@ -155,31 +177,6 @@ export class HttpService {
   }
            // created by sarvesh
 
-  put(url:string,params)
-  {
-     const httpOptions={
-       headers:new HttpHeaders().set('authToken',this._userService.getToken())
-       .set('Content-Type', 'application/json'),
-       params
-     }
-     url = url.trim();
-    return this._http
-      .put(this.baseUrl + url, httpOptions)
-      .map((res: any) => {
-        console.log(res)
-
-        if (res.status === 200) {
-          let resData = this.changeBase64ToString(res);
-          console.log(resData)
-          return resData;
-        }
-        else {
-          // this._router.navigate(['login']);
-          console.log("Not Working")
-          return;
-        }
-      });
-  }
   changeBase64Data(params): string {
     const objJsonStr = JSON.stringify(params);
     console.log(objJsonStr);

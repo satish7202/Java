@@ -30,11 +30,11 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class InvoicePdfDocumentComponent implements OnInit {
 
   constructor(public invoiveSub:InvoicesSubscriptionComponent) { }
-  
+  showRecord;
   @Input() singleInvoiceData;
 
   ngOnInit() {
-    
+    this.showRecord = false;
   }
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
@@ -42,5 +42,13 @@ export class InvoicePdfDocumentComponent implements OnInit {
   Close()
   {
    this.invoiveSub.showPdfInvoice=false;
+  }
+  recordPayment()
+  {
+    this.showRecord = true;
+  }
+  cancel()
+  {
+    this.showRecord =false;
   }
 }

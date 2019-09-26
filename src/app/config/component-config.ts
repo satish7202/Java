@@ -65,5 +65,8 @@
     ADD_SETTING_PLAN_OVERVIEW:'futurewise/subscriptions/addPlan/get',
     MAP_SERVICE_TO_PLAN:'futurewise/subscriptions/settings/plan/mapservice',
     GET_PLAN_DOCUMENTS_DATA:'futurewise/subscriptions/settings/plan-document/get',
+    DASHBOARD_SUBSCRIPTION_LETS_BEGIN:'futurewise/subscriptions/letsBegin/get',
+    CANCEL_SUBSCRIPTION:'futurewise/subscriptions/cancel/subscription/get',
+    DELETE_SUBSCRIPTION:'futurewise/subscriptions/delete/subscription',
     GET_BASE_64:'futurewise/api/v1/test/base64/decode'
 }
