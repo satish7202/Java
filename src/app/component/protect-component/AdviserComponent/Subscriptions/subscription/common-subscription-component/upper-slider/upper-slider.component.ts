@@ -11,13 +11,13 @@ import {subscriptionInject} from '../../../subscription-inject.service';
   animations: [
     trigger('upperRightSlider', [
       state('open', style({
-        width: '60%'
+        left:'40%'   
       })),
       state('close', style({
-        width: '0%'
+       
       })),
       state('closeSlider', style({
-        width: '0%'
+        left:'100%'
       })),
       transition('close => open', [animate('0.3s')]),
       transition('open => close', [animate('0.1s')]),

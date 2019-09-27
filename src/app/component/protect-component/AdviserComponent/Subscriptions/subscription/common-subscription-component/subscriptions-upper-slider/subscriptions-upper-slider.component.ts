@@ -39,7 +39,7 @@ export class SubscriptionsUpperSliderComponent implements OnInit {
   openPlanSlider(value,state)
   { 
     this.eventService.sliderData(value);
-    this,this.subInjectService.rightSliderData(state)
+    this.subInjectService.rightSliderData(state)
   }
   deleteModal(value)
   {
