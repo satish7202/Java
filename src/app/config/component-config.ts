@@ -52,6 +52,8 @@
     GET_SINGLE_INVOICE:'futurewise/subscriptions/invoice/get',
     GET_PREFERENCE_BILLER_PROFILE:'futurewise/subscriptions/settings/billerprofile/get',
     GET_PREFERENCE_INVOICE_QUOTATIONS_SUBSCRIPTION:'futurewise/subscriptions/settings/prefix/get',
+    UPDATE_PREFERENCE_INVOICE_QUOTATIONS_SUBSCRIPTION:'futurewise/subscriptions/settings/prefix/update',
+    SAVE_PREFERENCE_INVOICE_QUOTATIONS_SUBSCRIPTION:'futurewise/subscriptions/settings/billerprofile/save',
     DASHBOARD_LETS_BEGIN_SUBSCRIPTION:'futurewise/subscriptions/dashboard/recordPayment',
     GET_CLIENT_SUBSCRIPTION_LIST:'futurewise/subscriptions/clients/get',
     GET_CLIENT_SUBSCRIPTION_QUOTATIONS_LIST:'futurewise/subscriptions/clients/quotations/get',
@@ -60,5 +62,11 @@
     GET_SUBSCRIPTION_QUOTATIONS:'futurewise/subscriptions/quotations/get',
     GET_SUBSCRIPTION_SUBSCRIPTION:'futurewise/subscriptions/subscription/get',
     GET_SUBSCRIPTION_PLAN_SERVICE:'futurewise/subscriptions/settings/plan-service/get',
+    ADD_SETTING_PLAN_OVERVIEW:'futurewise/subscriptions/addPlan/get',
+    MAP_SERVICE_TO_PLAN:'futurewise/subscriptions/settings/plan/mapservice',
+    GET_PLAN_DOCUMENTS_DATA:'futurewise/subscriptions/settings/plan-document/get',
+    DASHBOARD_SUBSCRIPTION_LETS_BEGIN:'futurewise/subscriptions/letsBegin/get',
+    CANCEL_SUBSCRIPTION:'futurewise/subscriptions/cancel/subscription/get',
+    DELETE_SUBSCRIPTION:'futurewise/subscriptions/delete/subscription',
     GET_BASE_64:'futurewise/api/v1/test/base64/decode'
 }

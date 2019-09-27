@@ -21,7 +21,7 @@
                 </div>
                 <div class="wrapper-100 pt-44">
                 <div class="row">
-                    <div class="col-md-4">
+                    <!-- <div class="col-md-4">
                             <mat-card class="p-0 ba-green">
                                 <div class="row bg-grey lter">
                                     <div class="col-md-12 p-0">
@@ -41,13 +41,10 @@
                             </div>
                         </div>
                             </mat-card>
-                    </div>
-                    <div class="col-md-4">
+                    </div> -->
+                    <!-- <div class="col-md-4">
                             <mat-card class="p-0 b-a">
                                 <div class="row bg-grey lter">
-                                    <!-- <div class="col-md-12 p-0">
-                                            <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
-                                    </div> -->
                                     <div class="col-md-12 p-0">
                                         <h3 class="m-0 pt-32 pl-24">Starter Plan</h3>
                                         <h5 class="m-0 pt-4 pb-44 pl-24">PLA123</h5>
@@ -62,23 +59,23 @@
                             </div>
                         </div>
                             </mat-card>
-                    </div>
-                    <div class="col-md-4">
-                            <mat-card class="p-0 ba-green">
+                    </div> -->
+                    <div class="col-md-4" *ngFor="let singleServicePlan of servicePlanData">
+                            <mat-card class="p-0 b-a" (click)="selectServicePlan(singleServicePlan)" [ngClass]="{'p-0': singleServicePlan.checked==false,'b-a':singleServicePlan.checked==false,'p-0':singleServicePlan.checked,'ba-green':singleServicePlan.checked}">
                                 <div class="row bg-grey lter">
                                     <div class="col-md-12 p-0">
-                                            <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
+                                            <mat-checkbox class="custom-checkbox" checked="false" *ngIf="singleServicePlan.checked"></mat-checkbox>
                                     </div>
                                     <div class="col-md-12 p-0">
-                                        <h3 class="m-0 pt-18 pl-24">Starter Plan</h3>
-                                        <h5 class="m-0 pt-4 pb-44 pl-24">PLA123</h5>
+                                        <h3 class="m-0 pt-18 pl-24">{{singleServicePlan.title}}</h3>
+                                        <h5 class="m-0 pt-4 pb-44 pl-24">{{singleServicePlan.code}}</h5>
                                     </div>
                                 </div>
                                 <div class="wrapper-24">
                                 <div class="row">
                                     <div class="col-md-12 p-0">
                                     <p class="f-12 mb-0">DESCRIPTION</p>
-                                    <h5 class="mb-0">This plan is ideal for young people who are just starting off their financial journey and want to start saving with a smaller investment amount.</h5>
+                                    <h5 class="mb-0">{{singleServicePlan.DESCRIPTION}}</h5>
                                 </div>
                             </div>
                         </div>

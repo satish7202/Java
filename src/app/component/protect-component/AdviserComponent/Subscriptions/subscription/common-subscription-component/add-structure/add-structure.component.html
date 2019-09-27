@@ -1,23 +1,25 @@
 <div class="bg-white">
-        <div class="row bb-1">
-            <div class="col-md-10 p-0">
-                <h4 class="f-16 mb-0 wrapper-24 pb-20">ADD PLAN DETAILS</h4>
-            </div>
-            <div class="col-md-2">
-                <i class="material-icons right pt-20 pb-12 c-p" (click)="closeNav('close')">
-                    close
-                </i>
-            </div>
+    <div class="row bb-1">
+        <div class="col-md-10 p-0">
+            <h4 class="f-16 mb-0 wrapper-24 pb-20">ADD PLAN DETAILS</h4>
         </div>
-        <div class="row pt-40">
-            <div class="col-md-12">
+        <div class="col-md-2">
+            <i class="material-icons right pt-20 pb-12 c-p" (click)="closeNav('close')">
+                close
+            </i>
+        </div>
+    </div>
+    <div class="row pt-40">
+        <div class="col-md-12">
+            <form [formGroup]="planData">
                 <div class="row">
                     <div class="col-md-5">
                         <h5>Plan name</h5>
                     </div>
                     <div class="col-md-5">
                         <div class="form-group mb-0">
-                            <input type="email" class="form-control br-2">
+                            <input type="email" formControlName="planName" maxlength="20" class="form-control br-2">
+                            <!-- <mat-error>PlanName is Required</mat-error> -->
                         </div>
                         <div class="col-md-12">
                             <p class="mb-0 f-12 text-custom text-right">0/20</p>
@@ -30,8 +32,9 @@
                     </div>
                     <div class="col-md-3">
                         <div class="form-group mb-0">
-    
-                            <input type="email" class="form-control br-2">
+
+                            <input type="email" formControlName="code" maxlength="10" class="form-control br-2">
+                            <!-- <mat-error>Code is Required</mat-error> -->
                         </div>
                         <div class="col-md-12">
                             <p class="mb-0 f-12 text-custom text-right">0/10</p>
@@ -44,28 +47,30 @@
                     </div>
                     <div class="col-md-5">
                         <div class="form-group mb-0">
-                            <textarea class="form-control br-2" rows="5"></textarea>
+                            <textarea class="form-control br-2" formControlName="description" maxlength="10" rows="5"></textarea>
+                            <!-- <mat-error>Description is Required</mat-error> -->
                         </div>
                         <div class="col-md-12">
                             <p class="mb-0 f-12 text-custom text-right">0/10</p>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
-    <div class="bottom-fixed wrapper-12">
-        <div class="row">
-            <div class="col-md-4">
-                <h4 class="mb-0 pt-8 text-white c-p f-16" (click)="Close()">Cancel</h4>
-            </div>
-            <div class="col-md-8 right text-right">
-                <button mat-button [matMenuTriggerFor]="menu" class="btn-bottom br-0 text-inherit">Save</button>
-                <mat-menu #menu="matMenu">
+</div>
+<div class="bottom-fixed wrapper-12">
+    <div class="row">
+        <div class="col-md-4">
+            <h4 class="mb-0 pt-8 text-white c-p f-16" (click)="closeNav('close')">Cancel</h4>
+        </div>
+        <div class="col-md-8 right text-right">
+            <button mat-button class="btn-bottom br-0 text-inherit" (click)="addPlanData()">Save</button>
+            <!-- <mat-menu #menu="matMenu">
                     <button mat-menu-item>Item 1</button>
                     <button mat-menu-item>Item 2</button>
-                </mat-menu>
-    
-            </div>
+                </mat-menu> -->
+
         </div>
     </div>
+</div>

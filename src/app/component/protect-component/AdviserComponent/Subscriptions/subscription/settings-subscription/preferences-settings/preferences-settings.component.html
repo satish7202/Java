@@ -24,18 +24,18 @@
             <div class="col-md-10 b-a p-0 min-height" [ngSwitch]="viewMode">
                 <div *ngSwitchCase="'tab1'">
                     <div class="wrapper-12 pb-0">
-                        <div class="row" (click)="Open('billerProfile','open')">
+                        <div class="row" (click)="Open('','billerProfile','open')">
                             <div class="col-md-12 right text-right pr-4">
                                 <button mat-stroked-button class="btn-primary addon"><i class="material-icons">add</i>ADD NEW</button>
                             </div>
                         </div>
                     </div>
-                    <div class="wrapper-16 pt-8">
+                    <div class="wrapper-16 pt-8" *ngFor="let singleBillerProfile of billerProfileData">
                         <div class="row b-a bg-grey lter pt-20 pb-16">
-                            <div class="col-md-6">
+                            <div class="col-md-6" >
                                 <div class="row">
                                     <div class="col-md-8 p-0">
-                                        <h3 class="mb-0">Acme Financial Advisors</h3>
+                                        <h3 class="mb-0">{{singleBillerProfile.companyDisplayName}}</h3>
                                     </div>
                                     <div class="col-md-4">
 
@@ -44,9 +44,14 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <i class="material-icons text-right right text-custom f-28">
+                                <i class="material-icons text-right right text-custom f-28" [matMenuTriggerFor]="menu" [matMenuTriggerFor]="belowMenu">
                                             more_vert
                                             </i>
+                                            <mat-menu #menu="matMenu">
+                                                    <a mat-menu-item>Set as Primary</a>
+                                                    <a mat-menu-item (click)="Open(singleBillerProfile,'billerProfile','open')">Edit Biller Profile</a>
+                                                    <a mat-menu-item class="bt-1" (click)="deleteModal('SUBSCRIPTION')">Delete Biller Profile</a>
+                                                </mat-menu>
                             </div>
                         </div>
                         <div class="b-a bt-none">
@@ -55,9 +60,9 @@
                                 <div class="col-md-6 p-0">
                                     <div class="wrapper-16">
                                         <p class="f-12">GST</p>
-                                        <h5>27AABCF7680A1Z7</h5>
+                                        <h5>{{singleBillerProfile.gstin}}</h5>
                                         <p class="f-12 pt-24">PAN</p>
-                                        <h5>AABCF7680A</h5>
+                                        <h5>{{singleBillerProfile.pan}}</h5>
                                         <p class="f-12 pt-24">ADDRESS</p>
                                         <h5>203-A,”A” Wing, Suashish IT Park,<br> Off. Dattapada Road,<br> Borivali East<br> Mumbai 400 066<br> Maharashtra, India</h5>
                                     </div>
@@ -66,22 +71,22 @@
                                         <div class="row">
                                             <div class="col-md-9 p-0">
                                                 <p>Name on bank A/c</p>
-                                                <h5>Acme Financial Advisors Pvt Ltd.</h5>
+                                                <h5>{{singleBillerProfile.nameAsPerBank}}</h5>
                                             </div>
                                             <div class="col-md-3 p-0">
                                                 <p>Account No.</p>
-                                                <h5>001101228990</h5>
+                                                <h5>{{singleBillerProfile.acNumber}}</h5>
                                             </div>
                                         </div>
 
                                         <div class="row pt-24">
                                             <div class="col-md-9 p-0">
                                                 <p>Bank name</p>
-                                                <h5>Kotak Mahindra Bank</h5>
+                                                <h5>{{singleBillerProfile.bankName}}</h5>
                                             </div>
                                             <div class="col-md-3 p-0">
                                                 <p>IFSC code</p>
-                                                <h5>KKBK001101</h5>
+                                                <h5>{{singleBillerProfile.ifscCode}}</h5>
                                             </div>
                                             <div class="col-md-12 p-0 pt-24">
                                                 <p class="f-12">ADDRESS</p>
@@ -98,14 +103,10 @@
                                     <hr>
                                     <div class="wrapper-16">
                                         <p class="f-12">Footnote</p>
-                                        <h5>Fees should be paid within 15 days For futher terms, review terms of service</h5>
+                                        <h5>{{singleBillerProfile.footnote}}</h5>
                                         <p class="pt-32">Terms & Conditions</p>
-                                        <p class="f-16 notes">For payment via NEFT/IMPS/Cheque, see details below.
-                                            <br> A/c: Futurewise Technologies Pvt. Ltd.
-                                            <br> A/c No: 103205000764
-                                            <br> IFSC: ICIC0001032
-                                            <br> Bank: ICICI Bank
-                                            <br> (Akurli road, Kandivali East, Mumbai 400101)</p>
+                                        <p class="f-16 notes">{{singleBillerProfile.terms}}
+                                            </p>
                                     </div>
                                 </div>
                             </div>
@@ -124,18 +125,18 @@
                             <div class="col-md-3 pr-0 mr-40">
                                 <h5 class="m-0 f-14 text-black">Invoice prefix</h5>
                                 <div class="form-group pt-12">
-                                    <input type="text" class="form-control br-0" *ngIf="Invoicedata" [(ngModel)]="Invoicedata.prefix" placeholder="INV-19-20-">
+                                    <input type="text" class="form-control br-0"  [(ngModel)]="prefixData.prefix" >
                                 </div>
 
                             </div>
                             <div class="col-md-3 pr-0 ">
                                 <h5 class="m-0 f-14 text-black">Invoice next number</h5>
                                 <div class="form-group pt-12">
-                                    <input type="text" class="form-control br-0" *ngIf="Invoicedata" [(ngModel)]="Invoicedata.nextNumber" placeholder="100231">
+                                    <input type="text" class="form-control br-0"  [(ngModel)]="prefixData.nextNumber">
                                 </div>
                             </div>
                             <div class="col-md-12 pt-40">
-                                <button mat-stroked-button class="btn-primary br-0 mr-8">SAVE</button>
+                                <button mat-stroked-button class="btn-primary br-0 mr-8" (click)="savePrefix(prefixData)">SAVE</button>
                                 <button mat-stroked-button class="text-primary br-0">CANCEL</button>
                             </div>
                         </div>
@@ -150,18 +151,18 @@
                             <div class="col-md-3 pr-0 mr-40">
                                 <h5 class="m-0 f-14 text-black">Quotation prefix</h5>
                                 <div class="form-group pt-12">
-                                    <input type="text" class="form-control br-0" placeholder="QUO-19-20-">
+                                    <input type="text" class="form-control br-0" [(ngModel)]="prefixData.prefix">
                                 </div>
 
                             </div>
                             <div class="col-md-3 pr-0">
                                 <h5 class="m-0 f-14 text-black">Quotation next number</h5>
                                 <div class="form-group pt-12">
-                                    <input type="text" class="form-control br-0" placeholder="100231">
+                                    <input type="text" class="form-control br-0" [(ngModel)]="prefixData.nextNumber">
                                 </div>
                             </div>
                             <div class="col-md-12 pt-40">
-                                <button mat-stroked-button class="btn-primary br-0 mr-8">SAVE</button>
+                                <button mat-stroked-button class="btn-primary br-0 mr-8" (click)="savePrefix(prefixData)">SAVE</button>
                                 <button mat-stroked-button class="text-primary br-0">CANCEL</button>
                             </div>
                         </div>
@@ -176,18 +177,18 @@
                             <div class="col-md-3 pr-0 mr-40">
                                 <h5 class="m-0 f-14 text-black">Subscription prefix</h5>
                                 <div class="form-group pt-12">
-                                    <input type="text" class="form-control br-0" placeholder="SUB-">
+                                    <input type="text" class="form-control br-0" [(ngModel)]="prefixData.prefix">
                                 </div>
 
                             </div>
                             <div class="col-md-3 pr-0">
                                 <h5 class="m-0 f-14 text-black">Subscription next number</h5>
                                 <div class="form-group pt-12">
-                                    <input type="text" class="form-control br-0" placeholder="100231">
+                                    <input type="text" class="form-control br-0" [(ngModel)]="prefixData.nextNumber">
                                 </div>
                             </div>
                             <div class="col-md-12 pt-40">
-                                <button mat-stroked-button class="btn-primary br-0 mr-8">SAVE</button>
+                                <button mat-stroked-button class="btn-primary br-0 mr-8" (click)="savePrefix(prefixData)">SAVE</button>
                                 <button mat-stroked-button class="text-primary br-0">CANCEL</button>
                             </div>
                         </div>

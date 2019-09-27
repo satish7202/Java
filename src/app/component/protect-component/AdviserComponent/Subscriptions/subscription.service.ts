@@ -39,10 +39,24 @@ export class SubscriptionService {
     let httpParams=new HttpParams().set('advisorId',data.advisorId).set('type',data.type);
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_PREFERENCE_INVOICE_QUOTATIONS_SUBSCRIPTION,httpParams);
   }
+  updatePreferenceInvoiceQuotationsSubscription(data)
+  { 
+    let httpParams=new HttpParams().set('advisorId',data.advisorId).set('id',data.id).set('nextNumber',data.nextNumber).set('prefix',data.prefix).set('type',data.type);
+    return this.http.put(apiConfig.MAIN_URL + appConfig.UPDATE_PREFERENCE_INVOICE_QUOTATIONS_SUBSCRIPTION,httpParams)
+  }
+  savePreferenceInvoiceQuotationsSubscription(data)
+  {
+   let httpParams=new HttpParams().set('advisorId',data.advisorId).set('id',data.id).set('nextNumber',data.nextNumber).set('prefix',data.prefix).set('type',data.type);
+  }
   getSubscriptionCompleteStages(data)
   { 
     let httpParams=new HttpParams().set('advisorId',data.advisorId).set('type',data.type);
     return this.http.post(apiConfig.MAIN_URL + appConfig.DASHBOARD_LETS_BEGIN_SUBSCRIPTION,data)
+  }
+  getDashboardSubscriptionResponse(data)
+  {
+    let httpParams=new HttpParams().set('advisorId',data);
+    return this.http.get(apiConfig.MAIN_URL + appConfig.DASHBOARD_SUBSCRIPTION_LETS_BEGIN,httpParams);
   }
   getSubscriptionClientsList(data)
   {
@@ -79,8 +93,31 @@ export class SubscriptionService {
     let httpParams=new HttpParams().set('advisorId',data.advisorId).set('planId',data.planId)
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SUBSCRIPTION_PLAN_SERVICE,httpParams)
   }
+  addSettingPlanOverviewData(data)
+  {
+    let httpParams=new HttpParams().set('advisorId',data.advisorId).set('createdDate',data.createdDate).set('description',data.description).set('id',data.id).set('isActive',data.isActive).set('isPublic',data.isPublic).set('lastUpdatedDate',data.lastUpdatedDate).set('logoUrl',data.logoUrl).set('name',data.name).set('planRepoId',data.planRepoId);
+    return this.http.post(apiConfig.MAIN_URL +appConfig.ADD_SETTING_PLAN_OVERVIEW,httpParams)
+  }
+  mapServiceToPlanData(data)
+  { 
+    return this.http.post(apiConfig.MAIN_URL + appConfig.MAP_SERVICE_TO_PLAN,data)
+  }
+  getPlanDocumentsData(data)
+  {
+    let httpParams=new HttpParams().set('advisorId',data.advisorId).set('planId',data.planId);
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_PLAN_DOCUMENTS_DATA,httpParams)
+  }
+  cancelSubscriptionData(data)
+  {
+    let httpParams=new HttpParams().set('advisorId',data);
+    return this.http.put(apiConfig.MAIN_URL + appConfig.CANCEL_SUBSCRIPTION,httpParams);
+  }
+  deleteSubscriptionData(data)
+  {
+    let httpParams=new HttpParams().set('advisorId',data);
+    return this.http.put(apiConfig.MAIN_URL + appConfig.DELETE_SUBSCRIPTION,httpParams);
+  }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data,10000)
   }
 }
-

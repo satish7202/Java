@@ -13,14 +13,18 @@ export class FeeStructureComponent implements OnInit {
 
   ngOnInit() {
   }
+  feeStructureServiceData=[
+    {type:'Fixed fee',Description:'Choose this fee type if you want to charge a fixed fee. E.g. for Plan writing etc.',checked:false},
+    {type:'Fixed fee',Description:'Choose this fee type if you want to charge a fixed fee. E.g. for Plan writing etc.',checked:true},
+    // {type:'Fixed fee',Description:'Choose this fee type if you want to charge a fixed fee. E.g. for Plan writing etc.'}
+  ]
   openPlanSliderFee(value,state)
   { 
     this.eventService.sliderData(value);
     this.subInjectService.rightSliderData(state)
   }
-  openPlanSliderVariable(value,state)
+  selectFees(data)
   { 
-    this.eventService.sliderData(value);
-    this.subInjectService.rightSliderData(state)
+    (data.checked)?data.checked=false:data.checked=true;
   }
 }
