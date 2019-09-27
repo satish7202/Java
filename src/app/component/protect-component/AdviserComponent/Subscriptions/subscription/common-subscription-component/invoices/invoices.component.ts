@@ -11,7 +11,7 @@ export interface PeriodicElement {
   Duedate:string;
   Amount:string;
   Balancedue:string;
- } 
+ }
 @Component({
   selector: 'app-invoices',
   templateUrl: './invoices.component.html',
@@ -27,7 +27,7 @@ export class InvoicesComponent implements OnInit {
   }
   displayedColumns: string[] = ['checkbox','date','Invoice number','Service name','Billed to', 'status', 'Duedate','Amount','Balance due','icons'];
   dataSource;
-  
+
   getInvoiceList()
   {
     let obj={
@@ -39,12 +39,16 @@ export class InvoicesComponent implements OnInit {
   }
   getInvoiceListResponse(data)
   {
-    console.log(data)
+    data.forEach(singleData => {
+      singleData.isChecked = false;
+    });
+    console.log(data);
+
     this.dataSource=data
   }
   openInvoice(value,state)
   {
-    
+
     this.eventService.sliderData(value);
     this,this.subInjectService.rightSliderData(state)
   }
