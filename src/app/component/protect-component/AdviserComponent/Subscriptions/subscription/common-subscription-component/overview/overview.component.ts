@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
-import { subscriptionInject } from '../../../subscription-inject.service';
+import { SubscriptionInject } from '../../../subscription-inject.service';
 import { EventService } from 'src/app/Data-service/event.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { EventService } from 'src/app/Data-service/event.service';
 export class OverviewComponent implements OnInit {
   overviewDesign: any;
 
-  constructor(private eventService: EventService, private subinject: subscriptionInject, public dialogRef: MatDialogRef<OverviewComponent>) { }
+  constructor(private eventService: EventService, private subinject: SubscriptionInject, public dialogRef: MatDialogRef<OverviewComponent>) { }
 
 
   @Input() componentFlag: string;

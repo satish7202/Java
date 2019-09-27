@@ -1,11 +1,12 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {MatDialogRef, MatDialog} from '@angular/material';
-import {subscriptionInject} from '../../../subscription-inject.service';
+import {SubscriptionInject} from '../../../subscription-inject.service';
 import {ConfirmDialogComponent} from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
 import {EventService} from 'src/app/Data-service/event.service';
 import {SubscriptionPopupComponent} from '../subscription-popup/subscription-popup.component';
 import {SubscriptionService} from '../../../subscription.service';
 import * as _ from 'lodash';
+import {AddDocumentComponent} from '../add-document/add-document.component';
 
 export interface PeriodicElement {
   document: string;
@@ -37,7 +38,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class DocumentComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<DocumentComponent>, public subInjectService: subscriptionInject,
+  constructor(public dialogRef: MatDialogRef<DocumentComponent>, public subInjectService: SubscriptionInject,
               private eventService: EventService, public dialog: MatDialog, private subService: SubscriptionService) {
     this.subInjectService.rightSliderDocument.subscribe(
       data => this.getDocumentsDesignData(data)
@@ -56,6 +57,21 @@ export class DocumentComponent implements OnInit {
   ngOnInit() {
     this.getplanDocumentData();
     this.documentDesign = 'true';
+  }
+
+  openDocument(data) {
+    const Fragmentdata = {
+      Flag: data,
+    };
+    const dialogRef = this.dialog.open(AddDocumentComponent, {
+      width: '70%',
+      data: Fragmentdata,
+      autoFocus: false,
+
+    });
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
   }
 
   openPopup(data) {

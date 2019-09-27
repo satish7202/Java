@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EventService } from 'src/app/Data-service/event.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { from } from 'rxjs';
-import { subscriptionInject } from '../subscription-inject.service';
+import { SubscriptionInject } from '../subscription-inject.service';
 @Component({
   selector: 'app-subscription',
   templateUrl: './subscription.component.html',
@@ -10,7 +10,7 @@ import { subscriptionInject } from '../subscription-inject.service';
   animations:[
     trigger('openClose',[
       state('open',style({
-        left:'40%'   
+        left:'40%'
       })),
       state('openHelp',style({
         // width:'35%'
@@ -20,22 +20,22 @@ import { subscriptionInject } from '../subscription-inject.service';
         left:'100%'
       })),
       transition('close => open',[animate('0.3s')]),
-      transition('open => close',[animate('0.1s')]), 
+      transition('open => close',[animate('0.1s')]),
       transition('close => openHelp',[animate('0.3s')]),
-      transition('openHelp => close',[animate('0.1s')]) 
+      transition('openHelp => close',[animate('0.1s')])
     ])
   ]
 })
 export class SubscriptionComponent implements OnInit {
-  
+
   currentState;
   ngOnInit() {
    this.currentState='close'
   }
   subscriptionTab;
-  
+
   selected: any;
-  constructor(private eventService:EventService,private subinject:subscriptionInject) {
+  constructor(private eventService:EventService,private subinject:SubscriptionInject) {
     this.eventService.sidebarSubscribeData.subscribe(
       data => this.getFileResponseDataAum(data)
      )
@@ -61,11 +61,11 @@ export class SubscriptionComponent implements OnInit {
     this.currentState=value
     console.log(value)
   }
-  
-   
+
+
   rightBar()
   {
-    this.currentState='open';   
+    this.currentState='open';
   }
   rightBarHelp()
   {
@@ -77,6 +77,6 @@ export class SubscriptionComponent implements OnInit {
     this.subscriptionTab = event.tab.textLabel;
   }
   help(){
-   
+
   }
 }

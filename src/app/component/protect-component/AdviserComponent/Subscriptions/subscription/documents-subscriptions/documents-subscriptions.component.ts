@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { subscriptionInject } from '../../subscription-inject.service';
+import { SubscriptionInject } from '../../subscription-inject.service';
 import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
 import { MatDialogRef, MatDialog } from '@angular/material';
 
@@ -25,7 +25,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class DocumentsSubscriptionsComponent implements OnInit {
 
-  constructor(public subInjectService:subscriptionInject,public dialog:MatDialog ) { }
+  constructor(public subInjectService:SubscriptionInject, public dialog:MatDialog ) { }
 
   ngOnInit() {
   }

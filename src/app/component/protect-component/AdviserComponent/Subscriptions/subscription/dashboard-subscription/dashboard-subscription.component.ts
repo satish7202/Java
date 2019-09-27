@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SubscriptionComponent } from '../subscription.component';
-import { subscriptionInject } from '../../subscription-inject.service';
+import { SubscriptionInject } from '../../subscription-inject.service';
 import { EventService } from 'src/app/Data-service/event.service';
 import { MatDialog } from '@angular/material';
 import { DeleteSubscriptionComponent } from '../common-subscription-component/delete-subscription/delete-subscription.component';
@@ -28,7 +28,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class DashboardSubscriptionComponent implements OnInit {
 
-  constructor(public subInjectService:subscriptionInject,public eventService:EventService,public dialog:MatDialog) { }
+  constructor(public subInjectService:SubscriptionInject, public eventService:EventService, public dialog:MatDialog) { }
 
   ngOnInit() {
   }

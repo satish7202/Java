@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { subscriptionInject } from '../../../subscription-inject.service';
+import { SubscriptionInject } from '../../../subscription-inject.service';
 import { HowToUseDialogComponent } from '../how-to-use-dialog/how-to-use-dialog.component';
 import { MatDialog } from '@angular/material';
 
@@ -11,7 +11,7 @@ import { MatDialog } from '@angular/material';
 })
 export class TermsAgreementComponent implements OnInit {
 
-  constructor(public subInjectService:subscriptionInject,public dialog:MatDialog ) { }
+  constructor(public subInjectService:SubscriptionInject, public dialog:MatDialog ) { }
 
   ngOnInit() {
   }
@@ -39,10 +39,10 @@ export class TermsAgreementComponent implements OnInit {
        autoFocus:false,
 
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
-  
+
     });
-  
+
   }
 }

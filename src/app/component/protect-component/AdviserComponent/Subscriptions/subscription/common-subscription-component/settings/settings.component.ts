@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { subscriptionInject } from '../../../subscription-inject.service';
+import { SubscriptionInject } from '../../../subscription-inject.service';
 import { EventService } from 'src/app/Data-service/event.service';
 import { SubscriptionService } from '../../../subscription.service';
 
@@ -11,7 +11,7 @@ import { SubscriptionService } from '../../../subscription.service';
 export class SettingsComponent implements OnInit {
   SettingProfileData: any;
 
-  constructor(public subInjectService:subscriptionInject,private eventService:EventService,private subService:SubscriptionService) { }
+  constructor(public subInjectService:SubscriptionInject, private eventService:EventService, private subService:SubscriptionService) { }
 
   ngOnInit() {
     this.getSettingProfileData();

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SubscriptionComponent } from '../../subscription.component';
-import { subscriptionInject } from '../../../subscription-inject.service';
+import { SubscriptionInject } from '../../../subscription-inject.service';
 @Component({
   selector: 'app-help',
   templateUrl: './help.component.html',
@@ -8,7 +8,7 @@ import { subscriptionInject } from '../../../subscription-inject.service';
 })
 export class HelpComponent implements OnInit {
 
-  constructor(public subInjectService:subscriptionInject) { }
+  constructor(public subInjectService:SubscriptionInject) { }
 
   ngOnInit() {
   }

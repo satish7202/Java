@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { subscriptionInject } from '../../../subscription-inject.service';
+import { SubscriptionInject } from '../../../subscription-inject.service';
 
 @Component({
   selector: 'app-modify-fee-structure',
@@ -9,7 +9,7 @@ import { subscriptionInject } from '../../../subscription-inject.service';
 export class ModifyFeeStructureComponent implements OnInit {
  
   @Input() ModifyFeesChange;
-  constructor(public subInjectService:subscriptionInject) { }
+  constructor(public subInjectService:SubscriptionInject) { }
 
   ngOnInit() {
   }

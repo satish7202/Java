@@ -3,7 +3,7 @@ import { UpperSliderComponent } from '../../common-subscription-component/upper-
 import { MatDialog } from '@angular/material';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { EventService } from 'src/app/Data-service/event.service';
-import { subscriptionInject } from '../../../subscription-inject.service';
+import { SubscriptionInject } from '../../../subscription-inject.service';
 @Component({
   selector: 'app-documents-settings',
   templateUrl: './documents-settings.component.html',
@@ -11,7 +11,7 @@ import { subscriptionInject } from '../../../subscription-inject.service';
 })
 export class DocumentsSettingsComponent implements OnInit {
   button:any;
-  constructor(public dialog: MatDialog,public eventService:EventService,public subInjectService:subscriptionInject) { }
+  constructor(public dialog: MatDialog,public eventService:EventService,public subInjectService:SubscriptionInject) { }
 
   ngOnInit() {
   }
