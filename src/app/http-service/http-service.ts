@@ -38,11 +38,13 @@ export class HttpService {
     return this._http
       .post(this.baseUrl + url, body, httpOptions)
       .map((res:any) => {
-        if (res['status'] === 'AUTH_TOKEN_EXPIRED') {
-          window.alert('Invalid user, please login');
+        if (res.status === 200) {
+          let resData = this.changeBase64ToString(res);
+          console.log(resData)
+          return resData;
+        }
+        else {
           this._router.navigate(['login']);
-        } else {
-          return res;
         }
       })
       .catch((err) => {
@@ -61,11 +63,13 @@ export class HttpService {
     return this._http
       .put(this.baseUrl + url, body, httpOptions)
       .map((res:any) => {
-        if (res['status'] === 'AUTH_TOKEN_EXPIRED') {
-          window.alert('Invalid user, please login');
+        if (res.status === 200) {
+          let resData = this.changeBase64ToString(res);
+          console.log(resData)
+          return resData;
+        }
+        else {
           this._router.navigate(['login']);
-        } else {
-          return res;
         }
       })
       .catch((err) => {
@@ -175,6 +179,7 @@ export class HttpService {
         }
       });
   }
+           // created by sarvesh
 
   changeBase64Data(params): string {
     const objJsonStr = JSON.stringify(params);

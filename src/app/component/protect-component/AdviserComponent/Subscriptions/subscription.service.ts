@@ -39,6 +39,14 @@ export class SubscriptionService {
     let httpParams=new HttpParams().set('advisorId',data.advisorId).set('type',data.type);
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_PREFERENCE_INVOICE_QUOTATIONS_SUBSCRIPTION,httpParams);
   }
+  updatePreferenceInvoiceQuotationsSubscription(data)
+  { 
+    return this.http.put(apiConfig.MAIN_URL + appConfig.UPDATE_PREFERENCE_INVOICE_QUOTATIONS_SUBSCRIPTION,data)
+  }
+  savePreferenceInvoiceQuotationsSubscription(data)
+  {
+   let httpParams=new HttpParams().set('advisorId',data.advisorId).set('id',data.id).set('nextNumber',data.nextNumber).set('prefix',data.prefix).set('type',data.type);
+  }
   getSubscriptionCompleteStages(data)
   { 
     let httpParams=new HttpParams().set('advisorId',data.advisorId).set('type',data.type);
@@ -84,6 +92,23 @@ export class SubscriptionService {
     let httpParams=new HttpParams().set('advisorId',data.advisorId).set('planId',data.planId)
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SUBSCRIPTION_PLAN_SERVICE,httpParams)
   }
+  addSettingPlanOverviewData(data)
+  {
+    return this.http.post(apiConfig.MAIN_URL +appConfig.ADD_SETTING_PLAN_OVERVIEW,data)
+  }
+  mapServiceToPlanData(data)
+  { 
+    return this.http.post(apiConfig.MAIN_URL + appConfig.MAP_SERVICE_TO_PLAN,data)
+  }
+  mapDocumentsToPlanData(data)
+  {
+    return this.http.post(apiConfig.MAIN_URL +appConfig.MAP_DOCUMENTS_TO_PLAN,data);
+  }
+  getPlanDocumentsData(data)
+  {
+    let httpParams=new HttpParams().set('advisorId',data.advisorId).set('planId',data.planId);
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_PLAN_DOCUMENTS_DATA,httpParams)
+  }
   cancelSubscriptionData(data)
   {
     let httpParams=new HttpParams().set('advisorId',data);
@@ -94,8 +119,11 @@ export class SubscriptionService {
     let httpParams=new HttpParams().set('advisorId',data);
     return this.http.put(apiConfig.MAIN_URL + appConfig.DELETE_SUBSCRIPTION,httpParams);
   }
+  saveBillerProfileSettings(data)
+  {
+   return this.http.post(apiConfig.MAIN_URL + appConfig.SAVE_BILLER_PROFILE_SETTING,data);
+  }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data,10000)
   }
 }
-
