@@ -7,22 +7,22 @@ import { SubscriptionInject } from '../subscription-inject.service';
   selector: 'app-subscription',
   templateUrl: './subscription.component.html',
   styleUrls: ['./subscription.component.css'],
-  animations:[
-    trigger('openClose',[
-      state('open',style({
-        left:'40%'
+  animations: [
+    trigger('openClose', [
+      state('open', style({
+        left: '40%'
       })),
-      state('openHelp',style({
+      state('openHelp', style({
         // width:'35%'
       })),
-      state('close',style({
+      state('close', style({
         // width:'0%'
-        left:'100%'
+        left: '100%'
       })),
-      transition('close => open',[animate('0.3s')]),
-      transition('open => close',[animate('0.1s')]),
-      transition('close => openHelp',[animate('0.3s')]),
-      transition('openHelp => close',[animate('0.1s')])
+      transition('close => open', [animate('0.3s')]),
+      transition('open => close', [animate('0.1s')]),
+      transition('close => openHelp', [animate('0.3s')]),
+      transition('openHelp => close', [animate('0.1s')])
     ])
   ]
 })
@@ -30,53 +30,49 @@ export class SubscriptionComponent implements OnInit {
 
   currentState;
   ngOnInit() {
-   this.currentState='close'
+    this.currentState = 'close'
   }
   subscriptionTab;
 
   selected: any;
-  constructor(private eventService:EventService,private subinject:SubscriptionInject) {
+  constructor(private eventService: EventService, private subinject: SubscriptionInject) {
     this.eventService.sidebarSubscribeData.subscribe(
       data => this.getFileResponseDataAum(data)
-     )
-     this.eventService.tabChangeData.subscribe(
+    )
+    this.eventService.tabChangeData.subscribe(
       data => this.gettabChangeData(data)
-     )
-     this.subinject.rightSideBarData.subscribe(
-       data =>this.getRightSliderData(data)
-     )
-   }
-
-   getFileResponseDataAum(data){
-        console.log(data)
-        this.subscriptionTab=data;
-
-   }
-   gettabChangeData(data){
-     console.log(data)
-     this.selected=data;
+    )
+    this.subinject.rightSideBarData.subscribe(
+      data => this.getRightSliderData(data)
+    )
   }
-  getRightSliderData(value)
-  {
-    this.currentState=value
+
+  getFileResponseDataAum(data) {
+    console.log(data)
+    this.subscriptionTab = data;
+
+  }
+  gettabChangeData(data) {
+    console.log(data)
+    this.selected = data;
+  }
+  getRightSliderData(value) {
+    this.currentState = value
     console.log(value)
   }
 
 
-  rightBar()
-  {
-    this.currentState='open';
+  rightBar() {
+    this.currentState = 'open';
   }
-  rightBarHelp()
-  {
-    this.currentState='openHelp';
+  rightBarHelp() {
+    this.currentState = 'openHelp';
   }
-  tabClick(event)
-  {
+  tabClick(event) {
     console.log(event)
     this.subscriptionTab = event.tab.textLabel;
   }
-  help(){
+  help() {
 
   }
 }
