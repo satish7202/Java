@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {subscriptionInject} from '../../../subscription-inject.service';
+import {SubscriptionInject} from '../../../subscription-inject.service';
 import {EventService} from 'src/app/Data-service/event.service';
 
 
@@ -14,8 +14,8 @@ export interface PeriodicElement {
   sdate: string;
   cdate: string;
   status:string;
- } 
-  
+ }
+
 
 @Component({
   selector: 'app-quotations',
@@ -24,7 +24,7 @@ export interface PeriodicElement {
 })
 export class QuotationsComponent implements OnInit {
 
-  constructor(public subInjectService:subscriptionInject,private eventService:EventService,public dialog: MatDialog,private subAService:SubscriptionService) {
+  constructor(public subInjectService:SubscriptionInject, private eventService:EventService, public dialog: MatDialog, private subAService:SubscriptionService) {
     this.subInjectService.closeRightSlider.subscribe(
       data => this.getQuotationDesignData(data)
     )
@@ -47,7 +47,7 @@ export class QuotationsComponent implements OnInit {
     this.subAService.getSubscriptionClientsQuotations(obj).subscribe(
       data =>this.getQuotationsListResponse(data)
     )
-  } 
+  }
   getQuotationsListResponse(data){
     console.log("dsfgasdfsdf",data);
     this.dataSource=data

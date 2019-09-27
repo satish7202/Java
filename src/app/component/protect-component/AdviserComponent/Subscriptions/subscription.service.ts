@@ -41,8 +41,7 @@ export class SubscriptionService {
   }
   updatePreferenceInvoiceQuotationsSubscription(data)
   { 
-    let httpParams=new HttpParams().set('advisorId',data.advisorId).set('id',data.id).set('nextNumber',data.nextNumber).set('prefix',data.prefix).set('type',data.type);
-    return this.http.put(apiConfig.MAIN_URL + appConfig.UPDATE_PREFERENCE_INVOICE_QUOTATIONS_SUBSCRIPTION,httpParams)
+    return this.http.put(apiConfig.MAIN_URL + appConfig.UPDATE_PREFERENCE_INVOICE_QUOTATIONS_SUBSCRIPTION,data)
   }
   savePreferenceInvoiceQuotationsSubscription(data)
   {
@@ -95,12 +94,15 @@ export class SubscriptionService {
   }
   addSettingPlanOverviewData(data)
   {
-    let httpParams=new HttpParams().set('advisorId',data.advisorId).set('createdDate',data.createdDate).set('description',data.description).set('id',data.id).set('isActive',data.isActive).set('isPublic',data.isPublic).set('lastUpdatedDate',data.lastUpdatedDate).set('logoUrl',data.logoUrl).set('name',data.name).set('planRepoId',data.planRepoId);
-    return this.http.post(apiConfig.MAIN_URL +appConfig.ADD_SETTING_PLAN_OVERVIEW,httpParams)
+    return this.http.post(apiConfig.MAIN_URL +appConfig.ADD_SETTING_PLAN_OVERVIEW,data)
   }
   mapServiceToPlanData(data)
   { 
     return this.http.post(apiConfig.MAIN_URL + appConfig.MAP_SERVICE_TO_PLAN,data)
+  }
+  mapDocumentsToPlanData(data)
+  {
+    return this.http.post(apiConfig.MAIN_URL +appConfig.MAP_DOCUMENTS_TO_PLAN,data);
   }
   getPlanDocumentsData(data)
   {
@@ -116,6 +118,10 @@ export class SubscriptionService {
   {
     let httpParams=new HttpParams().set('advisorId',data);
     return this.http.put(apiConfig.MAIN_URL + appConfig.DELETE_SUBSCRIPTION,httpParams);
+  }
+  saveBillerProfileSettings(data)
+  {
+   return this.http.post(apiConfig.MAIN_URL + appConfig.SAVE_BILLER_PROFILE_SETTING,data);
   }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data,10000)

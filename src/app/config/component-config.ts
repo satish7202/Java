@@ -64,9 +64,11 @@
     GET_SUBSCRIPTION_PLAN_SERVICE:'futurewise/subscriptions/settings/plan-service/get',
     ADD_SETTING_PLAN_OVERVIEW:'futurewise/subscriptions/addPlan/get',
     MAP_SERVICE_TO_PLAN:'futurewise/subscriptions/settings/plan/mapservice',
+    MAP_DOCUMENTS_TO_PLAN:'futurewise/subscriptions/settings/plan/mapdocument',
     GET_PLAN_DOCUMENTS_DATA:'futurewise/subscriptions/settings/plan-document/get',
     DASHBOARD_SUBSCRIPTION_LETS_BEGIN:'futurewise/subscriptions/letsBegin/get',
     CANCEL_SUBSCRIPTION:'futurewise/subscriptions/cancel/subscription/get',
     DELETE_SUBSCRIPTION:'futurewise/subscriptions/delete/subscription',
+    SAVE_BILLER_PROFILE_SETTING:'futurewise/subscriptions/settings/billerprofile/save',
     GET_BASE_64:'futurewise/api/v1/test/base64/decode'
 }

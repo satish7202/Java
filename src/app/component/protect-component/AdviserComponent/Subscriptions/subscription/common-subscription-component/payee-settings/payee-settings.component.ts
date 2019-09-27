@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { subscriptionInject } from '../../../subscription-inject.service';
+import { SubscriptionInject } from '../../../subscription-inject.service';
 import { EventService } from 'src/app/Data-service/event.service';
 
 @Component({
@@ -8,14 +8,14 @@ import { EventService } from 'src/app/Data-service/event.service';
   styleUrls: ['./payee-settings.component.scss']
 })
 export class PayeeSettingsComponent implements OnInit {
-   
+
   settingsModal;
-  constructor(public subInjectService:subscriptionInject,private eventService:EventService) {
+  constructor(public subInjectService:SubscriptionInject, private eventService:EventService) {
     // this.eventService.rightSliderData.subscribe(
     //   data =>this.getRightSliderData(data)
     // )
    }
-   
+
    getRightSliderData(data)
    {
      this.settingsModal=data;
@@ -23,8 +23,8 @@ export class PayeeSettingsComponent implements OnInit {
   ngOnInit() {
   }
   Close(state)
-  { 
+  {
     this.subInjectService.rightSliderData(state)
-   this.subInjectService.rightSideData(state); 
+   this.subInjectService.rightSideData(state);
   }
 }
