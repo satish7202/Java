@@ -6,6 +6,7 @@ import {EventService} from 'src/app/Data-service/event.service';
 import {SubscriptionPopupComponent} from '../subscription-popup/subscription-popup.component';
 import {SubscriptionService} from '../../../subscription.service';
 import * as _ from 'lodash';
+import {AddDocumentComponent} from '../add-document/add-document.component';
 
 export interface PeriodicElement {
   document: string;
@@ -56,6 +57,21 @@ export class DocumentComponent implements OnInit {
   ngOnInit() {
     this.getplanDocumentData();
     this.documentDesign = 'true';
+  }
+
+  openDocument(data) {
+    const Fragmentdata = {
+      Flag: data,
+    };
+    const dialogRef = this.dialog.open(AddDocumentComponent, {
+      width: '70%',
+      data: Fragmentdata,
+      autoFocus: false,
+
+    });
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
   }
 
   openPopup(data) {
