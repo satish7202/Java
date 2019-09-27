@@ -50,15 +50,11 @@ export class SubscriptionComponent implements OnInit {
    getFileResponseDataAum(data){
         console.log(data)
         this.subscriptionTab=data;
-        if(data =='clientHelp' || data=='documentHelp'){
-        this.rightBarHelp(); 
-        }else{
-        this.rightBar();
-        }
+
    }
    gettabChangeData(data){
      console.log(data)
-   this.selected=data;
+     this.selected=data;
   }
   getRightSliderData(value)
   {
