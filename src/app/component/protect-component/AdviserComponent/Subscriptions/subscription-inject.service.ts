@@ -44,6 +44,7 @@ export class SubscriptionInject {
   }*/
 
   addSingleProfile(obj) {
+    /**/
     this.billerData.next(obj);
   }
 }
