@@ -6,6 +6,8 @@ import { ConfirmDialogComponent } from 'src/app/component/protect-component/comm
 import { EventService } from 'src/app/Data-service/event.service';
 import { SubscriptionPopupComponent } from '../subscription-popup/subscription-popup.component';
 import { SubscriptionService } from '../../../subscription.service';
+import * as _ from "lodash";
+
 export interface PeriodicElement {
   document: string;
   plan: string;
@@ -28,6 +30,7 @@ export class DocumentComponent implements OnInit {
 
   documentDesign;           
   planDocumentData;
+  mappedData=[];
   constructor(public dialogRef:MatDialogRef<DocumentComponent>,public subInjectService:subscriptionInject,private eventService:EventService,public dialog: MatDialog,private subService:SubscriptionService) 
   {
     this.subInjectService.rightSliderDocument.subscribe(
@@ -59,7 +62,22 @@ export class DocumentComponent implements OnInit {
   }
   selectDocument(data)
   {
-    (data.checked)?data.checked=false:data.checked=true;
+    (data.selected)?this.unmapDocumentToPlan(data):this.mapDocumentToPlan(data);
+  }
+  mapDocumentToPlan(data)
+  {
+    data.selected=true;
+    this.mappedData.push(data)
+    console.log(this.mappedData.length)
+  }
+  unmapDocumentToPlan(data)
+  {
+    data.selected=false;
+    _.remove(this.mappedData,function(delData)
+    {
+      return  delData.documentRepositoryId ==data.documentRepositoryId;
+    })
+    console.log(this.mappedData.length)
   }
   openDocumentESign(value,state)
   {
@@ -109,6 +127,21 @@ export class DocumentComponent implements OnInit {
   
     });
   
+  }
+  savePlanMapToDocument()
+  {
+    let obj=[];
+    this.mappedData.forEach(element => {
+       let data={
+        "advisorId": 2735,
+        "documentRepositoryId":element.documentRepositoryId,
+        "planId": 10
+       }
+       obj.push(data)
+    });
+    this.subService.mapDocumentsToPlanData(obj).subscribe(
+      data=>console.log(data)
+    )
   }
   displayedColumns: string[] = ['checkbox','document','plan','service', 'date', 'sdate','cdate','status','icons'];
   dataSource = ELEMENT_DATA;

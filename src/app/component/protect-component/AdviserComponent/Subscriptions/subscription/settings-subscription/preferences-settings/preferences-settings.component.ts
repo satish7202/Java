@@ -4,6 +4,7 @@ import { EventService } from 'src/app/Data-service/event.service';
 import { subscriptionInject } from '../../../subscription-inject.service';
 import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material';
+import { FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-preferences-settings',
   templateUrl: './preferences-settings.component.html',
@@ -11,12 +12,13 @@ import { MatDialog } from '@angular/material';
 })
 export class PreferencesSettingsComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private subscription: SubscriptionService, public subInjectService: subscriptionInject, private eventService: EventService) { }
+  constructor(private fb:FormBuilder,public dialog: MatDialog, private subscription: SubscriptionService, public subInjectService: subscriptionInject, private eventService: EventService) { }
   viewMode = 'tab1';
   advisorId = 2735;
   prefixData;
   showLoader = false;
   billerProfileData;
+  PrefixData;
   ngOnInit() {
     this.viewMode = "tab1";
     this.getProfileBillerData();
@@ -40,15 +42,19 @@ export class PreferencesSettingsComponent implements OnInit {
     let obj = {
       "advisorId":2735,
       "id": 0,
-      "nextNumber": data.nextNumber,
-      "prefix":data.prefix,
+      "nextNumber": this.prefixData.nextNo,
+      "prefix":this.prefixData.prefix,
       "type": 1
     }
 
     this.subscription.updatePreferenceInvoiceQuotationsSubscription(obj).subscribe(
-      data=>console.log(data)
+      data=>this.savePrefixResponse(data)
     )
 
+  }
+  savePrefixResponse(data)
+  {
+    this.prefixData=data;
   }
   getProfileBillerDataResponse(data) {
     console.log("jksdfsdfaksdf", data)
@@ -56,7 +62,11 @@ export class PreferencesSettingsComponent implements OnInit {
   }
   getInvoiceQuotationResponse(data, type) {
     this.showLoader = false;
-    this.prefixData = data;
+    this.prefixData=this.fb.group({
+      prefix:[data.prefix],
+      nextNo:[data.nextNumber]
+    })
+    
   }
   Open(singleProfile, value, state) {
 

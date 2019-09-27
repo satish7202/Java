@@ -23,17 +23,13 @@ export class AddStructureComponent implements OnInit {
   }
   addPlanData() {
     let obj = {
-      "advisorId": 0,
-      "createdDate": "2019-09-26T08:24:51.781Z",
-      "description": "string",
-      "id": 0,
-      "isActive": 0,
-      "isPublic": 0,
-      "lastUpdatedDate": "2019-09-26T08:24:51.781Z",
-      "logoUrl": "string",
-      "name": "string",
-      "planRepoId": 0
-    }
+      "name" : "chetan gohil",
+      "description" : "descripppppption",
+      "advisorId" : 12345,
+      "logoUrl" : "url",
+      "isPublic" : 1,
+      "isActive" : 1
+  }
     this.subService.addSettingPlanOverviewData(obj).subscribe(
       data => console.log(data)
     )

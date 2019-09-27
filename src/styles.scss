@@ -384,8 +384,9 @@
     position: fixed;
     z-index: 222;
     top: 0;
-    width: 0;
-    right: 0;
+    width: 60%;
+    // right: 0;
+    left: 100%;
     background-color: #fff;
     overflow-x: hidden;
     // transition: 0.4s;
