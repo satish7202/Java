@@ -77,6 +77,8 @@ import { AddVariableFeeComponent } from './component/protect-component/AdviserCo
 import { AddFixedFeeComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/add-fixed-fee/add-fixed-fee.component';
 import { OverviewBlankQuotationComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/overview-blank-quotation/overview-blank-quotation.component';
 import { CreateSubscriptionComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/create-subscription/create-subscription.component';
+import { HowToUseDialogComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/how-to-use-dialog/how-to-use-dialog.component';
+import { AddDocumentComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/add-document/add-document.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -145,7 +147,9 @@ import { CreateSubscriptionComponent } from './component/protect-component/Advis
     CreateSubscriptionComponent,
     AddVariableFeeComponent,
     AddFixedFeeComponent,
-    OverviewBlankQuotationComponent
+    OverviewBlankQuotationComponent,
+    HowToUseDialogComponent,
+    AddDocumentComponent
     
   ],
   imports: [
@@ -162,6 +166,6 @@ import { CreateSubscriptionComponent } from './component/protect-component/Advis
   providers: [AuthService,HttpService],
   bootstrap: [AppComponent],
   entryComponents:[UpperSliderComponent,
-    ConfirmDialogComponent,SubscriptionPopupComponent,DeleteSubscriptionComponent]
+    ConfirmDialogComponent,SubscriptionPopupComponent,DeleteSubscriptionComponent,HowToUseDialogComponent,AddDocumentComponent]
 })
 export class AppModule { }

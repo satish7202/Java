@@ -5,6 +5,7 @@ import { subscriptionInject } from '../../../subscription-inject.service';
 import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
 import { EventService } from 'src/app/Data-service/event.service';
 import { SubscriptionPopupComponent } from '../subscription-popup/subscription-popup.component';
+import { AddDocumentComponent } from '../add-document/add-document.component';
 export interface PeriodicElement {
   document: string;
   plan: string;
@@ -41,6 +42,20 @@ export class DocumentComponent implements OnInit {
   @Input() componentFlag:string;
   ngOnInit() {
     this.documentDesign='true'
+  }
+  openDocument(data){
+    let Fragmentdata = {
+      Flag: data,
+    }
+    const dialogRef = this.dialog.open(AddDocumentComponent, {
+      width: '70%',
+      data: Fragmentdata,
+      autoFocus:false,
+     
+   });
+   dialogRef.afterClosed().subscribe(result => {
+
+  });
   }
   openPopup(data){
     let Fragmentdata = {
