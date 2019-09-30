@@ -27,6 +27,7 @@ export class AddStructureComponent implements OnInit {
       "description" : "descripppppption",
       "advisorId" : 12345,
       "logoUrl" : "url",
+      'code':123,  
       "isPublic" : 1,
       "isActive" : 1
   }

@@ -123,6 +123,10 @@ export class SubscriptionService {
   {
    return this.http.post(apiConfig.MAIN_URL + appConfig.SAVE_BILLER_PROFILE_SETTING,data);
   }
+  updateBillerProfileSettings(data)
+  {
+    return this.http.post(apiConfig.MAIN_URL +appConfig.UPDATE_BILLER_PROFILE_SETTING,data);
+  }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data,10000)
   }

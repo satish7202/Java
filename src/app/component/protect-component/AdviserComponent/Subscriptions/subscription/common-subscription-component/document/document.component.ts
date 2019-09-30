@@ -131,10 +131,16 @@ export class DocumentComponent implements OnInit {
     this.subService.getPlanDocumentsData(obj).subscribe(
       data => this.getplanDocumentDataResponse(data)
     );
+    
   }
 
   getplanDocumentDataResponse(data) {
     this.planDocumentData = data;
+
+    this.planDocumentData.forEach(function(data)
+    {
+      this.mapDocumentToPlan(data);
+    })
   }
 
   deleteModal(value) {

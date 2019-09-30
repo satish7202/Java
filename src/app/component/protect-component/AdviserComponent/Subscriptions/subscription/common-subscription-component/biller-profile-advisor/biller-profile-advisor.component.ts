@@ -90,7 +90,9 @@ export class BillerProfileAdvisorComponent implements OnInit {
       "zipCode":this.billerProfileForm.controls.profileDetailsForm.controls.zipCode.value
     }
     console.log(obj)
-
+    this.subService.updateBillerProfileSettings(obj).subscribe(
+      data=>console.log(data)
+    )
     this.subService.saveBillerProfileSettings(obj).subscribe(
       data =>console.log(data)
     )
