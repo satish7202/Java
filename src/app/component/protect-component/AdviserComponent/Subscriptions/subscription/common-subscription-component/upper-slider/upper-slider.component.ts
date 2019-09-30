@@ -14,7 +14,7 @@ import {SubscriptionInject} from '../../../subscription-inject.service';
         left:'40%'
       })),
       state('close', style({
-
+        left:'100%' 
       })),
       state('closeSlider', style({
         left:'100%'

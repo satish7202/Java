@@ -123,6 +123,20 @@ export class SubscriptionService {
   {
    return this.http.post(apiConfig.MAIN_URL + appConfig.SAVE_BILLER_PROFILE_SETTING,data);
   }
+  updateBillerProfileSettings(data)
+  {
+    return this.http.post(apiConfig.MAIN_URL +appConfig.UPDATE_BILLER_PROFILE_SETTING,data);
+  }
+  getSubscriptionPlanSettingsData(data)
+  {
+    let httpParams=new HttpParams().set('advisorId',data.advisorId);
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SUBSCRIPTION_PLAN_SETTING,httpParams)
+  }
+  getSubscriptionServiceSettingsData(data)
+  {
+    let httpParams=new HttpParams().set('advisorId',data.advisorId);
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SUBSCRIPTION_SERVICE_SETTING,httpParams)
+  }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data,10000)
   }

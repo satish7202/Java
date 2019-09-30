@@ -64,7 +64,7 @@
                             <mat-card class="p-0 b-a" (click)="selectServicePlan(singleServicePlan)" [ngClass]="{'p-0': singleServicePlan.checked==false,'b-a':singleServicePlan.checked==false,'p-0':singleServicePlan.checked,'ba-green':singleServicePlan.checked}">
                                 <div class="row bg-grey lter">
                                     <div class="col-md-12 p-0">
-                                            <mat-checkbox class="custom-checkbox" checked="false" *ngIf="singleServicePlan.checked"></mat-checkbox>
+                                            <mat-checkbox class="custom-checkbox" checked="false" [ngClass]="{'v-h': singleServicePlan.checked==false}"></mat-checkbox>
                                     </div>
                                     <div class="col-md-12 p-0">
                                         <h3 class="m-0 pt-18 pl-24">{{singleServicePlan.title}}</h3>

@@ -37,7 +37,7 @@ export class SubscriptionsUpperSliderComponent implements OnInit {
   dataSource = ELEMENT_DATA;
   
   openPlanSlider(value,state)
-  { 
+  {
     this.eventService.sliderData(value);
     this.subInjectService.rightSliderData(state)
   }

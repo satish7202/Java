@@ -131,6 +131,7 @@ export class DocumentComponent implements OnInit {
     this.subService.getPlanDocumentsData(obj).subscribe(
       data => this.getplanDocumentDataResponse(data)
     );
+    
   }
 
   getplanDocumentDataResponse(data) {
