@@ -19,6 +19,7 @@ export class PreferencesSettingsComponent implements OnInit {
   showLoader = false;
   billerProfileData;
   PrefixData;
+  selected;
   ngOnInit() {
     this.viewMode = "tab1";
     this.getProfileBillerData();
@@ -73,7 +74,7 @@ export class PreferencesSettingsComponent implements OnInit {
     this.eventService.sidebarData(value)
     this.subInjectService.rightSideData(state);
     this.subInjectService.addSingleProfile(singleProfile);
-
+    this.selected=0;
   }
   deleteModal(value) {
     let dialogData = {

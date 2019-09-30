@@ -136,11 +136,6 @@ export class DocumentComponent implements OnInit {
 
   getplanDocumentDataResponse(data) {
     this.planDocumentData = data;
-
-    this.planDocumentData.forEach(function(data)
-    {
-      this.mapDocumentToPlan(data);
-    })
   }
 
   deleteModal(value) {

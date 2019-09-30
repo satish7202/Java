@@ -21,8 +21,8 @@
                 <mat-card class="example-card bg-grey lter p-0">
                     <mat-card-header>
                         <div class="wrapper-20">
-                            <mat-card-title class="mb-0 f-24">{{singleService.title}}</mat-card-title>
-                            <mat-card-subtitle class="pt-4 pb-12">{{singleService.code}}</mat-card-subtitle>
+                            <mat-card-title class="mb-0 f-24">{{singleService.serviceName}}</mat-card-title>
+                            <mat-card-subtitle class="pt-4 pb-12">{{singleService.serviceCode}}</mat-card-subtitle>
                         </div>
                     </mat-card-header>
     
@@ -31,35 +31,35 @@
                         <div class="row wrapper-20">
                             <div class="col-md-6 p-0">
                                 <p class="mb-0 text-primitive f-12">FEE TYPE</p>
-                                <label class="bg-header mt-4">{{singleService.feetype}}</label>
+                                <label class="bg-header mt-4">{{singleService.feeType}}</label>
                             </div>
                             <div class="col-md-6 p-0">
                                 <p class="f-12 mb-0 text-primitive">BILLING NATURE</p>
-                                <p class="f-18 pt-4 mb-0">{{singleService.Nature}}</p>
+                                <p class="f-18 pt-4 mb-0">{{singleService.billingNature}}</p>
                             </div>
                         </div>
                         <div class="row wrapper-20 pt-0">
                             <div class="col-md-6 p-0">
                                 <p class="mb-0 text-primitive f-12">BILLING MODE</p>
-                                <p class="mb-0 f-18">{{singleService.Mode}}</p>
+                                <p class="mb-0 f-18">{{singleService.billingMode}}</p>
                             </div>
                             <div class="col-md-6 p-0">
                                 <p class="f-12 mb-0 text-primitive">FEES</p>
-                                <p class="f-18 mb-0">{{singleService.FEES}}</p>
+                                <p class="f-18 mb-0">{{singleService.amount}}</p>
                             </div>
                         </div>
                         <div class="row wrapper-20 bt-1 bb-1">
                             <div class="col-md-4 p-0">
                                 <p class="f-14 text-primitive">PLANS</p>
-                                <p class="f-24">{{singleService.PLANS}}</p>
+                                <p class="f-24">{{singleService.planCount}}</p>
                             </div>
                             <div class="col-md-4 p-0">
                                 <p class="f-14 text-primitive">MODULES</p>
-                                <p class="f-24">{{singleService.MODULES}}</p>
+                                <p class="f-24">{{singleService.moduleCount}}</p>
                             </div>
                             <div class="col-md-4 p-0">
                                 <p class="f-14 text-primitive">DOCUMENTS</p>
-                                <p class="f-24">{{singleService.DOCUMENTS}}</p>
+                                <p class="f-24">{{singleService.docCount}}</p>
                             </div>
     
                         </div>

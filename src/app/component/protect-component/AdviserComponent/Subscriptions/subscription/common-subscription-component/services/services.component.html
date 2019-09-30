@@ -34,7 +34,7 @@
                     <div [ngClass]="{'box':serviceData.selected,'b-a':serviceData.selected==false }" (click)="selectService(serviceData,i)">
 
                         <div class="bg-grey lter text-left">
-                            <mat-checkbox class="custom-checkbox" checked="false" color="primary" *ngIf="serviceData.selected"></mat-checkbox>
+                            <mat-checkbox class="custom-checkbox" checked="false" color="primary" [ngClass]="{'v-h':serviceData.selected==false }"></mat-checkbox>
 
                             <div class="pl-24 pt-20">
                                 <h3 class="f-24 p-0 mb-0">{{serviceData.serviceName}} </h3>

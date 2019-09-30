@@ -49,7 +49,7 @@ export class SubscriptionsSubscriptionComponent implements OnInit {
   }
   getSubscriptionListResponse(data)
   {
-    console.log(data)
+    console.log("subscription data",data)
   }
   Open(value,state)
   {
