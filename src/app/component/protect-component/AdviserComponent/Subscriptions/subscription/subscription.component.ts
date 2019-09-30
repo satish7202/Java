@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from 'src/app/Data-service/event.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { from } from 'rxjs';
 import { SubscriptionInject } from '../subscription-inject.service';
 @Component({
   selector: 'app-subscription',
@@ -27,49 +26,44 @@ import { SubscriptionInject } from '../subscription-inject.service';
   ]
 })
 export class SubscriptionComponent implements OnInit {
-
-  currentState;
-  ngOnInit() {
-    this.currentState = 'close'
-  }
-  subscriptionTab;
-
-  selected: any;
   constructor(private eventService: EventService, private subinject: SubscriptionInject) {
     this.eventService.sidebarSubscribeData.subscribe(
       data => this.getFileResponseDataAum(data)
-    )
+    );
     this.eventService.tabChangeData.subscribe(
-      data => this.gettabChangeData(data)
-    )
+      data => this.getTabChangeData(data)
+    );
     this.subinject.rightSideBarData.subscribe(
       data => this.getRightSliderData(data)
-    )
+    );
+  }
+
+  currentState;
+  subscriptionTab;
+
+  selected: any;
+  ngOnInit() {
+    this.currentState = 'close';
   }
 
   getFileResponseDataAum(data) {
-    console.log(data)
     this.subscriptionTab = data;
-
   }
-  gettabChangeData(data) {
-    console.log(data)
+  getTabChangeData(data) {
     this.selected = data;
   }
   getRightSliderData(value) {
-    this.currentState = value
-    console.log(value)
+    this.currentState = value;
   }
 
 
-  rightBar() {
+  /*rightBar() {
     this.currentState = 'open';
   }
   rightBarHelp() {
     this.currentState = 'openHelp';
-  }
+  }*/
   tabClick(event) {
-    console.log(event)
     this.subscriptionTab = event.tab.textLabel;
   }
   help() {
