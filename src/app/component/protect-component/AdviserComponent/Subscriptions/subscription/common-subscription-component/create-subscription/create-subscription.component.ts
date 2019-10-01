@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { subscriptionInject } from '../../../subscription-inject.service';
 
 @Component({
   selector: 'app-create-subscription',
@@ -8,9 +9,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CreateSubscriptionComponent implements OnInit {
 
   @Input() modifyFeeTabChange;
-  constructor() { }
+  constructor(public subInjectService:subscriptionInject) { }
 
   ngOnInit() {
+  }
+  Close(state)
+  {
+    this.subInjectService.rightSideData(state);
+    this.subInjectService.rightSliderData(state); 
   }
 
 }
