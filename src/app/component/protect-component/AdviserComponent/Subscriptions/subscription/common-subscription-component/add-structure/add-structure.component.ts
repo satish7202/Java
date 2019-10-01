@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { subscriptionInject } from '../../../subscription-inject.service';
+import { SubscriptionInject } from '../../../subscription-inject.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { SubscriptionService } from '../../../subscription.service';
 @Component({
@@ -9,7 +9,7 @@ import { SubscriptionService } from '../../../subscription.service';
 })
 export class AddStructureComponent implements OnInit {
 
-  constructor(private subinject: subscriptionInject, private fb: FormBuilder, private subService: SubscriptionService) { }
+  constructor(private subinject: SubscriptionInject, private fb: FormBuilder, private subService: SubscriptionService) { }
   planName;
   ngOnInit() {
   }
@@ -24,11 +24,12 @@ export class AddStructureComponent implements OnInit {
   addPlanData() {
     let obj = {
       "name" : "chetan gohil",
-      "description" : "descripppppption",
-      "advisorId" : 12345,
-      "logoUrl" : "url",
-      "isPublic" : 1,
-      "isActive" : 1
+    "description" : "descripppppption",
+    "advisorId" : 12345,
+    "logoUrl" : "url",
+    "isPublic" : 1,
+    "isActive" : 1,
+    "code":'123'
   }
     this.subService.addSettingPlanOverviewData(obj).subscribe(
       data => console.log(data)

@@ -70,5 +70,8 @@
     CANCEL_SUBSCRIPTION:'futurewise/subscriptions/cancel/subscription/get',
     DELETE_SUBSCRIPTION:'futurewise/subscriptions/delete/subscription',
     SAVE_BILLER_PROFILE_SETTING:'futurewise/subscriptions/settings/billerprofile/save',
+    UPDATE_BILLER_PROFILE_SETTING:'futurewise/subscriptions/settings/billerprofile/update',
+    GET_SUBSCRIPTION_PLAN_SETTING:'futurewise/subscriptions/settings/plan/get',
+    GET_SUBSCRIPTION_SERVICE_SETTING:'futurewise/subscriptions/settings/service/get',
     GET_BASE_64:'futurewise/api/v1/test/base64/decode'
 }

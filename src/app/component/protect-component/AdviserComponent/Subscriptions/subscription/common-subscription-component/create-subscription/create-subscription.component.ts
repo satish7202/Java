@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { subscriptionInject } from '../../../subscription-inject.service';
+import { SubscriptionInject } from '../../../subscription-inject.service';
+import { EventService } from 'src/app/Data-service/event.service';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-create-subscription',
@@ -9,8 +11,9 @@ import { subscriptionInject } from '../../../subscription-inject.service';
 export class CreateSubscriptionComponent implements OnInit {
 
   @Input() modifyFeeTabChange;
-  constructor(public subInjectService:subscriptionInject) { }
-
+  constructor(public subInjectService:SubscriptionInject, private eventService:EventService) { }
+  isLinear = false;
+  step1Completed=true;
   ngOnInit() {
   }
   Close(state)

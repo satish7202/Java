@@ -1,5 +1,6 @@
 import { Component, OnInit ,Input} from '@angular/core';
-import { subscriptionInject } from '../../../subscription-inject.service';
+import { SubscriptionInject } from '../../../subscription-inject.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-overview-blank-quotation',
@@ -8,14 +9,31 @@ import { subscriptionInject } from '../../../subscription-inject.service';
 })
 export class OverviewBlankQuotationComponent implements OnInit {
 
-  constructor(public subInjectService:subscriptionInject) { }
+  constructor(public subInjectService:SubscriptionInject,private fb:FormBuilder) { }
   @Input () blankOverview:any;
+  blankDocumentProperties;
+  selectedOption;
   ngOnInit() {
+    this.createForm();
   }
-  
+  createForm()
+  {
+    this.blankDocumentProperties=this.fb.group({
+      docType:[""],
+      docName:[""],
+      docAvailability:[],
+      selectPlan:[]
+    })
+  }
   Close(state)
   {
     this.subInjectService.rightSliderData(state); 
   }
-
+  selectDocument(value)
+  {
+    this.selectedOption=value;
+    this.blankDocumentProperties.patchValue({
+      "docAvailability":value
+    })
+  }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { subscriptionInject } from '../../../subscription-inject.service';
+import { SubscriptionInject } from '../../../subscription-inject.service';
 export interface PeriodicElement {
   document: string;
   plan: string;
@@ -20,7 +20,7 @@ export interface PeriodicElement {
 })
 export class InvoiceComponent implements OnInit {
 
-  constructor(public subInjectService:subscriptionInject) { }
+  constructor(public subInjectService:SubscriptionInject) { }
   @Input() invoiceData;
   ngOnInit() {
   

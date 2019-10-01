@@ -1,50 +1,50 @@
-import { BehaviorSubject } from 'rxjs';
-import { Injectable } from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class subscriptionInject
-{
+export class SubscriptionInject {
   // right slider part
-  private openCloseRightSlider = new BehaviorSubject<any>("");
-  rightSideBarData=this.openCloseRightSlider.asObservable();
-  rightSideData(msg)
-  {
-    this.openCloseRightSlider.next(msg);
-  }
-   
+  private openCloseRightSlider = new BehaviorSubject<any>('');
+  rightSideBarData = this.openCloseRightSlider.asObservable();
+
   // upper slider part
 
-  private openCloseupperSlider =new BehaviorSubject("");
-  rightslider=this.openCloseupperSlider.asObservable();
-  rightSliderData(msg:string)
-  {
-    this.openCloseupperSlider.next(msg);
-  }
+  private openCloseupperSlider = new BehaviorSubject('');
+  rightslider = this.openCloseupperSlider.asObservable();
 
-  private openContent =new BehaviorSubject("");
-  closeRightSlider=this.openContent.asObservable();
-  closeSlider(msg:string)
-  {
-    this.openContent.next(msg);
-  }
+  private openContent = new BehaviorSubject('');
+  closeRightSlider = this.openContent.asObservable();
 
   // document-clients
 
-  private openDocument = new BehaviorSubject("");
-  rightSliderDocument=this.openDocument.asObservable();
-  rightDocumentSlider(msg:string)
-  {
-    this.openDocument.next(msg)
-  }
+  private openDocument = new BehaviorSubject('');
+  rightSliderDocument = this.openDocument.asObservable();
 
   // billerProfileData
 
-  private billerData=new BehaviorSubject("");
-  singleProfileData=this.billerData.asObservable();
-  addSingleProfile(obj)
-  {
-    this.billerData.next(obj)
+  private billerData = new BehaviorSubject('');
+  singleProfileData = this.billerData.asObservable();
+
+  rightSideData(msg) {
+    this.openCloseRightSlider.next(msg);
+  }
+
+  rightSliderData(msg: string) {
+    this.openCloseupperSlider.next(msg);
+  }
+
+  closeSlider(msg: string) {
+    this.openContent.next(msg);
+  }
+/*
+  rightDocumentSlider(msg: string) {
+    this.openDocument.next(msg);
+  }*/
+
+  addSingleProfile(obj) {
+    /**/
+    this.billerData.next(obj);
   }
 }

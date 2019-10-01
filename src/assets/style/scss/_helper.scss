@@ -269,7 +269,7 @@ $lineheight:20px;
 
 .no-padder,
 .p-none,
-.p-n {
+.p-n,.p-0 {
     padding: 0 !important;
 }
 
@@ -394,6 +394,12 @@ $lineheight:20px;
 }
 .pt-72{
     padding-top: 72px !important;
+}
+.pt-150{
+    padding-top: 150px !important;
+}
+.pt-180{
+    padding-top: 180px !important;
 }
 .pr-0 {
     padding-right: $zeropx !important;
@@ -905,7 +911,9 @@ $lineheight:20px;
 .b {
     border: 1px solid #ddd !important;
 }
-
+.h-28{
+    height: 28px !important;
+}
 .b-red {
     border: 1px solid $red;
 }

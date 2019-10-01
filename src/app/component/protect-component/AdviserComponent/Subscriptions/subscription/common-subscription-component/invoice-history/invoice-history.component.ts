@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SubscriptionComponent } from '../../subscription.component';
-import { subscriptionInject } from '../../../subscription-inject.service';
+import { SubscriptionInject } from '../../../subscription-inject.service';
 
 
 export interface PeriodicElement {
@@ -24,7 +24,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class InvoiceHistoryComponent implements OnInit {
 
-  constructor(public subInjectService:subscriptionInject) { }
+  constructor(public subInjectService:SubscriptionInject) { }
   displayedColumns: string[] = ['date', 'invoice', 'status', 'ddate','amount','balance'];
   dataSource = ELEMENT_DATA;
   showSubscription;

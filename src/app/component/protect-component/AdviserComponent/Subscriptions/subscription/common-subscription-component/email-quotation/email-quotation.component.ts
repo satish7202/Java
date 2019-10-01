@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { subscriptionInject } from '../../../subscription-inject.service';
+import { SubscriptionInject } from '../../../subscription-inject.service';
 
 @Component({
   selector: 'app-email-quotation',
@@ -8,7 +8,7 @@ import { subscriptionInject } from '../../../subscription-inject.service';
 })
 export class EmailQuotationComponent implements OnInit {
 
-  constructor(public subInjectService:subscriptionInject) { }
+  constructor(public subInjectService:SubscriptionInject) { }
 
   ngOnInit() {
   }

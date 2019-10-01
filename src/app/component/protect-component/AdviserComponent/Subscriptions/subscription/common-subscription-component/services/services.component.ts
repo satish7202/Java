@@ -2,7 +2,6 @@ import { Component, OnInit,Input } from '@angular/core';
 import { UpperSliderComponent } from '../upper-slider/upper-slider.component';
 import { SubscriptionService } from '../../../subscription.service';
 import { MatDialogRef } from '@angular/material';
-import { _fixedSizeVirtualScrollStrategyFactory } from '@angular/cdk/scrolling';
 import * as _ from "lodash";
 
 @Component({

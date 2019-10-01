@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { subscriptionInject } from '../../../subscription-inject.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { SubscriptionInject } from '../../../subscription-inject.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { SubscriptionService } from '../../../subscription.service';
+import { SelectionModel } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-biller-profile-advisor',
@@ -9,18 +10,19 @@ import { SubscriptionService } from '../../../subscription.service';
   styleUrls: ['./biller-profile-advisor.component.scss']
 })
 export class BillerProfileAdvisorComponent implements OnInit {
-   
+
 
   billerProfileForm: any;
   selected=0;
-  constructor(public subInjectService:subscriptionInject,private fb:FormBuilder,private subService:SubscriptionService) {
+  constructor(public subInjectService:SubscriptionInject, private fb:FormBuilder, private subService:SubscriptionService) {
     this.subInjectService.singleProfileData.subscribe(
       data=>this.getSingleBillerProfileData(data)
     )
    }
-   
+  
+   @Input() Selected;
   ngOnInit() {
-    this.selected=0;
+   
   }
   getSingleBillerProfileData(data)
   {
@@ -49,19 +51,23 @@ export class BillerProfileAdvisorComponent implements OnInit {
       terms:[data.terms]
     })
   })
-  
+
   }
   Close(value)
   {
-    this.subInjectService.rightSideData(value)  
+    this.subInjectService.rightSideData(value)
   }
   nextStep(value,eventName)
-  {     
+  {
     this.selected=value;
     if(eventName=='Save&Next')
     {
       (this.selected<3)?this.selected++:this.submitBillerForm();
-    } 
+    }
+    if(this.billerProfileForm.controls.profileDetailsForm.controls)
+    {
+      console.log()
+    }
   }
   submitBillerForm()
   {
@@ -90,7 +96,9 @@ export class BillerProfileAdvisorComponent implements OnInit {
       "zipCode":this.billerProfileForm.controls.profileDetailsForm.controls.zipCode.value
     }
     console.log(obj)
-
+    this.subService.updateBillerProfileSettings(obj).subscribe(
+      data=>console.log(data)
+    )
     this.subService.saveBillerProfileSettings(obj).subscribe(
       data =>console.log(data)
     )

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SubscriptionService } from '../../../subscription.service';
 import { EventService } from 'src/app/Data-service/event.service';
-import { subscriptionInject } from '../../../subscription-inject.service';
+import { SubscriptionInject } from '../../../subscription-inject.service';
 import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material';
 import { FormBuilder } from '@angular/forms';
@@ -12,13 +12,14 @@ import { FormBuilder } from '@angular/forms';
 })
 export class PreferencesSettingsComponent implements OnInit {
 
-  constructor(private fb:FormBuilder,public dialog: MatDialog, private subscription: SubscriptionService, public subInjectService: subscriptionInject, private eventService: EventService) { }
+  constructor(private fb:FormBuilder, public dialog: MatDialog, private subscription: SubscriptionService, public subInjectService: SubscriptionInject, private eventService: EventService) { }
   viewMode = 'tab1';
   advisorId = 2735;
   prefixData;
   showLoader = false;
   billerProfileData;
   PrefixData;
+  selected;
   ngOnInit() {
     this.viewMode = "tab1";
     this.getProfileBillerData();
@@ -66,14 +67,14 @@ export class PreferencesSettingsComponent implements OnInit {
       prefix:[data.prefix],
       nextNo:[data.nextNumber]
     })
-    
+
   }
   Open(singleProfile, value, state) {
 
     this.eventService.sidebarData(value)
     this.subInjectService.rightSideData(state);
     this.subInjectService.addSingleProfile(singleProfile);
-
+    this.selected=0;
   }
   deleteModal(value) {
     let dialogData = {

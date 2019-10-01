@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { subscriptionInject } from '../../../subscription-inject.service';
+import { SubscriptionInject } from '../../../subscription-inject.service';
 import { EventService } from 'src/app/Data-service/event.service';
 import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material';
@@ -29,7 +29,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class SubscriptionsUpperSliderComponent implements OnInit {
 
-  constructor(public subInjectService:subscriptionInject,private eventService:EventService,public dialog:MatDialog) { }
+  constructor(public subInjectService:SubscriptionInject, private eventService:EventService, public dialog:MatDialog) { }
 
   ngOnInit() {
   }
@@ -37,7 +37,7 @@ export class SubscriptionsUpperSliderComponent implements OnInit {
   dataSource = ELEMENT_DATA;
   
   openPlanSlider(value,state)
-  { 
+  {
     this.eventService.sliderData(value);
     this.subInjectService.rightSliderData(state)
   }

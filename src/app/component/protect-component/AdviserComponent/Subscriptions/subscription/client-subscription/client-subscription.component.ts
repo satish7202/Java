@@ -3,7 +3,7 @@ import { UpperSliderComponent } from '../common-subscription-component/upper-sli
 import { MatDialog } from '@angular/material';
 import { SubscriptionComponent } from '../subscription.component';
 import { EventService } from 'src/app/Data-service/event.service';
-import { subscriptionInject } from '../../subscription-inject.service';
+import { SubscriptionInject } from '../../subscription-inject.service';
 import { SubscriptionService } from '../../subscription.service';
 export interface PeriodicElement {
   name: string;
@@ -15,7 +15,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {name: 'Drasti Zaveri', email: 'drasti@futurewise.co.in', num: 9987455665, balance: 'Rs.20,000'},
   {name: 'Ajaykumar', email: 'ronak.hindocha@futurewise.co.in', num: 9987455665, balance: '0'},
   {name: 'Sarvesh Shinde', email: 'sarvesh@gmail.com', num: 9987455665, balance: 'Rs.7,000'},
- 
+
 ];
 
 
@@ -26,7 +26,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class ClientSubscriptionComponent implements OnInit {
 
-  constructor(public dialog:MatDialog,public eventService:EventService,public subInjectService:subscriptionInject,private subService:SubscriptionService) { }
+  constructor(public dialog:MatDialog, public eventService:EventService, public subInjectService:SubscriptionInject, private subService:SubscriptionService) { }
 
   ngOnInit() {
     console.log("clients")
@@ -34,7 +34,7 @@ export class ClientSubscriptionComponent implements OnInit {
   }
   displayedColumns: string[] = ['name','email', 'num', 'balance'];
   dataSource = ELEMENT_DATA;
-  
+
   getClientSubscriptionList()
   {
     let obj={
@@ -65,10 +65,10 @@ export class ClientSubscriptionComponent implements OnInit {
        autoFocus:false,
        panelClass:'dialogBox',
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
-  
+
     });
   }
-  
+
 }

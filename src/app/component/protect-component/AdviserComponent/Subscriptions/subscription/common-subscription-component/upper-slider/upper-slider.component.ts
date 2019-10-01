@@ -2,7 +2,7 @@ import {Component, OnInit, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {trigger, state, style, transition, animate} from '@angular/animations';
 import {EventService} from 'src/app/Data-service/event.service';
-import {subscriptionInject} from '../../../subscription-inject.service';
+import {SubscriptionInject} from '../../../subscription-inject.service';
 
 @Component({
   selector: 'app-upper-slider',
@@ -11,10 +11,10 @@ import {subscriptionInject} from '../../../subscription-inject.service';
   animations: [
     trigger('upperRightSlider', [
       state('open', style({
-        left:'40%'   
+        left:'40%'
       })),
       state('close', style({
-       
+        left:'100%' 
       })),
       state('closeSlider', style({
         left:'100%'
@@ -69,8 +69,8 @@ import {subscriptionInject} from '../../../subscription-inject.service';
 
 export class UpperSliderComponent implements OnInit {
   subscriptionTab: any;
-  constructor(private eventService:EventService,private subinject:subscriptionInject,public dialogRef: MatDialogRef<UpperSliderComponent>,
-    @Inject(MAT_DIALOG_DATA) public fragmentData: any) { 
+  constructor(private eventService:EventService, private subinject:SubscriptionInject, public dialogRef: MatDialogRef<UpperSliderComponent>,
+              @Inject(MAT_DIALOG_DATA) public fragmentData: any) {
       this.eventService.rightSliderData.subscribe(
         data =>this.getTabValueData(data)
       )
@@ -102,7 +102,7 @@ export class UpperSliderComponent implements OnInit {
   }
 
   getTabValueData(data) {
-    this.blankOverview=data;        
+    this.blankOverview=data;
     this.rightSliderData = data;
     console.log('value', data)
   }

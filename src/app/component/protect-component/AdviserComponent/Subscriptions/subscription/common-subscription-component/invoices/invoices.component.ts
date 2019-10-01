@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from 'src/app/Data-service/event.service';
-import { subscriptionInject } from '../../../subscription-inject.service';
+import { SubscriptionInject } from '../../../subscription-inject.service';
 import { SubscriptionService } from '../../../subscription.service';
 export interface PeriodicElement {
   Invoicenumber: string;
@@ -19,7 +19,7 @@ export interface PeriodicElement {
 })
 export class InvoicesComponent implements OnInit {
 
-  constructor(public subInjectService:subscriptionInject,private eventService:EventService,private subService:SubscriptionService) { }
+  constructor(public subInjectService:SubscriptionInject, private eventService:EventService, private subService:SubscriptionService) { }
 
   ngOnInit() {
     this.getInvoiceList();

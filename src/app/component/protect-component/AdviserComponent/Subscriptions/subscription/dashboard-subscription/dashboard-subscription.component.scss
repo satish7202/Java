@@ -87,6 +87,7 @@ p{
     .mat-card:not([class*=mat-elevation-z]){
         box-shadow: none !important;
         border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 0;
    }
     .w-110{
         width: 110px !important;
