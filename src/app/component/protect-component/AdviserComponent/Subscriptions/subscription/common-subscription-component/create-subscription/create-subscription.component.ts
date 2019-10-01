@@ -18,7 +18,8 @@ export class CreateSubscriptionComponent implements OnInit {
   }
   Close(state)
   {
-    this.subInjectService.rightSliderData(state)
-   this.subInjectService.rightSideData(state);
+    this.subInjectService.rightSideData(state);
+    this.subInjectService.rightSliderData(state); 
   }
+
 }
