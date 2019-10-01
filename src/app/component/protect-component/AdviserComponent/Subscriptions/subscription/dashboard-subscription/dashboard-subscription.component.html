@@ -26,7 +26,7 @@
                                             <span class="progress-right">
                                                 <span class="progress-bar"></span>
                                             </span>
-                                            <div class="progress-value">75%</div>
+                                            <div class="progress-value">{{dataSourceClientWithSub.activeClientPer}}%</div>
                                         </div>
                                     </div>
                                 </div>
@@ -37,15 +37,15 @@
                             <div class="row pt-12 pb-8">
                                 <div class="col-md-4 c-p">
                                     <p class="f-300 f-18">Total</p>
-                                    <h4 class="text-left pl-20">128</h4>
+                                    <h4 class="text-left pl-20">{{dataSourceClientWithSub.activeClient}}</h4>
                                 </div>
                                 <div class="col-md-5 c-p">
                                     <p class="f-300 f-18">This month</p>
-                                    <h4 class="text-left pl-12">12</h4>
+                                    <h4 class="text-left pl-12">{{dataSourceClientWithSub.monthSubscription}}</h4>
                                 </div>
                                 <div class="col-md-3 c-p">
                                     <p class="f-300 f-18">  Today</p>
-                                    <h4 class="text-left pl-4">1</h4>
+                                    <h4 class="text-left pl-4">{{dataSourceClientWithSub.todayActive}}</h4>
                                 </div>
                             </div>
                         </div>
@@ -85,13 +85,13 @@
                                 <div class="col-md-6">
                                     <div class="pl-20 pr-20 c-p">
                                         <p class="f-300 f-18 mb-0">Docs sent </p>
-                                        <h2 class="f-26 text-primary mb-0 pb-28 pt-8">25</h2>
+                                        <h2 class="f-26 text-primary mb-0 pb-28 pt-8">{{dataSourceSingCount.sentCount}}</h2>
                                     </div>
                                 </div>
                                 <div class="col-md-6 pr-0">
                                     <div class="pl-20 pr-20 c-p">
                                         <p class="f-300 f-18 mb-0">Docs signed </p>
-                                        <h2 class="f-26 text-primary mb-0 pb-28 pt-8">25</h2>
+                                        <h2 class="f-26 text-primary mb-0 pb-28 pt-8">{{dataSourceSingCount.signedCount}}</h2>
                                     </div>
                                 </div>
                             </div>
@@ -118,46 +118,21 @@
                         <div class="col-md-12">
                             <h4 class="f-300 pl-16 mb-16">Invoices to be reviewed</h4>
                         </div>
-                        <hr class="w-100">
-                        <div class="col-md-12">
+                        
+                        <div class="col-md-12" *ngFor="let invoices of dataSourceInvoiceReviwed">
+                            <hr class="w-100">
                             <div class="row pt-16">
                                 <div class="col-md-8">
-                                    <p class="f-15 mb-28">Drasti Zaveri</p>
-                                    <p class="f-13 mb-12">INV-19-20-103001</p>
+                                    <p class="f-15 mb-28">{{invoices.clientName}}</p>
+                                    <p class="f-13 mb-12">{{invoices.invoiceNumber}}</p>
                                 </div>
                                 <div class="col-md-4">
-                                    <p class="f-15 mb-28">Rs.20,000</p>
-                                    <p class="f-13 mb-12">26/08/2019</p>
+                                    <p class="f-15 mb-28">Rs.{{invoices.finalAmount}}</p>
+                                    <p class="f-13 mb-12">{{invoices.invoiceDate | date:'dd/MM/yyyy'}}</p>
                                 </div>
                             </div>
                         </div>
-                        <hr>
-                        <div class="col-md-12">
-                            <div class="row pt-16">
-                                <div class="col-md-8">
-                                    <p class="f-15 mb-28">Drasti Zaveri</p>
-                                    <p class="f-13 mb-12">INV-19-20-103001</p>
-                                </div>
-                                <div class="col-md-4">
-                                    <p class="f-15 mb-28">Rs.20,000</p>
-                                    <p class="f-13 mb-12">26/08/2019</p>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="col-md-12">
-                            <div class="row pt-16">
-                                <div class="col-md-8">
-                                    <p class="f-15 mb-28">Drasti Zaveri</p>
-                                    <p class="f-13 mb-12">INV-19-20-103001</p>
-                                </div>
-                                <div class="col-md-4">
-                                    <p class="f-15 mb-28">Rs.20,000</p>
-                                    <p class="f-13 mb-12">26/08/2019</p>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
+                        
                         <div class="col-md-12 text-right pt-8">
                             <a href="#" class="text-black f-14">View all</a>
                         </div>
