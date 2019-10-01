@@ -1,16 +1,19 @@
-<div class="wrapper-20 bg-grey lter">
+<div class="wrapper-20 bg-grey lter heading-fix">
         <h3 class="m-0 text-center head-common">Dhyaan Ronak Hindocha</h3>
       </div>
       <div class="bg-white">
-        <div class="wrapper-20">
+        <div class="wrapper-20 pb-0 mt-32 pt-180">
             <div class="row">
                 <div class="col-md-12 p-0">
-                      <button mat-stroked-button class="btn-primary br-0 right text-right addon"><i class="material-icons">
-                              add</i> ADD INVOICE</button>
+                        <button mat-stroked-button class="btn-primary br-0 right text-right addon"><i class="material-icons">
+                                add</i> ADD INVOICE</button>
+                        <p class="m-0 text-black c-p text-right mr-12 pt-8 right">HELP</p>
+                      
+                            
                 </div>
             </div>
         </div>
-        <div class="wrapper-40 pr-20">
+        <div class="wrapper-40 pt-20 pr-20">
             <div class="row">
                 <div class="col-md-1 p-0">
           <button mat-button [matMenuTriggerFor]="menu" class="b-a pr-0">Menu <i class="material-icons text-custom">
@@ -23,7 +26,7 @@
               </mat-menu>
                 </div>
                 <div class="col-md-9 p-0">
-                      <p class="m-0 text-black text-left pt-8">2 invoices selected</p>
+                      <p class="m-0 text-black text-left pt-12">2 invoices selected</p>
                 </div>
             </div>
             <table mat-table [dataSource]="dataSource" class="mt-8" id="table-low">

@@ -395,6 +395,9 @@ $lineheight:20px;
 .pt-72{
     padding-top: 72px !important;
 }
+.pt-125{
+    padding-top: 125px !important;
+}
 .pt-150{
     padding-top: 150px !important;
 }
@@ -942,4 +945,13 @@ $lineheight:20px;
 }
 .br-blue-2{
     border-right: 2px solid #008FFF !important;
+}
+.ba-dotted{
+    border: 1px dotted #BCC6CA;
+}
+.ba-dashed{
+    border: 1px dashed #BCC6CA;
+}
+.ba-dashed-2{
+    border: 1px dashed #BCC6CA;
 }
