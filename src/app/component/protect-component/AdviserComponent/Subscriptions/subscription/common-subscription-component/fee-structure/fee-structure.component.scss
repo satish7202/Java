@@ -4,14 +4,25 @@
     width: 70%;
 }
 h4{
-    font-family: "Playfair Display";
+    font-family: "Proxima Nova",sans-serif;
     line-height: 27px; 
     letter-spacing: 0.2px;
     color: #3F3F3F;
     padding: 16px 24px;
 }
-
+h3{
+    font-family: "Playfair Display";
+}
 .mat-card:not([class*=mat-elevation-z]){
     box-shadow: none !important;
     padding: 0;
+}
+.lh-16{
+    line-height: 16px !important;
+}
+.proxima{
+    font-family: "Proxima Nova",sans-serif;
+}
+.playfair{
+    font-family: "Playfair Display";
 }
