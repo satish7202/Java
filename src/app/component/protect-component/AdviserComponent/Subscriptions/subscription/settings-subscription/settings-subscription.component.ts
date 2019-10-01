@@ -10,6 +10,7 @@ export class SettingsSubscriptionComponent implements OnInit {
   constructor() { }
   
   ngOnInit() {
+    this.selectedTab="PLANS"
   }
    selectedTab;
   tabClick(value)

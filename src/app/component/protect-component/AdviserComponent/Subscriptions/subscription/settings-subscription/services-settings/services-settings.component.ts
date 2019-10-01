@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UpperSliderComponent } from '../../common-subscription-component/upper-slider/upper-slider.component';
 import { MatDialog } from '@angular/material';
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import { SubscriptionService } from '../../../subscription.service';
+import { EventService } from 'src/app/Data-service/event.service';
 
 @Component({
   selector: 'app-services-settings',
@@ -11,22 +12,18 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class ServicesSettingsComponent implements OnInit {
   button: any;
 
-  constructor(public dialog: MatDialog,) { }
-
+  constructor(public dialog: MatDialog,private subService: SubscriptionService,private dataService: EventService) { }
+  showLoader;
   ngOnInit() {
+    this.getServiceSettingSubData();
   }
-  serviceSettingData=[{'title':'Investment Management','code':'IMA124','feetype':'Fixed','Nature':'Recurring','Mode':'End of period','FEES':'Rs.10,000/Year','PLANS':'3',"MODULES":'12','DOCUMENTS':'0'},
-  {'title':'Investment Management','code':'IMA124','feetype':'Fixed','Nature':'Recurring','Mode':'End of period','FEES':'Rs.10,000/Year','PLANS':'3',"MODULES":'12','DOCUMENTS':'0'},
-  {'title':'Investment Management','code':'IMA124','feetype':'Fixed','Nature':'Recurring','Mode':'End of period','FEES':'Rs.10,000/Year','PLANS':'3',"MODULES":'12','DOCUMENTS':'0'},
-  {'title':'Investment Management','code':'IMA124','feetype':'Fixed','Nature':'Recurring','Mode':'End of period','FEES':'Rs.10,000/Year','PLANS':'3',"MODULES":'12','DOCUMENTS':'0'},
-  {'title':'Investment Management','code':'IMA124','feetype':'Fixed','Nature':'Recurring','Mode':'End of period','FEES':'Rs.10,000/Year','PLANS':'3',"MODULES":'12','DOCUMENTS':'0'},
-  {'title':'Investment Management','code':'IMA124','feetype':'Fixed','Nature':'Recurring','Mode':'End of period','FEES':'Rs.10,000/Year','PLANS':'3',"MODULES":'12','DOCUMENTS':'0'}]
+  serviceSettingData;
   openFragment(data) {
     let Fragmentdata = {
       Flag: data,
       id:2
     }
-
+   
     const dialogRef = this.dialog.open(UpperSliderComponent, {
        width: '1400px',
        data: Fragmentdata,
@@ -38,4 +35,25 @@ export class ServicesSettingsComponent implements OnInit {
   
     });
   }
+
+  getServiceSettingSubData()
+  {
+    this.showLoader=true;
+   let obj={
+     'advisorId':4747
+   }
+   this.subService.getSubscriptionServiceSettingsData(obj).subscribe(
+     data =>this.getServiceSettingSubResponse(data),
+     err =>this.getFilerrorResponse(err)
+   )
+  }
+  getServiceSettingSubResponse(data)
+  {
+    console.log("service data",data)
+   this.serviceSettingData=data;
+   this.showLoader=false;
+  }
+  getFilerrorResponse(err) {
+    this.dataService.openSnackBar(err, 'Dismiss')
+   }
 }

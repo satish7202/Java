@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UpperSliderComponent } from '../../common-subscription-component/upper-slider/upper-slider.component';
 import { MatDialog } from '@angular/material';
-import { trigger, state, style, transition, animate } from '@angular/animations';
-// import { MatDialog } from '../../../../../../overridden/dialog';
+import { SubscriptionService } from '../../../subscription.service';
+import { EventService } from 'src/app/Data-service/event.service';
 
 @Component({
   selector: 'app-plans-settings',
@@ -12,37 +12,44 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class PlansSettingsComponent implements OnInit {
   button: any;
 
-  constructor( public dialog: MatDialog, ) { }
-
+  constructor( public dialog: MatDialog, private subService: SubscriptionService,private dataService: EventService) { }
+  showLoader;
   ngOnInit() {
+    this.getSettingsPlanData();
   }
-  planSettingData=[{'title':'Starter Plan1','code':'PLA123','DESCRIPTION':'This plan is ideal for young people who are just starting off their financial journey and want to start saving with a smaller investment amount.','SERVICES':'2','DOCUMENTS':'1'},
-                   {'title':'Starter Plan2','code':'PLA123','DESCRIPTION':'This plan is ideal for young people who are just starting off their financial journey and want to start saving with a smaller investment amount.','SERVICES':'2','DOCUMENTS':'1'},
-                   {'title':'Starter Plan3','code':'PLA123','DESCRIPTION':'This plan is ideal for young people who are just starting off their financial journey and want to start saving with a smaller investment amount.','SERVICES':'2','DOCUMENTS':'1'}]
+  planSettingData;
+  getSettingsPlanData()
+  {
+    this.showLoader=true;
+    let obj={
+      'advisorId':4747
+    }
+    this.subService.getSubscriptionPlanSettingsData(obj).subscribe(
+      data =>this.getSettingsPlanResponse(data),
+      err =>this.getFilerrorResponse(err)
+    )
+  }
+  getSettingsPlanResponse(data)
+  {
+    console.log("get plan",data)
+   this.planSettingData=data;
+   this.showLoader=false;
+  }
+  getFilerrorResponse(err) {
+    this.dataService.openSnackBar(err, 'Dismiss')
+   }
   openFragment(data) {
     let Fragmentdata = {
       Flag: data,
       id:1
     }
-
+ 
     const dialogRef = this.dialog.open(UpperSliderComponent, {
        width: '1400px',
        data: Fragmentdata,
        autoFocus:false,
        panelClass:'dialogBox',
-      //  position: {
-      //    top: `30px`,
-      //    right: `40px`
-      //   },
-      // openFrom:'{
-      //   top: -50,
-      //   width: 30,
-      //   height: 80
-      // }',
-      // closeTo({
-      //   left: 1500
-      // })
-      // hasBackdrop: false,
+
     });
 
     dialogRef.afterClosed().subscribe(result => {

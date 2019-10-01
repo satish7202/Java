@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SubscriptionInject } from '../../../subscription-inject.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { SubscriptionService } from '../../../subscription.service';
+import { SelectionModel } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-biller-profile-advisor',
@@ -18,9 +19,10 @@ export class BillerProfileAdvisorComponent implements OnInit {
       data=>this.getSingleBillerProfileData(data)
     )
    }
-
+  
+   @Input() Selected;
   ngOnInit() {
-    this.selected=0;
+   
   }
   getSingleBillerProfileData(data)
   {
@@ -62,6 +64,10 @@ export class BillerProfileAdvisorComponent implements OnInit {
     {
       (this.selected<3)?this.selected++:this.submitBillerForm();
     }
+    if(this.billerProfileForm.controls.profileDetailsForm.controls)
+    {
+      console.log()
+    }
   }
   submitBillerForm()
   {
@@ -90,7 +96,9 @@ export class BillerProfileAdvisorComponent implements OnInit {
       "zipCode":this.billerProfileForm.controls.profileDetailsForm.controls.zipCode.value
     }
     console.log(obj)
-
+    this.subService.updateBillerProfileSettings(obj).subscribe(
+      data=>console.log(data)
+    )
     this.subService.saveBillerProfileSettings(obj).subscribe(
       data =>console.log(data)
     )

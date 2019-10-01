@@ -49,7 +49,7 @@ export class SubscriptionsSubscriptionComponent implements OnInit {
   }
   getSubscriptionListResponse(data)
   {
-    console.log(data)
+    console.log("subscription data",data)
   }
   Open(value,state)
   {
@@ -78,5 +78,20 @@ export class SubscriptionsSubscriptionComponent implements OnInit {
   
     });
   
+  }
+  delete(data){
+    let Fragmentdata = {
+      Flag: data,
+    }
+    if(data=="cancelSubscription"){
+          const dialogRef = this.dialog.open(DeleteSubscriptionComponent, {
+            width: '20%',
+            // height:'40%',
+            data: Fragmentdata,
+            autoFocus:false,
+          });
+          dialogRef.afterClosed().subscribe(result => {
+          });
+    }
   }
 }

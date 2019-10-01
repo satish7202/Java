@@ -1,11 +1,41 @@
 <div class="row" *ngIf="componentFlag=='planOverview'">
-    <div class="col-md-12">
+    <!-- <div class="col-md-12">
         <div class="wrapper-20 align-center">
             <i class="material-icons f-70 text-grey">
                                 event_note
                                 </i>
             <p class="text-primitive pt-28 f-16">Add plan details like name, description to proceed further</p>
             <button mat-stroked-button class="btn-primary addon mt-36" (click)="openNav('addPlanDetails','open')"><i class="material-icons">add</i>ADD NOW</button>
+        </div>
+    </div> -->
+    <div class="wrapper-44 pt-180">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-6">
+                <mat-card class="p-0 b-a">
+                    <div class="row bg-grey lter">
+                        <!-- <div class="col-md-12 p-0">
+                                <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
+                        </div> -->
+                        <div class="col-md-10 p-0">
+                            <h3 class="m-0 pt-18 pt-24 pl-24">Starter Plan</h3>
+                            <h5 class="m-0 pt-4 pb-44 pl-24">PLA123</h5>
+                        </div>
+                        <div class="col-md-2 pr-0">
+                                <i class="material-icons pt-24 f-40 text-primitive"> more_vert </i>
+                        </div>
+                    </div>
+                    <div class="wrapper-24">
+                    <div class="row">
+                        <div class="col-md-12 p-0">
+                        <p class="f-12 mb-0">DESCRIPTION</p>
+                        <h5 class="mb-0">This plan is ideal for young people who are just starting off their financial journey and want to start saving with a smaller investment amount.</h5>
+                    </div>
+                </div>
+            </div>
+                </mat-card>
+            </div>
+            <div class="col-md-3"></div>
         </div>
     </div>
 </div>
@@ -15,7 +45,7 @@
     </div>
     <div class="row contents text-center">
         <div class="col-md-1"></div>
-        <div class="col-md-2" (click)="openNav('blank','open')">
+        <div class="col-md-2 c-p" (click)="openNav('blank','open')">
             <div class="boxes">
 
             </div>
