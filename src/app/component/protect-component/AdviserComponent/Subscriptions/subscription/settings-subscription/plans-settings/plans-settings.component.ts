@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UpperSliderComponent } from '../../common-subscription-component/upper-slider/upper-slider.component';
 import { MatDialog } from '@angular/material';
-import { trigger, state, style, transition, animate } from '@angular/animations';
 import { SubscriptionService } from '../../../subscription.service';
-// import { MatDialog } from '../../../../../../overridden/dialog';
+import { EventService } from 'src/app/Data-service/event.service';
 
 @Component({
   selector: 'app-plans-settings',
@@ -13,26 +12,32 @@ import { SubscriptionService } from '../../../subscription.service';
 export class PlansSettingsComponent implements OnInit {
   button: any;
 
-  constructor( public dialog: MatDialog, private subService: SubscriptionService) { }
-
+  constructor( public dialog: MatDialog, private subService: SubscriptionService,private dataService: EventService) { }
+  showLoader;
   ngOnInit() {
     this.getSettingsPlanData();
   }
   planSettingData;
   getSettingsPlanData()
   {
+    this.showLoader=true;
     let obj={
       'advisorId':4747
     }
     this.subService.getSubscriptionPlanSettingsData(obj).subscribe(
-      data =>this.getSettingsPlanResponse(data)
+      data =>this.getSettingsPlanResponse(data),
+      err =>this.getFilerrorResponse(err)
     )
   }
   getSettingsPlanResponse(data)
   {
     console.log("get plan",data)
    this.planSettingData=data;
+   this.showLoader=false;
   }
+  getFilerrorResponse(err) {
+    this.dataService.openSnackBar(err, 'Dismiss')
+   }
   openFragment(data) {
     let Fragmentdata = {
       Flag: data,
@@ -44,19 +49,7 @@ export class PlansSettingsComponent implements OnInit {
        data: Fragmentdata,
        autoFocus:false,
        panelClass:'dialogBox',
-      //  position: {
-      //    top: `30px`,
-      //    right: `40px`
-      //   },
-      // openFrom:'{
-      //   top: -50,
-      //   width: 30,
-      //   height: 80
-      // }',
-      // closeTo({
-      //   left: 1500
-      // })
-      // hasBackdrop: false,
+
     });
 
     dialogRef.afterClosed().subscribe(result => {
