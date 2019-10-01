@@ -15,14 +15,9 @@ export class ModifyFeeStructureComponent implements OnInit {
   }
   Close(state)
   {
-    // if(this.ModifyFeesChange == 'createSub' || 'modifyFees')
-    // {
-    //   this.subInjectService.rightSliderData(state);
-    // }else
-    // {
-    //   this.subInjectService.rightSideData(state);
-    // }
-    (this.ModifyFeesChange=='createSub')?this.subInjectService.rightSliderData(state):this.subInjectService.rightSideData(state)
+  
+    // (this.ModifyFeesChange=='createSub')?this.subInjectService.rightSliderData(state):this.subInjectService.rightSideData(state)
+    (this.ModifyFeesChange=='modifyFees')?this.subInjectService.rightSliderData(state):this.subInjectService.rightSideData(state)
 
   }
 }
