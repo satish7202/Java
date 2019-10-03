@@ -141,6 +141,18 @@ export class SubscriptionService {
   {
     return this.http.post(apiConfig.MAIN_URL +appConfig.CREATE_SERVICE_SETTING,data);
   }
+  docSentSignedCount(data){
+    let httpParams=new HttpParams().set('advisorId',data.advisorId)
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_DOCUMENT_COUNT_SIGNED,httpParams)
+  }
+  clientWithSubcribe(data){
+    let httpParams=new HttpParams().set('advisorId',data.advisorId)
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_CLIENT_WITH_SCRIPTION,httpParams) 
+  }
+  invoiceReviewed(data){
+    let httpParams=new HttpParams().set('advisorId',data.advisorId).set('limit',data.limit).set('offset',data.offset);
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_INVOICE_TO_BE_REVIEWED,httpParams) 
+  }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data,10000)
   }
