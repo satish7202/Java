@@ -54,9 +54,13 @@
                                     <button mat-stroked-button class="btn-header addon ml-44 br-0">VIEW</button>
                                 </div>
                                 <div class="col-md-2">
-                                    <i class="material-icons f-40 text-primitive">
+                                    <i class="material-icons f-40 text-primitive" [matMenuTriggerFor]="menu">
                                         more_vert
                                     </i>
+                                    <mat-menu #menu="matMenu">
+                                        <a mat-menu-item (click)="openFragment('modifyFee')" >Edit Document</a>
+                                        <a mat-menu-item class="bt-1" >Delete Document</a>
+                                    </mat-menu>
                                 </div>
                             </div>
 

@@ -27,8 +27,8 @@ export class OverviewComponent implements OnInit {
   dialogClose() {
     this.dialogRef.close();
   }
-  changeDisplay(value)
+  changeDisplay()
   {
-    this.overviewDesign=value;
+    this.overviewDesign='false';
   }
 }
