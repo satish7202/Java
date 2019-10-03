@@ -5,6 +5,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 import { EventService } from 'src/app/Data-service/event.service';
 import { SubscriptionInject } from '../../../subscription-inject.service';
 import { SubscriptionService } from '../../../subscription.service';
+import { ModifyFeeDialogComponent } from '../../common-subscription-component/modify-fee-dialog/modify-fee-dialog.component';
 @Component({
   selector: 'app-documents-settings',
   templateUrl: './documents-settings.component.html',
@@ -45,29 +46,56 @@ export class DocumentsSettingsComponent implements OnInit {
       Flag: data,
       id:1
     }
-
-    const dialogRef = this.dialog.open(UpperSliderComponent, {
-       width: '1400px',
-       data: Fragmentdata,
-       autoFocus:false,
-       panelClass:'dialogBox',
-      //  position: { 
-      //    top: `30px`,
-      //    right: `40px`
-      //   },
-      // openFrom:'{
-      //   top: -50,
-      //   width: 30,
-      //   height: 80
-      // }',
-      // closeTo({
-      //   left: 1500
-      // })
-      // hasBackdrop: false,
-    });
-  
-    dialogRef.afterClosed().subscribe(result => {
-  
-    });
+    if(Fragmentdata.Flag=='documents'){
+      const dialogRef = this.dialog.open(UpperSliderComponent, {
+        width: '1400px',
+        data: Fragmentdata,
+        autoFocus:false,
+        panelClass:'dialogBox',
+       //  position: { 
+       //    top: `30px`,
+       //    right: `40px`
+       //   },
+       // openFrom:'{
+       //   top: -50,
+       //   width: 30,
+       //   height: 80
+       // }',
+       // closeTo({
+       //   left: 1500
+       // })
+       // hasBackdrop: false,
+     });
+   
+     dialogRef.afterClosed().subscribe(result => {
+   
+     });
+    }else
+    {
+      const dialogRef = this.dialog.open(ModifyFeeDialogComponent, {
+        width: '1400px',
+        data: Fragmentdata,
+        autoFocus:false,
+        panelClass:'dialogBox',
+       //  position: { 
+       //    top: `30px`,
+       //    right: `40px`
+       //   },
+       // openFrom:'{
+       //   top: -50,
+       //   width: 30,
+       //   height: 80
+       // }',
+       // closeTo({
+       //   left: 1500
+       // })
+       // hasBackdrop: false,
+     });
+   
+     dialogRef.afterClosed().subscribe(result => {
+   
+     });
+    }
+   
   }
 }
