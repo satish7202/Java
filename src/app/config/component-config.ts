@@ -73,5 +73,6 @@
     UPDATE_BILLER_PROFILE_SETTING:'futurewise/subscriptions/settings/billerprofile/update',
     GET_SUBSCRIPTION_PLAN_SETTING:'futurewise/subscriptions/settings/plan/get',
     GET_SUBSCRIPTION_SERVICE_SETTING:'futurewise/subscriptions/settings/service/get',
+    CREATE_SERVICE_SETTING:'futurewise/subscriptions/service/create',
     GET_BASE_64:'futurewise/api/v1/test/base64/decode'
 }

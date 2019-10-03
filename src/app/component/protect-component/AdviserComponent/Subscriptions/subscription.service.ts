@@ -137,6 +137,10 @@ export class SubscriptionService {
     let httpParams=new HttpParams().set('advisorId',data.advisorId);
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SUBSCRIPTION_SERVICE_SETTING,httpParams)
   }
+  createSettingService(data)
+  {
+    return this.http.post(apiConfig.MAIN_URL +appConfig.CREATE_SERVICE_SETTING,data);
+  }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data,10000)
   }
