@@ -77,5 +77,9 @@
     GET_SUBSCRIPTION_PLAN_SETTING:'futurewise/subscriptions/settings/plan/get',
     GET_SUBSCRIPTION_SERVICE_SETTING:'futurewise/subscriptions/settings/service/get',
     CREATE_SERVICE_SETTING:'futurewise/subscriptions/service/create',
+    DELETE_SUBSCRIPTION_PLAN:'futurewise/subscriptions/deletePlan/get',
+    GET_PLAN_MAPPED_TO_ADVISOR:'futurewise/subscriptions/plan/mappedtoadvisor/get',
+    GET_SUBSCRIPTION_DOCUMENTS_SETTING:'futurewise/subscriptions/settings/document/get',
+    GET_MAP_DOCUMENT_To_SERVICE:'futurewise/subscriptions/mapped/documents/service/get',
     GET_BASE_64:'futurewise/api/v1/test/base64/decode'
 }

@@ -1,5 +1,6 @@
-import { Component, OnInit,Input} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
+import { SubscriptionService } from '../../../subscription.service';
 @Component({
   selector: 'app-plans',
   templateUrl: './plans.component.html',
@@ -7,20 +8,25 @@ import { MatDialogRef } from '@angular/material';
 })
 export class PlansComponent implements OnInit {
 
-  constructor(public dialogRef:MatDialogRef<PlansComponent>) { }
-  @Input() componentFlag:string;
-  servicePlanData=[{title:'Starter Plan',code:'PLA123',DESCRIPTION:'This plan is ideal for young people who are just starting off their financial journey and want to start saving with a smaller investment amount.',checked:false},
-  {title:'Starter Plan',code:'PLA123',DESCRIPTION:'This plan is ideal for young people who are just starting off their financial journey and want to start saving with a smaller investment amount.',checked:false},
-  {title:'Starter Plan',code:'PLA123',DESCRIPTION:'This plan is ideal for young people who are just starting off their financial journey and want to start saving with a smaller investment amount.',checked:false}];
+  constructor(public dialogRef: MatDialogRef<PlansComponent>, private subService: SubscriptionService) { }
+  @Input() componentFlag: string;
   ngOnInit() {
+    this.getPlansMappedToAdvisor();
   }
-  dialogClose(){
+  getPlansMappedToAdvisor() {
+    let obj = {
+      'advisorid': 12345
+    }
+    this.subService.getPlansMappedToAdvisor(obj).subscribe(
+      data => console.log("service Plan Data", data)
+    )
+  }
+  dialogClose() {
     this.dialogRef.close();
   }
-  selectServicePlan(data)
-  { 
-    
-    (data.checked)?data.checked=false:data.checked=true;
+  selectServicePlan(data) {
+
+    (data.checked) ? data.checked = false : data.checked = true;
     console.log(data)
   }
 }

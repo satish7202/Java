@@ -24,6 +24,7 @@ export class SubscriptionCompletenessComponent implements OnInit {
   getSubscriptionStagesRecord()
   {
     let obj={
+      "advisorId":2735,
       "amountReceived":1000,
       "changesIfAny":"nothing",
       "paymentDate":"2001-01-01",

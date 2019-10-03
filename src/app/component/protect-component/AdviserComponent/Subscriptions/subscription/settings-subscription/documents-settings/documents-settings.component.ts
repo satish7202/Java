@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { EventService } from 'src/app/Data-service/event.service';
 import { SubscriptionInject } from '../../../subscription-inject.service';
+import { SubscriptionService } from '../../../subscription.service';
 @Component({
   selector: 'app-documents-settings',
   templateUrl: './documents-settings.component.html',
@@ -11,16 +12,29 @@ import { SubscriptionInject } from '../../../subscription-inject.service';
 })
 export class DocumentsSettingsComponent implements OnInit {
   button:any;
-  constructor(public dialog: MatDialog,public eventService:EventService,public subInjectService:SubscriptionInject) { }
+  documentSettingData;
+  showLoader
+  constructor(public dialog: MatDialog,public eventService:EventService,public subInjectService:SubscriptionInject,private subService:SubscriptionService) { }
 
   ngOnInit() {
+    this.getDocumentsSetting();
   }
-  documentSettingData=[{'title':'Investor agreement','code':'Global'},
-                       {'title':'Investor agreement','code':'Global'},
-                       {'title':'Investor agreement','code':'Global'},
-                       {'title':'Investor agreement','code':'Global'}]
 
-   
+   getDocumentsSetting()
+   {
+    this.showLoader=true;
+     let obj={
+      "advisorId":2735
+     }
+     this.subService.getSubscriptionDocumentSetting(obj).subscribe(
+       data =>this.getDocumentsSettingResponse(data)
+     )
+   }
+   getDocumentsSettingResponse(data)
+   {
+    this.documentSettingData=data
+    this.showLoader=false;
+   }
    Open(value,state)
   {
     this.eventService.sidebarData(value)

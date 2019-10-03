@@ -53,6 +53,13 @@ export class ConfirmDialogComponent implements OnInit {
     this.subscription.deleteSubscriptionData(this.advisorId).subscribe(
       data => this.deletedData(data)
     )
+    let obj={
+      'advisorId':2735,
+      'planId':1
+    } 
+    this.subscription.deleteSubscriptionPlan(obj).subscribe(
+      data=>console.log(data)
+    )
   }
   deletedData(data){
     console.log(data)

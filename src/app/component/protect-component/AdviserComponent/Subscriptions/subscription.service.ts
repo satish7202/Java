@@ -153,6 +153,25 @@ export class SubscriptionService {
     let httpParams=new HttpParams().set('advisorId',data.advisorId).set('limit',data.limit).set('offset',data.offset);
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_INVOICE_TO_BE_REVIEWED,httpParams) 
   }
+  deleteSubscriptionPlan(data)
+  {
+    return this.http.put(apiConfig.MAIN_URL + appConfig.DELETE_SUBSCRIPTION_PLAN,data)
+  }
+  getPlansMappedToAdvisor(data)
+  { 
+    let httpParams=new HttpParams().set('advisorid',data.advisorid);
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_PLAN_MAPPED_TO_ADVISOR,httpParams)
+  }
+  getSubscriptionDocumentSetting(data)
+  {
+    let httpParams=new HttpParams().set('advisorId',data.advisorId)
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SUBSCRIPTION_DOCUMENTS_SETTING,httpParams);
+  }
+  getMapDocumentToService(data)
+  {
+    let httpParams=new HttpParams().set('advisorId',data.advisorId)
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_MAP_DOCUMENT_To_SERVICE,httpParams)
+  }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data,10000)
   }
