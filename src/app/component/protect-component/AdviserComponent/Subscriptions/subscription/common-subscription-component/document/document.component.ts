@@ -135,6 +135,7 @@ export class DocumentComponent implements OnInit {
   }
 
   getplanDocumentDataResponse(data) {
+    console.log("document Data",data)
     this.planDocumentData = data;
   }
 

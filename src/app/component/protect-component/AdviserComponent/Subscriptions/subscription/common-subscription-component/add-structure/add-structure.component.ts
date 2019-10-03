@@ -8,18 +8,25 @@ import { SubscriptionService } from '../../../subscription.service';
   styleUrls: ['./add-structure.component.scss']
 })
 export class AddStructureComponent implements OnInit {
+  planData: any;
 
-  constructor(private subinject: SubscriptionInject, private fb: FormBuilder, private subService: SubscriptionService) { }
-  planName;
+  constructor(private subinject: SubscriptionInject, private fb: FormBuilder, private subService: SubscriptionService) {
+    this.subinject.rightSideBarData.subscribe(
+      data =>this.getSinglePlanData(data)
+    )
+   }
+
   ngOnInit() {
   }
-  planData = this.fb.group({
-    planName: ['', [Validators.required, Validators.maxLength(20)]],
-    code: [''],
-    description: ['']
-  })
   submitPlanData() {
-    console.log(this.planName)
+  
+  }
+  getSinglePlanData(data){
+    this.planData = this.fb.group({
+      planName: [data.name, [Validators.required, Validators.maxLength(20)]],
+      code: [data.code],
+      description: [data.description]
+    })
   }
   addPlanData() {
     let obj = {

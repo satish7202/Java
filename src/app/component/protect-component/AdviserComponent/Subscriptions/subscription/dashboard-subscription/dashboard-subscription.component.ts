@@ -5,6 +5,7 @@ import { EventService } from 'src/app/Data-service/event.service';
 import { MatDialog } from '@angular/material';
 import { DeleteSubscriptionComponent } from '../common-subscription-component/delete-subscription/delete-subscription.component';
 import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
+import { SubscriptionService } from '../../subscription.service';
 
 export interface PeriodicElement {
   name: string;
@@ -28,10 +29,17 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class DashboardSubscriptionComponent implements OnInit {
 
-  constructor(public subInjectService:SubscriptionInject, public eventService:EventService, public dialog:MatDialog) { }
+  constructor(public subInjectService:SubscriptionInject, public eventService:EventService, public dialog:MatDialog,private subService:SubscriptionService) { }
 
   ngOnInit() {
+    this.docSentSignedCountData()
+    this.clientWithSubscription()
+    this.invoiceToBeReviewed()
   }
+      advisorId=400;
+      dataSourceSingCount
+      dataSourceClientWithSub
+      dataSourceInvoiceReviwed
   showSubStep=false;
   displayedColumns: string[] = ['name', 'service', 'amt', 'billing','icons'];
   dataSource = ELEMENT_DATA;
@@ -58,6 +66,52 @@ export class DashboardSubscriptionComponent implements OnInit {
           dialogRef.afterClosed().subscribe(result => {
           });
     }
+  }
+// ******* Dashboard Sent And Signed Count *******
+
+  docSentSignedCountData()
+  {
+    let obj={
+      'advisorId':this.advisorId
+    }
+    this.subService.docSentSignedCount(obj).subscribe(
+      data=>this.docSentSignedCountResponse(data)
+    )
+  }
+  docSentSignedCountResponse(data){
+    console.log('SentSignedCountResponse',data);
+    this.dataSourceSingCount=data
+  }
+
+  // ******* Dashboard Client With Subscription *******
+
+  clientWithSubscription(){
+    let obj={
+      'advisorId':this.advisorId
+    }
+    this.subService.clientWithSubcribe(obj).subscribe(
+      data=>this.clientWithSubscriptionRes(data)
+    )
+  }
+  clientWithSubscriptionRes(data){
+    console.log('clientWithSubscriptionRes',data);
+    this.dataSourceClientWithSub=data
+  }
+  // ******* Dashboard Invoice To Be Reviewed *******
+
+  invoiceToBeReviewed(){
+    let obj ={
+      'advisorId':2735,
+      'limit':10,
+      'offset':1
+    }
+    this.subService.invoiceReviewed(obj).subscribe(
+      data=>this.invoiceToBeReviewedRes(data)
+    )
+  }
+  invoiceToBeReviewedRes(data){
+    console.log('invoiceToBeReviewedRes',data);
+    this.dataSourceInvoiceReviwed=data
   }
   deleteModal(value)
   {

@@ -198,7 +198,7 @@
                     <h5 class="mb-0 pt-8 text-white c-p" (click)="Close()">Cancel</h5>
                 </div>
                 <div class="col-md-8 right text-right">
-                    <button mat-button [matMenuTriggerFor]="menu" class="btn-bottom br-0 text-inherit">Save</button>
+                    <button mat-button [matMenuTriggerFor]="menu" class="btn-bottom br-0 text-inherit" (click)="saveVariableFeeData('2')">Save</button>
                     <mat-menu #menu="matMenu">
                         <button mat-menu-item>Item 1</button>
                         <button mat-menu-item>Item 2</button>

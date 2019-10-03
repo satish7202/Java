@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UpperSliderComponent } from '../../common-subscription-component/upper-slider/upper-slider.component';
 import { MatDialog } from '@angular/material';
 import { SubscriptionService } from '../../../subscription.service';
+import { EventService } from 'src/app/Data-service/event.service';
 
 @Component({
   selector: 'app-services-settings',
@@ -11,8 +12,8 @@ import { SubscriptionService } from '../../../subscription.service';
 export class ServicesSettingsComponent implements OnInit {
   button: any;
 
-  constructor(public dialog: MatDialog,private subService: SubscriptionService) { }
-
+  constructor(public dialog: MatDialog,private subService: SubscriptionService,private dataService: EventService) { }
+  showLoader;
   ngOnInit() {
     this.getServiceSettingSubData();
   }
@@ -37,16 +38,22 @@ export class ServicesSettingsComponent implements OnInit {
 
   getServiceSettingSubData()
   {
+    this.showLoader=true;
    let obj={
      'advisorId':4747
    }
    this.subService.getSubscriptionServiceSettingsData(obj).subscribe(
-     data =>this.getServiceSettingSubResponse(data)
+     data =>this.getServiceSettingSubResponse(data),
+     err =>this.getFilerrorResponse(err)
    )
   }
   getServiceSettingSubResponse(data)
   {
     console.log("service data",data)
    this.serviceSettingData=data;
+   this.showLoader=false;
   }
+  getFilerrorResponse(err) {
+    this.dataService.openSnackBar(err, 'Dismiss')
+   }
 }
