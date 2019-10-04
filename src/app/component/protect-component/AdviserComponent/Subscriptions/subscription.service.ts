@@ -111,8 +111,7 @@ export class SubscriptionService {
   }
   cancelSubscriptionData(data)
   {
-    let httpParams=new HttpParams().set('advisorId',data);
-    return this.http.put(apiConfig.MAIN_URL + appConfig.CANCEL_SUBSCRIPTION,httpParams);
+    return this.http.put(apiConfig.MAIN_URL + appConfig.CANCEL_SUBSCRIPTION,data);
   }
   deleteSubscriptionData(data)
   {
@@ -171,6 +170,10 @@ export class SubscriptionService {
   {
     let httpParams=new HttpParams().set('advisorId',data.advisorId)
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_MAP_DOCUMENT_To_SERVICE,httpParams)
+  }
+  chnagePayeeSetting(data)
+  {
+    return this.http.put(apiConfig.MAIN_URL +appConfig.CHANGE_PAYEE_SETTING,data);
   }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data,10000)

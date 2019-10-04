@@ -81,5 +81,6 @@
     GET_PLAN_MAPPED_TO_ADVISOR:'futurewise/subscriptions/plan/mappedtoadvisor/get',
     GET_SUBSCRIPTION_DOCUMENTS_SETTING:'futurewise/subscriptions/settings/document/get',
     GET_MAP_DOCUMENT_To_SERVICE:'futurewise/subscriptions/mapped/documents/service/get',
+    CHANGE_PAYEE_SETTING:'futurewise/subscriptions/changeclientbillersetting/subscription',
     GET_BASE_64:'futurewise/api/v1/test/base64/decode'
-}
+} 
