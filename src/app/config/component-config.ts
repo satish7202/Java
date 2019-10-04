@@ -87,5 +87,6 @@
     CREATE_SUBSCRIPTION:'futurewise/subscriptions/clients/subscriptions/add',
     EDIT_PAYEE_SETTINGS:'futurewise/subscriptions/clients/settings/profile/update',
     MAP_PLAN_TO_SERVICE_SETTING:'futurewise/subscriptions/map/plan/service',
+    CHANGE_PAYEE_SETTING:'futurewise/subscriptions/changeclientbillersetting/subscription',
     GET_BASE_64:'futurewise/api/v1/test/base64/decode'
-}
+} 

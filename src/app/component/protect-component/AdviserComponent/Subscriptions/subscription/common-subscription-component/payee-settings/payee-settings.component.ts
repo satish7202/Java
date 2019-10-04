@@ -13,14 +13,12 @@ export class PayeeSettingsComponent implements OnInit {
 
   settingsModal;
   payeeSettingsForm;
-  constructor(private fb: FormBuilder, public subInjectService: SubscriptionInject, private eventService: EventService, private subService: SubscriptionService) {
+  
+  constructor(public subInjectService:SubscriptionInject, private eventService:EventService,private subService:SubscriptionService,private fb:FormBuilder) {
     // this.eventService.rightSliderData.subscribe(
     //   data =>this.getRightSliderData(data)
     // )
-    this.subInjectService.rightSideBarData.subscribe(
-      data => this.getClientPayeeSettings(data)
-    )
-  }
+   }
   getClientPayeeSettings(data) {
 
     console.log("payee data", data);
@@ -44,7 +42,58 @@ export class PayeeSettingsComponent implements OnInit {
   getRightSliderData(data) {
     this.settingsModal = data;
   }
+
+  obj=[
+    {
+        "id": null,
+        "subscriptionId": 12,
+        "clientBillerId": 7,
+        "share": 25,
+        "createdDate": "2000-02-22",
+        "lastupdatedDate": "2000-03-23",
+        "isActive": 1
+    },
+    {
+        "id": null,
+        "subscriptionId": 12,
+        "clientBillerId": 25,
+        "share": 5,
+        "createdDate": "2000-02-22",
+        "lastupdatedDate": "2000-03-23",
+        "isActive": 1
+    },
+    {
+        "id": null,
+        "subscriptionId": 12,
+        "clientBillerId": 55,
+        "share": 5,
+        "createdDate": "2000-02-22",
+        "lastupdatedDate": "2000-03-23",
+        "isActive": 1
+    },
+    {
+        "id": null,
+        "subscriptionId": 12,
+        "clientBillerId": 75,
+        "share": 5,
+        "createdDate": "2000-02-22",
+        "lastupdatedDate": "2000-03-23",
+        "isActive": 1
+    }
+]
+  
   ngOnInit() {
+    this.getChangePayeeSetting();
+  }
+  getChangePayeeSetting()
+  {
+    this.subService.changePayeeSetting(this.obj).subscribe(
+        data=> this.changePayeeSettingData(data)
+      )
+  }
+  changePayeeSettingData(data)
+  {
+    console.log("data",data);
   }
   Close(state) {
     this.subInjectService.rightSliderData(state)
