@@ -125,7 +125,7 @@ export class SubscriptionService {
   }
   updateBillerProfileSettings(data)
   {
-    return this.http.post(apiConfig.MAIN_URL +appConfig.UPDATE_BILLER_PROFILE_SETTING,data);
+    return this.http.put(apiConfig.MAIN_URL +appConfig.UPDATE_BILLER_PROFILE_SETTING,data);
   }
   getSubscriptionPlanSettingsData(data)
   {
@@ -171,6 +171,31 @@ export class SubscriptionService {
   {
     let httpParams=new HttpParams().set('advisorId',data.advisorId)
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_MAP_DOCUMENT_To_SERVICE,httpParams)
+  }
+  addClientBillerProfile(data)
+  {
+    return this.http.post(apiConfig.MAIN_URL +appConfig.ADD_CLIENT_BILLER_PROFILE,data)
+  }
+  addSettingDocument(data)
+  {
+    return this.http.post(apiConfig.MAIN_URL + appConfig.ADD_SETTING_DOCUMENT,data);
+  }
+  getPlanOfAdvisorClients(data)
+  {
+    let httpParams=new HttpParams().set('advisorId',data.advisorId);
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_PLAN_OF_ADVISOR_CLIENT,httpParams)
+  }
+  createSubscription(data)
+  {
+   return this.http.post(apiConfig.MAIN_URL +appConfig.CREATE_SUBSCRIPTION,data)
+  }
+  editPayeeSettings(data)
+  {
+    return this.http.put(apiConfig.MAIN_URL + appConfig.EDIT_PAYEE_SETTINGS,data);
+  }
+  mapPlanToServiceSettings(data)
+  {
+   return this.http.post(apiConfig.MAIN_URL + appConfig.MAP_PLAN_TO_SERVICE_SETTING,data)
   }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data,10000)

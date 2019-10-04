@@ -81,5 +81,11 @@
     GET_PLAN_MAPPED_TO_ADVISOR:'futurewise/subscriptions/plan/mappedtoadvisor/get',
     GET_SUBSCRIPTION_DOCUMENTS_SETTING:'futurewise/subscriptions/settings/document/get',
     GET_MAP_DOCUMENT_To_SERVICE:'futurewise/subscriptions/mapped/documents/service/get',
+    ADD_CLIENT_BILLER_PROFILE:'futurewise/subscriptions/client/biller/profile/add',
+    ADD_SETTING_DOCUMENT:'futurewise/subscriptions/document/add',
+    GET_PLAN_OF_ADVISOR_CLIENT:'futurewise/subscriptions/plansofadvisor/get',
+    CREATE_SUBSCRIPTION:'futurewise/subscriptions/clients/subscriptions/add',
+    EDIT_PAYEE_SETTINGS:'futurewise/subscriptions/clients/settings/profile/update',
+    MAP_PLAN_TO_SERVICE_SETTING:'futurewise/subscriptions/map/plan/service',
     GET_BASE_64:'futurewise/api/v1/test/base64/decode'
 }

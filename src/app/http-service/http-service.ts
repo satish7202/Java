@@ -175,7 +175,8 @@ export class HttpService {
           return resData;
         }
         else {
-          this._router.navigate(['login']);
+          // this._router.navigate(['login']);
+          return;
         }
       });
   }

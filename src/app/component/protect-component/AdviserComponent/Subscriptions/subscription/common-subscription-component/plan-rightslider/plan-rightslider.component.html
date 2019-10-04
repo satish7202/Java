@@ -16,13 +16,13 @@
 
     <div class="row">
             <div class="col-md-6 mt-20" *ngFor="let singlePlan of planSettingData">
-                    <mat-card class="p-0 ba-blue">
+                    <mat-card class="p-0" (click)="select(singlePlan)" [ngClass]="{'ba-blue':singlePlan.selected}">
                             <div class="row bg-grey lter">
                                     <div class="col-md-12 p-0">
-                                            <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
+                                            <mat-checkbox class="custom-checkbox" [ngClass]="{'v-h':singlePlan.selected==false}"></mat-checkbox>
                                     </div>
                                     <div class="col-md-12 p-0">
-                                        <h3 class="m-0 pt-18 pl-24">{{singlePlan.title}}</h3>
+                                        <h3 class="m-0 pt-18 pl-24">{{singlePlan.name}}</h3>
                                         <h5 class="m-0 pt-4 pb-44 pl-24 text-custom">{{singlePlan.code}}</h5>
                                     </div>
                                 </div>
@@ -31,7 +31,7 @@
                                         <div class="row">
                                             <div class="col-md-12 p-0">
                                                 <p class="f-12 mb-0 text-primitive">DESCRIPTION</p>
-                                                <h5 class="mb-0">{{singlePlan.DESCRIPTION}}</h5>
+                                                <h5 class="mb-0">{{singlePlan.description}}</h5>
                                                 
                                             </div>
                                     </div>
@@ -51,7 +51,7 @@
             <h5 class="mb-0 pt-8 text-white c-p" (click)="Close('close')">Cancel</h5>
             </div>
             <div class="col-md-8 right text-right">
-                <button mat-button  class="btn-bottom br-0 text-inherit">Save</button>
+                <button mat-button  class="btn-bottom br-0 text-inherit" (click)="createSubscription()">Save</button>
                 
 
             </div>

@@ -32,7 +32,7 @@
         <div class="col-md-12 p-0">
             <mat-tab-group mat-align-tabs="center" animationDuration="0ms">
                 <mat-tab label="FEE STRUCTURE">
-                    <app-fee-structure></app-fee-structure>
+                    <app-fee-structure (serviceEvent)="serviceId=$event"></app-fee-structure>
                 </mat-tab>
                 <mat-tab label="PLANS">
                     <app-plans [componentFlag]='plans'></app-plans>
@@ -87,7 +87,7 @@
 
 <div [@upperRightSlider]="State" class="right_sidenav">
     <app-add-structure *ngIf="rightSliderData=='addPlanDetails'"></app-add-structure>
-     <app-plan-rightslider *ngIf="rightSliderData=='planRightSlider'"></app-plan-rightslider>
+     <app-plan-rightslider [clientData]="fragmentData.clientData" *ngIf="rightSliderData=='planRightSlider'"></app-plan-rightslider>
      <app-email-quotation *ngIf="rightSliderData=='eSignQuotations'"></app-email-quotation>
      <app-invoice [invoiceTab]="rightSliderData" *ngIf="rightSliderData=='invoiceUpperSlider'"></app-invoice>
      <app-payee-settings *ngIf="rightSliderData=='payeeSettings'"></app-payee-settings>
@@ -98,6 +98,5 @@
      <app-overview-blank-quotation [blankOverview]="blankOverview" *ngIf='blankOverview'></app-overview-blank-quotation>
      <app-biller-settings *ngIf="rightSliderData=='billerSettings'"></app-biller-settings>
      <app-modify-fee-structure [ModifyFeesChange]="rightSliderData" *ngIf="rightSliderData=='modifyFees'"></app-modify-fee-structure>
-
 </div>
 

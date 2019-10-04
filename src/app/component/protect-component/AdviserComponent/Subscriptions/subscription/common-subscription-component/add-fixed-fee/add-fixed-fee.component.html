@@ -124,12 +124,7 @@
                 <h5 class="mb-0 pt-8 text-white c-p" (click)="Close()">Cancel</h5>
             </div>
             <div class="col-md-8 right text-right">
-                <button mat-button [matMenuTriggerFor]="menu" class="btn-bottom br-0 text-inherit" (click)="saveFeeTypeData('1')">Save</button>
-                <mat-menu #menu="matMenu">
-                    <button mat-menu-item>Monthly</button>
-                    <button mat-menu-item>Yearly</button>
-                </mat-menu>
-    
+                <button mat-button class="btn-bottom br-0 text-inherit" (click)="saveFeeTypeData('1')">Save</button>  
             </div>
         </div>
     </div>

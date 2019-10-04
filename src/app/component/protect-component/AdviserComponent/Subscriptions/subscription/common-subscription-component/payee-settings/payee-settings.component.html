@@ -5,14 +5,14 @@
         <div class="col-md-2 text-right">
             <i class="material-icons pt-20 c-p" (click)="Close('close')"> clear</i></div>
     </div>
-    <div class="justify-content-center pt-40" id="ui-payee-setting">
+    <div [formGroup]="payeeSettingsForm" class="justify-content-center pt-40" id="ui-payee-setting">
         <div class="row">
             <div class="col-md-6">
                 <h5 class="m-0">Customer name</h5>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <input type="email" class="form-control">
+                    <input type="text" formControlName="customerName" class="form-control">
                   </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <input type="email" class="form-control">
+                    <input type="text" formControlName="displayName" class="form-control">
                   </div>
             </div>
         </div>
@@ -33,7 +33,7 @@
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <input type="email" class="form-control">
+                    <input type="text" formControlName="customerType" class="form-control">
                   </div>
             </div>
         </div>
@@ -43,7 +43,7 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <input type="email" class="form-control">
+                    <input type="text" formControlName="companyName" class="form-control">
                   </div>
             </div>
         </div>
@@ -53,7 +53,7 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <input type="email" class="form-control">
+                    <input type="email" formControlName="emailId" class="form-control">
                   </div>
             </div>
         </div>
@@ -63,7 +63,7 @@
             </div>
             <div class="col-md-4">
                 <div class="form-group mb-0">
-                    <input type="email" class="form-control">
+                    <input type="number" formControlName="mobileNo" class="form-control">
                   </div>
                   <div class="col-md-12">
                       <p class="f-12 m-0 text-right text-custom pt-4 f-12">0 / 10</p>
@@ -77,7 +77,7 @@
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <input type="email" class="form-control">
+                    <input type="number" formControlName="pan" class="form-control">
                   </div>
                   <div class="col-md-12">
                     <p class="f-12 m-0 text-right text-custom f-12">0 / 10</p>
@@ -90,7 +90,7 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <input type="email" class="form-control">
+                    <input type="text" formControlName="gstTreatment" class="form-control">
                   </div>
             </div>
         </div>
@@ -100,7 +100,7 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <input type="email" class="form-control">
+                    <input type="number" formControlName="gstIn" class="form-control">
                   </div>
                   <div class="col-md-12">
                     <p class="f-12 m-0 text-right text-custom f-12">0 / 16</p>
@@ -113,7 +113,17 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <textarea class="form-control" rows="5"></textarea>
+                    <textarea class="form-control" formControlName="billingAddress" rows="5"></textarea>
+                  </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h5 class="m-0">city</h5>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="email" formControlName="city" class="form-control">
                   </div>
             </div>
         </div>
@@ -123,7 +133,27 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <input type="email" class="form-control">
+                    <input type="email" formControlName="state" class="form-control">
+                  </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h5 class="m-0">Country</h5>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="email" formControlName="country" class="form-control">
+                  </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h5 class="m-0">Pincode</h5>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="email" formControlName="pincode" class="form-control">
                   </div>
             </div>
         </div>
@@ -134,7 +164,7 @@
                 <h5 class="mb-0 pt-8 text-white c-p text-left" (click)="Close('close')">Cancel</h5>
             </div>
             <div class="col-md-8 right text-right">
-                <button mat-button class="btn-bottom br-0 text-inherit">SAVE & NEXT <i class="material-icons">
+                <button mat-button class="btn-bottom br-0 text-inherit" (click)="savePayeeSettings()">SAVE & NEXT <i class="material-icons">
                     arrow_drop_up
                     </i></button>
             </div>

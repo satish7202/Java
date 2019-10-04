@@ -4,7 +4,7 @@
       <div class="bg-white">
         <div class="wrapper-20">
             <div class="row">
-                <div class="col-md-12 p-0" (click)="openPayeeSettings('payeeSettings','open')">
+                <div class="col-md-12 p-0" (click)="openPayeeSettings('','payeeSettings','open')">
                       <button mat-stroked-button class="btn-primary br-0 right text-right addon"><i class="material-icons">
                               add</i> ADD MORE</button>
                 </div>
@@ -18,9 +18,17 @@
                             <h3 class="mb-0 pt-8">{{profileData.name}}</h3>
                     </div>
                     <div class="col-md-4">
-                            <i class="material-icons text-right right text-custom pt-4 f-28">
-                                    more_vert
-                                    </i>
+                        <i class="material-icons text-right right text-custom f-28 c-p" [matMenuTriggerFor]="menu"
+                        [matMenuTriggerFor]="belowMenu">
+                        more_vert
+                    </i>
+                    <mat-menu #menu="matMenu">
+                        <a mat-menu-item>Set as Primary</a>
+                        <a mat-menu-item (click)="openPayeeSettings(profileData,'payeeSettings','open')" >Edit
+                            Biller Profile</a>
+                        <a mat-menu-item class="bt-1" (click)="deleteModal('SUBSCRIPTION')" >Delete Biller
+                            Profile</a>
+                    </mat-menu>
                             <button mat-stroked-button class="text-primary br-0 right text-right">PRIMARY</button>
                     </div>
                 </div>
