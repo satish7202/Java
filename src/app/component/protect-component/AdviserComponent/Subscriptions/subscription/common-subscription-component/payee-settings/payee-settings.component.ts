@@ -63,7 +63,7 @@ export class PayeeSettingsComponent implements OnInit {
   }
   getChangePayeeSetting()
   {
-    this.subService.chnagePayeeSetting(this.obj).subscribe(
+    this.subService.changePayeeSetting(this.obj).subscribe(
         data=> this.changePayeeSettingData(data)
       )
   }
