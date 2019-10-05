@@ -13,6 +13,7 @@ export class PayeeSettingsComponent implements OnInit {
 
   settingsModal;
   payeeSettingsForm;
+  
   constructor(public subInjectService:SubscriptionInject, private eventService:EventService,private subService:SubscriptionService,private fb:FormBuilder) {
     // this.eventService.rightSliderData.subscribe(
     //   data =>this.getRightSliderData(data)
