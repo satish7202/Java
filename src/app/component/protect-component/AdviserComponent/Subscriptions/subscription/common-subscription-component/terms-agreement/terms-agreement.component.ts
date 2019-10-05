@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input ,Output, EventEmitter} from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
 import {SubscriptionInject} from '../../../subscription-inject.service';
 import {HowToUseDialogComponent} from '../how-to-use-dialog/how-to-use-dialog.component';
@@ -13,17 +13,20 @@ export class TermsAgreementComponent implements OnInit {
 
   constructor(public subInjectService: SubscriptionInject, public dialog: MatDialog) {
   }
-
+  @Input() quotationDesignE;
+  @Output() valueChange = new EventEmitter();
   mailForm = new FormGroup({
     mail_body: new FormControl(''),
 
   });
 
   ngOnInit() {
+    console.log("quotationDesign",this.quotationDesignE)
   }
 
   Close(value) {
     this.subInjectService.rightSideData(value);
+    this.valueChange.emit(this.quotationDesignE);
   }
 
   onSubmit() {

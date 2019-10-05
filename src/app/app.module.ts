@@ -81,6 +81,7 @@ import { HowToUseDialogComponent } from './component/protect-component/AdviserCo
 import { AddDocumentComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/add-document/add-document.component';
 import { ModifyFeeDialogComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/modify-fee-dialog/modify-fee-dialog.component';
 import { PreferenceEmailInvoiceComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/preference-email-invoice/preference-email-invoice.component';
+import { ConsentTandCComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/consent-tand-c/consent-tand-c.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -153,7 +154,8 @@ import { PreferenceEmailInvoiceComponent } from './component/protect-component/A
     HowToUseDialogComponent,
     AddDocumentComponent,
     ModifyFeeDialogComponent,
-    PreferenceEmailInvoiceComponent
+    PreferenceEmailInvoiceComponent,
+    ConsentTandCComponent
     
   ],
   imports: [
@@ -170,6 +172,6 @@ import { PreferenceEmailInvoiceComponent } from './component/protect-component/A
   providers: [AuthService,HttpService],
   bootstrap: [AppComponent],
   entryComponents:[UpperSliderComponent,
-    ConfirmDialogComponent,SubscriptionPopupComponent,DeleteSubscriptionComponent,HowToUseDialogComponent,AddDocumentComponent,PreferenceEmailInvoiceComponent,ModifyFeeDialogComponent]
+    ConfirmDialogComponent,SubscriptionPopupComponent,DeleteSubscriptionComponent,HowToUseDialogComponent,AddDocumentComponent,PreferenceEmailInvoiceComponent,ModifyFeeDialogComponent,ConsentTandCComponent]
 })
 export class AppModule { }

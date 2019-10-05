@@ -1,3 +1,6 @@
+<div class="wrapper-20 bg-grey lter heading-fix">
+        <h3 class="m-0 text-center head-common">Dhyaan Ronak Hindocha</h3>
+      </div>
 <div *ngIf="componentFlag=='plansDocuments'">
     <mat-toolbar class="bottom-fixed">
         <div class="row w-100">
@@ -136,9 +139,9 @@
 </div>
 <div *ngIf="componentFlag=='clientDocuments'">
     <div *ngIf="documentDesign=='true'" class="pt-125">
-        <div class="wrapper-20 bg-grey lter">
+        <!-- <div class="wrapper-20 bg-grey lter">
                 <h3 class="m-0 text-center head-common">Dhyaan Ronak Hindocha</h3>
-              </div>
+              </div> -->
               <div class="bg-white">
                 <div class="wrapper-20">
                     <div class="row">
@@ -238,6 +241,6 @@
     <div>
     <app-terms-agreement *ngIf="documentDesign=='termsAgreement'"></app-terms-agreement>
     <div>
-    <div>
-            <app-terms-agreement *ngIf="documentDesign=='email'"></app-terms-agreement> 
+    <div class="pt-180 pr-0">
+            <app-terms-agreement [quotationDesignE]="quotationDesignEmail" *ngIf="documentDesign=='email'" (valueChange)='display($event)'></app-terms-agreement> 
     </div>

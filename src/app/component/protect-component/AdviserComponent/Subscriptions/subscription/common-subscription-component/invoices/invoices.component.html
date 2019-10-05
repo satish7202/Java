@@ -1,7 +1,7 @@
 <div class="wrapper-20 bg-grey lter heading-fix">
         <h3 class="m-0 text-center head-common">Dhyaan Ronak Hindocha</h3>
       </div>
-      <div class="bg-white">
+      <div class="bg-white" *ngIf="invoiceDesign=='true'">
         <div class="wrapper-20 pb-0 mt-32 pt-180">
             <div class="row">
                 <div class="col-md-12 p-0">
@@ -16,13 +16,13 @@
         <div class="wrapper-40 pt-20 pr-20">
             <div class="row">
                 <div class="col-md-1 p-0">
-          <button mat-button [matMenuTriggerFor]="menu" class="b-a pr-0">Menu <i class="material-icons text-custom">
+          <button mat-button [matMenuTriggerFor]="menu" class="b-a pr-0">Actions <i class="material-icons text-custom">
                   arrow_drop_down
                   </i></button>
               <mat-menu #menu="matMenu">
-                <button mat-menu-item>Email with eSign request</button>
-                <button mat-menu-item>Email only</button>
-                <button mat-menu-item class="b-t">Delete documents</button>
+                <button mat-menu-item (click)="openInvoicesESign('eSignInvoices','open')">Email with eSign request</button>
+                <button mat-menu-item (click)="changeDisplay('emailInvoices')">Email only</button>
+                <button mat-menu-item class="b-t" (click)="deleteModal('INVOICE')">Delete Invoices</button>
               </mat-menu>
                 </div>
                 <div class="col-md-9 p-0">
@@ -73,14 +73,15 @@
                         </ng-container>
                 <ng-container matColumnDef="icons">
                     <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 2%;"> </th>
-                    <td mat-cell *matCellDef="let element" style="width: 2%;"><i class="material-icons c-p iconscolors" [matMenuTriggerFor]="menu" [matMenuTriggerFor]="belowMenu">
+                    <td mat-cell *matCellDef="let element" style="width: 2%;">
+                        <!-- <i class="material-icons c-p iconscolors" [matMenuTriggerFor]="menu" [matMenuTriggerFor]="belowMenu">
                                                         more_vert
-                                                        </i>
-                        <mat-menu #menu="matMenu">
+                                                        </i> -->
+                        <!-- <mat-menu #menu="matMenu">
                             <a mat-menu-item>View document</a>
                             <a mat-menu-item>Modify document</a>
                             <a mat-menu-item class="bt-1">Delete subscription</a>
-                        </mat-menu>
+                        </mat-menu> -->
                     </td>
                 </ng-container>
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -88,3 +89,6 @@
             </table>
         </div>
       </div>
+      <div class="pt-180 pr-0" >
+            <app-terms-agreement [quotationDesignE]="quotationDesignEmail" *ngIf="invoiceDesign=='emailInvoices'"  (valueChange)='display($event)'  ></app-terms-agreement>
+            </div>

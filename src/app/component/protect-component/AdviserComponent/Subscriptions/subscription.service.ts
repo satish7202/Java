@@ -166,6 +166,9 @@ export class SubscriptionService {
   changePayeeSetting(data) {
     return this.http.put(apiConfig.MAIN_URL + appConfig.CHANGE_PAYEE_SETTING, data);
   }
+  changeBillerSetting(data) {
+    return this.http.put(apiConfig.MAIN_URL + appConfig.CHANGE_BILLER_SETTING, data);
+  }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data, 10000)
   }

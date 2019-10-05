@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SubscriptionInject } from '../../../subscription-inject.service';
+import { SubscriptionService } from '../../../subscription.service';
 
 @Component({
   selector: 'app-biller-settings',
@@ -8,9 +9,24 @@ import { SubscriptionInject } from '../../../subscription-inject.service';
 })
 export class BillerSettingsComponent implements OnInit {
 
-  constructor(public subInjectService:SubscriptionInject) { }
-  
+  constructor(public subInjectService:SubscriptionInject,private subService:SubscriptionService) { }
+  obj={
+    'advisorId':12345,
+    'subscriptionId':1,
+    'billerProfileId':5
+  }
   ngOnInit() {
+    this.getChangeBillerSetting();
+  }
+  getChangeBillerSetting()
+  {
+    this.subService.changeBillerSetting(this.obj).subscribe(
+      data=> this.changeBillerSettingData(data)
+    )
+  }
+  changeBillerSettingData(data)
+  {
+    console.log("data",data)
   }
   Close(state)
   {

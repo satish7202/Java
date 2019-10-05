@@ -7,6 +7,7 @@ import { ConfirmDialogComponent } from 'src/app/component/protect-component/comm
 import { MatDialog } from '@angular/material';
 import { SubscriptionPopupComponent } from '../subscription-popup/subscription-popup.component';
 import { SubscriptionService } from '../../../subscription.service';
+import { ConsentTandCComponent } from '../consent-tand-c/consent-tand-c.component';
 export interface PeriodicElement {
   document: string;
   plan: string;
@@ -29,9 +30,8 @@ export class QuotationsComponent implements OnInit {
       data => this.getQuotationDesignData(data)
     )
   }
-
+  quotationDesignEmail;
   quotationDesign;
-
   ngOnInit() {
    this.quotationDesign='true';
    console.log("quotation")
@@ -63,6 +63,7 @@ export class QuotationsComponent implements OnInit {
 
   changeDisplay(value) {
     this.quotationDesign = value;
+    this.quotationDesignEmail=this.quotationDesign;
   }
 
   deleteModal(value) {
@@ -110,5 +111,27 @@ export class QuotationsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
 
     });
+  }
+  OpenConsent(data) {
+    let Fragmentdata = {
+      Flag: data,
+    }
+    const dialogRef = this.dialog.open(ConsentTandCComponent, {
+      data: Fragmentdata,
+      autoFocus: false,
+
+    });
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
+  }
+  closeDiv()
+  {
+    this.quotationDesign='true';
+  }
+  display(data)
+  {
+    console.log(data)
+    this.ngOnInit()
   }
 }
