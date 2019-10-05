@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SubscriptionInject } from '../../../subscription-inject.service';
 import { EventService } from 'src/app/Data-service/event.service';
 import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
@@ -35,7 +35,7 @@ export class SubscriptionsUpperSliderComponent implements OnInit {
   }
   displayedColumns: string[] = ['service', 'amt', 'type', 'subs','status','date','bdate','ndate','mode','icons'];
   dataSource = ELEMENT_DATA;
-  
+  @Input() clientData;
   openPlanSlider(value,state)
   {
     this.eventService.sliderData(value);

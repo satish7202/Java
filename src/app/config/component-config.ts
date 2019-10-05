@@ -62,13 +62,14 @@
     GET_SUBSCRIPTION_QUOTATIONS:'futurewise/subscriptions/quotations/get',
     GET_SUBSCRIPTION_SUBSCRIPTION:'futurewise/subscriptions/subscription/get',
     GET_SUBSCRIPTION_PLAN_SERVICE:'futurewise/subscriptions/settings/plan-service/get',
-    ADD_SETTING_PLAN_OVERVIEW:'futurewise/subscriptions/addPlan/get',
+    ADD_SETTING_PLAN_OVERVIEW:'futurewise/subscriptions/Plan/add',
     MAP_SERVICE_TO_PLAN:'futurewise/subscriptions/settings/plan/mapservice',
     MAP_DOCUMENTS_TO_PLAN:'futurewise/subscriptions/settings/plan/mapdocument',
     GET_PLAN_DOCUMENTS_DATA:'futurewise/subscriptions/settings/plan-document/get',
     GET_DOCUMENT_COUNT_SIGNED:'futurewise/subscriptions/subscription/document/analytic/get',
     GET_CLIENT_WITH_SCRIPTION:'futurewise/subscriptions/subscription/analytic/get',
     GET_INVOICE_TO_BE_REVIEWED:'futurewise/subscriptions/invoice/review/get',
+    GET_SUB_SUMMARY:'futurewise/subscriptions/dashboard/summary/get',
     DASHBOARD_SUBSCRIPTION_LETS_BEGIN:'futurewise/subscriptions/letsBegin/get',
     CANCEL_SUBSCRIPTION:'futurewise/subscriptions/cancel/subscription/get',
     DELETE_SUBSCRIPTION:'futurewise/subscriptions/delete/subscription',
@@ -88,5 +89,6 @@
     EDIT_PAYEE_SETTINGS:'futurewise/subscriptions/clients/settings/profile/update',
     MAP_PLAN_TO_SERVICE_SETTING:'futurewise/subscriptions/map/plan/service',
     CHANGE_PAYEE_SETTING:'futurewise/subscriptions/changeclientbillersetting/subscription',
+    CHANGE_BILLER_SETTING:'futurewise/subscriptions/changebillersetting/subscription',
     GET_BASE_64:'futurewise/api/v1/test/base64/decode'
 } 
