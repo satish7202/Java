@@ -86,6 +86,7 @@ import {CustomhtmlRenderDirective} from './common/customhtml.render.directive';
 import {ChildComponent} from './common/child.component';
 import { CustomHtmlComponent } from './common/customhtml.component';
 import { ConsentTandCComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/consent-tand-c/consent-tand-c.component';
+import { CommonFroalaComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/common-froala/common-froala.component';
 
 @NgModule({
   declarations: [
@@ -163,7 +164,8 @@ import { ConsentTandCComponent } from './component/protect-component/AdviserComp
     CustomhtmlRenderDirective,
     ChildComponent,
     CustomHtmlComponent,
-    ConsentTandCComponent
+    ConsentTandCComponent,
+    CommonFroalaComponent
   ],
   imports: [
     BrowserModule,

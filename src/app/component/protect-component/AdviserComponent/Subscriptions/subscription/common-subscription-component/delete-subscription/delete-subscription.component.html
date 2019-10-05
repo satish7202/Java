@@ -1,11 +1,19 @@
+<div class="wrapper-24">
 <div *ngIf="fragmentData.Flag=='cancelSubscription'">
-  <h3  class="f-bold">CANCEL SUBSCRIPTION</h3>
-<br>
-<h5>This service can be used by the client till the end of term and the subscription will be cancelled on <b>27/06/2020</b></h5>
-<button mat-stroked-button class="btn-primary addon">Cancel on Next Renewal</button>
-<br>
-<br>
-<h5>Cancelling the subscription immediately will not allow the client to use the service here after</h5>
-<button mat-stroked-button class="btn-primary addon" (click)="cancelSubscription()">Cancel Immediately</button>
+  <h3 class="f-bold">CANCEL SUBSCRIPTION</h3>
+<div class="row">
+  <div class="col-md-12 p-0">
+      <h5 class="pt-16 pb-16 m-0">This service can be used by the client till the end of term and the subscription will be cancelled on <b>27/06/2020</b></h5>
+      <button mat-stroked-button class="btn-primary addon">Cancel on Next Renewal</button>
+  </div>
 </div>
 
+<div class="row pb-8">
+  <div class="col-md-12 p-0">
+      <h5 class="pt-16 pb-16 m-0">Cancelling the subscription immediately will not allow the client to use the service here after</h5>
+      <button mat-stroked-button class="btn-primary addon" (click)="cancelSubscription()">Cancel Immediately</button>
+  </div>
+</div>
+
+</div>
+</div>

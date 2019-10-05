@@ -51,50 +51,50 @@
 
 
             <ng-container matColumnDef="client">
-                <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 22%;"> Client & Plan details </th>
-                <td mat-cell *matCellDef="let element" style="width: 22%;" (click)="Open(element,'SUBSCRIPTIONS','open')" class="c-p"> {{element.clientName}} </td>
+                <th mat-header-cell *matHeaderCellDef class="f-18 t-20"> Client & Plan details </th>
+                <td mat-cell *matCellDef="let element" (click)="Open('SUBSCRIPTIONS','open')" class="c-p t-20"> {{element.clientName}} </td>
             </ng-container>
             <ng-container matColumnDef="service">
-                <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 20%;"> Service name </th>
-                <td mat-cell *matCellDef="let element" style="width: 20%;" class="c-p"> {{element.serviceName}} </td>
+                <th mat-header-cell *matHeaderCellDef class="f-18 t-12"> Service name </th>
+                <td mat-cell *matCellDef="let element" class="c-p t-12"> {{element.serviceName}} </td>
             </ng-container>
             <ng-container matColumnDef="amt">
-                <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 12%;"> Fee amount </th>
-                <td mat-cell *matCellDef="let element" style="width: 12%;" (click)="Open(element,'modifyFees','open')" class="c-p"> {{element.amt}} </td>
+                <th mat-header-cell *matHeaderCellDef class="f-18 t-10"> Fee amount </th>
+                <td mat-cell *matCellDef="let element" (click)="Open('modifyFees','open')" class="c-p t-10"> {{element.amt}} </td>
             </ng-container>
 
             <!-- Name Column -->
             <ng-container matColumnDef="sub">
-                <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 10%;"> Subs # </th>
-                <td mat-cell *matCellDef="let element" style="width: 10%;" class="c-p"> {{element.sub}} </td>
+                <th mat-header-cell *matHeaderCellDef class="f-18 t-10"> Subs # </th>
+                <td mat-cell *matCellDef="let element" class="t-10 c-p"> {{element.sub}} </td>
             </ng-container>
             <!-- Weight Column -->
             <ng-container matColumnDef="status">
-                <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 10%;"> Status </th>
-                <td mat-cell *matCellDef="let element" class="greentext" style="width: 10%;"> {{element.statusInString}} </td>
+                <th mat-header-cell *matHeaderCellDef class="f-18 t-10"> Status </th>
+                <td mat-cell *matCellDef="let element" class="greentext t-10"> {{element.statusInString}} </td>
             </ng-container>
             <!-- Weight Column -->
             <ng-container matColumnDef="activation">
-                <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 8%;"> Activation... </th>
-                <td mat-cell *matCellDef="let element" style="width:8%;"> {{element.activation}} </td>
+                <th mat-header-cell *matHeaderCellDef class="f-18 t-6"> Activation... </th>
+                <td mat-cell *matCellDef="let element" class="t-6"> {{element.activation}} </td>
             </ng-container>
 
             <!-- Symbol Column -->
             <ng-container matColumnDef="lastbilling">
-                <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 10%;"> Last billing... </th>
-                <td mat-cell *matCellDef="let element" style="width: 10%;"> {{element.prevBillingDate | date:'dd/MM/yyyy'}} </td>
+                <th mat-header-cell *matHeaderCellDef class="f-18 t-10"> Last billing... </th>
+                <td mat-cell *matCellDef="let element" class="t-10"> {{element.prevBillingDate | date:'dd/MM/yyyy'}} </td>
             </ng-container>
             <ng-container matColumnDef="nextbilling">
-                <th mat-header-cell *matHeaderCellDef class="f-18 text-right pr-24" style="width: 15%;"> Next billing... </th>
-                <td mat-cell *matCellDef="let element" class="text-right pr-8" style="width: 15%;"> {{element.nextBillingDate | date:'dd/MM/yyyy'}} </td>
+                <th mat-header-cell *matHeaderCellDef class="f-18 text-right pr-24 t-15" > Next billing... </th>
+                <td mat-cell *matCellDef="let element" class="text-right pr-8 t-15" > {{element.nextBillingDate | date:'dd/MM/yyyy'}} </td>
             </ng-container>
             <ng-container matColumnDef="feemode">
-                <th mat-header-cell *matHeaderCellDef class="f-18 text-right pr-24" style="width: 8%;"> Fee mode</th>
-                <td mat-cell *matCellDef="let element" class="text-right pr-8" style="width: 8%;"> {{element.feeMode}} </td>
+                <th mat-header-cell *matHeaderCellDef class="f-18 text-right pr-24 t-12"> Fee mode</th>
+                <td mat-cell *matCellDef="let element" class="text-right pr-8 t-12"> {{element.feeMode}} </td>
             </ng-container>
             <ng-container matColumnDef="icons">
-                <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 2%;"> </th>
-                <td mat-cell *matCellDef="let element" style="width: 2%;"><i class="material-icons c-p iconscolors" [matMenuTriggerFor]="menu">
+                <th mat-header-cell *matHeaderCellDef class="f-18 t-2"> </th>
+                <td mat-cell *matCellDef="let element" class="t-2"><i class="material-icons c-p iconscolors" [matMenuTriggerFor]="menu">
                     more_vert
                     </i>
                     <mat-menu #menu="matMenu">
