@@ -38,6 +38,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./document.component.scss']
 })
 export class DocumentComponent implements OnInit {
+  quotationDesignEmail: any;
 
   constructor(public dialogRef: MatDialogRef<DocumentComponent>, public subInjectService: SubscriptionInject,
     private eventService: EventService, public dialog: MatDialog, private subService: SubscriptionService) {
@@ -52,6 +53,7 @@ export class DocumentComponent implements OnInit {
   mappedData = [];
 
   @Input() componentFlag: string;
+  @Input() clientData;
 
   displayedColumns: string[] = ['checkbox', 'document', 'plan', 'service', 'date', 'sdate', 'cdate', 'status', 'icons'];
   dataSource = ELEMENT_DATA;
@@ -60,6 +62,7 @@ export class DocumentComponent implements OnInit {
     this.getplanDocumentData();
     this.getServiceDocumentData();
     this.documentDesign = 'true';
+    console.log('clientData',this.clientData)
   }
 
   openDocument(data) {
@@ -124,6 +127,8 @@ export class DocumentComponent implements OnInit {
 
   changeDisplay(value) {
     this.documentDesign = value;
+    this.quotationDesignEmail=this.documentDesign;
+
   }
 
   getplanDocumentData() {
@@ -206,5 +211,10 @@ export class DocumentComponent implements OnInit {
     this.subService.mapDocumentsToPlanData(obj).subscribe(
       data => console.log(data)
     );
+  }
+  display(data)
+  {
+    console.log(data)
+    this.ngOnInit()
   }
 }

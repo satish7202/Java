@@ -9,14 +9,14 @@ import { EventService } from 'src/app/Data-service/event.service';
 })
 export class FeeStructureComponent implements OnInit {
 
-  constructor(public subInjectService:SubscriptionInject, private eventService:EventService) { }
+  constructor(public subInjectService: SubscriptionInject, private eventService: EventService) { }
 
   ngOnInit() {
   }
 
-  openPlanSliderFee(value,state)
-  { 
+  openPlanSliderFee(data, value, state) {
     this.eventService.sliderData(value);
-    this.subInjectService.rightSliderData(state)
+    this.subInjectService.rightSideData(data);
+    this.subInjectService.rightSliderData(state);
   }
 }

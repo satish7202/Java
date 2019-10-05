@@ -11,6 +11,7 @@ export class PlansComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<PlansComponent>, private subService: SubscriptionService) { }
   @Input() componentFlag: string;
+  @Input() clientData;
   servicePlanData;
   mappedPlan = [];
   ngOnInit() {
@@ -52,6 +53,20 @@ export class PlansComponent implements OnInit {
     })
   }
   saveMappedPlans() {
-   console.log("Mapped Plan",this.mappedPlan)   
+   console.log("Mapped Plan",this.mappedPlan)
+   console.log("clientId",this.clientData) 
+    let obj={
+      "planIds":[],
+      "serviceId":this.clientData,
+      "advisorId":12345
+    }
+   this.mappedPlan.forEach(planData=>{
+     obj.planIds.push(planData.id)
+   })
+   console.log("Mapped Plans",obj)
+
+   this.subService.mapPlanToServiceSettings(obj).subscribe(
+     data =>console.log("mapped sucessfully",data)
+   )
   }
 }
