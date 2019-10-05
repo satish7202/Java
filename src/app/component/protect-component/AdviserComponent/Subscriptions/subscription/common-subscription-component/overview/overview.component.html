@@ -60,7 +60,7 @@
             <div class="b-a">
                 <div class="action-button">
                     <button mat-stroked-button class="btn-sm btn-primary br-0 ml-24 mr-20 f-14"
-                        (click)="changeDisplay('view')">VIEW</button>
+                        (click)="changeDisplay()">VIEW</button>
                     <button mat-stroked-button class="btn-sm btn-success br-0 f-14"
                         (click)="openForm('blank','open')">USE</button>
                 </div>
@@ -132,5 +132,5 @@
     </div>
 </div>
 <div>
-    <app-terms-agreement *ngIf="overviewDesign=='view'"></app-terms-agreement>
+        <app-terms-agreement *ngIf="overviewDesign=='false'"></app-terms-agreement> 
 </div>

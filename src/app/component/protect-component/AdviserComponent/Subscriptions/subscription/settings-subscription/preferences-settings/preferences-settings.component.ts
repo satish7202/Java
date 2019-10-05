@@ -52,7 +52,9 @@ export class PreferencesSettingsComponent implements OnInit {
     this.subscription.updatePreferenceInvoiceQuotationsSubscription(obj).subscribe(
       data => this.savePrefixResponse(data)
     )
-
+     this.subscription.savePreferenceInvoiceQuotationsSubscription(obj).subscribe(
+       data => this.savePrefixResponse(data)
+     )
   }
   savePrefixResponse(data) {
     this.prefixData = data;

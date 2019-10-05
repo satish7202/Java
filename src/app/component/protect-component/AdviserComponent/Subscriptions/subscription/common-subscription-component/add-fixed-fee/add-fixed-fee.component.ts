@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { SubscriptionInject } from '../../../subscription-inject.service';
 import { FormBuilder } from '@angular/forms';
 import { SubscriptionService } from '../../../subscription.service';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-add-fixed-fee',
@@ -11,7 +12,7 @@ import { SubscriptionService } from '../../../subscription.service';
 export class AddFixedFeeComponent implements OnInit {
 
   constructor(public subInjectService: SubscriptionInject, private fb: FormBuilder,private subService:SubscriptionService) { }
-
+  @Output() serviceEvent=new EventEmitter();
   ngOnInit() {
   }
   fixedFeeData = this.fb.group({
@@ -57,7 +58,7 @@ export class AddFixedFeeComponent implements OnInit {
     }
      console.log("jifsdfoisd",obj)
     this.subService.createSettingService(obj).subscribe(
-      data =>console.log("service created sucessfully")
+      data =>this.serviceEvent.emit(data)
     )
   }
 }

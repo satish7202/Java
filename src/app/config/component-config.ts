@@ -78,5 +78,16 @@
     GET_SUBSCRIPTION_PLAN_SETTING:'futurewise/subscriptions/settings/plan/get',
     GET_SUBSCRIPTION_SERVICE_SETTING:'futurewise/subscriptions/settings/service/get',
     CREATE_SERVICE_SETTING:'futurewise/subscriptions/service/create',
+    DELETE_SUBSCRIPTION_PLAN:'futurewise/subscriptions/deletePlan/get',
+    GET_PLAN_MAPPED_TO_ADVISOR:'futurewise/subscriptions/plan/mappedtoadvisor/get',
+    GET_SUBSCRIPTION_DOCUMENTS_SETTING:'futurewise/subscriptions/settings/document/get',
+    GET_MAP_DOCUMENT_To_SERVICE:'futurewise/subscriptions/mapped/documents/service/get',
+    ADD_CLIENT_BILLER_PROFILE:'futurewise/subscriptions/client/biller/profile/add',
+    ADD_SETTING_DOCUMENT:'futurewise/subscriptions/document/add',
+    GET_PLAN_OF_ADVISOR_CLIENT:'futurewise/subscriptions/plansofadvisor/get',
+    CREATE_SUBSCRIPTION:'futurewise/subscriptions/clients/subscriptions/add',
+    EDIT_PAYEE_SETTINGS:'futurewise/subscriptions/clients/settings/profile/update',
+    MAP_PLAN_TO_SERVICE_SETTING:'futurewise/subscriptions/map/plan/service',
+    CHANGE_PAYEE_SETTING:'futurewise/subscriptions/changeclientbillersetting/subscription',
     GET_BASE_64:'futurewise/api/v1/test/base64/decode'
-}
+} 

@@ -1,5 +1,7 @@
-import { Component, OnInit,Input} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
+import { SubscriptionService } from '../../../subscription.service';
+import * as _ from "lodash";
 @Component({
   selector: 'app-plans',
   templateUrl: './plans.component.html',
@@ -7,20 +9,49 @@ import { MatDialogRef } from '@angular/material';
 })
 export class PlansComponent implements OnInit {
 
-  constructor(public dialogRef:MatDialogRef<PlansComponent>) { }
-  @Input() componentFlag:string;
-  servicePlanData=[{title:'Starter Plan',code:'PLA123',DESCRIPTION:'This plan is ideal for young people who are just starting off their financial journey and want to start saving with a smaller investment amount.',checked:false},
-  {title:'Starter Plan',code:'PLA123',DESCRIPTION:'This plan is ideal for young people who are just starting off their financial journey and want to start saving with a smaller investment amount.',checked:false},
-  {title:'Starter Plan',code:'PLA123',DESCRIPTION:'This plan is ideal for young people who are just starting off their financial journey and want to start saving with a smaller investment amount.',checked:false}];
+  constructor(public dialogRef: MatDialogRef<PlansComponent>, private subService: SubscriptionService) { }
+  @Input() componentFlag: string;
+  servicePlanData;
+  mappedPlan = [];
   ngOnInit() {
+    this.getPlansMappedToAdvisor();
   }
-  dialogClose(){
+  getPlansMappedToAdvisor() {
+    let obj = {
+      'advisorid': 12345
+    }
+    this.subService.getPlansMappedToAdvisor(obj).subscribe(
+      data => this.getPlansMappedToAdvisorResponse(data)
+    )
+  }
+  getPlansMappedToAdvisorResponse(data) {
+    console.log("service plan data", data)
+
+    this.servicePlanData = data;
+    this.servicePlanData.forEach(element => {
+      if (element.isActive == 1) {
+        this.mappedPlan.push(element);
+      }
+    });
+  }
+  dialogClose() {
     this.dialogRef.close();
   }
-  selectServicePlan(data)
-  { 
-    
-    (data.checked)?data.checked=false:data.checked=true;
-    console.log(data)
+  selectServicePlan(data) {
+
+    (data.isActive == 1) ? this.unmapPlanToService(data) : this.mapPlanToService(data);
+  }
+  mapPlanToService(data) {
+    data.isActive = 1
+    this.mappedPlan.push(data)
+  }
+  unmapPlanToService(data) {
+    data.isActive = 0
+    _.remove(this.mappedPlan, function (delData) {
+      return delData.id == data.id;
+    })
+  }
+  saveMappedPlans() {
+   console.log("Mapped Plan",this.mappedPlan)   
   }
 }

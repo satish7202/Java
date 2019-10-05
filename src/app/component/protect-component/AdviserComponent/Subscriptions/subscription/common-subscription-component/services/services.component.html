@@ -70,19 +70,21 @@
 
             </div>
         </div>
-        <div *ngIf="componentFlag!='planServices'">
-                <p>This is services in Documents</p>
-            </div>
-            <mat-toolbar class="bottom-fixed">
-                    <div class="row w-100">
-                        <div class="col-md-6 text-left">
-                            <p class="text-white f-16 mb-0 pt-12 c-p" (click)="dialogClose()">Cancel</p>
-                        </div>
-                        <div class="col-md-6 text-right">
-                            <button type="button" mat-stroked-button class="btn-bottom br-0" (click)="savePlanMapToService()">Save</button>
-                        </div>
-                    </div>
-                </mat-toolbar>
+               
     </div>
 </div>
 
+        <div *ngIf="componentFlag!='planServices'">
+                <p>This is services in Documents</p>
+            </div>
+ 
+<mat-toolbar class="bottom-fixed">
+    <div class="row w-100">
+        <div class="col-md-6 text-left">
+            <p class="text-white f-16 mb-0 pt-12 c-p" (click)="dialogClose()">Cancel</p>
+        </div>
+        <div class="col-md-6 text-right">
+            <button type="button" mat-stroked-button class="btn-bottom br-0" (click)="savePlanMapToService()">Save</button>
+        </div>
+    </div>
+</mat-toolbar>

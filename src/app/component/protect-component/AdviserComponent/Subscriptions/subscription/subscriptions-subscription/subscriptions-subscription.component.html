@@ -52,11 +52,11 @@
 
             <ng-container matColumnDef="client">
                 <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 22%;"> Client & Plan details </th>
-                <td mat-cell *matCellDef="let element" style="width: 22%;" (click)="Open('SUBSCRIPTIONS','open')" class="c-p"> {{element.client}} </td>
+                <td mat-cell *matCellDef="let element" style="width: 22%;" (click)="Open('SUBSCRIPTIONS','open')" class="c-p"> {{element.clientName}} </td>
             </ng-container>
             <ng-container matColumnDef="service">
                 <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 20%;"> Service name </th>
-                <td mat-cell *matCellDef="let element" style="width: 20%;" class="c-p"> {{element.service}} </td>
+                <td mat-cell *matCellDef="let element" style="width: 20%;" class="c-p"> {{element.serviceName}} </td>
             </ng-container>
             <ng-container matColumnDef="amt">
                 <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 12%;"> Fee amount </th>
@@ -71,7 +71,7 @@
             <!-- Weight Column -->
             <ng-container matColumnDef="status">
                 <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 10%;"> Status </th>
-                <td mat-cell *matCellDef="let element" class="greentext" style="width: 10%;"> {{element.status}} </td>
+                <td mat-cell *matCellDef="let element" class="greentext" style="width: 10%;"> {{element.statusInString}} </td>
             </ng-container>
             <!-- Weight Column -->
             <ng-container matColumnDef="activation">
@@ -82,15 +82,15 @@
             <!-- Symbol Column -->
             <ng-container matColumnDef="lastbilling">
                 <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 10%;"> Last billing... </th>
-                <td mat-cell *matCellDef="let element" style="width: 10%;"> {{element.lastbilling}} </td>
+                <td mat-cell *matCellDef="let element" style="width: 10%;"> {{element.prevBillingDate | date:'dd/MM/yyyy'}} </td>
             </ng-container>
             <ng-container matColumnDef="nextbilling">
                 <th mat-header-cell *matHeaderCellDef class="f-18 text-right pr-24" style="width: 15%;"> Next billing... </th>
-                <td mat-cell *matCellDef="let element" class="text-right pr-8" style="width: 15%;"> {{element.nextbilling}} </td>
+                <td mat-cell *matCellDef="let element" class="text-right pr-8" style="width: 15%;"> {{element.nextBillingDate | date:'dd/MM/yyyy'}} </td>
             </ng-container>
             <ng-container matColumnDef="feemode">
                 <th mat-header-cell *matHeaderCellDef class="f-18 text-right pr-24" style="width: 8%;"> Fee mode</th>
-                <td mat-cell *matCellDef="let element" class="text-right pr-8" style="width: 8%;"> {{element.feemode}} </td>
+                <td mat-cell *matCellDef="let element" class="text-right pr-8" style="width: 8%;"> {{element.feeMode}} </td>
             </ng-container>
             <ng-container matColumnDef="icons">
                 <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 2%;"> </th>
