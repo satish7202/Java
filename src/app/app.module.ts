@@ -81,6 +81,7 @@ import { HowToUseDialogComponent } from './component/protect-component/AdviserCo
 import { AddDocumentComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/add-document/add-document.component';
 import { ModifyFeeDialogComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/modify-fee-dialog/modify-fee-dialog.component';
 import { PreferenceEmailInvoiceComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/preference-email-invoice/preference-email-invoice.component';
+import { CommonFroalaComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/common-froala/common-froala.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -153,7 +154,8 @@ import { PreferenceEmailInvoiceComponent } from './component/protect-component/A
     HowToUseDialogComponent,
     AddDocumentComponent,
     ModifyFeeDialogComponent,
-    PreferenceEmailInvoiceComponent
+    PreferenceEmailInvoiceComponent,
+    CommonFroalaComponent
     
   ],
   imports: [

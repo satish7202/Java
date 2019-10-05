@@ -36,7 +36,7 @@ export class TermsAgreementComponent implements OnInit {
       Flag: data,
     };
     const dialogRef = this.dialog.open(HowToUseDialogComponent, {
-      width: '40%',
+      width: '30%',
       data: Fragmentdata,
       autoFocus: false,
 

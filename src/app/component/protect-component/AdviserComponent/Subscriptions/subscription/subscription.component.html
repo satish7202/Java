@@ -30,8 +30,8 @@
     </div>
 </div>
 <div [@openClose]="currentState" class="right_sidenav">
-    <app-terms-agreement *ngIf="subscriptionTab=='DOCUMENTS'"></app-terms-agreement>
-    <app-terms-agreement *ngIf="subscriptionTab=='QUOTATIONS'"></app-terms-agreement>
+    <app-common-froala *ngIf="subscriptionTab=='DOCUMENTS'"></app-common-froala>
+    <app-common-froala *ngIf="subscriptionTab=='QUOTATIONS'"></app-common-froala>
     <app-invoice-history *ngIf="subscriptionTab=='SUBSCRIPTIONS'"></app-invoice-history>
     <app-invoice-history *ngIf="subscriptionTab=='subscriptionFees'"></app-invoice-history>
     <app-clients-dashboard *ngIf="subscriptionTab=='dashboardSubscription'"></app-clients-dashboard>

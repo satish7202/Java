@@ -1,0 +1,49 @@
+<div class="row bb-1 popup-header-fix-60">
+        <div class="col-md-10 p-0">
+            <h3 class="mb-0 wrapper-20 text-left">NEELAM SINGH</h3>
+            </div>
+        <div class="col-md-2 text-right">
+            <i class="material-icons pt-16 pr-8 c-p" (click)="Close('close')"> clear</i></div>
+    </div>
+    <div class="row pt-72 bb-1">
+        <div class="col-md-8 pt-4 pb-12">
+            <img src="assets/images/svg/mail.svg" class="b-a wrapper-8">
+            <img src="assets/images/svg/mail.svg" class="b-a wrapper-8">
+            <img src="assets/images/svg/mail.svg" class="b-a wrapper-8">
+            <img src="assets/images/svg/mail.svg" class="b-a wrapper-8">
+            <img src="assets/images/svg/mail.svg" class="b-a wrapper-8">
+        </div>
+        <div class="col-md-4 pt-4 pb-12">
+            <p class="m-0 text-black text-right c-p pr-16 pt-8">Activity log</p>
+        </div>
+    </div>
+<div class="wrapper-20">
+        <div class="row">
+          <div class="col-md-9 p-0">
+            <h3 class="mb-8 mt-20">Terms of agreement</h3>
+            <!-- <div id="ui-froala">
+                    <div [froalaEditor] formControlName="mail_body">Hello, Froala!</div>
+              <button type="submit" (click)="onSubmit()" [disabled]="!mailForm.valid" mat-stroked-button
+                      class="mt-16 btn-primary br-0">Submit
+              </button>
+            </div> -->
+</div>
+</div>
+</div>
+<div class="bottom-fixed wrapper-12">
+        <div class="row">
+            <div class="col-md-4">
+                <h5 class="mb-0 pt-8 text-white c-p" (click)="Close()">Cancel</h5>
+            </div>
+            <div class="col-md-8 right text-right">
+      
+                <button mat-button class="btn-bottom br-0 text-inherit" [matMenuTriggerFor]="menu">Email with eSign Request <i class="material-icons">
+                        arrow_drop_up
+                        </i></button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+            </div>
+        </div>
+    </div>

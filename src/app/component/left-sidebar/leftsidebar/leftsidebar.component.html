@@ -22,7 +22,7 @@
                     <span class="title" mat-line>Dashboard</span>
                 </a>
                 <a mat-list-item class="sidenav-link">
-                    <mat-icon mat-list-icon>favorite</mat-icon>
+                   <img src="assets/images/svg/cart.svg">
                     <span class="title" mat-line>Clients</span>
                 </a>
                 <div>
@@ -66,25 +66,42 @@
                     </div>
                     <div class="pt-12">
                         <a mat-list-item class="sidenav-link" routerLink="/admin/dashboard">
-                            <mat-icon mat-list-icon>radio_button_checked</mat-icon>
+                            <img src="assets/images/svg/cart.svg">
                             <span *ngIf="showTabs" class="title" mat-line>Dashboard</span>
                         </a>
+                        <a mat-list-item class="sidenav-link">
+                            <img src="assets/images/svg/people.svg">
+                            <span *ngIf="showTabs" class="title" mat-line>People</span>
+                        </a>
+                        <a mat-list-item class="sidenav-link">
+                           <img src="assets/images/svg/cart.svg">
+                            <span *ngIf="showTabs" class="title" mat-line>Activities</span>
+                            <mat-icon aria-hidden="false" aria-label="Example home icon" class="text-custom">keyboard_arrow_right</mat-icon>
+                        </a>
+                        <a mat-list-item class="sidenav-link">
+                           <img src="assets/images/svg/mail.svg">
+                            <span *ngIf="showTabs" class="title" mat-line>Email</span>
+                        </a>
+                        <a mat-list-item class="sidenav-link">
+                            <img src="assets/images/svg/cart.svg">
+                            <span *ngIf="showTabs" class="title" mat-line>Transactions</span>
+                        </a>
                         <a mat-list-item class="sidenav-link" routerLink="/admin/subscription">
-                            <mat-icon mat-list-icon>favorite</mat-icon>
+                           <img src="assets/images/svg/cart.svg">
                             <span *ngIf="showTabs" class="title" mat-line>Subscription</span>
                         </a>
-
-                        <a mat-list-item class="sidenav-link" (click)="backSections()">
-                            <mat-icon mat-list-icon>favorite</mat-icon>
-                            <span *ngIf="showTabs" class="title" mat-line>Back Office 
-                                    <i *ngIf="arrow==true " class="material-icons text-right right pr-20">expand_more</i>
-                                    <i *ngIf="arrow==false" class="material-icons text-right right pr-20">chevron_right </i>
-                            </span>
-
+                        <a mat-list-item class="sidenav-link">
+                           <img src="assets/images/svg/cart.svg">
+                            <span *ngIf="showTabs" class="title" mat-line>Documents</span>
                         </a>
-                        <div *ngIf="arrow==true && showTabs" class="sidenav-link">
-                            <a routerLink="/admin/mis">Mis Reports</a>
-                        </div>
+                        <a mat-list-item class="sidenav-link">
+                           <img src="assets/images/svg/cart.svg">
+                            <span *ngIf="showTabs" class="title" mat-line>Compliance</span>
+                        </a>
+                        <a mat-list-item class="sidenav-link">
+                           <img src="assets/images/svg/cart.svg">
+                            <span *ngIf="showTabs" class="title" mat-line>Back Office</span>
+                        </a>
                     </div>
                 </mat-nav-list>
             </mat-sidenav>
@@ -103,15 +120,15 @@
                         </i>
                         <input class="search-field" type="text" placeholder="SEARCH" name="email">
                     </div>
-                    <div class="pl-48 hide-on-800 flex right-fixed tablate-none">
+                    <div class="hide-on-800 flex right-fixed tablate-none">
                         <a mat-list-item class="sidenav-link">
-                            <mat-icon mat-list-icon>notifications_none</mat-icon>
+                           <img src="assets/images/svg/bell.svg">
                         </a>
                         <a mat-list-item class="sidenav-link">
-                            <mat-icon mat-list-icon>headset_mic</mat-icon>
+                            <img src="assets/images/svg/earphone.svg">
                         </a>
                         <a mat-list-item class="sidenav-link">
-                            <mat-icon mat-list-icon>settings</mat-icon>
+                            <img src="assets/images/svg/setting.svg">
                         </a>
                     </div>
                     <i (click)="openSettings()" class="material-icons tabs-right desktop-none">

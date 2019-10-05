@@ -1,15 +1,15 @@
 <div [formGroup]="blankDocumentProperties" *ngIf="blankOverview=='blank' || blankOverview=='quotation'">
-    <div class="row bb-1">
+    <div class="row bb-1 popup-header-fix-60">
         <div class="col-md-10 p-0"> 
             <h5 class="m-0 wrapper-20">ADD DOCUMENT PROPERTIES</h5>
         </div>
         <div class="col-md-2">
-            <i class="material-icons right text-right pt-16 c-p" (click)="Close('close')">
+            <i class="material-icons right text-right pt-16  pr-8 c-p" (click)="Close('close')">
                 clear
             </i>
         </div>
     </div>
-    <div class="row pt-40">
+    <div class="row pt-100">
         <div class="col-md-5">
             <h5 class="m-0 text-right pt-8">Document type</h5>
         </div>

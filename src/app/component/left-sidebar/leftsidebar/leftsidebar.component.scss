@@ -25,8 +25,17 @@
 }
 
 .sidenav-link {
-    color: #83959D !important;
+    color: #000000 !important;
     font-size: 14px !important;
+    letter-spacing: 0.25px;
+    font-family: "Roboto";
+    img{
+    position: absolute;
+    }
+    span{
+       padding-left: 50px;
+
+    }
 }
 
 .fix-top {
@@ -39,8 +48,8 @@
 }
 
 .fix-top .sidenav-link {
-    padding-right: 30px !important;
-    padding-top: 5px;
+    padding-right: 55px !important;
+   margin-top: -12px;
 }
 
 .mat-toolbar-single-row {
