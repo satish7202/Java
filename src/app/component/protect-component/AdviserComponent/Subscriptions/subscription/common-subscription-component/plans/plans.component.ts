@@ -52,6 +52,6 @@ export class PlansComponent implements OnInit {
     })
   }
   saveMappedPlans() {
-      
+   console.log("Mapped Plan",this.mappedPlan)   
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SubscriptionInject } from '../../../subscription-inject.service';
 import { SubscriptionService } from '../../../subscription.service';
-
+import * as _ from 'lodash';    
 @Component({
   selector: 'app-plan-rightslider',
   templateUrl: './plan-rightslider.component.html',
