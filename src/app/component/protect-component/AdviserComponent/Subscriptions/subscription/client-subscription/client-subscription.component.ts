@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UpperSliderComponent } from '../common-subscription-component/upper-slider/upper-slider.component';
 import { MatDialog } from '@angular/material';
 import { EventService } from 'src/app/Data-service/event.service';
@@ -19,7 +19,7 @@ export interface PeriodicElement {
 export class ClientSubscriptionComponent implements OnInit {
 
   constructor(public dialog:MatDialog, public eventService:EventService, public subInjectService:SubscriptionInject, private subService:SubscriptionService) { }
-
+  @Input() clientData:any;
   ngOnInit() {
     console.log("clients")
     this.getClientSubscriptionList();
