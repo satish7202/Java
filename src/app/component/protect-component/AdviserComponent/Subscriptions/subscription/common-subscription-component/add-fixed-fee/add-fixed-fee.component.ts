@@ -1,6 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { SubscriptionInject } from '../../../subscription-inject.service';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { SubscriptionService } from '../../../subscription.service';
 import { EventEmitter } from 'events';
 
@@ -11,31 +11,50 @@ import { EventEmitter } from 'events';
 })
 export class AddFixedFeeComponent implements OnInit {
 
-  constructor(public subInjectService: SubscriptionInject, private fb: FormBuilder,private subService:SubscriptionService) { }
-  @Output() serviceEvent=new EventEmitter();
+  constructor(public subInjectService: SubscriptionInject, private fb: FormBuilder,private subService:SubscriptionService) { 
+    this.subInjectService.rightSideBarData.subscribe(
+      data=>this.getFeeFormData(data)
+    )
+  }
+  submitted=false;
   ngOnInit() {
   }
-  fixedFeeData = this.fb.group({
-    serviceName: [''],
-    code: [''],
-    description: [''],
-    fees: [],
-    billingNature: [],
-    billEvery: [''],
-    billingMode: []
-  })
+  fixedFeeData;
+  getFormControl()
+  {
+    return this.fixedFeeData.controls;
+  }
+  getFeeFormData(data)
+  {
+    this.fixedFeeData = this.fb.group({
+      serviceName: [data,[Validators.required]],
+      code: [data,[Validators.required]],
+      description: [data,[Validators.required]],
+      fees: [data,[Validators.required]],
+      billingNature: [1],
+      billEvery: [data,[Validators.required]],
+      billingMode: [1]
+    })
+  }
   Close(state) {
     this.subInjectService.rightSliderData(state)
+    this.submitted=false;
   }
   closeTab(state, value) {
     console.log(state)
     this.subInjectService.rightSliderData(state)
     this.subInjectService.closeSlider(value)
   }
-  saveFeeTypeData(feeType) {
-
+  saveFeeTypeData(feeType,state) {
+    this.submitted=true;
+   if(this.fixedFeeData.invalid)
+   {
+     console.log(this.getFormControl())
+    return;
+   }
+   else{
     let obj = {
-      "advisorId": 4545,
+      "advisorId": 12345,
       "description":this.fixedFeeData.controls.description.value,
       "global": false,
       "serviceCode": this.fixedFeeData.controls.code.value,
@@ -58,7 +77,13 @@ export class AddFixedFeeComponent implements OnInit {
     }
      console.log("jifsdfoisd",obj)
     this.subService.createSettingService(obj).subscribe(
-      data =>this.serviceEvent.emit(data)
+      data =>this.saveFeeTypeDataResponse(data,state)
     )
+   }  
+  }
+  saveFeeTypeDataResponse(data,state)
+  {
+    this.subInjectService.pushClientData(data);
+    this.subInjectService.rightSliderData(state)
   }
 }

@@ -23,6 +23,7 @@ export interface PeriodicElement {
   styleUrls: ['./subscriptions-subscription.component.scss']
 })
 export class SubscriptionsSubscriptionComponent implements OnInit {
+  subscriptionValue: any;
  
   constructor(public dialog:MatDialog, public subInjectService:SubscriptionInject, private eventService:EventService, private subService:SubscriptionService) {
   }
@@ -32,6 +33,7 @@ export class SubscriptionsSubscriptionComponent implements OnInit {
   }
   displayedColumns: string[] = ['client','service','amt','sub','status','activation', 'lastbilling', 'nextbilling','feemode','icons'];
   dataSource;
+  DataToSend;
   getSubscriptionList()
   {
     let obj={
@@ -47,11 +49,14 @@ export class SubscriptionsSubscriptionComponent implements OnInit {
   {
     console.log("subscription data",data)
     this.dataSource=data
+    this.DataToSend = data
   }
-  Open(value,state)
+  Open(data,value,state)
   {
     this.eventService.sidebarData(value)
+    this.subscriptionValue = value
     this.subInjectService.rightSideData(state);
+    this.subInjectService.addSingleProfile(data)
   }
   deleteModal(value)
   {

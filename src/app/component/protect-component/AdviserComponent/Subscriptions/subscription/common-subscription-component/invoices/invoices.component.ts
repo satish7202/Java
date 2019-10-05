@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { EventService } from 'src/app/Data-service/event.service';
 import { SubscriptionInject } from '../../../subscription-inject.service';
 import { SubscriptionService } from '../../../subscription.service';
@@ -30,7 +30,9 @@ export class InvoicesComponent implements OnInit {
     this.getInvoiceList();
     console.log("CLIENT INVOICE ")
     this.invoiceDesign='true';
+    console.log('clientData',this.clientData)
   }
+  @Input() clientData;
   displayedColumns: string[] = ['checkbox','date','Invoice number','Service name','Billed to', 'status', 'Duedate','Amount','Balance due','icons'];
   dataSource;
 
@@ -52,11 +54,13 @@ export class InvoicesComponent implements OnInit {
 
     this.dataSource=data
   }
-  openInvoice(value,state)
+  openInvoice(data,value,state)
   {
 
     this.eventService.sliderData(value);
-    this,this.subInjectService.rightSliderData(state)
+    this.subInjectService.rightSliderData(state)
+    this.subInjectService.addSingleProfile(data)
+
   }
   openInvoicesESign(value, state) {
     this.subInjectService.rightSliderData(state)

@@ -19,8 +19,13 @@ export interface PeriodicElement {
   styleUrls: ['./invoice.component.scss']
 })
 export class InvoiceComponent implements OnInit {
+  dataSub: any;
 
-  constructor(public subInjectService:SubscriptionInject) { }
+  constructor(public subInjectService:SubscriptionInject) {
+    this.dataSub = this.subInjectService.singleProfileData.subscribe(
+      data=>console.log(data)
+    );
+   }
   @Input() invoiceData;
   ngOnInit() {
   

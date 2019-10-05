@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {SubscriptionInject} from '../../../subscription-inject.service';
 import {EventService} from 'src/app/Data-service/event.service';
 
@@ -36,7 +36,9 @@ export class QuotationsComponent implements OnInit {
    this.quotationDesign='true';
    console.log("quotation")
    this.getQuotationsList();
+   console.log('clientData',this.clientData)
   }
+  @Input() clientData;
   displayedColumns: string[] = ['checkbox','document','plan', 'date', 'sdate','cdate','status','icons'];
   dataSource;
   getQuotationsList()

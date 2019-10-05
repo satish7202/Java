@@ -169,6 +169,10 @@ export class SubscriptionService {
   changeBillerSetting(data) {
     return this.http.put(apiConfig.MAIN_URL + appConfig.CHANGE_BILLER_SETTING, data);
   }
+  getSubSummary(data){
+    let httpParams=new HttpParams().set('advisorId',data.advisorId).set('limit',data.limit).set('offset',data.offset);
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SUB_SUMMARY,httpParams)
+  }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data, 10000)
   }

@@ -1,8 +1,9 @@
-import {Component, OnInit, Inject} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {trigger, state, style, transition, animate} from '@angular/animations';
-import {EventService} from 'src/app/Data-service/event.service';
-import {SubscriptionInject} from '../../../subscription-inject.service';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+import { EventService } from 'src/app/Data-service/event.service';
+import { SubscriptionInject } from '../../../subscription-inject.service';
+import { isNumber } from 'util';
 
 @Component({
   selector: 'app-upper-slider',
@@ -11,13 +12,13 @@ import {SubscriptionInject} from '../../../subscription-inject.service';
   animations: [
     trigger('upperRightSlider', [
       state('open', style({
-        left:'40%'
+        left: '40%'
       })),
       state('close', style({
-        left:'100%' 
+        left: '100%'
       })),
       state('closeSlider', style({
-        left:'100%'
+        left: '100%'
       })),
       transition('close => open', [animate('0.3s')]),
       transition('open => close', [animate('0.1s')]),
@@ -25,63 +26,27 @@ import {SubscriptionInject} from '../../../subscription-inject.service';
       transition('closeSlider => open', [animate('0.3s')])
     ])
   ]
-  /*animations: [
-    // Note: The `enter` animation transitions to `transform: none`, because for some reason
-    // specifying the transform explicitly, causes IE both to blur the dialog content and
-    // decimate the animation performance. Leaving it as `none` solves both issues.
-    state('void, exit', style({ opacity: 0, transform: 'scale(0.7)' })),
-    state('enter', style({ transform: 'none' })),
-    transition('* => enter',   [style({transform: 'translateY(-100%)'}), animate('200ms ease-in', style({transform: 'translateY(0%)'}))]),
-    // transition('* => enter', animate('150ms cubic-bezier(0, 0, 0.2, 1)', style({ transform: 'none', opacity: 1 }))),
-    transition('* => void, * => exit', animate('75ms cubic-bezier(0.4, 0.0, 0.2, 1)', style({ opacity: 0 }))),
-  ]*/
-  /* animations: [
-    /!* trigger('dialog', [
-         transition('void => *', [
-           style({ transform: 'scale3d(.3, .3, .3)' }),
-           animate(100)
-         ]),
-         transition('* => void', [
-           animate(100, style({ transform: 'scale3d(.0, .0, .0)' }))
-         ])
-       ]
-     ),*!/
-     /!*trigger('* => *', [
-       transition(':enter', [
-         style({transform: 'translateY(-100%)'}),
-         animate('200ms ease-in', style({transform: 'translateY(0%)'}))
-       ]),
-       transition(':leave', [
-         animate('200ms ease-in', style({transform: 'translateY(-100%)'}))
-       ])
-     ])*!/
-     trigger('* => *', [
-       transition('* => *', [
-         style({transform: 'translateY(-100%)'}),
-         animate('200ms ease-in', style({transform: 'translateY(0%)'}))
-       ]),
-      /!* transition('open => closed', [
-         animate('200ms ease-in', style({transform: 'translateY(-100%)'}))
-       ])*!/
-     ])
-   ]*/
 })
 
 export class UpperSliderComponent implements OnInit {
   subscriptionTab: any;
-  constructor(private eventService:EventService, private subinject:SubscriptionInject, public dialogRef: MatDialogRef<UpperSliderComponent>,
-              @Inject(MAT_DIALOG_DATA) public fragmentData: any) {
-      this.eventService.rightSliderData.subscribe(
-        data =>this.getTabValueData(data)
-      )
-      this.subinject.rightslider.subscribe(
-        data =>this.getStateData(data)
-      )
-    }
-    State;
-    rightSliderData;
-    ngOnInit() {
-    this.State='close'
+  constructor(private eventService: EventService, private subinject: SubscriptionInject, public dialogRef: MatDialogRef<UpperSliderComponent>,
+    @Inject(MAT_DIALOG_DATA) public fragmentData: any) {
+    this.eventService.rightSliderData.subscribe(
+      data => this.getTabValueData(data)
+    )
+    this.subinject.rightslider.subscribe(
+      data => this.getStateData(data)
+    )
+    this.subinject.clientId.subscribe(
+      data =>this.clientData=data
+    )
+  }
+  State;
+  rightSliderData;
+  clientData;
+  ngOnInit() {
+    this.State = 'close'
     console.log(this.fragmentData)
   }
 
@@ -97,17 +62,15 @@ export class UpperSliderComponent implements OnInit {
   }
 
   getStateData(data) {
-    this.State = data;
-    console.log('state', data)
+    this.State=data;
   }
 
   getTabValueData(data) {
-    this.blankOverview=data;
+    this.blankOverview = data;
     this.rightSliderData = data;
     console.log('value', data)
   }
-  tabClick(event)
-  {
+  tabClick(event) {
     console.log(event)
     this.subscriptionTab = event.tab.textLabel;
   }

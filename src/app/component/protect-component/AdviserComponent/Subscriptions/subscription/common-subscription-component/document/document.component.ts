@@ -53,6 +53,7 @@ export class DocumentComponent implements OnInit {
   mappedData = [];
 
   @Input() componentFlag: string;
+  @Input() clientData;
 
   displayedColumns: string[] = ['checkbox', 'document', 'plan', 'service', 'date', 'sdate', 'cdate', 'status', 'icons'];
   dataSource = ELEMENT_DATA;
@@ -61,6 +62,7 @@ export class DocumentComponent implements OnInit {
     this.getplanDocumentData();
     this.getServiceDocumentData();
     this.documentDesign = 'true';
+    console.log('clientData',this.clientData)
   }
 
   openDocument(data) {
