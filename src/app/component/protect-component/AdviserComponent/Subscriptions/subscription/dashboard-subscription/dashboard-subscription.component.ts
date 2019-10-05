@@ -35,11 +35,13 @@ export class DashboardSubscriptionComponent implements OnInit {
     this.docSentSignedCountData()
     this.clientWithSubscription()
     this.invoiceToBeReviewed()
+     this.subSummary()
   }
       advisorId=400;
       dataSourceSingCount
       dataSourceClientWithSub
       dataSourceInvoiceReviwed
+      subSummaryData
   showSubStep=false;
   displayedColumns: string[] = ['name', 'service', 'amt', 'billing','icons'];
   dataSource = ELEMENT_DATA;
@@ -66,6 +68,22 @@ export class DashboardSubscriptionComponent implements OnInit {
           dialogRef.afterClosed().subscribe(result => {
           });
     }
+  }
+
+//******* Dashboard Subscription Summary *******
+subSummary(){
+    let obj ={
+      'advisorId':12345,
+      'limit':-1,
+      'offset':0
+    }
+    this.subService.getSubSummary(obj).subscribe(
+      data=>this.getSubSummaryRes(data)
+    )
+  }
+  getSubSummaryRes(data){
+    console.log('subSummaryData',data);
+    this.subSummaryData=data
   }
 // ******* Dashboard Sent And Signed Count *******
 

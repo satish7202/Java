@@ -69,6 +69,7 @@
     GET_DOCUMENT_COUNT_SIGNED:'futurewise/subscriptions/subscription/document/analytic/get',
     GET_CLIENT_WITH_SCRIPTION:'futurewise/subscriptions/subscription/analytic/get',
     GET_INVOICE_TO_BE_REVIEWED:'futurewise/subscriptions/invoice/review/get',
+    GET_SUB_SUMMARY:'futurewise/subscriptions/dashboard/summary/get',
     DASHBOARD_SUBSCRIPTION_LETS_BEGIN:'futurewise/subscriptions/letsBegin/get',
     CANCEL_SUBSCRIPTION:'futurewise/subscriptions/cancel/subscription/get',
     DELETE_SUBSCRIPTION:'futurewise/subscriptions/delete/subscription',
