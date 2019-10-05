@@ -1,22 +1,76 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SubscriptionInject } from '../../../subscription-inject.service';
-
+import { SubscriptionService } from '../../../subscription.service';
+import * as _ from 'lodash';    
 @Component({
   selector: 'app-plan-rightslider',
   templateUrl: './plan-rightslider.component.html',
   styleUrls: ['./plan-rightslider.component.scss']
 })
 export class PlanRightsliderComponent implements OnInit {
-
-  constructor(public subInjectService:SubscriptionInject ) { }
+  planSettingData;
+  selectedPlan=[];
+  @Input () clientData;
+  constructor(public subInjectService:SubscriptionInject,private subService:SubscriptionService) { }
 
   ngOnInit() {
+    this.getPlanOfAdvisor();
+  }
+  getPlanOfAdvisor()
+  {
+    let obj={
+      "advisorId":12345
+    }
+     this.subService.getPlanOfAdvisorClients(obj).subscribe(
+       data=>this.planSettingData=data
+     )
+  }
+  createSubscription()
+  {
+   if(this.selectedPlan.length>0)
+   {
+     let obj=[]
+     this.selectedPlan.forEach(element =>
+      {
+        let data={
+        "advisorId":12345,
+        "planId":element.id,
+        "clientId":this.clientData.id,
+        "planName":element.name
+        }
+        obj.push(data)
+      }
+      )
+      console.log(obj)
+      this.subService.createSubscription(obj).subscribe(
+        data =>console.log("create subscriptuion",data)
+      )
+   }
+   else{
+     return;
+   }
+  }
+  select(data)
+  {
+    (data.selected)?this.unselectPlan(data):this.selectPlan(data);
+  }
+  selectPlan(data)
+  {
+    data.selected=true;
+    this.selectedPlan.push(data)
+    console.log(this.selectedPlan.length)
+  }
+  unselectPlan(data)
+  {
+    data.selected=false;
+    _.remove(this.selectedPlan,function(delData)
+     {
+       return  delData.id ==data.id;
+     })
+     console.log(this.selectedPlan.length)
   }
   Close(state)
   {
     this.subInjectService.rightSliderData(state)
   }
-  planSettingData=[{'title':'Starter Plan','code':'PLA123','DESCRIPTION':'This plan is ideal for young people who are just starting off their financial journey and want to start saving with a smaller investment amount.','SERVICES':'2','DOCUMENTS':'1'},
-                   {'title':'Next Level Plan','code':'PLA124','DESCRIPTION':'This plan is ideal for young people who are just starting off their financial journey and want to start saving with a smaller investment amount.','SERVICES':'2','DOCUMENTS':'1'},
-                   {'title':'Power Plan','code':'PLA125','DESCRIPTION':'This plan is ideal for young people who are just starting off their financial journey and want to start saving with a smaller investment amount.','SERVICES':'2','DOCUMENTS':'1'}]
 }

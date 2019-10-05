@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef, MatDialog } from '@angular/material';
 import { SubscriptionInject } from '../../../subscription-inject.service';
 import { EventService } from 'src/app/Data-service/event.service';
+import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-overview',
@@ -10,8 +11,12 @@ import { EventService } from 'src/app/Data-service/event.service';
 })
 export class OverviewComponent implements OnInit {
   overviewDesign: any;
-
-  constructor(private eventService: EventService, private subinject: SubscriptionInject, public dialogRef: MatDialogRef<OverviewComponent>) { }
+  singlePlanData={
+    name:'Starter Plan',
+    code:'PLA123',
+    description:'This plan is ideal for young people who are just starting off their financial journey and want to start saving with a smaller investment amount.'
+  }
+  constructor(public dialog:MatDialog,private eventService: EventService, private subinject: SubscriptionInject, public dialogRef: MatDialogRef<OverviewComponent>) { }
 
 
   @Input() componentFlag: string;
@@ -19,16 +24,40 @@ export class OverviewComponent implements OnInit {
   ngOnInit() {
     this.overviewDesign='true';
   }
-
-  openNav(value, state) {
-    this.eventService.sliderData(value);
-    this.subinject.rightSliderData(state)
-  }
   dialogClose() {
     this.dialogRef.close();
   }
-  changeDisplay(value)
+  changeDisplay()
   {
-    this.overviewDesign=value;
+    this.overviewDesign='false';
+  }
+  openForm(data,value, state)
+  {
+    this.eventService.sliderData(value);
+    this.subinject.rightSliderData(state)
+    this.subinject.rightSideData(data)
+  }
+  deleteModal(value)
+  {
+    let dialogData = {
+      data:value,
+      header: 'DELETE',
+      body:'Are you sure you want to delete the document?',
+      body2:'This cannot be undone',
+      btnYes:'CANCEL',
+      btnNo:'DELETE'
+    }
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+       width: '400px',
+       data: dialogData,
+       autoFocus:false,
+
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+  
+    });
+  
   }
 }

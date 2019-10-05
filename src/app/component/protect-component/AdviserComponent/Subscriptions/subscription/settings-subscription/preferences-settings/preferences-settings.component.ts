@@ -5,6 +5,7 @@ import { SubscriptionInject } from '../../../subscription-inject.service';
 import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material';
 import { FormBuilder } from '@angular/forms';
+import { PreferenceEmailInvoiceComponent } from '../../common-subscription-component/preference-email-invoice/preference-email-invoice.component';
 @Component({
   selector: 'app-preferences-settings',
   templateUrl: './preferences-settings.component.html',
@@ -12,7 +13,7 @@ import { FormBuilder } from '@angular/forms';
 })
 export class PreferencesSettingsComponent implements OnInit {
 
-  constructor(private fb:FormBuilder, public dialog: MatDialog, private subscription: SubscriptionService, public subInjectService: SubscriptionInject, private eventService: EventService) { }
+  constructor(private fb: FormBuilder, public dialog: MatDialog, private subscription: SubscriptionService, public subInjectService: SubscriptionInject, private eventService: EventService) { }
   viewMode = 'tab1';
   advisorId = 2735;
   prefixData;
@@ -41,21 +42,22 @@ export class PreferencesSettingsComponent implements OnInit {
   }
   savePrefix(data) {
     let obj = {
-      "advisorId":2735,
+      "advisorId": 2735,
       "id": 0,
       "nextNumber": this.prefixData.nextNo,
-      "prefix":this.prefixData.prefix,
+      "prefix": this.prefixData.prefix,
       "type": 1
     }
 
     this.subscription.updatePreferenceInvoiceQuotationsSubscription(obj).subscribe(
-      data=>this.savePrefixResponse(data)
+      data => this.savePrefixResponse(data)
     )
-
+     this.subscription.savePreferenceInvoiceQuotationsSubscription(obj).subscribe(
+       data => this.savePrefixResponse(data)
+     )
   }
-  savePrefixResponse(data)
-  {
-    this.prefixData=data;
+  savePrefixResponse(data) {
+    this.prefixData = data;
   }
   getProfileBillerDataResponse(data) {
     console.log("jksdfsdfaksdf", data)
@@ -63,9 +65,9 @@ export class PreferencesSettingsComponent implements OnInit {
   }
   getInvoiceQuotationResponse(data, type) {
     this.showLoader = false;
-    this.prefixData=this.fb.group({
-      prefix:[data.prefix],
-      nextNo:[data.nextNumber]
+    this.prefixData = this.fb.group({
+      prefix: [data.prefix],
+      nextNo: [data.nextNumber]
     })
 
   }
@@ -74,7 +76,7 @@ export class PreferencesSettingsComponent implements OnInit {
     this.eventService.sidebarData(value)
     this.subInjectService.rightSideData(state);
     this.subInjectService.addSingleProfile(singleProfile);
-    this.selected=0;
+    this.selected = 0;
   }
   deleteModal(value) {
     let dialogData = {
@@ -98,4 +100,23 @@ export class PreferencesSettingsComponent implements OnInit {
     });
 
   }
+
+  openEmailInvoice(data) {
+    let Fragmentdata = {
+      Flag: data,
+      id:1
+    }
+ 
+    const dialogRef = this.dialog.open(PreferenceEmailInvoiceComponent, {
+       width: '1400px',
+       data: Fragmentdata,
+       autoFocus:false,
+       panelClass:'dialogBox',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
+  }
+
 }

@@ -1,12 +1,13 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {MatDialogRef, MatDialog} from '@angular/material';
-import {SubscriptionInject} from '../../../subscription-inject.service';
-import {ConfirmDialogComponent} from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
-import {EventService} from 'src/app/Data-service/event.service';
-import {SubscriptionPopupComponent} from '../subscription-popup/subscription-popup.component';
-import {SubscriptionService} from '../../../subscription.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { MatDialogRef, MatDialog } from '@angular/material';
+import { SubscriptionInject } from '../../../subscription-inject.service';
+import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
+import { EventService } from 'src/app/Data-service/event.service';
+import { SubscriptionPopupComponent } from '../subscription-popup/subscription-popup.component';
+import { SubscriptionService } from '../../../subscription.service';
 import * as _ from 'lodash';
-import {AddDocumentComponent} from '../add-document/add-document.component';
+import { AddDocumentComponent } from '../add-document/add-document.component';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 export interface PeriodicElement {
   document: string;
@@ -39,7 +40,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class DocumentComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<DocumentComponent>, public subInjectService: SubscriptionInject,
-              private eventService: EventService, public dialog: MatDialog, private subService: SubscriptionService) {
+    private eventService: EventService, public dialog: MatDialog, private subService: SubscriptionService) {
     this.subInjectService.rightSliderDocument.subscribe(
       data => this.getDocumentsDesignData(data)
     );
@@ -47,6 +48,7 @@ export class DocumentComponent implements OnInit {
 
   documentDesign;
   planDocumentData;
+  serviceDocumentData;
   mappedData = [];
 
   @Input() componentFlag: string;
@@ -56,6 +58,7 @@ export class DocumentComponent implements OnInit {
 
   ngOnInit() {
     this.getplanDocumentData();
+    this.getServiceDocumentData();
     this.documentDesign = 'true';
   }
 
@@ -131,13 +134,25 @@ export class DocumentComponent implements OnInit {
     this.subService.getPlanDocumentsData(obj).subscribe(
       data => this.getplanDocumentDataResponse(data)
     );
-    
+
   }
 
   getplanDocumentDataResponse(data) {
+    console.log("document Data", data)
     this.planDocumentData = data;
   }
-
+  getServiceDocumentData() {
+    let obj = {
+      'advisorId': 2735
+    }
+    this.subService.getMapDocumentToService(obj).subscribe(
+      data =>this.getServiceDocumentDataResponse(data)
+    )
+  }
+  getServiceDocumentDataResponse(data) {
+    console.log("service Documents", data.documentList)
+    this.serviceDocumentData=data.documentList;
+  }
   deleteModal(value) {
     const dialogData = {
       data: value,
@@ -160,7 +175,24 @@ export class DocumentComponent implements OnInit {
     });
 
   }
-
+  saveMappingDocumentToPlans() {
+    if (this.mappedData.length >= 0) {
+      let obj = [];
+      this.mappedData.forEach(element => {
+        let data = {
+          'advisorId': 2735,
+          'documentRepositoryId': element.documentRepositoryId,
+          'mappingId': element.mappingId
+        }
+      })
+      this.subService.mapDocumentsToPlanData(obj).subscribe(
+        data => console.log("sucessful")
+      )
+    }
+    else {
+      return;
+    }
+  }
   savePlanMapToDocument() {
     const obj = [];
     this.mappedData.forEach(element => {

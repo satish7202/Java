@@ -12,7 +12,8 @@ import { SubscriptionInject } from '../subscription-inject.service';
         left: '40%'
       })),
       state('openHelp', style({
-        // width:'35%'
+        left: '65%',
+        width:'35%'
       })),
       state('close', style({
         // width:'0%'

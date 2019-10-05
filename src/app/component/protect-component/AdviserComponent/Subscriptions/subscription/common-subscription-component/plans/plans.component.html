@@ -1,5 +1,4 @@
 <div *ngIf="componentFlag=='servicesPlans'">
-    
     <div class="bg-grey lter wrapper-20">
         <h3 class="text-center m-0 head-common">Investment Management Financial Planning</h3>
     </div>
@@ -16,7 +15,7 @@
                                     </i>
                     </div>
                     <div class="col-md-2 right text-right p-0 button-fix">
-                            <button mat-stroked-button class="btn-primary br-0">2 Plans mapped</button>
+                            <button mat-stroked-button class="btn-primary br-0">{{mappedPlan.length}} Plans mapped</button>
                     </div>
                 </div>
                 <div class="wrapper-100 pt-44">
@@ -60,14 +59,14 @@
                         </div>
                             </mat-card>
                     </div> -->
-                    <div class="col-md-4" *ngFor="let singleServicePlan of servicePlanData">
-                            <mat-card class="p-0 b-a" (click)="selectServicePlan(singleServicePlan)" [ngClass]="{'p-0': singleServicePlan.checked==false,'b-a':singleServicePlan.checked==false,'p-0':singleServicePlan.checked,'ba-green':singleServicePlan.checked}">
+                    <div class="col-md-4 mt-20" *ngFor="let singleServicePlan of servicePlanData">
+                            <mat-card class="p-0 b-a" (click)="selectServicePlan(singleServicePlan)" [ngClass]="{'p-0': singleServicePlan.isActive==0,'b-a':singleServicePlan.isActive==0,'p-0':singleServicePlan.isActive==1,'ba-green':singleServicePlan.isActive==1}">
                                 <div class="row bg-grey lter">
                                     <div class="col-md-12 p-0">
-                                            <mat-checkbox class="custom-checkbox" checked="false" [ngClass]="{'v-h': singleServicePlan.checked==false}"></mat-checkbox>
+                                            <mat-checkbox class="custom-checkbox" checked="false" [ngClass]="{'v-h': singleServicePlan.isActive==0}"></mat-checkbox>
                                     </div>
                                     <div class="col-md-12 p-0">
-                                        <h3 class="m-0 pt-18 pl-24">{{singleServicePlan.title}}</h3>
+                                        <h3 class="m-0 pt-18 pl-24">{{singleServicePlan.id}}</h3>
                                         <h5 class="m-0 pt-4 pb-44 pl-24">{{singleServicePlan.code}}</h5>
                                     </div>
                                 </div>
@@ -90,7 +89,7 @@
                     <p class="text-white f-16 mb-0 pt-12 c-p" (click)="dialogClose()">Cancel</p>
                 </div>
                 <div class="col-md-6 text-right">
-                    <button type="button" mat-stroked-button class="btn-bottom br-0">Save</button>
+                    <button type="button" mat-stroked-button class="btn-bottom br-0" (click)="saveMappedPlans()">Save</button>
                 </div>
             </div>
         </mat-toolbar>

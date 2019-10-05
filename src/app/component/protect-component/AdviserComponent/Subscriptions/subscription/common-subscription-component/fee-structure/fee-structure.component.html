@@ -6,24 +6,41 @@
         </div>
     </div>
     <div class="row pt-40">
-        <div class="col-md-6" (click)="selectFees(singleFeeData)" *ngFor="let singleFeeData of feeStructureServiceData">
-                <mat-card class="b-a p-0" [ngClass]="{'b-a':singleFeeData.checked==false,'p-0':singleFeeData.checked==false,'ba-green':singleFeeData.checked,'p-0':singleFeeData.checked}" (click)="openPlanSliderFee('fixedFee','open')">
+        <div class="col-md-6" >
+                <mat-card class="b-a p-0"(click)="openPlanSliderFee('fixedFee','open')">
                     <div class="row bg-grey lter">
                         <div class="col-md-12 p-0">
-                                <mat-checkbox class="custom-checkbox" checked="false" *ngIf="singleFeeData.checked"></mat-checkbox>
-                            <h4 class="f-20 playfair">{{singleFeeData.type}}</h4>
+                                <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
+                            <h4 class="f-20 playfair">Fixed fee</h4>
                         </div>
                     </div>
                     <div class="col-md-12 p-0">
-                        <h5 class="p-20 proxima">{{singleFeeData.Description}}</h5>
+                        <h5 class="p-20 proxima">Choose this fee type if you want to charge a fixed fee. E.g. for Plan writing etc.</h5>
+                    </div>
+                </mat-card>
+
+            </div>
+            <div class="col-md-6" >
+                <mat-card class="b-a p-0" (click)="openPlanSliderFee('varibleFee','open')">
+                    <div class="row bg-grey lter">
+                        <div class="col-md-12 p-0">
+                                <mat-checkbox class="custom-checkbox" checked="false" ></mat-checkbox>
+                            <h4 class="f-20 playfair">Variable fee</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-12 p-0">
+                        <h5 class="p-20 proxima">Choose this fee type if you want to charge a fixed fee. E.g. for Plan writing etc.</h5>
                     </div>
                 </mat-card>
 
             </div>
            </div>
+          
+         
+               
     </div>
     </div>
-    <!-- <div class="wrapper-44 pt-150">
+    <div class="wrapper-44 pt-150">
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
@@ -34,7 +51,14 @@
                                 <h5 class="m-0 pt-4 pb-44 pl-24 text-custom proxima">IMA124</h5>
                             </div>
                             <div class="col-md-2">
-                                    <i class="material-icons pt-16 f-40 text-primitive text-right right"> more_vert </i>
+                                <i class="material-icons text-right right text-custom f-28 pt-12 c-p"
+                                [matMenuTriggerFor]="menu" [matMenuTriggerFor]="belowMenu">
+                                more_vert
+                            </i>
+                            <mat-menu #menu="matMenu">
+                                <a mat-menu-item >Edit Plan</a>
+                                
+                            </mat-menu>
                             </div>
                         </div>
                         <div class="wrapper-24 pl-0 pr-0">
@@ -125,7 +149,7 @@
                 </div>
                 <div class="col-md-2"></div>
             </div>
-        </div> -->
+        </div>
     <mat-toolbar class="bottom-fixed">
             <div class="row w-100">
                 <div class="col-md-12 text-left">

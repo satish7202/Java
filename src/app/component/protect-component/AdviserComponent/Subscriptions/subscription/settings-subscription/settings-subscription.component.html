@@ -2,14 +2,13 @@
     <div class="bg-white">
         <mat-tab-group class="bg-white mt-60" mat-align-tabs="" animationDuration="0ms" (selectedTabChange)="tabClick($event)" id="ui-settings-subs">
             <mat-tab label="PLANS">
-                <app-plans-settings></app-plans-settings>
-                <!-- <app-documents-settings></app-documents-settings> -->
+                <app-plans-settings *ngIf="selectedTab=='PLANS'"></app-plans-settings>
             </mat-tab>
             <mat-tab label="SERVICES">
-                <app-services-settings></app-services-settings>
+                <app-services-settings *ngIf="selectedTab=='SERVICES'"></app-services-settings>
             </mat-tab>
             <mat-tab label="DOCUMENTS">
-                <app-documents-settings></app-documents-settings>
+                <app-documents-settings *ngIf="selectedTab=='DOCUMENTS'"></app-documents-settings>
             </mat-tab>
             <mat-tab label="PREFERENCES">
                 <app-preferences-settings *ngIf="selectedTab=='PREFERENCES'" ></app-preferences-settings>

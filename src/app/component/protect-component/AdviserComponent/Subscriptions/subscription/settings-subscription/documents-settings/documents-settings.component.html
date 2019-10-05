@@ -1,4 +1,7 @@
-<div id="ui-document">
+<div *ngIf="showLoader">
+    <mat-spinner class="loader" [diameter]="30"></mat-spinner>
+</div>
+<div *ngIf="showLoader==false"  id="ui-document">
 
     <div class="bg-white pb-36 mt-70">
 
@@ -41,7 +44,7 @@
                                 <div class="col-md-10">
                                     <mat-card-header>
 
-                                        <mat-card-title class="mb-0 f-24">{{singleDocument.title}}</mat-card-title>
+                                        <mat-card-title class="mb-0 f-20">{{singleDocument.name}}</mat-card-title>
                                         <mat-card-subtitle class="pt-8 pb-12 mb-0 text-left f-16">
                                             {{singleDocument.code}}</mat-card-subtitle>
 
@@ -54,9 +57,13 @@
                                     <button mat-stroked-button class="btn-header addon ml-44 br-0">VIEW</button>
                                 </div>
                                 <div class="col-md-2">
-                                    <i class="material-icons f-40 text-primitive">
+                                    <i class="material-icons f-40 text-primitive" [matMenuTriggerFor]="menu">
                                         more_vert
                                     </i>
+                                    <mat-menu #menu="matMenu">
+                                        <a mat-menu-item (click)="openFragment('modifyFee')" >Edit Document</a>
+                                        <a mat-menu-item class="bt-1" >Delete Document</a>
+                                    </mat-menu>
                                 </div>
                             </div>
 
@@ -67,4 +74,5 @@
             </div>
 
         </div>
-  
+  </div>
+  </div>
