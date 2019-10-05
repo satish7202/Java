@@ -84,6 +84,7 @@ import {ModifyFeeDialogComponent} from './component/protect-component/AdviserCom
 import {PreferenceEmailInvoiceComponent} from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/preference-email-invoice/preference-email-invoice.component';
 import { ConsentTandCComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/consent-tand-c/consent-tand-c.component';
 import { CommonFroalaComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/common-froala/common-froala.component';
+
 import { CustomHtmlComponent } from './common/customhtml/customhtml/custom-html.component';
 
 @NgModule({
@@ -162,7 +163,6 @@ import { CustomHtmlComponent } from './common/customhtml/customhtml/custom-html.
     CustomHtmlComponent,
     ConsentTandCComponent,
     CommonFroalaComponent,
-    CustomHtmlComponent
   ],
   imports: [
     BrowserModule,
