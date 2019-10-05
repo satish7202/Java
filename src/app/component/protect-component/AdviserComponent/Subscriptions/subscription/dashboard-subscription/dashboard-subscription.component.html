@@ -157,7 +157,7 @@
                                         <button mat-button class="text-custom">UPCOMING</button>
                                 </div>
                             </div>
-                            <table mat-table [subSummaryData]="subSummaryData" id="table-low" class="mt-8">
+                            <table mat-table [dataSource]="dataSource" id="table-low" class="mt-8">
                                 <ng-container matColumnDef="name">
                                     <th mat-header-cell *matHeaderCellDef> Client name </th>
                                     <td mat-cell *matCellDef="let element" (click)="Open('SUBSCRIPTIONS','open')" class="c-p"> {{element.clientName}} </td>

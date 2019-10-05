@@ -42,9 +42,9 @@ export class DashboardSubscriptionComponent implements OnInit {
       dataSourceClientWithSub
       dataSourceInvoiceReviwed
       subSummaryData
+      dataSource
   showSubStep=false;
-  displayedColumns: string[] = ['name', 'service', 'amt', 'billing','icons'];
-  dataSource = ELEMENT_DATA;
+  displayedColumns: string[] = ['name', 'service', 'amt', 'billing','icons']; 
   Open(value,state)
   {
     this.eventService.sidebarData(value)
@@ -84,6 +84,7 @@ subSummary(){
   getSubSummaryRes(data){
     console.log('subSummaryData',data);
     this.subSummaryData=data
+    this.dataSource = this.subSummaryData;
   }
 // ******* Dashboard Sent And Signed Count *******
 
