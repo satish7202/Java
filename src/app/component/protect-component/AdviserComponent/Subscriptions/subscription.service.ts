@@ -39,7 +39,10 @@ export class SubscriptionService {
     return this.http.put(apiConfig.MAIN_URL + appConfig.UPDATE_PREFERENCE_INVOICE_QUOTATIONS_SUBSCRIPTION, data)
   }
   savePreferenceInvoiceQuotationsSubscription(data) {
+    // TODO hardcoded right now for compilation.
     let httpParams = new HttpParams().set('advisorId', data.advisorId).set('id', data.id).set('nextNumber', data.nextNumber).set('prefix', data.prefix).set('type', data.type);
+    return this.http.put(apiConfig.MAIN_URL + appConfig.UPDATE_PREFERENCE_INVOICE_QUOTATIONS_SUBSCRIPTION, {});
+
   }
   getSubscriptionCompleteStages(data) {
     let httpParams = new HttpParams().set('advisorId', data.advisorId).set('type', data.type);
