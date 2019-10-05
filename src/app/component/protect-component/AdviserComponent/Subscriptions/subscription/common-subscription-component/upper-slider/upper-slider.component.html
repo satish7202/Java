@@ -35,7 +35,7 @@
                     <app-fee-structure (serviceEvent)="serviceId=$event"></app-fee-structure>
                 </mat-tab>
                 <mat-tab label="PLANS">
-                    <app-plans [componentFlag]='plans'></app-plans>
+                    <app-plans [clientData]="clientData" [componentFlag]='plans'></app-plans>
                 </mat-tab>
                 <mat-tab label="DOCUMENTS">
                     <app-document [componentFlag]='servicesDocuments'></app-document>

@@ -10,19 +10,26 @@ import { SubscriptionService } from '../../../subscription.service';
 })
 export class AddVariableFeeComponent implements OnInit {
 
-  constructor(public subInjectService: SubscriptionInject, private fb: FormBuilder,private subService:SubscriptionService) { }
-
+  constructor(public subInjectService: SubscriptionInject, private fb: FormBuilder,private subService:SubscriptionService) {
+    this.subInjectService.rightSideBarData.subscribe(
+      data=>this.getFeeFormData(data)
+    )
+   }
+   variableFeeData;
   ngOnInit() {
   }
-  variableFeeData = this.fb.group({
-    billingNature: [],
-    serviceName: [],
-    code: [],
-    description: [],
-    billEvery: [],
-    mutualFundFees: [],
-    otherAssetClassFees: []
-  })
+  getFeeFormData(data)
+  {
+    this.variableFeeData = this.fb.group({
+      billingNature: [data],
+      serviceName: [data],
+      code: [data],
+      description: [data],
+      billEvery: [data],
+      mutualFundFees: [data],
+      otherAssetClassFees: [data]
+    })
+  }
   Close(state) {
     this.subInjectService.rightSliderData(state)
   }
