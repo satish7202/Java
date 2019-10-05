@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SubscriptionInject } from '../../../subscription-inject.service';
 import { EventService } from 'src/app/Data-service/event.service';
 import { SubscriptionService } from '../../../subscription.service';
@@ -18,8 +18,9 @@ export class SettingsComponent implements OnInit {
 
   ngOnInit() {
     this.getSettingProfileData();
+    console.log('clientData',this.clientData)
   }
- 
+  @Input() clientData;
   getSettingProfileData()
   {
     let obj={

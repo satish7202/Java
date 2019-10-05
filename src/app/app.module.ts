@@ -85,6 +85,8 @@ import {PreferenceEmailInvoiceComponent} from './component/protect-component/Adv
 import {CustomhtmlRenderDirective} from './common/customhtml.render.directive';
 import {ChildComponent} from './common/child.component';
 import { CustomHtmlComponent } from './common/customhtml.component';
+import { ConsentTandCComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/consent-tand-c/consent-tand-c.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -160,7 +162,9 @@ import { CustomHtmlComponent } from './common/customhtml.component';
     PreferenceEmailInvoiceComponent,
     CustomhtmlRenderDirective,
     ChildComponent,
-    CustomHtmlComponent],
+    CustomHtmlComponent,
+    ConsentTandCComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SubscriptionComponent } from '../../subscription.component';
 import { SubscriptionInject } from '../../../subscription-inject.service';
 
@@ -24,15 +24,20 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class InvoiceHistoryComponent implements OnInit {
 
-  constructor(public subInjectService:SubscriptionInject) { }
+  constructor(public subInjectService:SubscriptionInject) { 
+    this.dataSub = this.subInjectService.singleProfileData.subscribe(
+      data=>console.log(data)
+    );
+  }
   displayedColumns: string[] = ['date', 'invoice', 'status', 'ddate','amount','balance'];
   dataSource = ELEMENT_DATA;
   showSubscription;
   invoiceData;
-  
+  dataSub
 
   ngOnInit() {
     this.showSubscription=true;
+    console.log('this.dataSub',this.dataSub)
   }
   showInvoice(value)
   {
