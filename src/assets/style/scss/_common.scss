@@ -474,3 +474,55 @@ color: #3F3F3F;
     white-space: nowrap;
     vertical-align: baseline;
 }
+#ui-appcustomhtml{
+    h1{
+        font-size: 8px;
+        padding: 10px 16px;
+        margin: 0;
+        line-height: 1;
+    }
+    h2{
+        font-size: 7px;
+        padding: 4px 16px;
+        margin: 0;
+        line-height: 1;
+    }
+    p{
+        font-size: 8px;
+        padding:4px 16px;
+        margin: 0;
+        line-height: 1;
+    }
+    ul{
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+     li{
+        font-size: 6px;
+        padding: 0;
+        margin: 0;
+        line-height: 1.6;
+    }
+   li:after{
+    
+        content: "" !important;
+    }
+    label{
+        font-size: 4px;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        line-height: 0px;
+    }
+    table{
+        border: 0px !important;
+        text-align: center;
+       
+            td,tr,th{
+                font-size: 4px !important;
+                line-height: 10px !important;
+            }
+       
+    }
+ 
+}
