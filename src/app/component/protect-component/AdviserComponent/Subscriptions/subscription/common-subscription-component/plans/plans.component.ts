@@ -57,7 +57,7 @@ export class PlansComponent implements OnInit {
    console.log("clientId",this.upperData) 
     let obj={
       "planIds":[],
-      "serviceId":this.upperData,
+      "serviceId":this.upperData.serviceId,
       "advisorId":12345
     }
    this.mappedPlan.forEach(planData=>{

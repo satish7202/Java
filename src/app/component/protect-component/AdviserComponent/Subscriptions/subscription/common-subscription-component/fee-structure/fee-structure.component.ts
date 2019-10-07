@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SubscriptionInject } from '../../../subscription-inject.service';
 import { EventService } from 'src/app/Data-service/event.service';
 
@@ -10,7 +10,7 @@ import { EventService } from 'src/app/Data-service/event.service';
 export class FeeStructureComponent implements OnInit {
 
   constructor(public subInjectService: SubscriptionInject, private eventService: EventService) { }
-
+  @Input() upperData;
   ngOnInit() {
   }
 

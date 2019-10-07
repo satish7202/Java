@@ -30,9 +30,9 @@
         </div>
         <div class="col-md-5 pr-0">
             <div class="form-group mb-0">
-                <input type="text" formControlName="serviceName" [ngClass]="{'b-red':submitted && getFormControl().serviceName.invalid }" class="form-control br-0">
+                <input type="text" formControlName="serviceName" class="form-control br-0">
             </div>
-            <div class="text-danger" *ngIf="submitted && getFormControl().serviceName.invalid || (getFormControl().serviceName.touched && getFormControl().serviceName.invalid)">Service Name is Required</div>
+            <mat-error *ngIf="submitted && getFormControl().serviceName.invalid || (getFormControl().serviceName.touched && getFormControl().serviceName.invalid)">Service Name is Required</mat-error>
             <div class="col-md-12">
                 <p class="mb-0 f-12 text-custom text-right pt-4">0/20</p>
             </div>
@@ -219,9 +219,8 @@
             <h5 class="mb-0 pt-8 text-white c-p" (click)="Close()">Cancel</h5>
         </div>
         <div class="col-md-8 right text-right">
-            <button mat-button class="btn-bottom br-0 text-inherit"
-                (click)="saveVariableFeeData('2')">Save</button>
-           
+            <button mat-button class="btn-bottom br-0 text-inherit" (click)="saveVariableFeeData('2')">Save</button>
+
 
         </div>
     </div>

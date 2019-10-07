@@ -7,7 +7,6 @@ import { SubscriptionPopupComponent } from '../subscription-popup/subscription-p
 import { SubscriptionService } from '../../../subscription.service';
 import * as _ from 'lodash';
 import { AddDocumentComponent } from '../add-document/add-document.component';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 export interface PeriodicElement {
   document: string;
@@ -39,7 +38,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class DocumentComponent implements OnInit {
   quotationDesignEmail: any;
-
+  @Input() upperData;
   constructor(public dialogRef: MatDialogRef<DocumentComponent>, public subInjectService: SubscriptionInject,
     private eventService: EventService, public dialog: MatDialog, private subService: SubscriptionService) {
     this.subInjectService.rightSliderDocument.subscribe(
@@ -133,8 +132,8 @@ export class DocumentComponent implements OnInit {
 
   getplanDocumentData() {
     const obj = {
-      advisorId: 2735,
-      planId: 10
+      advisorId: 12345,
+      planId: this.upperData.serviceId
     };
     this.subService.getPlanDocumentsData(obj).subscribe(
       data => this.getplanDocumentDataResponse(data)
