@@ -1,4 +1,4 @@
-<div class="wrapper-20 pt-150">
+<div *ngIf="upperData.length==0" class="wrapper-20 pt-150">
     <div class="content-center">
     <div class="row">
         <div class="col-md-12">
@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="row pt-40">
-        <div class="col-md-6" >
+        <div class="col-md-6 hover" >
                 <mat-card class="b-a p-0"(click)="openPlanSliderFee('','fixedFee','open')">
                     <div class="row bg-grey lter">
                         <div class="col-md-12 p-0">
@@ -20,7 +20,7 @@
                 </mat-card>
 
             </div>
-            <div class="col-md-6" >
+            <div class="col-md-6 hover" >
                 <mat-card class="b-a p-0" (click)="openPlanSliderFee('','varibleFee','open')">
                     <div class="row bg-grey lter">
                         <div class="col-md-12 p-0">
@@ -40,15 +40,15 @@
                
     </div>
     </div>
-    <div class="wrapper-44 pt-150">
+    <div  class="wrapper-44 pt-150">
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <mat-card class="p-0 b-a mb-44">
                         <div class="row bg-grey lter">
                             <div class="col-md-10 p-0">
-                                <h3 class="m-0 pt-18 pt-24 f-24 pb-0 pl-24">Investment Management Financial Planning</h3>
-                                <h5 class="m-0 pt-4 pb-44 pl-24 text-custom proxima">IMA124</h5>
+                                <h3 class="m-0 pt-18 pt-24 f-24 pb-0 pl-24" *ngIf="upperData">{{upperData.serviceName}}</h3>
+                                <h5 class="m-0 pt-4 pb-44 pl-24 text-custom proxima" *ngIf="upperData">{{upperData.serviceCode}}</h5>
                             </div>
                             <div class="col-md-2">
                                 <i class="material-icons text-right right text-custom f-28 pt-12 c-p"
@@ -56,24 +56,27 @@
                                 more_vert
                             </i>
                             <mat-menu #menu="matMenu">
-                                <a mat-menu-item >Edit Plan</a>
+                                <a mat-menu-item (click)="openPlanSliderFee(upperData,'fixedFee','open')" >Edit Plan</a>
                                 
                             </mat-menu>
                             </div>
                         </div>
                         <div class="wrapper-24 pl-0 pr-0">
-                        <div class="row pb-24">
+                        <div *ngIf="upperData" class="row pb-24">
                             <div class="col-md-3 text-left pl-32">
                                 <p class="m-0 text-custom f-12">FEE TYPE</p>
-                                <mat-label class="label">Variable</mat-label>
+                                <mat-label class="label" *ngIf="upperData.servicePricing.feeId==1">Fixed</mat-label>
+                                <mat-label class="label" *ngIf="upperData.servicePricing.feeId==2">Variable</mat-label>
                             </div>
-                            <div class="col-md-3 text-left">
+                            <div *ngIf="upperData" class="col-md-3 text-left">
                             <p class="m-0 text-custom f-12">BILLING NATURE</p>
-                            <h4 class="m-0 p-0 lh-16">Recurring</h4>
+                            <h4 class="m-0 p-0 lh-16" *ngIf="upperData.servicePricing.billingNature==1">Recurring</h4>
+                            <h4 class="m-0 p-0 lh-16" *ngIf="upperData.servicePricing.billingNature==2">Once</h4>
                             </div>
-                            <div class="col-md-3 text-left">
+                            <div *ngIf="upperData" class="col-md-3 text-left">
                                 <p class="text-custom m-0 f-12">BILLING MODE</p>
-                                <h4 class="m-0 p-0 lh-16">End of period</h4>
+                                <h4 class="m-0 p-0 lh-16" *ngIf="upperData.servicePricing.billingMode==1">Start of period</h4>
+                                <h4 class="m-0 p-0 lh-16" *ngIf="upperData.servicePricing.billingMode==2">End of period</h4>
                             </div>
                             <div class="col-md-3 text-left">
                                     <p class="text-custom m-0 f-12">FEES</p>
@@ -84,7 +87,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <p class="f-12 m-0 text-custom">DESCRIPTION</p>
-                            <h5 class="mb-0 text-black pt-12">Financial planning, Risk profiling, Insurance planning, Asset rebalancing, Networth analysis</h5>
+                            <h5 class="mb-0 text-black pt-12">{{upperData.description}}</h5>
                         </div>
                         <div class="col-md-6">
                             <p class="text-custom f-12 m-0">VARIABLE FEE DETAILS</p>

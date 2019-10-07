@@ -18,9 +18,9 @@
             </div>
             <div class="col-md-5 pr-0">
                 <div class="form-group mb-0">
-                    <input type="text" formControlName="serviceName" [ngClass]="{'b-red':submitted && getFormControl().serviceName.invalid }" class="form-control br-0">
+                    <input type="text" formControlName="serviceName" [ngClass]="{'b-red':isServiceValid && getFormControl().serviceName.invalid }" class="form-control br-0">
                 </div>
-                <div class="text-danger" *ngIf="submitted && getFormControl().serviceName.invalid || (getFormControl().serviceName.touched && getFormControl().serviceName.invalid)">Service Name is Required</div>
+                <mat-error *ngIf="isServiceValid && getFormControl().serviceName.invalid || (getFormControl().serviceName.touched && getFormControl().serviceName.invalid)">Service Name is Required</mat-error>
                 <div class="col-md-12">
                     <p class="mb-0 f-12 text-custom text-right pt-4">0/20</p>
                 </div>
@@ -34,9 +34,9 @@
                 <div class="row">
                     <div class="col-md-5 p-0">
                         <div class="form-group mb-0">
-                            <input type="text" formControlName="code" [ngClass]="{'b-red':submitted && getFormControl().code.invalid }" class="form-control br-0">
+                            <input type="text" formControlName="code" [ngClass]="{'b-red':isCodeValid && getFormControl().code.invalid }" class="form-control br-0">
                         </div>
-                        <div class="text-danger" *ngIf="submitted && getFormControl().code.invalid || getFormControl().code.touched && getFormControl().code.invalid">Code is Required</div>
+                        <mat-error *ngIf="isCodeValid && getFormControl().code.invalid || getFormControl().code.touched && getFormControl().code.invalid">Code is Required</mat-error>
                         <div class="row">
                             <div class="col-md-12">
                                 <p class="mb-0 f-12 text-custom text-right pt-4">0/10</p>
@@ -53,9 +53,9 @@
             <div class="col-md-5 pr-0">
     
                 <div class="form-group mb-0">
-                    <textarea class="form-control br-0" formControlName="description" [ngClass]="{'b-red':submitted && getFormControl().description.invalid }" rows="3"></textarea>
+                    <textarea class="form-control br-0" formControlName="description" [ngClass]="{'b-red':isDescriptionValid && getFormControl().description.invalid }" rows="3"></textarea>
                 </div>
-                <div class="text-danger" *ngIf="submitted && getFormControl().description.invalid || getFormControl().description.touched && getFormControl().description.invalid">Description  is Required</div>
+                <mat-error *ngIf="isDescriptionValid && getFormControl().description.invalid || getFormControl().description.touched && getFormControl().description.invalid">Description  is Required</mat-error>
                 <div class="row">
                     <div class="col-md-6">
                         <p class="mb-0 f-12 text-custom">optional</p>
@@ -74,9 +74,9 @@
             </div>
             <div class="col-md-5 pr-0">
                 <div class="form-group mb-0">
-                    <input type="number" formControlName="fees" [ngClass]="{'b-red':submitted && getFormControl().fees.invalid }" class="form-control br-0">
+                    <input type="number" formControlName="fees" [ngClass]="{'b-red':isFeesValid && getFormControl().fees.invalid }" class="form-control br-0">
                 </div>
-                <div class="text-danger" *ngIf="submitted && getFormControl().fees.invalid || getFormControl().fees.touched && getFormControl().fees.invalid">Fees is Required</div>
+                <mat-error *ngIf="isFeesValid && getFormControl().fees.invalid || getFormControl().fees.touched && getFormControl().fees.invalid">Fees is Required</mat-error>
 
             </div>
         </div>
@@ -87,7 +87,7 @@
             <div class="col-md-6">
                 <mat-radio-group formControlName="billingNature">
                         <mat-radio-button value="1" [ngClass]="{'b-a-custom':fixedFeeData.get('billingNature').value==1,'text-primary':fixedFeeData.get('billingNature').value==1}" checked="true" class="b-a text-custom wrapper-8">Recurring</mat-radio-button>
-                        <mat-radio-button value="2" [ngClass]="{'b-a-custom':fixedFeeData.get('billingNature').value==1,'text-primary':fixedFeeData.get('billingNature').value==2}" class="b-a text-custom wrapper-8">Once</mat-radio-button>
+                        <mat-radio-button value="2" [ngClass]="{'b-a-custom':fixedFeeData.get('billingNature').value==2,'text-primary':fixedFeeData.get('billingNature').value==2}" class="b-a text-custom wrapper-8">Once</mat-radio-button>
                 </mat-radio-group>
             </div>
         </div>
@@ -99,9 +99,9 @@
                 <div class="row">
                     <div class="col-md-5 p-0">
                         <div class="form-group mb-0">
-                            <input type="number" formControlName="billEvery" [ngClass]="{'b-red':submitted && getFormControl().billEvery.invalid }" class="form-control br-0">
+                            <input type="number" formControlName="billEvery" [ngClass]="{'b-red':isbillEvery && getFormControl().billEvery.invalid }" class="form-control br-0">
                         </div>
-                        <div class="text-danger" *ngIf="submitted && getFormControl().billEvery.invalid || getFormControl().billEvery.touched && getFormControl().billEvery.invalid">Field is Required</div>
+                        <mat-error *ngIf="isbillEvery && getFormControl().billEvery.invalid || getFormControl().billEvery.touched && getFormControl().billEvery.invalid">Field is Required</mat-error>
 
                     </div>
                     <div class="col-md-4 p-0">

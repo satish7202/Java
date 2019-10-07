@@ -1,48 +1,84 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { SubscriptionInject } from '../../../subscription-inject.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { SubscriptionService } from '../../../subscription.service';
+import { EventEmitter } from 'events';
 @Component({
   selector: 'app-add-structure',
   templateUrl: './add-structure.component.html',
   styleUrls: ['./add-structure.component.scss']
 })
 export class AddStructureComponent implements OnInit {
-  planData: any;
-
+  planDataForm: any;
+  @Output() planData=new EventEmitter();
   constructor(private subinject: SubscriptionInject, private fb: FormBuilder, private subService: SubscriptionService) {
     this.subinject.rightSideBarData.subscribe(
       data =>this.getSinglePlanData(data)
     )
    }
 
+   isPlanValid=false;
+   isCodeValid=false;
+   isDescValid=false;
   ngOnInit() {
   }
   submitPlanData() {
   
   }
+  getFormControl()
+  {
+    return this.planDataForm.controls;
+  }
   getSinglePlanData(data){
-    this.planData = this.fb.group({
-      planName: [data.name, [Validators.required, Validators.maxLength(20)]],
-      code: [data.code],
-      description: [data.description]
+    this.planDataForm = this.fb.group({
+      planName: [data.name, [Validators.required]],
+      code: [data.code,[Validators.required]],
+      description: [data.description,[Validators.required]]
     })
   }
-  addPlanData() {
-    let obj = {
-      "name" : "chetan gohil",
-    "description" : "descripppppption",
-    "advisorId" : 12345,
-    "logoUrl" : "url",
-    "isPublic" : 1,
-    "isActive" : 1,
-    "code":'123'
+  addPlanData(state) {
+    if(this.planDataForm.controls.planName.invalid)
+    {
+      this.isPlanValid=true
+      return  ;
+    }
+    else if(this.planDataForm.controls.code.invalid)
+    {
+      this.isCodeValid=true
+      return;
+    }
+    else if(this.planDataForm.controls.description.invalid)
+    {
+      this.isDescValid=true
+      return;
+    }
+    else{
+      let obj = {
+        "name" : this.getFormControl().planName.value,
+      "description" :this.getFormControl().description.value,
+      "advisorId" : 12345,
+      "logoUrl" : "url",
+      "isPublic" : 1,
+      "isActive" : 1,
+      "code":this.getFormControl().code.value
+    }
+      this.subService.addSettingPlanOverviewData(obj).subscribe(
+        data => this.addPlanDataResponse(data,obj,state)
+      )
+    }
   }
-    this.subService.addSettingPlanOverviewData(obj).subscribe(
-      data => console.log(data)
-    )
+  addPlanDataResponse(data,obj,state)
+  {
+    obj.planId=data;
+    console.log(obj)
+    this.subinject.pushUpperData(obj)
+    this.subinject.rightSliderData(state)
   }
   closeNav(state) {
     this.subinject.rightSliderData(state)
+    this.planDataForm.reset();
+    this.isPlanValid=false;
+   this.isCodeValid=false;
+   this.isDescValid=false;
   }
 }

@@ -23,10 +23,10 @@ export class SubscriptionService {
     let httpParams = new HttpParams().set('advisorId', data.advisorId);
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SUBSCRIPTION_INVOICE, httpParams);
   }
-  getSingleInvoiceData(data) {
-    let httpParams = new HttpParams().set('invoiceId', data)
-    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SINGLE_INVOICE, httpParams);
-  }
+  // getSingleInvoiceData(data) {
+  //   let httpParams = new HttpParams().set('invoiceId', data)
+  //   return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SINGLE_INVOICE, httpParams);
+  // }
   getPreferenceBillerProfile(data) {
     let httpParams = new HttpParams().set('advisorId', data);
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_PREFERENCE_BILLER_PROFILE, httpParams);
@@ -172,6 +172,10 @@ export class SubscriptionService {
   getSubSummary(data){
     let httpParams=new HttpParams().set('advisorId',data.advisorId).set('limit',data.limit).set('offset',data.offset);
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SUB_SUMMARY,httpParams)
+  }
+  getInvoices(data){
+    let httpParams=new HttpParams().set('id',data.id).set('module',data.module);
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_PLAN_INVOICE,httpParams)
   }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data, 10000)

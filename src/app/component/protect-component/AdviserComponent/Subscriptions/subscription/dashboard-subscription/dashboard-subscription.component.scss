@@ -93,3 +93,12 @@ p{
         width: 110px !important;
    }
 }
+.example-container {
+    height: 200px;
+    overflow: auto;
+  }
+  ::ng-deep #table-low thead tr th {
+    bottom: 0px;
+    position: sticky;
+    z-index: 10;
+  }

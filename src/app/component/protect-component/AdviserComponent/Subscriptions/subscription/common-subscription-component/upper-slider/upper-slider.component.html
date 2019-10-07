@@ -4,7 +4,7 @@
             <img src="https://res.cloudinary.com/futurewise/image/upload/v1566029063/icons_fakfxf.png" class="pt-8">
         </div>
         <div class="col-md-8 p-0">
-            <p class="f-16 mb-0 pt-24 text-center">Add plan details, map services/documents to the selected plan</p>
+            <p class="f-16 mb-0 pt-24 text-center">Add plan details, map services/documents to the selected plan</p>`
         </div>
         <div class="col-md-2 text-right">
             <i class="material-icons pt-16 c-p" (click)="dialogClose()">
@@ -14,15 +14,17 @@
     </div>
     <div class="row" *ngIf="this.fragmentData.Flag=='plan'">
         <div class="col-md-12 p-0">
-            <mat-tab-group mat-align-tabs="center" animationDuration="0ms" class="popup-header-fix-tabs">
+            <mat-tab-group mat-align-tabs="center" animationDuration="0ms"  (selectedTabChange)="tabClick($event)" class="popup-header-fix-tabs">
                 <mat-tab label="OVERVIEW">
-                    <app-overview [componentFlag]='Flag'></app-overview>
+                  <ng-template matTabContent>
+                  <app-overview [upperData]="upperData" [componentFlag]='Flag'></app-overview>
+                  </ng-template>
                 </mat-tab>
                 <mat-tab label="SERVICES">
-                    <app-services [componentFlag]='plan'></app-services>
+                    <app-services [upperData]="upperData" *ngIf="subscriptionTab=='SERVICES'" [componentFlag]='plan'></app-services>
                 </mat-tab>
                 <mat-tab label="DOCUMENTS">
-                    <app-document [componentFlag]='documents'></app-document>
+                    <app-document *ngIf="subscriptionTab=='DOCUMENTS'" [componentFlag]='documents'></app-document>
                 </mat-tab>
 
             </mat-tab-group>
@@ -30,18 +32,18 @@
     </div>
     <div class="row" *ngIf="this.fragmentData.Flag=='services'">
         <div class="col-md-12 p-0">
-            <mat-tab-group mat-align-tabs="center" class="popup-header-fix-tabs" animationDuration="0ms">
+            <mat-tab-group mat-align-tabs="center" (selectedTabChange)="tabClick($event)" class="popup-header-fix-tabs" animationDuration="0ms">
                 <mat-tab label="FEE STRUCTURE">
-                    <app-fee-structure (serviceEvent)="serviceId=$event"></app-fee-structure>
+                    <app-fee-structure [upperData]="upperData" (serviceEvent)="serviceId=$event"></app-fee-structure>
                 </mat-tab>
                 <mat-tab label="PLANS">
-                    <app-plans [clientData]="clientData" [componentFlag]='plans'></app-plans>
+                    <app-plans [upperData]="upperData" *ngIf="subscriptionTab=='PLANS'" [componentFlag]='plans'></app-plans>
                 </mat-tab>
                 <mat-tab label="DOCUMENTS">
-                    <app-document [componentFlag]='servicesDocuments'></app-document>
+                    <app-document [upperData]="upperData" *ngIf="subscriptionTab=='DOCUMENTS'" [componentFlag]='servicesDocuments'></app-document>
                 </mat-tab>
                 <mat-tab label="MODULES">
-                    <app-modules></app-modules>
+                    <app-modules *ngIf="subscriptionTab=='MODULES'"></app-modules>
                 </mat-tab>
             </mat-tab-group>
         </div>

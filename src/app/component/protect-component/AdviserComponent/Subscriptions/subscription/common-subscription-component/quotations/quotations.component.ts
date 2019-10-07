@@ -45,12 +45,16 @@ export class QuotationsComponent implements OnInit {
   {
     let obj={
       'clientId':2970
+      //'clientId':this.clientData.id
     }
     this.subAService.getSubscriptionClientsQuotations(obj).subscribe(
       data =>this.getQuotationsListResponse(data)
     )
   }
   getQuotationsListResponse(data){
+    data.forEach(singleData => {
+      singleData.isChecked = false;
+    });
     console.log("dsfgasdfsdf",data);
     this.dataSource=data
   }
@@ -118,6 +122,8 @@ export class QuotationsComponent implements OnInit {
       Flag: data,
     }
     const dialogRef = this.dialog.open(ConsentTandCComponent, {
+      width: '50%',
+      height:'100%',
       data: Fragmentdata,
       autoFocus: false,
 
