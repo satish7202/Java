@@ -184,7 +184,7 @@ import { CommonFroalaComponent } from './component/protect-component/AdviserComp
     ConfirmDialogComponent, SubscriptionPopupComponent,
     DeleteSubscriptionComponent, HowToUseDialogComponent,
     AddDocumentComponent, PreferenceEmailInvoiceComponent,
-    ModifyFeeDialogComponent, ChildComponent]
+    ModifyFeeDialogComponent, ChildComponent,ConsentTandCComponent]
 })
 export class AppModule {
 }

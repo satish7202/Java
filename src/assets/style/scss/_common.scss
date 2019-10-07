@@ -146,6 +146,12 @@ ul {
     
     
 }
+.popup-header-fix-50{
+    position: fixed;
+    width: 50%;
+    z-index: 10;
+    background: #fff !important;
+}
 .popup-header-fix-60{
     position: fixed;
     width: 60%;
@@ -304,6 +310,13 @@ button:focus {
 .l-20{
     line-height: 20px;
 }
+.bottom-fixed-50 {
+    overflow: hidden;
+    background-color: #757575;
+    position: fixed;
+    bottom: 0;
+    width: 50%;
+  }
 .bottom-fixed {
     overflow: hidden;
     background-color: #757575;
