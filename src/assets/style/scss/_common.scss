@@ -69,7 +69,9 @@ a,a:hover{
 .h-50 {
     width: $half;
 }
-
+.bb-2{
+    border-bottom: 2px solid #ddd !important;
+}
 .width-100,
 .h-100 {
     width: $full;

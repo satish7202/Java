@@ -87,6 +87,8 @@ import { CommonFroalaComponent } from './component/protect-component/AdviserComp
 
 import { CustomHtmlComponent } from './common/customhtml/customhtml/custom-html.component';
 import { CustomerComponent } from './component/protect-component/customers/component/customer/customer.component';
+import { AccountsComponent } from './component/protect-component/customers/component/customer/accounts/accounts.component';
+import { SummaryComponent } from './component/protect-component/customers/component/customer/accounts/summary/summary.component';
 
 @NgModule({
   declarations: [
@@ -164,7 +166,9 @@ import { CustomerComponent } from './component/protect-component/customers/compo
     CustomHtmlComponent,
     ConsentTandCComponent,
     CommonFroalaComponent,
-    CustomerComponent
+    CustomerComponent,
+    AccountsComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,
