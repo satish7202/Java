@@ -50,6 +50,7 @@ export class InvoicesComponent implements OnInit {
   }
   selectedInvoice(ele){
     console.log("invoice data",ele)
+    
   }
   getInvoiceListResponse(data)
   {

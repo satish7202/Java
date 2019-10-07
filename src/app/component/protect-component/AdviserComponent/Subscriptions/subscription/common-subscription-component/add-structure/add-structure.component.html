@@ -19,10 +19,16 @@
                     <div class="col-md-5">
                         <div class="form-group mb-0">
                             <input type="email" formControlName="planName" maxlength="20" class="form-control br-2">
-                            <!-- <mat-error>PlanName is Required</mat-error> -->
                         </div>
-                        <div class="col-md-12">
-                            <p class="mb-0 f-12 text-custom text-right pt-4">0/20</p>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <mat-error
+                                    [ngClass]="{'d-n': !(submitted && getFormControl().planName.invalid || getFormControl().planName.touched && getFormControl().planName.invalid)}">
+                                    Plan Name is Required</mat-error>
+                            </div>
+                            <div class="col-md-4">
+                                <p class="mb-0 f-12 text-custom text-right pt-4">0/20</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -32,12 +38,16 @@
                     </div>
                     <div class="col-md-3">
                         <div class="form-group mb-0">
-
                             <input type="email" formControlName="code" maxlength="10" class="form-control br-2">
-                            <!-- <mat-error>Code is Required</mat-error> -->
                         </div>
-                        <div class="col-md-12">
-                            <p class="mb-0 f-12 text-custom text-right pt-4">0/10</p>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <mat-error [ngClass]="{'d-n': !(submitted && getFormControl().code.invalid || getFormControl().code.touched && getFormControl().code.invalid)}">
+                                    Code is Required</mat-error>
+                            </div>
+                            <div class="col-md-4">
+                                <p class="mb-0 f-12 text-custom text-right pt-4">0/20</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -47,12 +57,19 @@
                     </div>
                     <div class="col-md-5">
                         <div class="form-group mb-0">
-                            <textarea class="form-control br-2" formControlName="description" maxlength="10" rows="5"></textarea>
+                            <textarea class="form-control br-2" formControlName="description" maxlength="10"
+                                rows="5"></textarea>
                             <!-- <mat-error>Description is Required</mat-error> -->
                         </div>
-                        <div class="col-md-12">
-                            <p class="mb-0 f-12 text-custom text-right pt-4">0/10</p>
-                        </div>
+                        <div class="row">
+                                <div class="col-md-8">
+                                    <mat-error [ngClass]="{'d-n': !(submitted && getFormControl().description.invalid || getFormControl().description.touched && getFormControl().description.invalid)}">
+                                        Description is Required</mat-error>
+                                </div>
+                                <div class="col-md-4">
+                                    <p class="mb-0 f-12 text-custom text-right pt-4">0/20</p>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </form>
@@ -65,12 +82,7 @@
             <h4 class="mb-0 pt-8 text-white c-p f-16" (click)="closeNav('close')">Cancel</h4>
         </div>
         <div class="col-md-8 right text-right">
-            <button mat-button class="btn-bottom br-0 text-inherit" (click)="addPlanData()">Save</button>
-            <!-- <mat-menu #menu="matMenu">
-                    <button mat-menu-item>Item 1</button>
-                    <button mat-menu-item>Item 2</button>
-                </mat-menu> -->
-
+            <button mat-button class="btn-bottom br-0 text-inherit" (click)="addPlanData('close')">Save</button>
         </div>
     </div>
 </div>
