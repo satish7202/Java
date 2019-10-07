@@ -82,11 +82,10 @@ import {HowToUseDialogComponent} from './component/protect-component/AdviserComp
 import {AddDocumentComponent} from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/add-document/add-document.component';
 import {ModifyFeeDialogComponent} from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/modify-fee-dialog/modify-fee-dialog.component';
 import {PreferenceEmailInvoiceComponent} from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/preference-email-invoice/preference-email-invoice.component';
-import {CustomhtmlRenderDirective} from './common/customhtml.render.directive';
-import {ChildComponent} from './common/child.component';
-import { CustomHtmlComponent } from './common/customhtml.component';
 import { ConsentTandCComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/consent-tand-c/consent-tand-c.component';
 import { CommonFroalaComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/common-froala/common-froala.component';
+
+import { CustomHtmlComponent } from './common/customhtml/customhtml/custom-html.component';
 
 @NgModule({
   declarations: [
@@ -161,11 +160,9 @@ import { CommonFroalaComponent } from './component/protect-component/AdviserComp
     AddDocumentComponent,
     ModifyFeeDialogComponent,
     PreferenceEmailInvoiceComponent,
-    CustomhtmlRenderDirective,
-    ChildComponent,
     CustomHtmlComponent,
     ConsentTandCComponent,
-    CommonFroalaComponent
+    CommonFroalaComponent,
   ],
   imports: [
     BrowserModule,
@@ -184,7 +181,7 @@ import { CommonFroalaComponent } from './component/protect-component/AdviserComp
     ConfirmDialogComponent, SubscriptionPopupComponent,
     DeleteSubscriptionComponent, HowToUseDialogComponent,
     AddDocumentComponent, PreferenceEmailInvoiceComponent,
-    ModifyFeeDialogComponent, ChildComponent]
+    ModifyFeeDialogComponent]
 })
 export class AppModule {
 }

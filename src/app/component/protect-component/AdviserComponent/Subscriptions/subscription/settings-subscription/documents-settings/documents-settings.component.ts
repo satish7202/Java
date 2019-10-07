@@ -6,7 +6,8 @@ import {EventService} from 'src/app/Data-service/event.service';
 import {SubscriptionInject} from '../../../subscription-inject.service';
 import {SubscriptionService} from '../../../subscription.service';
 import {ModifyFeeDialogComponent} from '../../common-subscription-component/modify-fee-dialog/modify-fee-dialog.component';
-import {CustomHtmlComponent} from "../../../../../../../common/customhtml.component";
+
+// import {CustomHtmlComponent} from "../../../../../../../common/customhtml.component";
 
 @Component({
   selector: 'app-documents-settings',
@@ -18,7 +19,8 @@ export class DocumentsSettingsComponent implements OnInit {
   documentSettingData;
   showLoader
 
-  constructor(public dialog: MatDialog, public eventService: EventService, public subInjectService: SubscriptionInject, private subService: SubscriptionService) {
+  constructor(public dialog: MatDialog, public eventService: EventService, public subInjectService: SubscriptionInject,
+              private subService: SubscriptionService) {
   }
 
   ngOnInit() {
@@ -36,7 +38,7 @@ export class DocumentsSettingsComponent implements OnInit {
   }
 
   getDocumentsSettingResponse(data) {
-    data.forEach( singleData => {
+    data.forEach(singleData => {
       singleData.docText = '<h1>One morning, when Gregor Samsa woke from troubled \n' +
         'dreams.</h1>\n' +
         '\n' +
