@@ -185,14 +185,16 @@ export class DocumentComponent implements OnInit {
       let obj = [];
       this.mappedData.forEach(element => {
         let data = {
-          'advisorId': 2735,
+          'advisorId': 12345,
           'documentRepositoryId': element.documentRepositoryId,
           'mappingId': element.mappingId
         }
+        obj.push(data)
       })
       this.subService.mapDocumentsToPlanData(obj).subscribe(
         data => console.log("sucessful")
       )
+      this.dialogRef.close();
     }
     else {
       return;

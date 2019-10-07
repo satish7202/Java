@@ -3,7 +3,6 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { EventService } from 'src/app/Data-service/event.service';
 import { SubscriptionInject } from '../../../subscription-inject.service';
-import { isNumber } from 'util';
 
 @Component({
   selector: 'app-upper-slider',
@@ -38,13 +37,13 @@ export class UpperSliderComponent implements OnInit {
     this.subinject.rightslider.subscribe(
       data => this.getStateData(data)
     )
-    this.subinject.clientId.subscribe(
-      data =>this.clientData=data
+    this.subinject.upperData.subscribe(
+      data =>this.getUpperDataValue(data)
     )
   }
   State;
   rightSliderData;
-  clientData;
+  upperData;
   ngOnInit() {
     this.State = 'close'
     console.log(this.fragmentData)
@@ -64,7 +63,11 @@ export class UpperSliderComponent implements OnInit {
   getStateData(data) {
     this.State=data;
   }
-
+  getUpperDataValue(data)
+  {
+   this.upperData=data;
+   console.log("upperData",this.upperData)
+  }
   getTabValueData(data) {
     this.blankOverview = data;
     this.rightSliderData = data;

@@ -48,11 +48,11 @@ export class SubscriptionInject {
     this.billerData.next(obj);
   }
 
-  private clientData=new BehaviorSubject("");
-  clientId=this.clientData.asObservable();
+  private upper=new BehaviorSubject("");
+  upperData=this.upper.asObservable();
    
-  pushClientData(data)
+  pushUpperData(data)
   {
-    this.clientData.next(data);
+    this.upper.next(data);
   }
 }
