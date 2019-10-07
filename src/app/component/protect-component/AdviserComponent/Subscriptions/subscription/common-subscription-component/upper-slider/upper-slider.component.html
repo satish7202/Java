@@ -14,15 +14,15 @@
     </div>
     <div class="row" *ngIf="this.fragmentData.Flag=='plan'">
         <div class="col-md-12 p-0">
-            <mat-tab-group mat-align-tabs="center" animationDuration="0ms" class="popup-header-fix-tabs">
+            <mat-tab-group mat-align-tabs="center" animationDuration="0ms" (selectedTabChange)="tabClick($event)" class="popup-header-fix-tabs">
                 <mat-tab label="OVERVIEW">
                     <app-overview [componentFlag]='Flag'></app-overview>
                 </mat-tab>
                 <mat-tab label="SERVICES">
-                    <app-services [componentFlag]='plan'></app-services>
+                    <app-services *ngIf="subscriptionTab=='SERVICES'" [componentFlag]='plan'></app-services>
                 </mat-tab>
                 <mat-tab label="DOCUMENTS">
-                    <app-document [componentFlag]='documents'></app-document>
+                    <app-document *ngIf="subscriptionTab=='DOCUMENTS'" [componentFlag]='documents'></app-document>
                 </mat-tab>
 
             </mat-tab-group>

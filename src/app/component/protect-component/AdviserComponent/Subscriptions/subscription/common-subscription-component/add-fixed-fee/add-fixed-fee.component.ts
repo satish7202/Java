@@ -49,7 +49,6 @@ export class AddFixedFeeComponent implements OnInit {
     this.submitted=true;
    if(this.fixedFeeData.invalid)
    {
-     console.log(this.getFormControl())
     return;
    }
    else{

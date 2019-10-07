@@ -9,7 +9,7 @@ import { SubscriptionService } from '../../../subscription.service';
 })
 export class AddStructureComponent implements OnInit {
   planData: any;
-
+  submitted=false;
   constructor(private subinject: SubscriptionInject, private fb: FormBuilder, private subService: SubscriptionService) {
     this.subinject.rightSideBarData.subscribe(
       data =>this.getSinglePlanData(data)
@@ -21,26 +21,38 @@ export class AddStructureComponent implements OnInit {
   submitPlanData() {
   
   }
+  getFormControl()
+  {
+    return this.planData.controls;
+  }
   getSinglePlanData(data){
     this.planData = this.fb.group({
-      planName: [data.name, [Validators.required, Validators.maxLength(20)]],
-      code: [data.code],
-      description: [data.description]
+      planName: [data.name, [Validators.required]],
+      code: [data.code,[Validators.required]],
+      description: [data.description,[Validators.required]]
     })
   }
-  addPlanData() {
-    let obj = {
-      "name" : "chetan gohil",
-    "description" : "descripppppption",
-    "advisorId" : 12345,
-    "logoUrl" : "url",
-    "isPublic" : 1,
-    "isActive" : 1,
-    "code":'123'
-  }
-    this.subService.addSettingPlanOverviewData(obj).subscribe(
-      data => console.log(data)
-    )
+  addPlanData(state) {
+    this.submitted=true;
+    if(this.planData.invalid)
+    {
+      return;
+    }
+    else{
+      let obj = {
+        "name" : "chetan gohil",
+      "description" : "descripppppption",
+      "advisorId" : 12345,
+      "logoUrl" : "url",
+      "isPublic" : 1,
+      "isActive" : 1,
+      "code":'123'
+    }
+      this.subService.addSettingPlanOverviewData(obj).subscribe(
+        data => console.log(data)
+      )
+      this.subinject.rightSliderData(state)
+    }
   }
   closeNav(state) {
     this.subinject.rightSliderData(state)

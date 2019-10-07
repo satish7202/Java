@@ -16,7 +16,12 @@ export class AddVariableFeeComponent implements OnInit {
     )
    }
    variableFeeData;
+   submitted=false;
   ngOnInit() {
+  }
+  getFormControl()
+  {
+    return this.variableFeeData.controls;
   }
   getFeeFormData(data)
   {
@@ -39,6 +44,12 @@ export class AddVariableFeeComponent implements OnInit {
     this.subInjectService.closeSlider(value)
   }
   saveVariableFeeData(feeType) {
+    this.submitted=true;
+    if(this.variableFeeData.invalid)
+    {
+      return;
+    }
+    else{
     let obj = {
       "advisorId": 4545,
       "description":this.variableFeeData.controls.description.value,
@@ -81,5 +92,7 @@ export class AddVariableFeeComponent implements OnInit {
     this.subService.createSettingService(obj).subscribe(
       data =>console.log("service created sucessfully")
     )
+    }
+    
   }
 }
