@@ -20,7 +20,7 @@ export class OverviewComponent implements OnInit {
 
 
   @Input() componentFlag: string;
-
+  @Input() upperData;
   ngOnInit() {
     this.overviewDesign='true';
   }

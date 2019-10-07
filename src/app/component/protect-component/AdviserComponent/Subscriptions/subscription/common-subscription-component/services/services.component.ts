@@ -15,6 +15,7 @@ export class ServicesComponent implements OnInit {
   @Input() componentFlag:string;
   planServiceData;
   mappedData;
+  @Input() upperData;
   ngOnInit() {
   this.getPlanServiceData();
   this.mappedData=[];
@@ -22,8 +23,8 @@ export class ServicesComponent implements OnInit {
    getPlanServiceData()
    {
      let obj={
-       'advisorId':4747,
-       'planId':0
+       'advisorId':12345,
+       'planId':this.upperData.planId
      }
      this.subService.getSettingPlanServiceData(obj).subscribe(
        data =>this.getPlanServiceDataResponse(data)
@@ -31,7 +32,7 @@ export class ServicesComponent implements OnInit {
    }
    getPlanServiceDataResponse(data)
    {
-     console.log(data)
+     console.log("plan service",data)
      this.planServiceData=data;
    }
    selectService(data,index)
@@ -62,10 +63,10 @@ export class ServicesComponent implements OnInit {
     let obj=[];
     this.mappedData.forEach(element => {
        let data={
-        "advisorId": 2735,
+        "advisorId": 12345,
         "global": element.global,
         "id": element.id,
-        "planId": 10
+        "planId":this.upperData.planId
        }
        obj.push(data)
     });
