@@ -46,10 +46,7 @@ const routes: Routes = [
     path:'login',
     component:LoginComponent
   },
-  { path: 'customer-detail', loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule) },
-
-
-
+  { path: 'customer-detail', loadChildren: () => import('./component/protect-component/customers/customers.module').then(m => m.CustomersModule) },
 ]
 
 @NgModule({
