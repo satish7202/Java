@@ -49,7 +49,7 @@
 
 
     GET_SUBSCRIPTION_INVOICE:'futurewise/subscriptions/invoices/get',
-    GET_SINGLE_INVOICE:'futurewise/subscriptions/invoice/get',
+    //GET_SINGLE_INVOICE:'futurewise/subscriptions/invoice/get',
     GET_PREFERENCE_BILLER_PROFILE:'futurewise/subscriptions/settings/billerprofile/get',
     GET_PREFERENCE_INVOICE_QUOTATIONS_SUBSCRIPTION:'futurewise/subscriptions/settings/prefix/get',
     UPDATE_PREFERENCE_INVOICE_QUOTATIONS_SUBSCRIPTION:'futurewise/subscriptions/settings/prefix/update',
@@ -85,6 +85,7 @@
     ADD_CLIENT_BILLER_PROFILE:'futurewise/subscriptions/client/biller/profile/add',
     ADD_SETTING_DOCUMENT:'futurewise/subscriptions/document/add',
     GET_PLAN_OF_ADVISOR_CLIENT:'futurewise/subscriptions/plansofadvisor/get',
+    GET_PLAN_INVOICE:'futurewise/subscriptions/invoices/get',
     CREATE_SUBSCRIPTION:'futurewise/subscriptions/clients/subscriptions/add',
     EDIT_PAYEE_SETTINGS:'futurewise/subscriptions/clients/settings/profile/update',
     MAP_PLAN_TO_SERVICE_SETTING:'futurewise/subscriptions/map/plan/service',

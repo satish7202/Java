@@ -143,6 +143,9 @@ export class DocumentComponent implements OnInit {
   }
 
   getplanDocumentDataResponse(data) {
+    data.forEach(singleData => {
+      singleData.isChecked = false;
+    });
     console.log("document Data", data)
     this.planDocumentData = data;
   }
