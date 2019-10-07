@@ -1,6 +1,7 @@
 /* tslint:disable:max-line-length */
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {MaterialModule} from './material/material';
@@ -173,7 +174,8 @@ import { CustomHtmlComponent } from './common/customhtml/customhtml/custom-html.
     ReactiveFormsModule,
     HttpClientModule,
     SlimLoadingBarModule.forRoot(),
-    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
+    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),
+    MDBBootstrapModule.forRoot()
   ],
   providers: [AuthService, HttpService],
   bootstrap: [AppComponent],
@@ -181,7 +183,7 @@ import { CustomHtmlComponent } from './common/customhtml/customhtml/custom-html.
     ConfirmDialogComponent, SubscriptionPopupComponent,
     DeleteSubscriptionComponent, HowToUseDialogComponent,
     AddDocumentComponent, PreferenceEmailInvoiceComponent,
-    ModifyFeeDialogComponent]
+    ModifyFeeDialogComponent,ConsentTandCComponent]
 })
 export class AppModule {
 }
