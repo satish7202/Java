@@ -22,6 +22,7 @@ export interface PeriodicElement {
 export class InvoicesComponent implements OnInit {
   invoiceDesign: any;
   quotationDesignEmail: any;
+  selectedInvoiceCount: any;
  
 
   constructor(public subInjectService:SubscriptionInject, private eventService:EventService, private subService:SubscriptionService,public dialog: MatDialog) { }
@@ -39,18 +40,24 @@ export class InvoicesComponent implements OnInit {
   getInvoiceList()
   {
     let obj={
-     'clientId':2970
+     'id':2970, // pass here client ID as id
+     'module':2,
+     //'clientId':this.clientData.id
     }
-   this.subService.getSubscriptionClientsInvoices(obj).subscribe(
+   this.subService.getInvoices(obj).subscribe(
      data => this.getInvoiceListResponse(data)
    )
+  }
+  selectedInvoice(ele){
+    console.log("invoice data",ele)
+    
   }
   getInvoiceListResponse(data)
   {
     data.forEach(singleData => {
       singleData.isChecked = false;
     });
-    console.log(data);
+    console.log('Invoice data for client',data);
 
     this.dataSource=data
   }

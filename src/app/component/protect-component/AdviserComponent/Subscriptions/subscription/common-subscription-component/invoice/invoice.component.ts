@@ -20,11 +20,16 @@ export interface PeriodicElement {
 })
 export class InvoiceComponent implements OnInit {
   dataSub: any;
+  storeData;
 
   constructor(public subInjectService:SubscriptionInject) {
     this.dataSub = this.subInjectService.singleProfileData.subscribe(
-      data=>console.log(data)
+      data=>this.getInvoiceData(data)
     );
+   }
+   getInvoiceData(data)
+   {
+    this.storeData = data
    }
   @Input() invoiceData;
   ngOnInit() {

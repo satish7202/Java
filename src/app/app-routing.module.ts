@@ -5,6 +5,7 @@ import { LeftsidebarComponent } from './component/left-sidebar/leftsidebar/lefts
 import { SubscriptionComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/subscription.component';
 import { MisComponent } from './component/protect-component/AdviserComponent/backOffice/MIS/mis/mis.component';
 import { LoginComponent } from './component/no-protected/login/login.component';
+import { CustomerComponent } from './component/protect-component/customers/component/customer/customer.component';
 const routes: Routes = [
   {
     
@@ -46,7 +47,11 @@ const routes: Routes = [
     path:'login',
     component:LoginComponent
   },
-  { path: 'customer-detail', loadChildren: () => import('./component/protect-component/customers/customers.module').then(m => m.CustomersModule) },
+  {
+    path:'customer',
+    component:CustomerComponent
+  }
+  // { path: 'customer-detail', loadChildren: () => import('./component/protect-component/customers/customers.module').then(m => m.CustomersModule) },
 ]
 
 @NgModule({

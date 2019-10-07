@@ -98,11 +98,14 @@
                         </div>
                     </div>
                     <div class="bg-white mt-28">
-                    <div class="col-md-12 ">
-                        <i class="material-icons right text-right text-custom pt-12 pb-16 f-32 f-700">
+                        <div class="row">
+                    <div class="col-md-12">
+                        <i class="material-icons right text-right text-custom pt-12 f-32 f-700">
                                                     more_horiz
-                                                    </i> </div>
-                        <div class="ima pl-32 pt-28">
+                                                    </i>
+                        </div>
+                    </div>
+                        <div class="ima pl-32">
                             <p class="f-300 f-18 mb-0 ">Receivables summary</p>
                             <h2 class="text-primary pt-8 mb-0 c-p">1,23,670</h2>
                         </div>
@@ -139,7 +142,7 @@
                     </div>
                 </div>
                 <div class="col-md-8 pr-0">
-                    <div class="wrapper-16 bg-white mt-28 pb-44">
+                    <div class="wrapper-16 bg-white mt-28 pb-20">
                         <div class="row">
                             <div class="col-md-12 pr-0">
                                 <i class="material-icons right text-right text-custom f-32 f-700">
@@ -157,6 +160,7 @@
                                         <button mat-button class="text-custom">UPCOMING</button>
                                 </div>
                             </div>
+                            <div  class="example-container">
                             <table mat-table [dataSource]="dataSource" id="table-low" class="mt-8">
                                 <ng-container matColumnDef="name">
                                     <th mat-header-cell *matHeaderCellDef> Client name </th>
@@ -192,7 +196,8 @@
                                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                             </table>
                         </div>
-                        <div class="col-md-12 text-right pt-8 pb-44">
+                        </div>
+                        <div class="col-md-12 text-right pt-8">
                                 <a href="#" class="text-black f-14">View all</a>
                             </div>
                     </div>
