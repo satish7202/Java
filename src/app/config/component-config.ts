@@ -55,7 +55,7 @@
     UPDATE_PREFERENCE_INVOICE_QUOTATIONS_SUBSCRIPTION:'subscription/setting/prefix/update',
     SAVE_PREFERENCE_INVOICE_QUOTATIONS_SUBSCRIPTION:'subscription/setting/billerprofile/save',
     DASHBOARD_LETS_BEGIN_SUBSCRIPTION:'subscription/dashboard/record/payment/add',
-    GET_CLIENT_SUBSCRIPTION_LIST:'subscription/clients/get',
+    GET_CLIENT_SUBSCRIPTION_LIST:'subscription/client/get',
     GET_CLIENT_SUBSCRIPTION_QUOTATIONS_LIST:'subscription/client/quotation/get',
     GET_CLIENT_SUBSCRIPTION_INVOICES_LIST:'subscription/client/invoice/get',
     GET_CLIENT_SUBSCRIPTION_SETTING_PROFILE:'subscription/client/setting/profile/get',
