@@ -15,7 +15,7 @@
                                     </i>
                     </div>
                     <div class="col-md-2 right text-right p-0 button-fix">
-                            <button mat-stroked-button class="btn-primary br-0 mt-12">{{mappedPlan.length}} Plans mapped</button>
+                            <button mat-stroked-button class="btn-primary br-0 mt-8">{{mappedPlan.length}} Plans mapped</button>
                     </div>
                 </div>
                 <div class="wrapper-100 pt-44">
@@ -59,7 +59,7 @@
                         </div>
                             </mat-card>
                     </div> -->
-                    <div class="col-md-4" *ngFor="let singleServicePlan of servicePlanData">
+                    <div class="col-md-4 pb-40" *ngFor="let singleServicePlan of servicePlanData">
                             <mat-card class="p-0 b-a" (click)="selectServicePlan(singleServicePlan)" [ngClass]="{'p-0': singleServicePlan.isActive==0,'b-a':singleServicePlan.isActive==0,'p-0':singleServicePlan.isActive==1,'ba-green':singleServicePlan.isActive==1}">
                                 <div class="row bg-grey lter">
                                     <div class="col-md-12 p-0">

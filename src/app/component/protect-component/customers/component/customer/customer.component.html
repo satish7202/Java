@@ -1,17 +1,14 @@
 
-
-
-      <mat-grid-list cols="3" rowHeight="4:1">
-            <mat-grid-tile>
-                <img src="https://res.cloudinary.com/futurewise/image/upload/v1566029063/icons_fakfxf.png" class="w-25">
-            </mat-grid-tile>
-            <mat-grid-tile><mat-tab-group animationDuration="0ms">
-                    <mat-tab label="OVERVIEW">Content 1</mat-tab>
-                    <mat-tab label="ACCOUNTS">Content 2</mat-tab>
-                    <mat-tab label="PLAN">Content 3</mat-tab>
-                    <mat-tab label="ACTIVITY">Content 2</mat-tab>
-                    <mat-tab label="transact">Content 3</mat-tab>
-                  </mat-tab-group></mat-grid-tile>
-            <mat-grid-tile>3</mat-grid-tile>
-          
-          </mat-grid-list>
+            
+                                <mat-tab-group animationDuration="0ms" mat-align-tabs="center" id="ui-customer">
+                                       
+                                        <mat-tab label="OVERVIEW">
+                                            <app-accounts></app-accounts>
+                                        </mat-tab>
+                                        <mat-tab label="ACCOUNTS">Content 2</mat-tab>
+                                        <mat-tab label="PLAN">Content 3</mat-tab>
+                                        <mat-tab label="ACTIVITY">Content 2</mat-tab>
+                                        <mat-tab label="TRANSACT">Content 3</mat-tab>
+                                   
+                                      </mat-tab-group>
+                         
