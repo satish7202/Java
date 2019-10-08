@@ -23,6 +23,8 @@ export class InvoicesComponent implements OnInit {
   invoiceDesign: any;
   quotationDesignEmail: any;
   selectedInvoiceCount: any;
+  countOfSelect: number;
+  dataCount;
  
 
   constructor(public subInjectService:SubscriptionInject, private eventService:EventService, private subService:SubscriptionService,public dialog: MatDialog) { }
@@ -32,6 +34,7 @@ export class InvoicesComponent implements OnInit {
     console.log("CLIENT INVOICE ")
     this.invoiceDesign='true';
     console.log('clientData',this.clientData)
+    this.dataCount = 0;
   }
   @Input() clientData;
   displayedColumns: string[] = ['checkbox','date','Invoice number','Service name','Billed to', 'status', 'Duedate','Amount','Balance due','icons'];
@@ -50,6 +53,11 @@ export class InvoicesComponent implements OnInit {
   }
   selectedInvoice(ele){
     console.log("invoice data",ele)
+    if(ele==false){
+      this.dataCount++;
+    }else{
+      this.dataCount--;
+    }
     
   }
   getInvoiceListResponse(data)

@@ -32,11 +32,13 @@ export class QuotationsComponent implements OnInit {
   }
   quotationDesignEmail;
   quotationDesign;
+  dataCount;
   ngOnInit() {
    this.quotationDesign='true';
    console.log("quotation")
    this.getQuotationsList();
    console.log('clientData',this.clientData)
+   this.dataCount = 0
   }
   @Input() clientData;
   displayedColumns: string[] = ['checkbox','document','plan', 'date', 'sdate','cdate','status','icons'];
@@ -50,6 +52,15 @@ export class QuotationsComponent implements OnInit {
     this.subAService.getSubscriptionClientsQuotations(obj).subscribe(
       data =>this.getQuotationsListResponse(data)
     )
+  }
+  selectedInvoice(ele){
+    console.log("invoice data",ele)
+    if(ele==false){
+      this.dataCount++;
+    }else{
+      this.dataCount--;
+    }
+    
   }
   getQuotationsListResponse(data){
     data.forEach(singleData => {

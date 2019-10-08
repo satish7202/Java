@@ -19,21 +19,22 @@
           <button mat-button [matMenuTriggerFor]="menu" class="b-a pr-0">Actions <i class="material-icons text-custom">
                   arrow_drop_down
                   </i></button>
-              <mat-menu #menu="matMenu">
-                <button mat-menu-item (click)="openInvoicesESign('eSignInvoices','open')">Email with eSign request</button>
-                <button mat-menu-item (click)="changeDisplay('emailInvoices')">Email only</button>
-                <button mat-menu-item class="b-t" (click)="deleteModal('INVOICE')">Delete Invoices</button>
-              </mat-menu>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item class="b-t"  *ngIf="dataCount == 0">Select invoice to see more actions</button>
+                    <button mat-menu-item (click)="openInvoicesESign('eSignInvoices','open')" *ngIf="dataCount != 0">Email with eSign request</button>
+                    <button mat-menu-item (click)="changeDisplay('emailInvoices')"*ngIf="dataCount != 0">Email only</button>
+                    <button mat-menu-item class="b-t" (click)="deleteModal('INVOICE')"*ngIf="dataCount != 0">Delete Invoices</button>
+                </mat-menu>
                 </div>
                 <div class="col-md-9 p-0">
-                      <p class="m-0 text-black text-left pt-12">{{selectedInvoiceCount}} invoices selected</p>
+                      <p class="m-0 text-black text-left pt-12">{{dataCount}} invoices selected</p>
                 </div>
             </div>
             <table mat-table [dataSource]="dataSource" class="mt-8" id="table-low">
                   <ng-container matColumnDef="checkbox">
                           <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 2%;"> <mat-checkbox></mat-checkbox> </th>
                           <td mat-cell *matCellDef="let element" style="width: 2%;">
-                                  <mat-checkbox [(ngModel)]="element.isChecked"(click)="selectedInvoice(element)"></mat-checkbox>
+                                  <mat-checkbox [(ngModel)]="element.isChecked"(click)="selectedInvoice(element.isChecked)"></mat-checkbox>
                           </td>
                       </ng-container>
                 <ng-container matColumnDef="date">
