@@ -40,30 +40,22 @@
                         <div class="col-md-6">
                            <h4 class="text-black pt-48">Acme Financial Advisors</h4>
 
-                            <p class="f-14 text-custom l-20">#46, Street 1,<br/> 
-                            Lokhandwala Township<br/>
-                            Borivali East<br/>
-                            Mumbai 400 066<br/>
-                            GSTIN: 27AABCF7765A1Z7</p>
+                            <p class="f-14 text-custom l-20">{{storeData.billerAddress}}</p>
                         </div>
                         <div class="col-md-6">
-                            <h4 class="text-black pt-48">Steve Jobs</h4>
+                            <h4 class="text-black pt-48">{{storeData.clientName}}</h4>
                             
-                            <p class="f-14 text-custom l-20">#46, Street 1,<br/> 
-                            Lokhandwala Township<br/>
-                            Borivali East<br/>
-                            Mumbai 400 066<br/>
-                            GSTIN: 27AABCF7765A1Z7</p>
+                            <p class="f-14 text-custom l-20">{{storeData.billingAddress}}</p>
                         </div>
                     </div>
             
             <div class="row pt-44">
                 <div class="col-md-8">
-                    <p class="text-black f-400"><span class="text-custom f-16">Invoice no</span>: INV-19-20-103009</p>
-                    <p class="text-black f-400"><span class="text-custom f-16">Invoice date</span>: 28/08/2019</p>
+                    <p class="text-black f-400"><span class="text-custom f-16">Invoice no</span>: {{storeData.invoiceNumber}}</p>
+                    <p class="text-black f-400"><span class="text-custom f-16">Invoice date</span>: {{storeData.invoiceDate | date:'dd/MM/yyyy'}}</p>
                 </div>
                 <div class="col-md-4">
-                    <h2 class="text-danger f-400">OVERDUE</h2>
+                    <h2 [ngClass]="storeData.status == 'PAID' ? 'text-success f-400' : 'text-danger f-400'">{{storeData.status}}</h2>
                 </div>
                
             </div>
@@ -86,10 +78,14 @@
             <div class="row">
                 <div class="col-md-7 mt-70">
                    <p class="f-12 text-black f-400 roboto"> For payment via NEFT/IMPS/Cheque, see details below.
-A/c: Futurewise Technologies Pvt. Ltd.
-A/c No: 103205000764
-IFSC: ICIC0001032
-Bank: ICICI Bank (Akurli road, Kandivali East, Mumbai 400101)</p>
+                    A/c: {{storeData.billerNameAsPerBank}}
+                    A/c No: {{storeData.billerAcNumber}}
+                    IFSC: {{storeData.billerIfscCode}}
+                    Bank:{{storeData.billerBranchAddress}},
+                    ({{storeData.billerBranchCity}},
+                    {{storeData.billerBranchState}},
+                    {{storeData.billerBranchCountry}},
+                    {{storeData.billerBranchZipCode}})</p>
                 </div>
                 <div class="col-md-5">
                     <div class="row pt-44">
@@ -97,7 +93,7 @@ Bank: ICICI Bank (Akurli road, Kandivali East, Mumbai 400101)</p>
                         <p class="text-black f-400">Sub total</p>
                     </div>
                     <div class="col-md-4">
-                        <p class="text-black f-400">Rs.8,000</p>
+                        <p class="text-black f-400">Rs.{{storeData.subTotal}}</p>
                     </div>
                     </div>
                     <div class="row">
@@ -113,7 +109,7 @@ Bank: ICICI Bank (Akurli road, Kandivali East, Mumbai 400101)</p>
                                 <p class="f-500 roboto pt-8">Total</p>
                             </div>
                             <div class="col-md-4">
-                                <p class="f-500 roboto pt-8">9,440</p>
+                                <p class="f-500 roboto pt-8">{{storeData.finalAmount}}</p>
                             </div>
                         </div>
                         <div class="row bt-1 bb-1">
@@ -121,7 +117,7 @@ Bank: ICICI Bank (Akurli road, Kandivali East, Mumbai 400101)</p>
                                     <p class="f-500 roboto pt-8">Balance due</p>
                                 </div>
                                 <div class="col-md-4">
-                                    <p class="f-500 roboto pt-8">9,440</p>
+                                    <p class="f-500 roboto pt-8">{{storeData.balanceDue}}</p>
                                 </div>
                             </div>
                 </div>

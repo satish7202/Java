@@ -31,7 +31,7 @@
             </ng-container>
             <ng-container matColumnDef="invoicenum">
                 <th mat-header-cell *matHeaderCellDef class="f-18"> Invoice number </th>
-                <td mat-cell *matCellDef="let element" (click)="showInvoicePdf(element)" class="c-p"> {{element.invoiceNumber}} </td>
+                <td mat-cell *matCellDef="let element" (click)="openInvoice(element,'invoiceUpperSlider','open')" class="c-p"> {{element.invoiceNumber}} </td>
             </ng-container>
             <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef class="f-18"> Client name </th>

@@ -16,8 +16,8 @@
                 <mat-card class="p-0 b-a">
                     <div class="row bg-grey lter">
                         <div class="col-md-10 p-0">
-                            <h3 class="m-0 pt-18 pt-24 pl-24">{{singlePlanData.name}}</h3>
-                            <h5 class="m-0 pt-4 pb-44 pl-24">{{singlePlanData.code}}</h5>
+                            <h3 class="m-0 pt-18 pt-24 pl-24" *ngIf="upperData">{{upperData.name}}</h3>
+                            <h5 class="m-0 pt-4 pb-44 pl-24" *ngIf="upperData">{{upperData.code}}</h5>
                         </div>
                         <div class="col-md-2 pr-0">
                             <i class="material-icons text-right right text-custom f-28 pt-12 c-p"
@@ -25,7 +25,7 @@
                                 more_vert
                             </i>
                             <mat-menu #menu="matMenu">
-                                <a mat-menu-item (click)="openForm(singlePlanData,'addPlanDetails','open')">Edit Plan</a>
+                                <a mat-menu-item (click)="openForm(upperData,'addPlanDetails','open')">Edit Plan</a>
                                 <a mat-menu-item (click)="deleteModal('SUBSCRIPTION')">Delete Plan</a>
                             </mat-menu>
                         </div>
@@ -33,8 +33,8 @@
                     <div class="wrapper-24">
                         <div class="row">
                             <div class="col-md-12 p-0">
-                                <p class="f-12 mb-0">DESCRIPTION</p>
-                                <h5 class="mb-0">{{singlePlanData.description}}</h5>
+                                <p class="f-12 mb-0" *ngIf="upperData">DESCRIPTION</p>
+                                <h5 class="mb-0" *ngIf="upperData">{{upperData.description}}</h5>
                             </div>
                         </div>
                     </div>

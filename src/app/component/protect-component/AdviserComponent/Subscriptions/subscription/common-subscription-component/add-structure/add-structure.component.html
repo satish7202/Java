@@ -11,7 +11,7 @@
     </div>
     <div class="row pt-40">
         <div class="col-md-12">
-            <form [formGroup]="planData">
+            <form [formGroup]="planDataForm">
                 <div class="row">
                     <div class="col-md-5">
                         <h5>Plan name</h5>
@@ -22,8 +22,8 @@
                         </div>
                         <div class="row">
                             <div class="col-md-8">
-                                <mat-error
-                                    [ngClass]="{'d-n': !(submitted && getFormControl().planName.invalid || getFormControl().planName.touched && getFormControl().planName.invalid)}">
+                                <mat-error class="f-12"
+                                    [ngClass]="{'d-n': !(isPlanValid && getFormControl().planName.invalid || getFormControl().planName.touched && getFormControl().planName.invalid)}">
                                     Plan Name is Required</mat-error>
                             </div>
                             <div class="col-md-4">
@@ -42,7 +42,8 @@
                         </div>
                         <div class="row">
                             <div class="col-md-8">
-                                <mat-error [ngClass]="{'d-n': !(submitted && getFormControl().code.invalid || getFormControl().code.touched && getFormControl().code.invalid)}">
+                                <mat-error class="f-12"
+                                    [ngClass]="{'d-n': !(isCodeValid && getFormControl().code.invalid || getFormControl().code.touched && getFormControl().code.invalid)}">
                                     Code is Required</mat-error>
                             </div>
                             <div class="col-md-4">
@@ -57,19 +58,18 @@
                     </div>
                     <div class="col-md-5">
                         <div class="form-group mb-0">
-                            <textarea class="form-control br-2" formControlName="description" maxlength="10"
-                                rows="5"></textarea>
-                            <!-- <mat-error>Description is Required</mat-error> -->
+                            <textarea class="form-control br-2" formControlName="description" rows="5"></textarea>
                         </div>
                         <div class="row">
-                                <div class="col-md-8">
-                                    <mat-error [ngClass]="{'d-n': !(submitted && getFormControl().description.invalid || getFormControl().description.touched && getFormControl().description.invalid)}">
-                                        Description is Required</mat-error>
-                                </div>
-                                <div class="col-md-4">
-                                    <p class="mb-0 f-12 text-custom text-right pt-4">0/20</p>
-                                </div>
+                            <div class="col-md-8">
+                                <mat-error class="f-12"
+                                    [ngClass]="{'d-n': !(isDescValid && getFormControl().description.invalid || getFormControl().description.touched && getFormControl().description.invalid)}">
+                                    Description is Required</mat-error>
                             </div>
+                            <div class="col-md-4">
+                                <p class="mb-0 f-12 text-custom text-right pt-4">0/20</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>

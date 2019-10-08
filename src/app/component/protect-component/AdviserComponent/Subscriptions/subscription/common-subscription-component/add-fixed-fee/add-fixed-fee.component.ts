@@ -2,7 +2,6 @@ import { Component, OnInit, Output } from '@angular/core';
 import { SubscriptionInject } from '../../../subscription-inject.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { SubscriptionService } from '../../../subscription.service';
-import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-add-fixed-fee',
@@ -10,15 +9,29 @@ import { EventEmitter } from 'events';
   styleUrls: ['./add-fixed-fee.component.scss']
 })
 export class AddFixedFeeComponent implements OnInit {
-
+  isServiceValid;
+  isCodeValid;
+  isDescriptionValid;
+  isFeesValid;
+  isbillEvery;
   constructor(public subInjectService: SubscriptionInject, private fb: FormBuilder,private subService:SubscriptionService) { 
     this.subInjectService.rightSideBarData.subscribe(
       data=>this.getFeeFormData(data)
     )
   }
-  submitted=false;
   ngOnInit() {
+    this.setValidation(false)
   }
+  setValidation(flag)
+  {
+    this.isServiceValid=flag
+    this.isCodeValid=flag;
+    this.isDescriptionValid=flag;
+    this.isFeesValid=flag;
+    this.isbillEvery=flag;
+  }
+
+ 
   fixedFeeData;
   getFormControl()
   {
@@ -27,9 +40,9 @@ export class AddFixedFeeComponent implements OnInit {
   getFeeFormData(data)
   {
     this.fixedFeeData = this.fb.group({
-      serviceName: [data,[Validators.required]],
-      code: [data,[Validators.required]],
-      description: [data,[Validators.required]],
+      serviceName: [data.serviceName,[Validators.required]],
+      code: [data.serviceCode,[Validators.required]],
+      description: [data.description,[Validators.required]],
       fees: [data,[Validators.required]],
       billingNature: [1],
       billEvery: [data,[Validators.required]],
@@ -38,7 +51,8 @@ export class AddFixedFeeComponent implements OnInit {
   }
   Close(state) {
     this.subInjectService.rightSliderData(state)
-    this.submitted=false;
+    this.setValidation(true);
+    
   }
   closeTab(state, value) {
     console.log(state)
@@ -46,10 +60,31 @@ export class AddFixedFeeComponent implements OnInit {
     this.subInjectService.closeSlider(value)
   }
   saveFeeTypeData(feeType,state) {
-    this.submitted=true;
-   if(this.fixedFeeData.invalid)
+   
+   if(this.fixedFeeData.controls.serviceName.invalid)
    {
+     this.isServiceValid=true;
     return;
+   }
+   else if(this.fixedFeeData.controls.code.invalid)
+   {
+     this.isCodeValid=true;
+     return;
+   }
+   else if(this.fixedFeeData.controls.description.invalid)
+   {
+     this.isDescriptionValid=true
+     return;
+   }
+   else if(this.fixedFeeData.controls.fees.invalid)
+   {
+      this.isFeesValid=true;
+      return;
+   }
+   else if(this.fixedFeeData.controls.billEvery.invalid)
+   {
+     this.isbillEvery=true;
+     return;
    }
    else{
     let obj = {
@@ -76,13 +111,14 @@ export class AddFixedFeeComponent implements OnInit {
     }
      console.log("jifsdfoisd",obj)
     this.subService.createSettingService(obj).subscribe(
-      data =>this.saveFeeTypeDataResponse(data,state)
+      data =>this.saveFeeTypeDataResponse(obj,data,state)
     )
    }  
   }
-  saveFeeTypeDataResponse(data,state)
+  saveFeeTypeDataResponse(obj,data,state)
   {
-    this.subInjectService.pushClientData(data);
+    obj.serviceId=data
+    this.subInjectService.pushUpperData(obj);
     this.subInjectService.rightSliderData(state)
   }
 }
