@@ -26,3 +26,6 @@ h3{
 .playfair{
     font-family: "Playfair Display";
 }
+::ng-deep .mat-checkbox-layout{
+    vertical-align: top !important;
+}
