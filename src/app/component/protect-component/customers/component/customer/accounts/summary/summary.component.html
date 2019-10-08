@@ -113,9 +113,96 @@
                 </div>
     
             </div>
-            <div class="col-md-7 p-0"></div>
+            <div class="col-md-8 p-0">
+                <div class="row b-a">
+                    <div class="col-md-8 p-0">
+                        <h3 class="m-0 roboto wrapper-20 f-500 text-black">Portfolio Summary</h3>
+                    </div>
+                    <div class="col-md-4 pl-0">
+                        <button mat-button [matMenuTriggerFor]="menu" class="right text-right b-a mt-12 br-0">As on 03/10/2019 <i class="material-icons text-custom">
+                            keyboard_arrow_down
+                            </i></button>
+                            <mat-menu #menu="matMenu">
+                            <button mat-menu-item>Item 1</button>
+                            <button mat-menu-item>Item 2</button>
+                            </mat-menu>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="b-a mt-20">
+                        <div class="row">
+                            <div class="col-md-6 p-0">
+                                <h4 class="m-0 wrapper-20">Net worth</h4>
+                            </div>
+                            <div class="col-md-6 p-0">
+                                <h2 class="m-0 text-primary text-right f-300 wrapper-20">₹1,25,35,470</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 p-0">
+                                <img src="assets/images/svg/summary.svg" class="w-100">
+                                <ul class="pl-20 pb-20">
+                                    <li class="pr-4 text-black">90-days</li>
+                                    <li class="text-success pr-24">₹7,25,872</li>
+                                    <li class="pr-4 text-black">1-days</li>
+                                    <li class="text-danger">₹23,250</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="b-a mt-20">
+                            <h4 class="m-0 wrapper-20 pb-0">Asset allocation</h4>
+                            <img src="assets/images/svg/chart.svg" class="img-allocation">
+                        </div>
+                    </div>
+                </div>
+                <div class="b-a wrapper-12 m-16">
+                    <div class="row">
+                        <div class="col-md-4 p-0">
+                            <h4 class="m-0 pt-8 pl-8">Net cash flow</h4>
+                        </div>
+                        <div class="col-md-4 b-a">
+                              
+                               
+                                <div class="row">
+                                    <div class="col-md-6 p-0 border-right-1 pt-8 pb-8 pr-4">
+                                            <mat-checkbox checked="false">Inflows</mat-checkbox>
+                                    </div>
+                                    <div class="col-md-6 p-0 pt-8 pb-8 pr-4 pl-16">
+                                            <mat-checkbox checked="false">Outflows</mat-checkbox>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="col-md-2 pt-4">
+                                <button mat-button [matMenuTriggerFor]="menu" class="b-a pr-4 br-0">All bank a/c <i class="material-icons text-custom">
+                                        keyboard_arrow_down
+                                        </i></button>
+                                <mat-menu #menu="matMenu">
+                                  <button mat-menu-item>Item 1</button>
+                                  <button mat-menu-item>Item 2</button>
+                                </mat-menu>
+                        </div>
+                        <div class="col-md-2 pt-4">
+                                <button mat-button [matMenuTriggerFor]="menu" class="b-a pr-4 br-0">All family <i class="material-icons text-custom">
+                                        keyboard_arrow_down
+                                        </i></button>
+                                <mat-menu #menu="matMenu">
+                                  <button mat-menu-item>Item 1</button>
+                                  <button mat-menu-item>Item 2</button>
+                                </mat-menu>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6"></div>
+                        <div class="col-md-6"></div>
+                    </div>
+                </div>
+            </div>
     
-            <div class="col-md-3 p-0">
+            <div class="col-md-2 p-0">
     
             </div>
         </div>
