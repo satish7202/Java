@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SubscriptionService } from '../../subscription.service';
 import { SubscriptionInject } from '../../subscription-inject.service';
 import { EventService } from 'src/app/Data-service/event.service';
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
 export interface PeriodicElement {
   date:string;
@@ -23,14 +24,18 @@ export interface PeriodicElement {
 export class InvoicesSubscriptionComponent implements OnInit {
   dataSource: any;
   subscriptionValue: any;
-  constructor(public subInjectService:SubscriptionInject, private eventService:EventService,public subscription:SubscriptionService) { }
+  invoiceSub: any;
+  invoiceSubscription: string;
+  constructor(public subInjectService:SubscriptionInject, private eventService:EventService,public subscription:SubscriptionService) {
+    this.ngOnInit(); 
+  }
   
   showPdfInvoice;
   singleInvoiceData;
   showLoader=true;
   ngOnInit() {
    this.getInvoiceSubData();
-   this.showPdfInvoice=false;
+   this.invoiceSubscription='false';
   }
   getInvoiceSubData()
   {
@@ -60,10 +65,11 @@ export class InvoicesSubscriptionComponent implements OnInit {
   // }
   openInvoice(data,value,state)
   {
-
-    this.eventService.sidebarData(value)
-this.subscriptionValue = value
-this.subInjectService.rightSideData(state);
+    this.invoiceSub=value;
+    this.invoiceSubscription='true';
+//     this.eventService.sidebarData(value)
+// this.subscriptionValue = value
+// this.subInjectService.rightSideData(state);
 this.subInjectService.addSingleProfile(data)
 
   }
@@ -72,5 +78,10 @@ this.subInjectService.addSingleProfile(data)
     this.singleInvoiceData=data
   }
   
-
+  display(data)
+  {
+    console.log(data);
+    this.ngOnInit();
+  }
+  
 }

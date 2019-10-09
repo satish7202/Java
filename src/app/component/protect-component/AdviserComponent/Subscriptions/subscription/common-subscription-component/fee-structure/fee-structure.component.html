@@ -1,5 +1,5 @@
-<div *ngIf="upperData.length==0" class="wrapper-20 pt-150">
-    <div class="content-center">
+<div *ngIf="upperData==''" class="wrapper-20 pt-150">
+    <div  class="content-center">
     <div class="row">
         <div class="col-md-12">
             <h5 class="text-primitive mb-0 text-center">Select a fee type to proceed further</h5>
@@ -40,7 +40,7 @@
                
     </div>
     </div>
-    <div  class="wrapper-44 pt-150">
+    <div *ngIf="upperData!=''"  class="wrapper-44 pt-150">
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
@@ -62,32 +62,33 @@
                             </div>
                         </div>
                         <div class="wrapper-24 pl-0 pr-0">
-                        <div *ngIf="upperData" class="row pb-24">
-                            <div class="col-md-3 text-left pl-32">
+                        <div  class="row pb-24">
+                            <div *ngIf="upperData" class="col-md-3 text-left pl-32">
                                 <p class="m-0 text-custom f-12">FEE TYPE</p>
-                                <mat-label class="label" *ngIf="upperData.servicePricing.feeId==1">Fixed</mat-label>
-                                <mat-label class="label" *ngIf="upperData.servicePricing.feeId==2">Variable</mat-label>
+                                <mat-label class="label" *ngIf="upperData.feeTypeId==1">Fixed</mat-label>
+                                <mat-label class="label" *ngIf="upperData.feeTypeId==2">Variable</mat-label>
                             </div>
                             <div *ngIf="upperData" class="col-md-3 text-left">
                             <p class="m-0 text-custom f-12">BILLING NATURE</p>
-                            <h4 class="m-0 p-0 lh-16" *ngIf="upperData.servicePricing.billingNature==1">Recurring</h4>
-                            <h4 class="m-0 p-0 lh-16" *ngIf="upperData.servicePricing.billingNature==2">Once</h4>
+                            <h4 class="m-0 p-0 lh-16" *ngIf="upperData.billingNature==1">Recurring</h4>
+                            <h4 class="m-0 p-0 lh-16" *ngIf="upperData.billingNature==2">Once</h4>
                             </div>
                             <div *ngIf="upperData" class="col-md-3 text-left">
                                 <p class="text-custom m-0 f-12">BILLING MODE</p>
-                                <h4 class="m-0 p-0 lh-16" *ngIf="upperData.servicePricing.billingMode==1">Start of period</h4>
-                                <h4 class="m-0 p-0 lh-16" *ngIf="upperData.servicePricing.billingMode==2">End of period</h4>
+                                <h4 class="m-0 p-0 lh-16" *ngIf="upperData.billingMode==1">Start of period</h4>
+                                <h4 class="m-0 p-0 lh-16" *ngIf="upperData.billingMode==2">End of period</h4>
                             </div>
-                            <div class="col-md-3 text-left">
+                            <div *ngIf="upperData" class="col-md-3 text-left">
                                     <p class="text-custom m-0 f-12">FEES</p>
-                                    <h4 class="m-0 p-0 lh-16">0.5% / Year</h4>
+                                    <h4 class="m-0 p-0 lh-16" *ngIf="upperData.feeTypeId==2">{{upperData.amount}}% / Year</h4>
+                                    <h4 class="m-0 p-0 lh-16" *ngIf="upperData.feeTypeId==1">Rs{{upperData.amount}} / Year</h4>
                             </div>
                     </div>
                     <div class="wrapper-24 pl-16 bt-1">
                     <div class="row">
                         <div class="col-md-6">
                             <p class="f-12 m-0 text-custom">DESCRIPTION</p>
-                            <h5 class="mb-0 text-black pt-12">{{upperData.description}}</h5>
+                            <h5 class="mb-0 text-black pt-12" *ngIf="upperData">{{upperData.description}}</h5>
                         </div>
                         <div class="col-md-6">
                             <p class="text-custom f-12 m-0">VARIABLE FEE DETAILS</p>

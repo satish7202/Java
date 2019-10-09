@@ -171,3 +171,8 @@ img.header-img {
         top: 3px;
     }
 }
+.scorllable{
+    max-height: calc(100vh - 9rem);
+    overflow-y: auto;
+    padding-bottom: 80px;
+}

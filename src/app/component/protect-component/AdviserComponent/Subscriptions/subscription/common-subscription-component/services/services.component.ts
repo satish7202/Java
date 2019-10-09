@@ -67,7 +67,7 @@ export class ServicesComponent implements OnInit {
         "advisorId": 12345,
         "global": element.global,
         "id": element.id,
-        "planId":this.upperData.planId
+        "planId":this.upperData.id
        }
        obj.push(data)
     });

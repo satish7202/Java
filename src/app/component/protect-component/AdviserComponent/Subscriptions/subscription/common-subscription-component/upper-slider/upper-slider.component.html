@@ -21,12 +21,12 @@
                         <app-overview [upperData]="upperData" [componentFlag]='Flag'></app-overview>
                     </ng-template>
                 </mat-tab>
-                <mat-tab #tab [disabled]='upperData==undefined' label="SERVICES">
+                <mat-tab #tab [disabled]='upperData==""' label="SERVICES">
                     <ng-template matTabContent>
                         <app-services [upperData]="upperData" [componentFlag]='plan'></app-services>
                     </ng-template>
                 </mat-tab>
-                <mat-tab #tab [disabled]='upperData==undefined' label="DOCUMENTS">
+                <mat-tab #tab [disabled]='upperData==""' label="DOCUMENTS">
                     <ng-template matTabContent>
                         <app-document [upperData]="upperData" [componentFlag]='documents'></app-document>
                     </ng-template>
@@ -42,15 +42,15 @@
                 <mat-tab label="FEE STRUCTURE">
                     <app-fee-structure [upperData]="upperData" (serviceEvent)="serviceId=$event"></app-fee-structure>
                 </mat-tab>
-                <mat-tab label="PLANS">
+                <mat-tab #tab [disabled]='upperData==""' label="PLANS">
                     <app-plans [upperData]="upperData" *ngIf="subscriptionTab=='PLANS'" [componentFlag]='plans'>
                     </app-plans>
                 </mat-tab>
-                <mat-tab label="DOCUMENTS">
+                <mat-tab #tab [disabled]='upperData==""' label="DOCUMENTS">
                     <app-document [upperData]="upperData" *ngIf="subscriptionTab=='DOCUMENTS'"
                         [componentFlag]='servicesDocuments'></app-document>
                 </mat-tab>
-                <mat-tab label="MODULES">
+                <mat-tab #tab [disabled]='upperData==""' label="MODULES">
                     <app-modules *ngIf="subscriptionTab=='MODULES'"></app-modules>
                 </mat-tab>
             </mat-tab-group>
