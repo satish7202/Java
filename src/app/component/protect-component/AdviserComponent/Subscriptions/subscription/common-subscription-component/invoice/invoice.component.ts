@@ -21,6 +21,7 @@ export interface PeriodicElement {
 export class InvoiceComponent implements OnInit {
   dataSub: any;
   storeData;
+  showRecord: any;
 
   constructor(public subInjectService:SubscriptionInject) {
     this.dataSub = this.subInjectService.singleProfileData.subscribe(
@@ -36,8 +37,17 @@ export class InvoiceComponent implements OnInit {
   @Output() valueChange = new EventEmitter();
   ngOnInit() {
   console.log('this.invoiceSubscription',this.invoiceInSub);
+  this.showRecord=false;
   }
  @Input() invoiceTab;
+ recordPayment()
+ {
+  this.showRecord=true;
+ }
+ cancel()
+ {
+   this.showRecord=false;
+ }
   Close(state)
   { 
     (this.invoiceTab=='invoiceUpperSlider')?this.subInjectService.rightSliderData(state):this.subInjectService.rightSideData(state)

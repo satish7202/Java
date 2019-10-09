@@ -1,7 +1,7 @@
 <div *ngIf="showLoader">
     <mat-spinner class="loader" [diameter]="30"></mat-spinner>
 </div>
-<div *ngIf="showPdfInvoice=='false'" class="bg-white pb-36 mt-70" id="ui-invoice">
+<div *ngIf="invoiceSubscription=='false'" class="bg-white pb-36 mt-70" id="ui-invoice">
     <div class="wrapper-20">
         <div class="row">
             <div class="col-md-8 p-0">
@@ -66,7 +66,7 @@
     </div>
 </div>
 
-<div *ngIf="showPdfInvoice =='true'">
+<div *ngIf="invoiceSubscription =='true'">
     <app-invoice [invoiceInSub]='invoiceSub'  (valueChange)='display($event)' ></app-invoice>
 </div>
 
