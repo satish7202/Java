@@ -18,6 +18,12 @@ export class PayeeSettingsComponent implements OnInit {
     // this.eventService.rightSliderData.subscribe(
     //   data =>this.getRightSliderData(data)
     // )
+    this.subInjectService.rightSideBarData.subscribe(
+      data=>this.getClientPayeeSettings(data)
+    )
+   }
+   OnInit() {
+    
    }
   getClientPayeeSettings(data) {
 
