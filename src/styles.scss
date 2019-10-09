@@ -277,11 +277,11 @@
         line-height: 19px;
         color: #3F3F3F;
     }
-    .custom-checkbox .mat-checkbox-inner-container{
-        top:0;
-        right: 0;
-        position: absolute;
-    }
+    // .custom-checkbox .mat-checkbox-inner-container{
+    //     top:0;
+    //     right: 0;
+    //     position: absolute;
+    // }
     
 }
 .example-card {
@@ -505,4 +505,52 @@ mat-tab-group[vertical] {
     border:1px solid #ddd;
     border-bottom: 0px !important;
 }
+}
+
+
+#ui-customer{
+    .mat-tab-header{
+        border-bottom: 0px !important; 
+    }
+    .left-icons{
+        
+        position: fixed;
+        z-index: 1111;
+        padding: 25px;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 23px;
+        letter-spacing: 0.2px;
+        margin: 0;
+    }
+    .mat-tab-label{
+       
+        min-width: 100px;
+    }
+}
+
+#ui-account-second-head{
+    .mat-tab-header{
+        background-color: #1F1F1F;
+       
+    }
+    .mat-tab-label{
+        color: #fff;
+        padding: 0 !important;
+        min-width: 110px;
+    }
+    .mat-tab-label:focus:not(.mat-tab-disabled){
+        background-color: #ddd;
+        color:#008FFF;
+    }
+}
+#advisor-home{
+    position: absolute;
+    z-index: 1111;
+    border: 1px solid #FFC100;
+    margin: 15px;
+    color: #FFC100;
+  
 }

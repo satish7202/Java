@@ -44,7 +44,7 @@
         </div>
         <div class="wrapper-40">
             <div class="row text-center padder-80">
-                <div  *ngFor="let documentData of planDocumentData" class="col-md-4 pl-10 mb-20 pr-10">
+                <div  *ngFor="let documentData of planDocumentData" class="col-md-4 c-p pl-10 mb-20 pr-10">
 
                     <div (click)="selectDocument(documentData)" [ngClass]="{'box': documentData.selected,'active': documentData.selected,'b-a':documentData.selected==false}">
                             <mat-checkbox class="custom-checkbox" checked="false" *ngIf="documentData.selected"></mat-checkbox>
@@ -112,7 +112,7 @@
                 </div>
                 <div class="wrapper-40">
                     <div class="row text-center padder-80">
-                        <div (click)="selectDocument(document)" *ngFor="let document of serviceDocumentData" class="col-md-4 pl-10 pr-10 mt-20">
+                        <div  *ngFor="let document of serviceDocumentData" class="col-md-4 c-p pl-10 pr-10 mt-20">
         
                             <div class="b-a" [ngClass]="{'ba-blue': document.selected}" >
                                     <mat-checkbox class="custom-checkbox" checked="false" [ngClass]="{'v-h':document.selected==false}" ></mat-checkbox>

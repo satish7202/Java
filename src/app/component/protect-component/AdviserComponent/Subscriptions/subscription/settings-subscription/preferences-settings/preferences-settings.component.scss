@@ -63,3 +63,6 @@ h5 {
     background-color: #d90000;
     color: #fff;
 }
+.mat-card:not([class*=mat-elevation-z]){
+    box-shadow: none !important;
+}
