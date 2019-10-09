@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="col-md-2 right text-right p-0 button-fix">
-                    <button mat-stroked-button class="btn-primary mt-4">{{mappedData.length}} Services mapped</button>
+                    <button mat-stroked-button class="btn-primary mt-4" *ngIf="mappedData">{{mappedData.length}} Services mapped</button>
                 </div>
             </div>
         </div>

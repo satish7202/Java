@@ -22,7 +22,7 @@ export class PlansSettingsComponent implements OnInit {
   {
     this.showLoader=true;
     let obj={
-      'advisorId':4747
+      'advisorId':12345
     }
     this.subService.getSubscriptionPlanSettingsData(obj).subscribe(
       data =>this.getSettingsPlanResponse(data),

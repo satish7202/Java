@@ -48,6 +48,7 @@ export class UpperSliderComponent implements OnInit {
     this.State = 'close'
     this.upperData=this.fragmentData.FeeData;
     console.log("upperData",this.upperData)
+    console.log(this.fragmentData)
   }
 
   Flag = 'planOverview';

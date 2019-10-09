@@ -19,7 +19,7 @@ export interface PeriodicElement {
 export class ClientSubscriptionComponent implements OnInit {
 
   constructor(public dialog:MatDialog, public eventService:EventService, public subInjectService:SubscriptionInject, private subService:SubscriptionService) { }
-  @Input() clientData:any;
+  @Input() upperData:any;
   ngOnInit() {
     console.log("clients")
     this.getClientSubscriptionList();

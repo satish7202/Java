@@ -68,19 +68,19 @@
         <div class="col-md-12 p-0 popup-header-fix-tabs">
             <mat-tab-group mat-align-tabs="center" animationDuration="0ms" (selectedTabChange)="tabClick($event)">
                 <mat-tab label="SUBSCRIPTIONS">
-                    <app-subscriptions-upper-slider [clientData]="fragmentData.clientData" ></app-subscriptions-upper-slider>
+                    <app-subscriptions-upper-slider [upperData]="fragmentData.clientData" ></app-subscriptions-upper-slider>
                 </mat-tab>
                 <mat-tab label="QUOTATIONS" >
-                    <app-quotations [clientData]="fragmentData.clientData" *ngIf="subscriptionTab=='QUOTATIONS'"></app-quotations>
+                    <app-quotations [upperData]="fragmentData.clientData" *ngIf="subscriptionTab=='QUOTATIONS'"></app-quotations>
                 </mat-tab>
                 <mat-tab label="INVOICES">
-                    <app-invoices [clientData]="fragmentData.clientData" *ngIf="subscriptionTab=='INVOICES'"></app-invoices>
+                    <app-invoices [upperData]="fragmentData.clientData" *ngIf="subscriptionTab=='INVOICES'"></app-invoices>
                 </mat-tab>
                 <mat-tab label="DOCUMENTS">
-                    <app-document [clientData]="fragmentData.clientData"[componentFlag]='clientDocuments'></app-document>
+                    <app-document [upperData]="fragmentData.clientData"[componentFlag]='clientDocuments'></app-document>
                 </mat-tab>
                 <mat-tab label="SETTINGS">
-                    <app-settings [clientData]="fragmentData.clientData"*ngIf="subscriptionTab=='SETTINGS'"></app-settings>
+                    <app-settings [upperData]="fragmentData.clientData"*ngIf="subscriptionTab=='SETTINGS'"></app-settings>
                 </mat-tab>
             </mat-tab-group>
         </div>

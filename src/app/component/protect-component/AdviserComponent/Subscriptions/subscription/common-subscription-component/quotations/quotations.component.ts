@@ -37,10 +37,9 @@ export class QuotationsComponent implements OnInit {
    this.quotationDesign='true';
    console.log("quotation")
    this.getQuotationsList();
-   console.log('clientData',this.clientData)
    this.dataCount = 0
   }
-  @Input() clientData;
+  @Input() upperData;
   displayedColumns: string[] = ['checkbox','document','plan', 'date', 'sdate','cdate','status','icons'];
   dataSource;
   getQuotationsList()
