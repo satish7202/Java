@@ -1,0 +1,22 @@
+.img-allocation{
+    margin: 0 auto;
+    display: block;
+    padding: 34px;
+    width: 100%;
+    height: 385px;
+}
+::ng-deep .mat-checkbox-checked .mat-checkbox-background, .mat-checkbox-indeterminate .mat-checkbox-background {
+    background-color: #008FFF !important;
+  }
+  
+  // overwrite the ripple overlay on hover and click
+  ::ng-deep .mat-checkbox:not(.mat-checkbox-disabled) .mat-checkbox-ripple .mat-ripple-element {
+    background-color: #008FFF !important;
+  }
+  ::ng-deep .mat-checkbox{
+    margin-top: -3px;
+    position: relative;
+  }
+  ::ng-deep .mat-checkbox{
+      margin-top: -6px;
+  }
