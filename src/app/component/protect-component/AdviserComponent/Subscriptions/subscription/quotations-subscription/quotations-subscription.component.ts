@@ -39,12 +39,23 @@ export class QuotationsSubscriptionComponent implements OnInit {
 
   // @Input
   ngOnInit() {
-    this.displayedColumns = ['checkbox', 'name', 'docname', 'plan', 'cdate', 'sdate', 'clientsign', 'status', 'icons'];
+    this.displayedColumns = this.getDisplayedData(this.screenType);
     if (this.screenType === 1) {
       this.displayedColumns.splice(1, 1);
     }
     this.getQuotationsData();
     this.dataCount = 0;
+  }
+
+  getDisplayedData(screenType) {
+    if (screenType === 1) {
+      this.displayedColumns = ['checkbox', 'name', 'docname', 'plan', 'cdate', 'sdate', 'clientsign', 'status', 'icons'];
+    } else {
+      this.displayedColumns = ['checkbox', 'docname', 'plan', 'cdate', 'sdate', 'clientsign', 'status', 'icons'];
+    }
+
+    return this.displayedColumns;
+
   }
 
   getQuotationsData() {

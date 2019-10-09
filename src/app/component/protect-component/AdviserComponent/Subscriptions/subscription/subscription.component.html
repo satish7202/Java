@@ -5,43 +5,43 @@
       <mat-tab-group mat-align-tabs="end" animationDuration="0ms" [selectedIndex]="selected"
                      (selectedTabChange)="tabClick($event)">
 
-                <mat-tab label="DASHBOARD">
-                    <app-dashboard-subscription></app-dashboard-subscription>
-                </mat-tab>
-                <mat-tab label="CLIENTS">
-                        <ng-template matTabContent>
-                    <app-client-subscription ></app-client-subscription>
-                    </ng-template>
-                </mat-tab>
-                <mat-tab label="SUBSCRIPTIONS">
-                        <ng-template matTabContent>
-                    <app-subscriptions-subscription ></app-subscriptions-subscription>
-                    </ng-template>
-                </mat-tab>
-                <mat-tab label="QUOTATIONS">
-                        <ng-template matTabContent>
-                          <app-quotations-subscription [screenType]="0"
-                                                       *ngIf="subscriptionTab=='QUOTATIONS'"></app-quotations-subscription>
-                        </ng-template>
-                </mat-tab>
-                <mat-tab label="INVOICES">
-                        <ng-template matTabContent>
-                    <app-invoices-subscription></app-invoices-subscription>
-                    </ng-template>
-                </mat-tab>
-                <mat-tab label="DOCUMENTS">
-                        <ng-template matTabContent>
-                    <app-documents-subscriptions></app-documents-subscriptions>
-                    </ng-template>
-                </mat-tab>
-                <mat-tab label="SETTINGS">
-                        <ng-template matTabContent>
-                    <app-settings-subscription ></app-settings-subscription>
-                    </ng-template>
-                </mat-tab>
-            </mat-tab-group>
-        </div>
+        <mat-tab label="DASHBOARD">
+          <app-dashboard-subscription></app-dashboard-subscription>
+        </mat-tab>
+        <mat-tab label="CLIENTS">
+          <ng-template matTabContent>
+            <app-client-subscription></app-client-subscription>
+          </ng-template>
+        </mat-tab>
+        <mat-tab label="SUBSCRIPTIONS">
+          <ng-template matTabContent>
+            <app-subscriptions-subscription></app-subscriptions-subscription>
+          </ng-template>
+        </mat-tab>
+        <mat-tab label="QUOTATIONS">
+          <ng-template matTabContent>
+            <app-quotations-subscription [screenType]="0"
+                                         *ngIf="subscriptionTab=='QUOTATIONS'"></app-quotations-subscription>
+          </ng-template>
+        </mat-tab>
+        <mat-tab label="INVOICES">
+          <ng-template matTabContent>
+            <app-invoices-subscription></app-invoices-subscription>
+          </ng-template>
+        </mat-tab>
+        <mat-tab label="DOCUMENTS">
+          <ng-template matTabContent>
+            <app-documents-subscriptions></app-documents-subscriptions>
+          </ng-template>
+        </mat-tab>
+        <mat-tab label="SETTINGS">
+          <ng-template matTabContent>
+            <app-settings-subscription></app-settings-subscription>
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
     </div>
+  </div>
 </div>
 <div [@openClose]="currentState" class="right_sidenav">
   <app-common-froala *ngIf="subscriptionTab=='DOCUMENTS'"></app-common-froala>
