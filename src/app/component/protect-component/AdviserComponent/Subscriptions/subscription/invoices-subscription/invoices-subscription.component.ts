@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SubscriptionService } from '../../subscription.service';
 import { SubscriptionInject } from '../../subscription-inject.service';
 import { EventService } from 'src/app/Data-service/event.service';
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
 export interface PeriodicElement {
   date:string;
@@ -74,5 +75,8 @@ this.subInjectService.addSingleProfile(data)
     this.singleInvoiceData=data
   }
   
-
+  display(value)
+  {
+    console.log(ValueConverter)
+  }
 }
