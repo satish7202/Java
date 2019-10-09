@@ -130,10 +130,11 @@ export class SubscriptionService {
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_INVOICE_TO_BE_REVIEWED, httpParams)
   }
   deleteSubscriptionPlan(data) {
+    let httpParams = new HttpParams().set('advisorId', data.advisorId).set("planId",data.planId)
     return this.http.put(apiConfig.MAIN_URL + appConfig.DELETE_SUBSCRIPTION_PLAN, data)
   }
   getPlansMappedToAdvisor(data) {
-    let httpParams = new HttpParams().set('advisorid', data.advisorid);
+    let httpParams = new HttpParams().set('advisorid', data.advisorid).set('serviceId',data.serviceId);
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_PLAN_MAPPED_TO_ADVISOR, httpParams)
   }
   getSubscriptionDocumentSetting(data) {

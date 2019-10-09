@@ -3,6 +3,7 @@ import { UpperSliderComponent } from '../../common-subscription-component/upper-
 import { MatDialog } from '@angular/material';
 import { SubscriptionService } from '../../../subscription.service';
 import { EventService } from 'src/app/Data-service/event.service';
+import { SubscriptionInject } from '../../../subscription-inject.service';
 
 @Component({
   selector: 'app-plans-settings',
@@ -12,7 +13,7 @@ import { EventService } from 'src/app/Data-service/event.service';
 export class PlansSettingsComponent implements OnInit {
   button: any;
 
-  constructor( public dialog: MatDialog, private subService: SubscriptionService,private dataService: EventService) { }
+  constructor( public dialog: MatDialog, private subService: SubscriptionService,private dataService: EventService,private subinject: SubscriptionInject) { }
   showLoader;
   ngOnInit() {
     this.getSettingsPlanData();
@@ -22,7 +23,7 @@ export class PlansSettingsComponent implements OnInit {
   {
     this.showLoader=true;
     let obj={
-      'advisorId':4747
+      'advisorId':12345
     }
     this.subService.getSubscriptionPlanSettingsData(obj).subscribe(
       data =>this.getSettingsPlanResponse(data),
@@ -38,10 +39,12 @@ export class PlansSettingsComponent implements OnInit {
   getFilerrorResponse(err) {
     this.dataService.openSnackBar(err, 'Dismiss')
    }
-  openFragment(data) {
+  openFragment(singlePlan,data) {
+    this.subinject.pushUpperData(singlePlan)
+
     let Fragmentdata = {
       Flag: data,
-      id:1
+      planData:singlePlan
     }
  
     const dialogRef = this.dialog.open(UpperSliderComponent, {

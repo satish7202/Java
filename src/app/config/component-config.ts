@@ -78,7 +78,7 @@
     GET_SUBSCRIPTION_PLAN_SETTING:'subscription/setting/plan/get',
     GET_SUBSCRIPTION_SERVICE_SETTING:'subscription/setting/service/get',
     CREATE_SERVICE_SETTING:'subscription/service/create',
-    DELETE_SUBSCRIPTION_PLAN:'subscription/deletePlan/get',
+    DELETE_SUBSCRIPTION_PLAN:'subscription/plan/delete',
     GET_PLAN_MAPPED_TO_ADVISOR:'subscription/plan/mapped-to/advisor/get',
     GET_SUBSCRIPTION_DOCUMENTS_SETTING:'subscription/setting/document/get',
     GET_MAP_DOCUMENT_To_SERVICE:'subscription/mapped/document/service/get',

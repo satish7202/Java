@@ -18,9 +18,8 @@ export class SettingsComponent implements OnInit {
 
   ngOnInit() {
     this.getSettingProfileData();
-    console.log('clientData',this.clientData)
   }
-  @Input() clientData;
+  @Input() upperData;
   getSettingProfileData()
   {
     let obj={

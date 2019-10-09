@@ -50,9 +50,7 @@ export class DocumentComponent implements OnInit {
   planDocumentData;
   serviceDocumentData;
   mappedData = [];
-
   @Input() componentFlag: string;
-  @Input() clientData;
 
   displayedColumns: string[] = ['checkbox', 'document', 'plan', 'service', 'date', 'sdate', 'cdate', 'status', 'icons'];
   dataSource = ELEMENT_DATA;
@@ -61,7 +59,6 @@ export class DocumentComponent implements OnInit {
     this.getplanDocumentData();
     this.getServiceDocumentData();
     this.documentDesign = 'true';
-    console.log('clientData',this.clientData)
   }
 
   openDocument(data) {
@@ -133,7 +130,7 @@ export class DocumentComponent implements OnInit {
   getplanDocumentData() {
     const obj = {
       advisorId: 12345,
-      planId: this.upperData.serviceId
+      planId: this.upperData.id
     };
     this.subService.getPlanDocumentsData(obj).subscribe(
       data => this.getplanDocumentDataResponse(data)
@@ -189,7 +186,7 @@ export class DocumentComponent implements OnInit {
         let data = {
           'advisorId': 12345,
           'documentRepositoryId': element.documentRepositoryId,
-          'mappingId': element.mappingId
+          'mappingId': this.upperData.planId
         }
         obj.push(data)
       })

@@ -33,10 +33,9 @@ export class InvoicesComponent implements OnInit {
     this.getInvoiceList();
     console.log("CLIENT INVOICE ")
     this.invoiceDesign='true';
-    console.log('clientData',this.clientData)
     this.dataCount = 0;
   }
-  @Input() clientData;
+  @Input() upperData;
   displayedColumns: string[] = ['checkbox','date','Invoice number','Service name','Billed to', 'status', 'Duedate','Amount','Balance due','icons'];
   dataSource;
 

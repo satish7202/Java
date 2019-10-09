@@ -14,7 +14,7 @@
 
                         <mat-card-content>
                             <p class="text-center">
-                                <i class="material-icons icon-center" (click)="openFragment('plan')">
+                                <i class="material-icons icon-center" (click)="openFragment('','plan')">
                                                                     add   </i>
                             </p>
                         </mat-card-content>
@@ -51,8 +51,8 @@
 
                             </div>
                         </mat-card-content>
-                        <mat-card-actions class="block text-center pt-20 pb-20 mb-0">
-                            <button mat-stroked-button class="btn-header addon mb-12 mt-12 br-0">INFO</button>
+                        <mat-card-actions class="block text-center pt-20 pb-20 mb-0" >
+                            <button mat-stroked-button class="btn-header addon mb-12 mt-12 br-0" (click)="openFragment(singlePlan,'plan')">INFO</button>
                         </mat-card-actions>
                     </mat-card>
                 </div>
