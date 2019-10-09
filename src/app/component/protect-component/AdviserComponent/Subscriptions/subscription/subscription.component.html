@@ -1,45 +1,48 @@
 <div id="ui-subscriptions">
-    <div class="sub-header-fix">
-        <div class="bg-white">
-            <h1 class="cusotm-haeding-main">Subscriptions</h1>
-            <mat-tab-group mat-align-tabs="end" animationDuration="0ms" [selectedIndex]="selected" (selectedTabChange)="tabClick($event)">
+  <div class="sub-header-fix">
+    <div class="bg-white">
+      <h1 class="cusotm-haeding-main">Subscriptions</h1>
+      <mat-tab-group mat-align-tabs="end" animationDuration="0ms" [selectedIndex]="selected"
+                     (selectedTabChange)="tabClick($event)">
 
-                <mat-tab label="DASHBOARD">
-                    <app-dashboard-subscription></app-dashboard-subscription>
-                </mat-tab>
-                <mat-tab label="CLIENTS">
-                    <app-client-subscription ></app-client-subscription>
-                </mat-tab>
-                <mat-tab label="SUBSCRIPTIONS">
-                    <app-subscriptions-subscription ></app-subscriptions-subscription>
-                </mat-tab>
-                <mat-tab label="QUOTATIONS">
-                    <app-quotations-subscription *ngIf="subscriptionTab=='QUOTATIONS'"></app-quotations-subscription>
-                </mat-tab>
-                <mat-tab label="INVOICES">
-                    <app-invoices-subscription></app-invoices-subscription>
-                </mat-tab>
-                <mat-tab label="DOCUMENTS">
-                    <app-documents-subscriptions></app-documents-subscriptions>
-                </mat-tab>
-                <mat-tab label="SETTINGS">
-                    <app-settings-subscription ></app-settings-subscription>
-                </mat-tab>
-            </mat-tab-group>
-        </div>
+        <mat-tab label="DASHBOARD">
+          <app-dashboard-subscription></app-dashboard-subscription>
+        </mat-tab>
+        <mat-tab label="CLIENTS">
+          <app-client-subscription></app-client-subscription>
+        </mat-tab>
+        <mat-tab label="SUBSCRIPTIONS">
+          <app-subscriptions-subscription></app-subscriptions-subscription>
+        </mat-tab>
+        <mat-tab label="QUOTATIONS">
+          <app-quotations-subscription [screenType]="0"
+                                       *ngIf="subscriptionTab=='QUOTATIONS'"></app-quotations-subscription>
+        </mat-tab>
+        <mat-tab label="INVOICES">
+          <app-invoices-subscription></app-invoices-subscription>
+        </mat-tab>
+        <mat-tab label="DOCUMENTS">
+          <app-documents-subscriptions></app-documents-subscriptions>
+        </mat-tab>
+        <mat-tab label="SETTINGS">
+          <app-settings-subscription></app-settings-subscription>
+        </mat-tab>
+      </mat-tab-group>
     </div>
+  </div>
 </div>
 <div [@openClose]="currentState" class="right_sidenav">
-    <app-common-froala *ngIf="subscriptionTab=='DOCUMENTS'"></app-common-froala>
-    <app-common-froala *ngIf="subscriptionTab=='QUOTATIONS'"></app-common-froala>
-    <app-invoice-history *ngIf="subscriptionTab=='SUBSCRIPTIONS'"></app-invoice-history>
-    <app-invoice-history *ngIf="subscriptionTab=='subscriptionFees'"></app-invoice-history>
-    <app-clients-dashboard *ngIf="subscriptionTab=='dashboardSubscription'"></app-clients-dashboard>
-    <app-modify-fee-structure *ngIf="subscriptionTab=='modifyFees'"></app-modify-fee-structure>
-    <app-biller-profile-advisor [Selected]="selected" *ngIf="subscriptionTab=='billerProfile'" ></app-biller-profile-advisor>
-    <app-help *ngIf="subscriptionTab=='clientHelp'"></app-help>
-    <app-biller-settings *ngIf="subscriptionTab=='billerSettings'"></app-biller-settings>
-    <app-payee-settings *ngIf="subscriptionTab=='payeeSettings'"></app-payee-settings>
-    <app-help *ngIf="subscriptionTab=='documentHelp'"></app-help>
-    <app-invoice *ngIf="subscriptionTab=='invoiceUpperSlider'"></app-invoice>
+  <app-common-froala *ngIf="subscriptionTab=='DOCUMENTS'"></app-common-froala>
+  <app-common-froala *ngIf="subscriptionTab=='QUOTATIONS'"></app-common-froala>
+  <app-invoice-history *ngIf="subscriptionTab=='SUBSCRIPTIONS'"></app-invoice-history>
+  <app-invoice-history *ngIf="subscriptionTab=='subscriptionFees'"></app-invoice-history>
+  <app-clients-dashboard *ngIf="subscriptionTab=='dashboardSubscription'"></app-clients-dashboard>
+  <app-modify-fee-structure *ngIf="subscriptionTab=='modifyFees'"></app-modify-fee-structure>
+  <app-biller-profile-advisor [Selected]="selected"
+                              *ngIf="subscriptionTab=='billerProfile'"></app-biller-profile-advisor>
+  <app-help *ngIf="subscriptionTab=='clientHelp'"></app-help>
+  <app-biller-settings *ngIf="subscriptionTab=='billerSettings'"></app-biller-settings>
+  <app-payee-settings *ngIf="subscriptionTab=='payeeSettings'"></app-payee-settings>
+  <app-help *ngIf="subscriptionTab=='documentHelp'"></app-help>
+  <app-invoice *ngIf="subscriptionTab=='invoiceUpperSlider'"></app-invoice>
 </div>

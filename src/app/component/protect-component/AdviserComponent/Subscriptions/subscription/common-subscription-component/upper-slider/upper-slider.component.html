@@ -80,8 +80,10 @@
                     </app-subscriptions-upper-slider>
                 </mat-tab>
                 <mat-tab label="QUOTATIONS">
-                    <app-quotations [upperData]="fragmentData.clientData" *ngIf="subscriptionTab=='QUOTATIONS'">
-                    </app-quotations>
+                  <app-quotations-subscription [upperData]="fragmentData.clientData" [screenType]="1"
+                                               *ngIf="subscriptionTab=='QUOTATIONS'"></app-quotations-subscription>
+<!--                    <app-quotations [upperData]="fragmentData.clientData" *ngIf="subscriptionTab=='QUOTATIONS'">-->
+<!--                    </app-quotations>-->
                 </mat-tab>
                 <mat-tab label="INVOICES">
                     <app-invoices [upperData]="fragmentData.clientData" *ngIf="subscriptionTab=='INVOICES'">

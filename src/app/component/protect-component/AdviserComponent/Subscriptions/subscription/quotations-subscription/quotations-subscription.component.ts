@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {ConfirmDialogComponent} from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
 import {SubscriptionInject} from '../../subscription-inject.service';
@@ -32,9 +32,17 @@ export class QuotationsSubscriptionComponent implements OnInit {
   quotationDesignEmail;
   quotationDesign;
   dataCount;
+  @Input() screenType: number;
+  @Input() upperData;
 
+  // screenType = 0; /* 0 - for All clients , 1 - Single Client */
+
+  // @Input
   ngOnInit() {
     this.displayedColumns = ['checkbox', 'name', 'docname', 'plan', 'cdate', 'sdate', 'clientsign', 'status', 'icons'];
+    if (this.screenType === 1) {
+      this.displayedColumns.splice(1, 1);
+    }
     this.getQuotationsData();
     this.dataCount = 0;
   }
