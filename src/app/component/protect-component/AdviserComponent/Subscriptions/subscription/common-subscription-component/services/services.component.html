@@ -78,13 +78,16 @@
                 <p>This is services in Documents</p>
             </div>
  
-<mat-toolbar class="bottom-fixed">
-    <div class="row w-100">
-        <div class="col-md-6 text-left">
-            <p class="text-white f-16 mb-0 pt-12 c-p" (click)="dialogClose()">Cancel</p>
-        </div>
-        <div class="col-md-6 text-right">
-            <button type="button" mat-stroked-button class="btn-bottom br-0" (click)="savePlanMapToService()">Save</button>
-        </div>
-    </div>
-</mat-toolbar>
+
+            <div class="bottom-fixed wrapper-12 w-100">
+                <div class="row">
+                    <div class="col-md-4">
+                    <h5 class="mb-0 pt-8 text-white c-p" (click)="Close('close')">Cancel</h5>
+                    </div>
+                    <div class="col-md-8 right text-right">
+                        <button mat-button  class="btn-bottom br-0 text-inherit">Save</button>
+                        
+        
+                    </div>
+                </div>
+            </div>
