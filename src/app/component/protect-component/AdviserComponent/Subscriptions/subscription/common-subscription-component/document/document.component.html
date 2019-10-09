@@ -1,6 +1,4 @@
-<div class="wrapper-20 bg-grey lter heading-fix">
-        <h3 class="m-0 text-center head-common"></h3>
-      </div>
+
 <div *ngIf="componentFlag=='plansDocuments'">
     <mat-toolbar class="bottom-fixed">
         <div class="row w-100">
@@ -138,12 +136,12 @@
             </div>
 </div>
 <div *ngIf="componentFlag=='clientDocuments'">
-    <div *ngIf="documentDesign=='true'" class="pt-125">
+    <div *ngIf="documentDesign=='true'">
         <div class="wrapper-20 bg-grey lter heading-fix">
                 <h3 class="m-0 text-center head-common">{{upperData.name}}</h3>
               </div>
               <div class="bg-white pt-60">
-                <div class="wrapper-20">
+                <div class="wrapper-20 pt-150">
                     <div class="row">
                         <div class="col-md-12 p-0">
                               <button mat-stroked-button class="btn-primary br-0 right text-right addon" (click)="openDocument('addDocument')"><i class="material-icons">
@@ -152,7 +150,7 @@
                         </div>
                     </div>
                 </div> 
-                <div class="wrapper-40 pr-20">
+                <div class="wrapper-40 pt-0 pr-20">
                     <div class="row">
                         <div class="col-md-1 p-0">
                   <button mat-button [matMenuTriggerFor]="menu" class="b-a pr-0">Actions <i class="material-icons text-custom">
