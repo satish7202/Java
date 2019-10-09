@@ -50,7 +50,7 @@ export class UpperSliderComponent implements OnInit {
     {
      this.upperData=this.fragmentData.planData;  
     }
-    if(this.fragmentData.Flag=='service')
+    if(this.fragmentData.Flag=='services')
     {
       this.upperData=this.fragmentData.FeeData;
     }

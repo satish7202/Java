@@ -19,7 +19,8 @@ export class PlansComponent implements OnInit {
   }
   getPlansMappedToAdvisor() {
     let obj = {
-      'advisorid': 12345
+      'advisorid': 12345,
+      'serviceId':this.upperData.id
     }
     this.subService.getPlansMappedToAdvisor(obj).subscribe(
       data => this.getPlansMappedToAdvisorResponse(data)
@@ -57,7 +58,7 @@ export class PlansComponent implements OnInit {
    console.log("clientId",this.upperData) 
     let obj={
       "planIds":[],
-      "serviceId":this.upperData.serviceId,
+      "serviceId":this.upperData.id,
       "advisorId":12345
     }
    this.mappedPlan.forEach(planData=>{

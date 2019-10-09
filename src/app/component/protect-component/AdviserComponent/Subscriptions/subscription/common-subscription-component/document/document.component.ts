@@ -123,7 +123,7 @@ export class DocumentComponent implements OnInit {
 
   changeDisplay(value) {
     this.documentDesign = value;
-    this.quotationDesignEmail=this.documentDesign;
+    this.quotationDesignEmail = this.documentDesign;
 
   }
 
@@ -147,15 +147,15 @@ export class DocumentComponent implements OnInit {
   }
   getServiceDocumentData() {
     let obj = {
-      'advisorId': 2735
+      'advisorId': 12345
     }
     this.subService.getMapDocumentToService(obj).subscribe(
-      data =>this.getServiceDocumentDataResponse(data)
+      data => this.getServiceDocumentDataResponse(data)
     )
   }
   getServiceDocumentDataResponse(data) {
     console.log("service Documents", data.documentList)
-    this.serviceDocumentData=data.documentList;
+    this.serviceDocumentData = data.documentList;
   }
   deleteModal(value) {
     const dialogData = {
@@ -203,7 +203,7 @@ export class DocumentComponent implements OnInit {
     const obj = [];
     this.mappedData.forEach(element => {
       const data = {
-        advisorId: 2735,
+        advisorId: 12345,
         documentRepositoryId: element.documentRepositoryId,
         planId: 10
       };
@@ -213,8 +213,7 @@ export class DocumentComponent implements OnInit {
       data => console.log(data)
     );
   }
-  display(data)
-  {
+  display(data) {
     console.log(data)
     this.ngOnInit()
   }

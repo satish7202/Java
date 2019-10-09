@@ -117,7 +117,7 @@ export class AddFixedFeeComponent implements OnInit {
   }
   saveFeeTypeDataResponse(obj,data,state)
   {
-    obj.serviceId=data
+    obj.id=data
     this.subInjectService.pushUpperData(obj);
     this.subInjectService.rightSliderData(state)
   }
