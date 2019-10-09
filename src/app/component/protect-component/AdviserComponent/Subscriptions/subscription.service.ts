@@ -223,7 +223,10 @@ export class SubscriptionService {
     const httpParams = new HttpParams().set('id', data.id).set('module', data.module);
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_PLAN_INVOICE, httpParams);
   }
-
+  editPlanSettings(data)
+  {
+    return this.http.put(apiConfig.MAIN_URL+appConfig.EDIT_PLAN_SETTING,data)
+  }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data, 10000);
   }

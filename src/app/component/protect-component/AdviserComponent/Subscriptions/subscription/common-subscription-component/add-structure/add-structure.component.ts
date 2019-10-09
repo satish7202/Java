@@ -10,66 +10,77 @@ import { EventEmitter } from 'events';
 })
 export class AddStructureComponent implements OnInit {
   planDataForm: any;
-  @Output() planData=new EventEmitter();
+  editApiCall;
+  @Output() planData = new EventEmitter();
   constructor(private subinject: SubscriptionInject, private fb: FormBuilder, private subService: SubscriptionService) {
     this.subinject.rightSideBarData.subscribe(
-      data =>this.getSinglePlanData(data)
+      data => this.getSinglePlanData(data)
     )
-   }
+  }
 
-   isPlanValid=false;
-   isCodeValid=false;
-   isDescValid=false;
+  isPlanValid = false;
+  isCodeValid = false;
+  isDescValid = false;
   ngOnInit() {
   }
   submitPlanData() {
-  
+
   }
-  getFormControl()
-  {
+  getFormControl() {
     return this.planDataForm.controls;
   }
-  getSinglePlanData(data){
+  getSinglePlanData(data) {
+    this.editApiCall = data
     this.planDataForm = this.fb.group({
       planName: [data.name, [Validators.required]],
-      code: [data.code,[Validators.required]],
-      description: [data.description,[Validators.required]]
+      code: [data.code, [Validators.required]],
+      description: [data.description, [Validators.required]]
     })
   }
   addPlanData(state) {
-    if(this.planDataForm.controls.planName.invalid)
-    {
-      this.isPlanValid=true
-      return  ;
-    }
-    else if(this.planDataForm.controls.code.invalid)
-    {
-      this.isCodeValid=true
+    if (this.planDataForm.controls.planName.invalid) {
+      this.isPlanValid = true
       return;
     }
-    else if(this.planDataForm.controls.description.invalid)
-    {
-      this.isDescValid=true
+    else if (this.planDataForm.controls.code.invalid) {
+      this.isCodeValid = true
       return;
     }
-    else{
-      let obj = {
-        "name" : this.getFormControl().planName.value,
-      "description" :this.getFormControl().description.value,
-      "advisorId" : 12345,
-      "logoUrl" : "url",
-      "isPublic" : 1,
-      "isActive" : 1,
-      "code":this.getFormControl().code.value
+    else if (this.planDataForm.controls.description.invalid) {
+      this.isDescValid = true
+      return;
     }
-      this.subService.addSettingPlanOverviewData(obj).subscribe(
-        data => this.addPlanDataResponse(data,obj,state)
-      )
+    else {
+      if (this.editApiCall == '') {
+        let obj = {
+          "name": this.getFormControl().planName.value,
+          "description": this.getFormControl().description.value,
+          "advisorId": 12345,
+          "logoUrl": "url",
+          "isPublic": 1,
+          "isActive": 1,
+          "code": this.getFormControl().code.value
+        }
+        this.subService.addSettingPlanOverviewData(obj).subscribe(
+          data => this.addPlanDataResponse(data, obj, state)
+        )
+      }
+      else {
+        let obj = {
+          "name": this.getFormControl().planName.value,
+          "description": this.getFormControl().description.value,
+          "code": this.getFormControl().code.value,
+          "id":this.editApiCall.id
+        }
+        this.subService.editPlanSettings(obj).subscribe(
+          data =>this.addPlanDataResponse(data,obj,state)
+        )
+      }
+
     }
   }
-  addPlanDataResponse(data,obj,state)
-  {
-    obj.id=data;
+  addPlanDataResponse(data, obj, state) {
+    obj.id = data;
     console.log(obj)
     this.subinject.pushUpperData(obj)
     this.subinject.rightSliderData(state)
@@ -77,8 +88,8 @@ export class AddStructureComponent implements OnInit {
   closeNav(state) {
     this.subinject.rightSliderData(state)
     this.planDataForm.reset();
-    this.isPlanValid=false;
-   this.isCodeValid=false;
-   this.isDescValid=false;
+    this.isPlanValid = false;
+    this.isCodeValid = false;
+    this.isDescValid = false;
   }
 }

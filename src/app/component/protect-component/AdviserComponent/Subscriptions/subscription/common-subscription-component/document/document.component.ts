@@ -186,7 +186,7 @@ export class DocumentComponent implements OnInit {
         let data = {
           'advisorId': 12345,
           'documentRepositoryId': element.documentRepositoryId,
-          'mappingId': this.upperData.planId
+          'mappingId': this.upperData.id
         }
         obj.push(data)
       })
