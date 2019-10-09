@@ -37,7 +37,7 @@ export class OverviewComponent implements OnInit {
     this.subinject.rightSliderData(state)
     this.subinject.rightSideData(data)
   }
-  deleteModal(value)
+  deleteModal(singlePlan,value)
   {
     let dialogData = {
       data:value,
@@ -45,7 +45,8 @@ export class OverviewComponent implements OnInit {
       body:'Are you sure you want to delete the document?',
       body2:'This cannot be undone',
       btnYes:'CANCEL',
-      btnNo:'DELETE'
+      btnNo:'DELETE',
+      planData:singlePlan
     }
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {

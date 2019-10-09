@@ -18,6 +18,12 @@ export class PayeeSettingsComponent implements OnInit {
     // this.eventService.rightSliderData.subscribe(
     //   data =>this.getRightSliderData(data)
     // )
+    this.subInjectService.rightSideBarData.subscribe(
+      data=>this.getClientPayeeSettings(data)
+    )
+   }
+   OnInit() {
+    
    }
   getClientPayeeSettings(data) {
 
@@ -36,8 +42,9 @@ export class PayeeSettingsComponent implements OnInit {
       city: [data.city],
       state: [data.state],
       country: [data.country],
-      pincode: [data.zipCode]
-    })
+      pincode: [data.zipCode],
+      id:[data.id]
+    }) 
   }
   
   obj=[
@@ -100,44 +107,53 @@ export class PayeeSettingsComponent implements OnInit {
     this.subInjectService.rightSideData(state);
   }
   savePayeeSettings() {
-    let obj = {
-      "gstin": this.payeeSettingsForm.controls.gstIn.value,
-      "gstTreatmentId": 1,
-      "email": this.payeeSettingsForm.controls.emailId.value,
-      "customerTypeId": 1,
-      "primaryContact": this.payeeSettingsForm.controls.mobileNo.value,
-      "companyName": this.payeeSettingsForm.controls.companyName.value,
-      "companyDisplayName": this.payeeSettingsForm.controls.displayName.value,
-      "billerAddress": this.payeeSettingsForm.controls.billingAddress.value,
-      "city": this.payeeSettingsForm.controls.city.value,
-      "state": this.payeeSettingsForm.controls.state.value,
-      "country": this.payeeSettingsForm.controls.country.value,
-      "zipCode": this.payeeSettingsForm.controls.pincode.value,
-      "clientId": 2735
-    }
-    this.subService.addClientBillerProfile(obj).subscribe(
-      data => console.log("client biller Profile", data)
-    )
-    let obj1 =
+    if(this.payeeSettingsForm.controls.id.value != undefined){
+      let obj1 =
     {
       "city": this.payeeSettingsForm.controls.city.value,
-      "clientBillerId": 0,
+      "clientBillerId": 1,
       "companyDisplayName": this.payeeSettingsForm.controls.displayName.value,
       "companyName": this.payeeSettingsForm.controls.companyName.value,
       "country": this.payeeSettingsForm.controls.country.value,
       "currency": "string",
-      "customerTypeId": 0,
+      "customerTypeId": 1,
       "email":this.payeeSettingsForm.controls.emailId.value,
-      "gstTreatmentId": 0,
+      "gstTreatmentId": 1,
       "gstin": this.payeeSettingsForm.controls.gstIn.value,
-      "payeeTypeId": 0,
-      "paymentTermsId": 0,
+      "payeeTypeId": 1,
+      "paymentTermsId": 1,
+      "billerAddress": this.payeeSettingsForm.controls.billingAddress.value,
       "primaryContact":  this.payeeSettingsForm.controls.mobileNo.value,
       "state": this.payeeSettingsForm.controls.state.value,
-      "zipCode": this.payeeSettingsForm.controls.pincode.value
+      "zipCode": this.payeeSettingsForm.controls.pincode.value,
+      "id":this.payeeSettingsForm.controls.id.value,
+      "clientId": 2970
     }
     this.subService.editPayeeSettings(obj1).subscribe(
       data => console.log("edit payee settings", data)
     )
+   
+    }else{
+      let obj = {
+        "gstin": this.payeeSettingsForm.controls.gstIn.value,
+        "gstTreatmentId": 1,
+        "email": this.payeeSettingsForm.controls.emailId.value,
+        "customerTypeId": 1,
+        "primaryContact": this.payeeSettingsForm.controls.mobileNo.value,
+        "companyName": this.payeeSettingsForm.controls.companyName.value,
+        "companyDisplayName": this.payeeSettingsForm.controls.displayName.value,
+        "billerAddress": this.payeeSettingsForm.controls.billingAddress.value,
+        "city": this.payeeSettingsForm.controls.city.value,
+        "state": this.payeeSettingsForm.controls.state.value,
+        "country": this.payeeSettingsForm.controls.country.value,
+        "zipCode": this.payeeSettingsForm.controls.pincode.value,
+        "clientId": 2970
+      }
+      this.subService.addClientBillerProfile(obj).subscribe(
+        data => console.log("client biller Profile", data)
+      )
+      
+    }
+    
   }
 }

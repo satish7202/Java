@@ -3,6 +3,7 @@ import { UpperSliderComponent } from '../upper-slider/upper-slider.component';
 import { SubscriptionService } from '../../../subscription.service';
 import { MatDialogRef } from '@angular/material';
 import * as _ from "lodash";
+import { SubscriptionInject } from '../../../subscription-inject.service';
 
 @Component({
   selector: 'app-services',
@@ -11,7 +12,7 @@ import * as _ from "lodash";
 })
 export class ServicesComponent implements OnInit {
 
-  constructor(public dialogRef:MatDialogRef<ServicesComponent>,private upper:UpperSliderComponent,private subService:SubscriptionService) { }
+  constructor(public dialogRef:MatDialogRef<ServicesComponent>,private upper:UpperSliderComponent,private subService:SubscriptionService,private subinject: SubscriptionInject) { }
   @Input() componentFlag:string;
   planServiceData;
   mappedData;
@@ -24,7 +25,7 @@ export class ServicesComponent implements OnInit {
    {
      let obj={
        'advisorId':12345,
-       'planId':this.upperData.planId
+       'planId':this.upperData.id
      }
      this.subService.getSettingPlanServiceData(obj).subscribe(
        data =>this.getPlanServiceDataResponse(data)

@@ -18,9 +18,8 @@ export class SettingsComponent implements OnInit {
 
   ngOnInit() {
     this.getSettingProfileData();
-    console.log('clientData',this.clientData)
   }
-  @Input() clientData;
+  @Input() upperData;
   getSettingProfileData()
   {
     let obj={
@@ -32,7 +31,7 @@ export class SettingsComponent implements OnInit {
   }
   getSettingProfileDataResponse(data)
   {
-   console.log(data)
+   console.log('getData biller',data)
    this.SettingProfileData=data;
   }
   openPayeeSettings(profileData,value,state)

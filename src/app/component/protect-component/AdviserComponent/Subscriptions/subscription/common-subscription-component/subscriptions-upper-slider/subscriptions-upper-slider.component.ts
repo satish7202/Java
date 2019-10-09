@@ -35,7 +35,7 @@ export class SubscriptionsUpperSliderComponent implements OnInit {
   }
   displayedColumns: string[] = ['service', 'amt', 'type', 'subs','status','date','bdate','ndate','mode','icons'];
   dataSource = ELEMENT_DATA;
-  @Input() clientData;
+  @Input() upperData;
   openPlanSlider(value,state)
   {
     this.eventService.sliderData(value);

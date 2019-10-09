@@ -3,19 +3,20 @@ import {SubscriptionInject} from '../../../subscription-inject.service';
 import {EventService} from 'src/app/Data-service/event.service';
 
 
-import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
-import { MatDialog } from '@angular/material';
-import { SubscriptionPopupComponent } from '../subscription-popup/subscription-popup.component';
-import { SubscriptionService } from '../../../subscription.service';
-import { ConsentTandCComponent } from '../consent-tand-c/consent-tand-c.component';
+import {ConfirmDialogComponent} from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
+import {MatDialog} from '@angular/material';
+import {SubscriptionPopupComponent} from '../subscription-popup/subscription-popup.component';
+import {SubscriptionService} from '../../../subscription.service';
+import {ConsentTandCComponent} from '../consent-tand-c/consent-tand-c.component';
+
 export interface PeriodicElement {
   document: string;
   plan: string;
   date: string;
   sdate: string;
   cdate: string;
-  status:string;
- }
+  status: string;
+}
 
 
 @Component({
@@ -25,53 +26,58 @@ export interface PeriodicElement {
 })
 export class QuotationsComponent implements OnInit {
 
-  constructor(public subInjectService:SubscriptionInject, private eventService:EventService, public dialog: MatDialog, private subAService:SubscriptionService) {
+  constructor(public subInjectService: SubscriptionInject, private eventService: EventService, public dialog: MatDialog,
+              private subAService: SubscriptionService) {
     this.subInjectService.closeRightSlider.subscribe(
       data => this.getQuotationDesignData(data)
-    )
+    );
   }
+
   quotationDesignEmail;
   quotationDesign;
   dataCount;
-  ngOnInit() {
-   this.quotationDesign='true';
-   console.log("quotation")
-   this.getQuotationsList();
-   console.log('clientData',this.clientData)
-   this.dataCount = 0
-  }
-  @Input() clientData;
-  displayedColumns: string[] = ['checkbox','document','plan', 'date', 'sdate','cdate','status','icons'];
+
+  @Input() upperData;
+  displayedColumns: string[] = ['checkbox', 'document', 'plan', 'date', 'sdate', 'cdate', 'status', 'icons'];
   dataSource;
-  getQuotationsList()
-  {
-    let obj={
-      'clientId':2970
-      //'clientId':this.clientData.id
-    }
+
+  ngOnInit() {
+    this.quotationDesign = 'true';
+    console.log('quotation');
+    this.getQuotationsList();
+    this.dataCount = 0;
+  }
+
+  getQuotationsList() {
+    const obj = {
+      clientId: 2970
+      // 'clientId':this.clientData.id
+    };
     this.subAService.getSubscriptionClientsQuotations(obj).subscribe(
-      data =>this.getQuotationsListResponse(data)
-    )
+      data => this.getQuotationsListResponse(data)
+    );
   }
-  selectedInvoice(ele){
-    console.log("invoice data",ele)
-    if(ele==false){
-      this.dataCount++;
-    }else{
+
+  selectedInvoice(ele) {
+    console.log('invoice data', ele);
+    if (ele) {
       this.dataCount--;
+    } else {
+      this.dataCount++;
     }
-    
   }
-  getQuotationsListResponse(data){
+
+  getQuotationsListResponse(data) {
     data.forEach(singleData => {
       singleData.isChecked = false;
     });
-    console.log("dsfgasdfsdf",data);
-    this.dataSource=data
+    console.log('dsfgasdfsdf', data);
+    this.dataSource = data;
   }
+
   openQuotationsESign(value, state) {
-    this.subInjectService.rightSliderData(state)
-    this.eventService.sliderData(value)
+    this.subInjectService.rightSliderData(state);
+    this.eventService.sliderData(value);
   }
 
   getQuotationDesignData(data) {
@@ -80,7 +86,7 @@ export class QuotationsComponent implements OnInit {
 
   changeDisplay(value) {
     this.quotationDesign = value;
-    this.quotationDesignEmail=this.quotationDesign;
+    this.quotationDesignEmail = this.quotationDesign;
   }
 
   deleteModal(value) {
@@ -97,8 +103,8 @@ export class QuotationsComponent implements OnInit {
       negativeMethod: () => {
         console.log('2222222222222222222222222222222222222');
       }
-    }
-    console.log(dialogData+"11111111111111");
+    };
+    console.log(dialogData + '11111111111111');
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '400px',
@@ -115,9 +121,9 @@ export class QuotationsComponent implements OnInit {
   }
 
   openPopup(data) {
-    let Fragmentdata = {
+    const Fragmentdata = {
       Flag: data,
-    }
+    };
     const dialogRef = this.dialog.open(SubscriptionPopupComponent, {
       width: '70%',
       data: Fragmentdata,
@@ -128,13 +134,14 @@ export class QuotationsComponent implements OnInit {
 
     });
   }
+
   OpenConsent(data) {
-    let Fragmentdata = {
+    const Fragmentdata = {
       Flag: data,
-    }
+    };
     const dialogRef = this.dialog.open(ConsentTandCComponent, {
       width: '50%',
-      height:'100%',
+      height: '100%',
       data: Fragmentdata,
       autoFocus: false,
 
@@ -143,13 +150,13 @@ export class QuotationsComponent implements OnInit {
 
     });
   }
-  closeDiv()
-  {
-    this.quotationDesign='true';
+
+  closeDiv() {
+    this.quotationDesign = 'true';
   }
-  display(data)
-  {
-    console.log(data)
-    this.ngOnInit()
+
+  display(data) {
+    console.log(data);
+    this.ngOnInit();
   }
 }
