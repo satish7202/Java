@@ -6,14 +6,14 @@ import { SubscriptionService } from '../../subscription.service';
 
 export interface PeriodicElement {
   name: string;
-  docname:string;
-  plan:string;
+  docname: string;
+  plan: string;
 
-  cdate:string;
+  cdate: string;
   sdate: string;
   clientsign: string;
-  status:string;
-} 
+  status: string;
+}
 
 @Component({
   selector: 'app-quotations-subscription',
@@ -22,31 +22,28 @@ export interface PeriodicElement {
 })
 export class QuotationsSubscriptionComponent implements OnInit {
 
-  constructor(public subInjectService:SubscriptionInject , public dialog: MatDialog, private subService:SubscriptionService) { }
+  constructor(public subInjectService: SubscriptionInject , public dialog: MatDialog, private subService: SubscriptionService) { }
+  displayedColumns: string[] = ['name', 'docname', 'plan', 'cdate', 'sdate', 'clientsign', 'status', 'icons'];
+  dataSource;
 
   ngOnInit() {
     this.getQuotationsData();
   }
-  displayedColumns: string[] = ['name', 'docname', 'plan', 'cdate','sdate','clientsign','status','icons'];
-  dataSource;
-  
-  getQuotationsData()
-  {
-    let obj={
-      'advisorId':12345
-    }
+
+  getQuotationsData() {
+    const obj = {
+      advisorId: 12345
+    };
     this.subService.getSubscriptionQuotationData(obj).subscribe(
-      data=>this.getQuotationsDataResponse(data)
-    )
+      data => this.getQuotationsDataResponse(data)
+    );
   }
-  getQuotationsDataResponse(data)
-  {
+  getQuotationsDataResponse(data) {
     console.log(data);
-   this.dataSource=data
+    this.dataSource = data;
   }
 
-  deleteModal(value)
-  {
+  deleteModal(value) {
     const dialogData = {
       data: value,
       header: 'DELETE',
@@ -60,12 +57,12 @@ export class QuotationsSubscriptionComponent implements OnInit {
       negativeMethod: () => {
         console.log('2222222222222222222222222222222222222');
       }
-    }
+    };
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
        width: '400px',
        data: dialogData,
-       autoFocus:false,
+       autoFocus: false,
 
     });
 
@@ -75,8 +72,7 @@ export class QuotationsSubscriptionComponent implements OnInit {
 
   }
 
-  Open(value)
-  {
+  Open(value) {
     this.subInjectService.rightSideData(value);
   }
 }
