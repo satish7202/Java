@@ -32,8 +32,9 @@ export class InvoiceComponent implements OnInit {
     this.storeData = data
    }
   @Input() invoiceData;
+  @Input() invoiceInSub;
   ngOnInit() {
-  
+  console.log('this.invoiceSubscription',this.invoiceInSub);
   }
  @Input() invoiceTab;
   Close(state)

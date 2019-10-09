@@ -23,7 +23,7 @@ export interface PeriodicElement {
 export class InvoicesSubscriptionComponent implements OnInit {
   dataSource: any;
   subscriptionValue: any;
-  invoiceSubscription: any;
+  invoiceSub: any;
   constructor(public subInjectService:SubscriptionInject, private eventService:EventService,public subscription:SubscriptionService) { }
   
   showPdfInvoice;
@@ -61,8 +61,8 @@ export class InvoicesSubscriptionComponent implements OnInit {
   // }
   openInvoice(data,value,state)
   {
+    this.invoiceSub=value;
     this.showPdfInvoice='true';
-    this.invoiceSubscription=value;
 //     this.eventService.sidebarData(value)
 // this.subscriptionValue = value
 // this.subInjectService.rightSideData(state);
