@@ -347,7 +347,7 @@ button:focus {
    
 }
 .ba-green,.ba-blue{
-    border: 3px solid #008FFF !important;
+    outline: 3px solid #008FFF !important;
 }
 .mat-radio-button{
     min-width: 152px;
@@ -481,19 +481,34 @@ color: #3F3F3F;
         font-size: 8px;
         padding: 10px 16px;
         margin: 0;
+        line-height: normal;
         line-height: 1;
+        white-space: nowrap; 
+        width: 150px; 
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     h2{
         font-size: 7px;
         padding: 4px 16px;
         margin: 0;
+        line-height: normal;
         line-height: 1;
+        white-space: nowrap; 
+        width: 150px; 
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     p{
         font-size: 8px;
         padding:4px 16px;
         margin: 0;
+        line-height: normal;
         line-height: 1;
+        white-space: nowrap; 
+        width: 250px; 
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     ul{
         padding-left: 12px;

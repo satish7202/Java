@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
-import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
-import { SubscriptionInject } from '../../subscription-inject.service';
-import { SubscriptionService } from '../../subscription.service';
+import {Component, OnInit} from '@angular/core';
+import {MatDialog} from '@angular/material';
+import {ConfirmDialogComponent} from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
+import {SubscriptionInject} from '../../subscription-inject.service';
+import {SubscriptionService} from '../../subscription.service';
+import {EventService} from '../../../../../../Data-service/event.service';
 
 export interface PeriodicElement {
   name: string;
@@ -22,12 +23,20 @@ export interface PeriodicElement {
 })
 export class QuotationsSubscriptionComponent implements OnInit {
 
-  constructor(public subInjectService: SubscriptionInject , public dialog: MatDialog, private subService: SubscriptionService) { }
-  displayedColumns: string[] = ['name', 'docname', 'plan', 'cdate', 'sdate', 'clientsign', 'status', 'icons'];
+  constructor(public subInjectService: SubscriptionInject, private eventService: EventService,
+              public dialog: MatDialog, private subService: SubscriptionService) {
+  }
+
+  displayedColumns: string[];
   dataSource;
+  quotationDesignEmail;
+  quotationDesign;
+  dataCount;
 
   ngOnInit() {
+    this.displayedColumns = ['checkbox', 'name', 'docname', 'plan', 'cdate', 'sdate', 'clientsign', 'status', 'icons'];
     this.getQuotationsData();
+    this.dataCount = 0;
   }
 
   getQuotationsData() {
@@ -38,7 +47,11 @@ export class QuotationsSubscriptionComponent implements OnInit {
       data => this.getQuotationsDataResponse(data)
     );
   }
+
   getQuotationsDataResponse(data) {
+    data.forEach(singleData => {
+      singleData.isChecked = false;
+    });
     console.log(data);
     this.dataSource = data;
   }
@@ -60,9 +73,9 @@ export class QuotationsSubscriptionComponent implements OnInit {
     };
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-       width: '400px',
-       data: dialogData,
-       autoFocus: false,
+      width: '400px',
+      data: dialogData,
+      autoFocus: false,
 
     });
 
@@ -75,4 +88,28 @@ export class QuotationsSubscriptionComponent implements OnInit {
   Open(value) {
     this.subInjectService.rightSideData(value);
   }
+
+  selectedInvoice(ele) {
+    console.log('invoice data', ele);
+    if (ele) {
+      this.dataCount--;
+    } else {
+      this.dataCount++;
+    }
+  }
+
+  openQuotationsESign(value, state) {
+    this.subInjectService.rightSliderData(state);
+    this.eventService.sliderData(value);
+  }
+
+  getQuotationDesignData(data) {
+    this.quotationDesign = data;
+  }
+
+  changeDisplay(value) {
+    this.quotationDesign = value;
+    this.quotationDesignEmail = this.quotationDesign;
+  }
+
 }

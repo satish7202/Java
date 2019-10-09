@@ -14,7 +14,7 @@
     background-image: url(/assets/images/svg/Receivablessummary.svg);
     background-position: bottom;
     background-size: cover;
-    min-height: 185px;
+    min-height: 200px;
     min-width: 700px;
    
 }
@@ -94,7 +94,7 @@ p{
    }
 }
 .example-container {
-    height: 200px;
+    height: 225px;
     overflow: auto;
   }
   ::ng-deep #table-low thead tr th {
@@ -102,3 +102,4 @@ p{
     position: sticky;
     z-index: 10;
   }
+  

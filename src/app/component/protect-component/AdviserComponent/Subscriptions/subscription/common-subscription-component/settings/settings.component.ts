@@ -31,7 +31,7 @@ export class SettingsComponent implements OnInit {
   }
   getSettingProfileDataResponse(data)
   {
-   console.log(data)
+   console.log('getData biller',data)
    this.SettingProfileData=data;
   }
   openPayeeSettings(profileData,value,state)

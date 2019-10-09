@@ -32,9 +32,11 @@ export class DocumentsSettingsComponent implements OnInit {
     let obj = {
       "advisorId": 2735
     }
-    this.subService.getSubscriptionDocumentSetting(obj).subscribe(
-      data => this.getDocumentsSettingResponse(data)
-    )
+    let data = [{},{},{}]
+    this.getDocumentsSettingResponse(data);
+    // this.subService.getSubscriptionDocumentSetting(obj).subscribe(
+    //   data => this.getDocumentsSettingResponse(data)
+    // )
   }
 
   getDocumentsSettingResponse(data) {

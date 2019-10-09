@@ -509,8 +509,14 @@ mat-tab-group[vertical] {
 
 
 #ui-customer{
+    
     .mat-tab-header{
-        border-bottom: 0px !important; 
+        border-bottom: 0px !important;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        background: #fff;
+        z-index: 999;
     }
     .left-icons{
         
@@ -529,11 +535,25 @@ mat-tab-group[vertical] {
        
         min-width: 100px;
     }
+    .mat-ink-bar{
+        height: 6px !important;
+    }
 }
-
+#ui-account-summary{
+    padding-top: 129px !important;
+}
 #ui-account-second-head{
     .mat-tab-header{
         background-color: #1F1F1F;
+        position: fixed;
+    margin-top: 64px;
+    float: right;
+    width: 100%;
+    // padding-right: 15px;
+    // right: 0;
+    z-index: 10;
+    box-shadow: 5px 1px 10px rgba(0, 0, 0, 0.2), 3px 4px 5px rgba(0, 0, 0, 0.12), 2px 2px 4px rgba(0, 0, 0, 0.14);
+   
        
     }
     .mat-tab-label{
@@ -545,12 +565,16 @@ mat-tab-group[vertical] {
         background-color: #ddd;
         color:#008FFF;
     }
+    .mat-ink-bar{
+        display: none;
+    }
 }
 #advisor-home{
-    position: absolute;
+    position: fixed;
     z-index: 1111;
+    margin-top: 78px;
     border: 1px solid #FFC100;
-    margin: 15px;
     color: #FFC100;
+    margin-left: 20px;
   
 }
