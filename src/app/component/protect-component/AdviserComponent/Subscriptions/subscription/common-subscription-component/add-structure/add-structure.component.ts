@@ -69,7 +69,7 @@ export class AddStructureComponent implements OnInit {
   }
   addPlanDataResponse(data,obj,state)
   {
-    obj.planId=data;
+    obj.id=data;
     console.log(obj)
     this.subinject.pushUpperData(obj)
     this.subinject.rightSliderData(state)

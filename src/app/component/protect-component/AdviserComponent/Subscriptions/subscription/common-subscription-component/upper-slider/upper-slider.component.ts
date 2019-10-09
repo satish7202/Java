@@ -46,7 +46,14 @@ export class UpperSliderComponent implements OnInit {
   upperData;
   ngOnInit() {
     this.State = 'close'
-    this.upperData=this.fragmentData.FeeData;
+    if(this.fragmentData.Flag=='plan')
+    {
+     this.upperData=this.fragmentData.planData;  
+    }
+    if(this.fragmentData.Flag=='service')
+    {
+      this.upperData=this.fragmentData.FeeData;
+    }
     console.log("upperData",this.upperData)
     console.log(this.fragmentData)
   }

@@ -1,6 +1,7 @@
-import {Component, OnInit, Inject, Input} from '@angular/core';
-import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { Component, OnInit, Inject, Input } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { SubscriptionService } from '../../AdviserComponent/Subscriptions/subscription.service';
+import { UpperSliderComponent } from '../../AdviserComponent/Subscriptions/subscription/common-subscription-component/upper-slider/upper-slider.component';
 
 @Component({
   selector: 'app-confirm-dialog',
@@ -14,14 +15,14 @@ export class ConfirmDialogComponent implements OnInit {
   btn1NoData: any;
   btn2YesData: any;
   data: any;
-  advisorId=2735;
+  advisorId = 2735;
   @Input()
   public positiveMethod: Function;
   @Input()
   public negativeMethod: Function;
 
   constructor(public dialogRef: MatDialogRef<ConfirmDialogComponent>,
-              @Inject(MAT_DIALOG_DATA) public dialogData: any,private subscription:SubscriptionService) {
+    @Inject(MAT_DIALOG_DATA) public dialogData: any, private subscription: SubscriptionService,public dialogUppRef: MatDialogRef<UpperSliderComponent>) {
   }
 
   ngOnInit() {
@@ -50,18 +51,23 @@ export class ConfirmDialogComponent implements OnInit {
       console.log('positive not defined 11111111111111111111111111111111111111111111');
 
     }
-    this.subscription.deleteSubscriptionData(this.advisorId).subscribe(
-      data => this.deletedData(data)
-    )
-    let obj={
-      'advisorId':2735,
-      'planId':1
-    } 
-    this.subscription.deleteSubscriptionPlan(obj).subscribe(
-      data=>console.log(data)
-    )
+    if(this.dialogData.data=="SUBSCRIPTION")
+    {
+      this.subscription.deleteSubscriptionData(this.advisorId).subscribe(
+        data => this.deletedData(data)
+      )
+    }
+    if (this.dialogData.data == "PLAN") {
+      let obj = {
+        'advisorId': 12345,
+        'planId': this.dialogData.planData.id
+      }
+      this.subscription.deleteSubscriptionPlan(obj).subscribe(
+        data => this.deletedData(data)
+      )
+    }
   }
-  deletedData(data){
-    console.log(data)
+  deletedData(data) {
+    this.dialogUppRef.close();
   }
 }
