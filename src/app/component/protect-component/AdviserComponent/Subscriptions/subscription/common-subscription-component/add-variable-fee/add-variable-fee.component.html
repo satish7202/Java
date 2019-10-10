@@ -32,12 +32,16 @@
             <div class="form-group mb-0">
                 <input type="text" maxlength="40" formControlName="serviceName" class="form-control br-0">
             </div>
-            <mat-error
-                *ngIf="isServiceValid && getFormControl().serviceName.invalid || (getFormControl().serviceName.touched && getFormControl().serviceName.invalid)">
-                Service Name is Required</mat-error>
-            <div class="col-md-12">
-                <p class="mb-0 f-12 text-custom text-right pt-4">0/20</p>
-            </div>
+                <div class="row">
+                        <div class="col-md-10">
+                                <mat-error class="f-12 pt-4"
+                                *ngIf="isServiceValid && getFormControl().serviceName.invalid || (getFormControl().serviceName.touched && getFormControl().serviceName.invalid)">
+                                Service Name is Required</mat-error>
+                        </div>
+                        <div class="col-md-2">
+                            <p class="mb-0 f-12 text-custom text-right pt-4">0/40</p>
+                        </div>
+                    </div>
         </div>
     </div>
     <div class="row pt-28">
@@ -50,14 +54,16 @@
                     <div class="form-group mb-0">
                         <input type="text" maxlength="10" formControlName="code" class="form-control br-0">
                     </div>
-                    <mat-error
-                        *ngIf="isCodeValid && getFormControl().code.invalid || getFormControl().code.touched && getFormControl().code.invalid">
-                        Code is Required</mat-error>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p class="mb-0 f-12 text-custom text-right pt-4">0/10</p>
-                        </div>
-                    </div>
+                        <div class="row">
+                                <div class="col-md-10 pr-0">
+                                        <mat-error class="f-12 pt-4"
+                                        *ngIf="isCodeValid && getFormControl().code.invalid || getFormControl().code.touched && getFormControl().code.invalid">
+                                        Code is Required</mat-error>
+                                </div>
+                                <div class="col-md-2 pl-0">
+                                    <p class="mb-0 f-12 text-custom text-right pt-4">0/40</p>
+                                </div>
+                            </div>
                 </div>
             </div>
         </div>
@@ -96,7 +102,7 @@
                     <div class="form-group">
                         <input type="text" formControlName="billEvery" class="form-control br-0">
                     </div>
-                    <mat-error
+                    <mat-error class="f-12 pt-4"
                         *ngIf="isBillValid && getFormControl().billEvery.invalid || getFormControl().billEvery.touched && getFormControl().billEvery.invalid">
                         Code is Required</mat-error>
 

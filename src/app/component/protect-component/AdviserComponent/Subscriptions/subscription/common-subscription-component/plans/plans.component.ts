@@ -31,7 +31,7 @@ export class PlansComponent implements OnInit {
 
     this.servicePlanData = data;
     this.servicePlanData.forEach(element => {
-      if (element.isActive == 1) {
+      if (element.selected==true) {
         this.mappedPlan.push(element);
       }
     });

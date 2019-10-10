@@ -177,7 +177,7 @@ export class SubscriptionService {
   }
 
   getMapDocumentToService(data) {
-    const httpParams = new HttpParams().set('advisorId', data.advisorId);
+    const httpParams = new HttpParams().set('advisorId', data.advisorId).set('serviceId', data.serviceId);
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_MAP_DOCUMENT_To_SERVICE, httpParams);
   }
 
