@@ -187,16 +187,16 @@
                                 <td mat-cell *matCellDef="let element"> {{element.service}} </td>
                             </ng-container>
                         <ng-container matColumnDef="date">
-                            <th mat-header-cell *matHeaderCellDef class="border-right-1"> Created date </th>
-                            <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+                            <th mat-header-cell *matHeaderCellDef class="text-right"> Created date </th>
+                            <td mat-cell *matCellDef="let element" class="text-right"> {{element.date}} </td>
                         </ng-container>
                         <ng-container matColumnDef="sdate">
-                            <th mat-header-cell *matHeaderCellDef class="border-right-1"> Sent date </th>
-                            <td mat-cell *matCellDef="let element"> {{element.sdate}} </td>
+                            <th mat-header-cell *matHeaderCellDef class="text-right"> Sent date </th>
+                            <td mat-cell *matCellDef="let element" class="text-right"> {{element.sdate}} </td>
                         </ng-container>
                         <ng-container matColumnDef="cdate">
-                            <th mat-header-cell *matHeaderCellDef> Client sign date </th>
-                            <td mat-cell *matCellDef="let element"> {{element.cdate}} </td>
+                            <th mat-header-cell *matHeaderCellDef class="text-right"> Client sign date </th>
+                            <td mat-cell *matCellDef="let element" class="text-right"> {{element.cdate}} </td>
                         </ng-container>
               
                         <ng-container matColumnDef="status">
@@ -219,6 +219,17 @@
                     </table>
                 </div>
               </div>
+              <div class="bottom-fixed wrapper-16 w-100">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <h5 class="mb-0 pt-8 text-white c-p" (click)="Close('close')">Cancel</h5>
+                      </div>
+                      <div class="col-md-6 p-0">
+                            <h5 class="mb-0 pt-8 text-left text-white c-p ">Help</h5>
+                      </div>
+                     
+                    </div>
+                  </div>
          </div>
 </div>
   

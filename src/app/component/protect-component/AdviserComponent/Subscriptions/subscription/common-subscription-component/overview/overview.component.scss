@@ -41,3 +41,6 @@ h5{
     margin-bottom: 100px !important;
     margin-top: 100px !important;
 }
+.mat-card:not([class*=mat-elevation-z]){
+    box-shadow: none !important;
+}
