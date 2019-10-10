@@ -12,6 +12,7 @@ h5 {
     font-family: $font-roboto;
     font-weight: $normal;
     letter-spacing: 0.2px;
+    text-transform: capitalize;
 }
 label{
     margin: 0 !important;
@@ -52,6 +53,7 @@ p {
 }
 a,a:hover{
     text-decoration: none !important;
+    color: rgba(0,0,0,.87) !important;
 }
 .width-230 {
     width: 230px;
@@ -305,6 +307,9 @@ button:focus {
 }
 .v-middle{
     vertical-align: middle !important;
+}
+.v-top{
+    vertical-align: top !important;
 }
 .l-22{
     line-height: 22px;
