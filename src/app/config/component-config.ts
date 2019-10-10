@@ -90,7 +90,8 @@ export const appConfig = {
     MAP_PLAN_TO_SERVICE_SETTING:'subscription/map/plan/service',
     CHANGE_PAYEE_SETTING:'subscription/client-biller/setting/subscription/update',
     CHANGE_BILLER_SETTING:'subscription/change/biller-settings/subscription',
-    EDIT_PLAN_SETTING:'/subscription/plan/edit',
+    EDIT_PLAN_SETTING:'subscription/plan/edit',
     GET_SERVICE_MODULE:'subscription/service/module/get',
+    MAP_MODULE_TO_PLANS:'subscription/subscription/service/module-list/edit',
     GET_BASE_64:'api/v1/test/base64/decode'
 } 

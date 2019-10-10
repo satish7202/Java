@@ -232,6 +232,10 @@ export class SubscriptionService {
     const httpParams=new HttpParams().set('serviceId',data.serviceId)
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SERVICE_MODULE,httpParams)
   }
+  mapModuleToplanData(data)
+  { 
+    return this.http.put(apiConfig.MAIN_URL + appConfig.MAP_MODULE_TO_PLANS,data)
+  }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data, 10000);
   }
