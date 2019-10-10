@@ -17,6 +17,7 @@ export class PlansSettingsComponent implements OnInit {
   showLoader;
   ngOnInit() {
     this.getSettingsPlanData();
+    // this.openFragment('','plan');
   }
   planSettingData;
   getSettingsPlanData()
@@ -46,7 +47,7 @@ export class PlansSettingsComponent implements OnInit {
       Flag: data,
       planData:singlePlan
     }
- 
+
     const dialogRef = this.dialog.open(UpperSliderComponent, {
        width: '1400px',
        data: Fragmentdata,

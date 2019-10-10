@@ -15,7 +15,7 @@ export class AddStructureComponent implements OnInit {
   constructor(private subinject: SubscriptionInject, private fb: FormBuilder, private subService: SubscriptionService) {
     this.subinject.rightSideBarData.subscribe(
       data => this.getSinglePlanData(data)
-    )
+    );
   }
 
   isPlanValid = false;
@@ -35,7 +35,8 @@ export class AddStructureComponent implements OnInit {
       planName: [data.name, [Validators.required]],
       code: [data.code, [Validators.required]],
       description: [data.description, [Validators.required]]
-    })
+    });
+    this.getFormControl().planName.maxLength = 20;
   }
   addPlanData(state) {
     if (this.planDataForm.controls.planName.invalid) {
