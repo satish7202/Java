@@ -13,9 +13,16 @@ import { SubscriptionPopupComponent } from '../../common-subscription-component/
 })
 export class SubscriptionCompletenessComponent implements OnInit {
   button: any;
+  completed: string;
   constructor(public dialog:MatDialog,private subscription:SubscriptionService,public sub:SubscriptionComponent,
     public eventService: EventService) { }
   advisorId=2727;
+  dataObj=[{'completed':'false','data':'Create Plans, Services & Documents','innerData':'Adding these will set up the foundation for your RIA practice','tab':6}
+,{'completed':'false','data':'Set up your Biller profile','innerData':'These details show up in the invoices your clients will receive.','tab':6},
+{'completed':'false','data':'Add Plan to a client','innerData':'Kickstart your core workflow with a client and unfold the magic. Add a Plan to take things forward.','tab':1},
+{'completed':'false','data':'Send Quotation to a client','innerData':'Once you’ve added a Plan, you can send out a Quotation to the client, get their approval before the actual billing starts.','tab':3},
+{'completed':'false','data':'Send Document for eSign','innerData':'Email documents to client with one click. Client can review them and proceed for e-singing using Aadhaar based eSign.','tab':5},
+{'completed':'false','data':'Record Payment','innerData':'Email documents to client with one click. Client can review them and proceed for e-singing using Aadhaar based eSign.','tab':4}]
   ngOnInit() {
    this.getSubscriptionStagesRecord();
    this.getDashboardResponse();
@@ -57,8 +64,9 @@ export class SubscriptionCompletenessComponent implements OnInit {
   }
 
   currentTabs(value){
-    console.log(value)
-    this.eventService.tabData(value)
+    console.log(value.tab)
+    this.eventService.tabData(value.tab)
+    value.completed='true';
   }
   openPopup(data){
     let Fragmentdata = {

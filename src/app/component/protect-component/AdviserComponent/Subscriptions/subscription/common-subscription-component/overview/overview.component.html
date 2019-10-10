@@ -9,11 +9,12 @@
                     class="material-icons">add</i>ADD NOW</button>
         </div>
     </div>
-    <div *ngIf="upperData!=''" class="wrapper-44">
+    <div *ngIf="upperData!=''" class="wrapper-44 w-50 pt-180 block m-auto">
         <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-6">
-                <mat-card class="p-0 b-a">
+            
+            <div class="col-md-12">
+                <div class="example-card">
+                <mat-card class="p-0 b-a br-0">
                     <div class="row bg-grey lter">
                         <div class="col-md-10 p-0">
                             <h3 class="m-0 pt-18 pt-24 pl-24" *ngIf="upperData">{{upperData.name}}</h3>
@@ -39,8 +40,9 @@
                         </div>
                     </div>
                 </mat-card>
+                </div>
             </div>
-            <div class="col-md-3"></div>
+            
         </div>
     </div>
 </div>

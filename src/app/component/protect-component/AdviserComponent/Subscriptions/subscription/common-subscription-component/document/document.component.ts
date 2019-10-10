@@ -82,7 +82,6 @@ export class DocumentComponent implements OnInit {
     };
     const dialogRef = this.dialog.open(SubscriptionPopupComponent, {
       width: '70%',
-      height: '100%',
       data: Fragmentdata,
       autoFocus: false,
 
