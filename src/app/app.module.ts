@@ -90,6 +90,7 @@ import {CustomHtmlComponent} from './common/customhtml/customhtml/custom-html.co
 import {CustomerComponent} from './component/protect-component/customers/component/customer/customer.component';
 import {AccountsComponent} from './component/protect-component/customers/component/customer/accounts/accounts.component';
 import {SummaryComponent} from './component/protect-component/customers/component/customer/accounts/summary/summary.component';
+import { CustomFormInputComponent } from './common/custom-form-input/custom-form-input.component';
 
 @NgModule({
   declarations: [
@@ -169,7 +170,8 @@ import {SummaryComponent} from './component/protect-component/customers/componen
     CommonFroalaComponent,
     CustomerComponent,
     AccountsComponent,
-    SummaryComponent],
+    SummaryComponent,
+    CustomFormInputComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
