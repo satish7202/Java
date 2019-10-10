@@ -1,19 +1,18 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {MatDialog} from '@angular/material';
-import {ConfirmDialogComponent} from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
-import {SubscriptionInject} from '../../subscription-inject.service';
-import {SubscriptionService} from '../../subscription.service';
-import {EventService} from '../../../../../../Data-service/event.service';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
+import { SubscriptionInject } from '../../subscription-inject.service';
+import { SubscriptionService } from '../../subscription.service';
 
 export interface PeriodicElement {
   name: string;
-  docname: string;
-  plan: string;
+  docname:string;
+  plan:string;
 
-  cdate: string;
+  cdate:string;
   sdate: string;
   clientsign: string;
-  status: string;
+  status:string;
 }
 
 @Component({
@@ -23,59 +22,31 @@ export interface PeriodicElement {
 })
 export class QuotationsSubscriptionComponent implements OnInit {
 
-  constructor(public subInjectService: SubscriptionInject, private eventService: EventService,
-              public dialog: MatDialog, private subService: SubscriptionService) {
-  }
+  constructor(public subInjectService:SubscriptionInject , public dialog: MatDialog, private subService:SubscriptionService) { }
 
-  displayedColumns: string[];
-  dataSource;
-  quotationDesignEmail;
-  quotationDesign;
-  dataCount;
-  @Input() screenType: number;
-  @Input() upperData;
-
-  // screenType = 0; /* 0 - for All clients , 1 - Single Client */
-
-  // @Input
   ngOnInit() {
-    this.displayedColumns = this.getDisplayedData(this.screenType);
-    if (this.screenType === 1) {
-      this.displayedColumns.splice(1, 1);
-    }
     this.getQuotationsData();
-    this.dataCount = 0;
   }
+  displayedColumns: string[] = ['name', 'docname', 'plan', 'cdate','sdate','clientsign','status','icons'];
+  dataSource;
 
-  getDisplayedData(screenType) {
-    if (screenType === 1) {
-      this.displayedColumns = ['checkbox', 'name', 'docname', 'plan', 'cdate', 'sdate', 'clientsign', 'status', 'icons'];
-    } else {
-      this.displayedColumns = ['checkbox', 'docname', 'plan', 'cdate', 'sdate', 'clientsign', 'status', 'icons'];
+  getQuotationsData()
+  {
+    let obj={
+      'advisorId':12345
     }
-
-    return this.displayedColumns;
-
-  }
-
-  getQuotationsData() {
-    const obj = {
-      advisorId: 12345
-    };
     this.subService.getSubscriptionQuotationData(obj).subscribe(
-      data => this.getQuotationsDataResponse(data)
-    );
+      data=>this.getQuotationsDataResponse(data)
+    )
   }
-
-  getQuotationsDataResponse(data) {
-    data.forEach(singleData => {
-      singleData.isChecked = false;
-    });
+  getQuotationsDataResponse(data)
+  {
     console.log(data);
-    this.dataSource = data;
+    this.dataSource=data
   }
 
-  deleteModal(value) {
+  deleteModal(value)
+  {
     const dialogData = {
       data: value,
       header: 'DELETE',
@@ -89,12 +60,12 @@ export class QuotationsSubscriptionComponent implements OnInit {
       negativeMethod: () => {
         console.log('2222222222222222222222222222222222222');
       }
-    };
+    }
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '400px',
       data: dialogData,
-      autoFocus: false,
+      autoFocus:false,
 
     });
 
@@ -104,31 +75,8 @@ export class QuotationsSubscriptionComponent implements OnInit {
 
   }
 
-  Open(value) {
+  Open(value)
+  {
     this.subInjectService.rightSideData(value);
   }
-
-  selectedInvoice(ele) {
-    console.log('invoice data', ele);
-    if (ele) {
-      this.dataCount--;
-    } else {
-      this.dataCount++;
-    }
-  }
-
-  openQuotationsESign(value, state) {
-    this.subInjectService.rightSliderData(state);
-    this.eventService.sliderData(value);
-  }
-
-  getQuotationDesignData(data) {
-    this.quotationDesign = data;
-  }
-
-  changeDisplay(value) {
-    this.quotationDesign = value;
-    this.quotationDesignEmail = this.quotationDesign;
-  }
-
 }

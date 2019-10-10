@@ -8,7 +8,7 @@
     <div class="wrapper-20">
       <div class="row">
         <div class="col-md-8 p-0">
-          <h4 class="pt-8 ml-16">Documents</h4>
+          <h4 class="pt-8 pb-28 m-0">Documents</h4>
         </div>
         <div class="col-md-4 right text-right">
           <button mat-stroked-button class="btn-default addon" (click)="Open('documentHelp','openHelp')">HELP</button>
@@ -17,7 +17,7 @@
 
 
       <div class="row ">
-        <div class="col-md-4 wrapper-20">
+        <div class="col-md-4 pr-20 pb-20 pl-0">
           <mat-card class="example-card height-470 bg-grey lter">
 
             <mat-card-content>
@@ -30,7 +30,7 @@
 
           </mat-card>
         </div>
-        <div class="col-md-4 wrapper-20" *ngFor="let singleDocument of documentSettingData">
+        <div class="col-md-4 pr-20 pb-20 pl-0" *ngFor="let singleDocument of documentSettingData">
           <mat-card class="example-card bg-grey lter p-0">
             <mat-card-header>
               <app-custom-html [data]="singleDocument.docText" id="ui-appcustomhtml" class="bg-white"></app-custom-html>
@@ -57,7 +57,7 @@
                   <button mat-stroked-button class="btn-header addon ml-44 br-0">VIEW</button>
                 </div>
                 <div class="col-md-2">
-                  <i class="material-icons f-40 text-primitive" [matMenuTriggerFor]="menu">
+                  <i class="material-icons f-40 c-p text-primitive" [matMenuTriggerFor]="menu">
                     more_vert
                   </i>
                   <mat-menu #menu="matMenu">

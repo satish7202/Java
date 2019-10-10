@@ -74,16 +74,21 @@
     </div>
     <div class="row" *ngIf="this.fragmentData.Flag=='clients'">
         <div class="col-md-12 p-0 popup-header-fix-tabs">
+
             <mat-tab-group mat-align-tabs="center" animationDuration="0ms" (selectedTabChange)="tabClick($event)">
+
                 <mat-tab label="SUBSCRIPTIONS">
                     <app-subscriptions-upper-slider [upperData]="fragmentData.clientData">
                     </app-subscriptions-upper-slider>
                 </mat-tab>
                 <mat-tab label="QUOTATIONS">
-                  <app-quotations-subscription [upperData]="fragmentData.clientData" [screenType]="1"
-                                               *ngIf="subscriptionTab=='QUOTATIONS'"></app-quotations-subscription>
-<!--                    <app-quotations [upperData]="fragmentData.clientData" *ngIf="subscriptionTab=='QUOTATIONS'">-->
-<!--                    </app-quotations>-->
+<!--                  <div class="wrapper-20 bg-grey lter heading-fix">-->
+<!--                    <h3 class="m-0 text-center head-common">{{fragmentData.clientData.name}}</h3>-->
+<!--                  </div>-->
+<!--                  <app-quotations-subscription [upperData]="fragmentData.clientData" [screenType]="1"-->
+<!--                                               *ngIf="subscriptionTab=='QUOTATIONS'"></app-quotations-subscription>-->
+                    <app-quotations [upperData]="fragmentData.clientData" *ngIf="subscriptionTab=='QUOTATIONS'">
+                    </app-quotations>
                 </mat-tab>
                 <mat-tab label="INVOICES">
                     <app-invoices [upperData]="fragmentData.clientData" *ngIf="subscriptionTab=='INVOICES'">
