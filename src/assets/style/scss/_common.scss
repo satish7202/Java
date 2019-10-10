@@ -302,6 +302,9 @@ button:focus {
 .border-right-1{
     border-right: 1px solid #ddd;   
    }
+   .border-right-u1 {
+    box-shadow: inset -2px 0px 0px 0px #008FFF, 0px 0px 0px 0px #008FFF;
+   }
 .v-sub{
     vertical-align: sub;
 }
@@ -351,7 +354,7 @@ button:focus {
     }
    
 }
-.ba-green,.ba-blue{
+.ba-blue{
     outline: 3px solid #008FFF !important;
 }
 .mat-radio-button{
@@ -387,6 +390,12 @@ color: #3F3F3F;
 }
 .ba-t{
     border:1px solid transparent !important;
+}
+.b-a {
+    border: $border !important;
+}
+.b-ua{
+    outline: 1px solid #dee5e7;
 }
 .form-control:focus{
     box-shadow: none !important;

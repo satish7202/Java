@@ -41,7 +41,7 @@
         </div>
         <div class="col-md-5">
                 <mat-radio-group formControlName="docAvailability">
-            <div class="row c-p" [ngClass]="{'b-a':selectedOption!=1,'ba-green':selectedOption==1}" (click)="selectDocument('1')">
+            <div class="row c-p" [ngClass]="{'b-ua':selectedOption!=1,'ba-blue':selectedOption==1}" (click)="selectDocument('1')">
                 <div [ngClass]="{'border-right-1':selectedOption!=1,'br-blue-2':selectedOption==1}" class="col-md-3 text-center pl-12 pr-12">
                     <h5 [ngClass]="{'text-primary': selectedOption==1}" class="m-0 text-custom pt-24">Plan</h5>
                     <mat-radio-button value="1" class="m-n0"></mat-radio-button>
@@ -52,7 +52,7 @@
                         for more than one plan.</h5>
                 </div>
             </div>
-            <div class="row c-p" [ngClass]="{'b-a':selectedOption!=1,'ba-green':selectedOption==2}"  (click)="selectDocument('2')">
+            <div class="row c-p" [ngClass]="{'b-ua':selectedOption!=1,'ba-blue':selectedOption==2}"  (click)="selectDocument('2')">
                 <div [ngClass]="{'border-right-1':selectedOption!=1,'br-blue-2':selectedOption==2}" class="col-md-3  text-center pl-12 pr-12">
 
                     <h5 [ngClass]="{'text-primary': selectedOption==2}" class="m-0 text-custom pt-24 ">Service</h5>
@@ -64,8 +64,8 @@
                         for more than one service.</h5>
                 </div>
             </div>
-            <div class="row c-p" [ngClass]="{'b-a':selectedOption!=1,'ba-green':selectedOption==3}"  (click)="selectDocument('3')">
-                <div [ngClass]="{'border-right-1':selectedOption!=1,'br-blue-2':selectedOption==3}" class="col-md-3  text-center pl-12 pr-12">
+            <div class="row c-p" [ngClass]="{'b-ua':selectedOption!=1,'ba-blue':selectedOption==3}"  (click)="selectDocument('3')">
+                <div [ngClass]="{'border-right-1':selectedOption!=1,'border-right-1':selectedOption==3}" class="col-md-3  text-center pl-12 pr-12">
                     <h5 [ngClass]="{'text-primary': selectedOption==3}" class="m-0 text-custom pt-24">Global</h5>
                     <mat-radio-button value="3" class="m-n0"></mat-radio-button>
                 </div>
@@ -87,7 +87,7 @@
             </p>
         </div>
         <div class="col-md-6 pb-44 mb-44">
-            <mat-card class="p-0 ba-green">
+            <mat-card class="p-0 ba-blue">
                 <div class="row bg-grey lter">
                     <div class="col-md-12 p-0">
                         <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
