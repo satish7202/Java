@@ -82,7 +82,6 @@ export class DocumentComponent implements OnInit {
     };
     const dialogRef = this.dialog.open(SubscriptionPopupComponent, {
       width: '70%',
-      height: '100%',
       data: Fragmentdata,
       autoFocus: false,
 
@@ -147,7 +146,8 @@ export class DocumentComponent implements OnInit {
   }
   getServiceDocumentData() {
     let obj = {
-      'advisorId': 12345
+      'advisorId': 12345,
+      'serviceId':this.upperData.id
     }
     this.subService.getMapDocumentToService(obj).subscribe(
       data => this.getServiceDocumentDataResponse(data)

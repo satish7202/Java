@@ -16,7 +16,7 @@
         <div class="col-md-12 p-0">
             <mat-tab-group mat-align-tabs="center" animationDuration="0ms" (selectedTabChange)="tabClick($event)"
                 class="popup-header-fix-tabs">
-                <mat-tab #tab label="OVERVIEW">
+                <mat-tab tooltip="tootip on left" placement="left" delay="500" #tab label="OVERVIEW">
                     <ng-template matTabContent>
                         <app-overview [upperData]="upperData" [componentFlag]='Flag'></app-overview>
                     </ng-template>

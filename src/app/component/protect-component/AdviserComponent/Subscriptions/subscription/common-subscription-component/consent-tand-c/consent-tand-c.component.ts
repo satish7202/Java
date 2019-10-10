@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-consent-tand-c',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsentTandCComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<ConsentTandCComponent>) { }
 
   ngOnInit() {
   }
-
+  Close()
+  {
+    this.dialogRef.close();
+  }
+u
 }
