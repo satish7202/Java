@@ -18,7 +18,7 @@
                     </div>
                     <div class="col-md-5">
                         <div class="form-group mb-0">
-                            <input type="email" formControlName="planName" maxlength="40" class="form-control br-2">
+                            <input type="email" formControlName="planName" maxlength="{{getFormControl().planName.maxLength}}" class="form-control br-2">
                         </div>
                         <div class="row">
                             <div class="col-md-8">
@@ -27,7 +27,7 @@
                                     Plan Name is Required</mat-error>
                             </div>
                             <div class="col-md-4">
-                                <p class="mb-0 f-12 text-custom text-right pt-4">0/20</p>
+                                <p class="mb-0 f-12 text-custom text-right pt-4">{{getFormControl().planName.value?.length?getFormControl().planName.value.length:0}}/{{getFormControl().planName.maxLength}}</p>
                             </div>
                         </div>
                     </div>
