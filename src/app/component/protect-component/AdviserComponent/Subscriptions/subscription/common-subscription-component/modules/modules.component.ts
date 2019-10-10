@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
+import { SubscriptionService } from '../../../subscription.service';
 
 @Component({
   selector: 'app-modules',
@@ -8,16 +9,30 @@ import { MatDialogRef } from '@angular/material';
 })
 export class ModulesComponent implements OnInit {
 
-  constructor(public dialogRef:MatDialogRef<ModulesComponent>) { }
-  financialPlanningData=[{name:'Goal tracker',checked:false},{name:'Insurance planning',checked:false},{name:'Risk profiling',checked:false},{name:'Risk profiling',checked:false}];
-  onlineTransaction=[{name:'Risk profiling',checked:false},{name:'Insurance planning',checked:false},{name:'Risk profiling',checked:false}]
-  multiAssetView=[{name:'Risk profiling',checked:false},{name:'Risk profiling',checked:false},{name:'Risk profiling',checked:false}]
-  
-
+  constructor(public dialogRef:MatDialogRef<ModulesComponent>,private subService: SubscriptionService) { }  
+  @Input() upperData;
+  financialPlanningData;
+  onlineTransaction;
+  multiAssetView;
   ngOnInit() {
+    this.getModuleData();
   }
   dialogClose(){
     this.dialogRef.close();
+  }
+  getModuleData()
+  {
+    let obj={
+      "serviceId":this.upperData.id
+    }
+    this.subService.getModuleServiceData(obj).subscribe(
+      data =>this.getModuleDataResponse(data)
+    )
+  }
+  getModuleDataResponse(data)
+  {
+     
+    console.log("Module data",data)
   }
   selectModule(data)
   {

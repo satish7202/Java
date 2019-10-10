@@ -51,7 +51,8 @@ export class AddFixedFeeComponent implements OnInit {
   }
   Close(state) {
     this.subInjectService.rightSliderData(state)
-    this.setValidation(true);
+    this.setValidation(false);
+    this.fixedFeeData.reset();
     
   }
   closeTab(state, value) {
