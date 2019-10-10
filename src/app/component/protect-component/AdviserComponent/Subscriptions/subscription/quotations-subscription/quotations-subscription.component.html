@@ -1,93 +1,63 @@
 <div class="bg-white pb-36 mt-70" id="ui-invoice">
-    <div class="wrapper-20">
-        <div class="row">
-            <div class="col-md-8 p-0">
-                <h4 class="pt-8 mb-0">Quotations</h4>
-            </div>
-            <div class="col-md-4 right text-right p-0">
-                <i class="material-icons mr-12 icon-light v-sub">
-                    search
-                </i>
-                <button mat-stroked-button class="btn-default addon mr-12"><i class="material-icons">filter_list</i>FILTERS</button>
-                <button mat-stroked-button class="btn-primary addon"><i class="material-icons">add</i>ADD NEW</button>
-            </div>
-        </div>
-      <div class="row">
-        <div class="col-md-1 p-0">
-          <button mat-button [matMenuTriggerFor]="menu" class="b-a pr-0">Actions <i class="material-icons c-p iconscolors"
-                                                                                    [matMenuTriggerFor]="menu" [matMenuTriggerFor]="belowMenu">
-            arrow_drop_down
-          </i>
-            <mat-menu #menu="matMenu">
-              <a mat-menu-item>Select Quotation to see more actions</a>
-            </mat-menu></button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item class="b-t"  *ngIf="dataCount == 0">Select quotations to see more actions</button>
-            <button mat-menu-item (click)="openQuotationsESign('eSignQuotations','open')"*ngIf="dataCount != 0">Email with eSign request</button>
-            <button mat-menu-item (click)="changeDisplay('email')"*ngIf="dataCount != 0">Email only</button>
-            <button mat-menu-item (click)="deleteModal('QUOTATION')"*ngIf="dataCount != 0">Delete Quotations</button>
-          </mat-menu>
-        </div>
-        <div class="col-md-9 p-0 ml-8">
-          <p class="m-0 text-black text-left pt-8">{{dataCount}} documents selected</p>
-        </div>
+  <div class="wrapper-20">
+    <div class="row">
+      <div class="col-md-8 p-0">
+        <h4 class="pt-8 mb-0">Quotations</h4>
       </div>
-        <table mat-table [dataSource]="dataSource" id="table-low" class="mt-8">
-          <ng-container matColumnDef="checkbox">
-            <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 2%;">
-              <mat-checkbox></mat-checkbox>
-            </th>
-            <td mat-cell *matCellDef="let element" style="width: 2%;">
-              <mat-checkbox [(ngModel)]="element.isChecked"(click)="selectedInvoice(element.isChecked)"></mat-checkbox>
-            </td>
-          </ng-container>
-          <div>
-            <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef class="f-18"> Client name </th>
-                <td mat-cell *matCellDef="let element" (click)="Open('open')" class="c-p"> {{element.clientName}} </td>
-            </ng-container>
-          </div>
-            <ng-container matColumnDef="docname">
-                <th mat-header-cell *matHeaderCellDef class="f-18"> Document name </th>
-                <td mat-cell *matCellDef="let element"> {{element.documentName}} </td>
-            </ng-container>
-            <ng-container matColumnDef="plan">
-                <th mat-header-cell *matHeaderCellDef class="f-18"> Plan name </th>
-                <td mat-cell *matCellDef="let element"> {{element.planName}} </td>
-            </ng-container>
-
-            <!-- Weight Column -->
-            <ng-container matColumnDef="cdate">
-                <th mat-header-cell *matHeaderCellDef class="f-18"> Created date </th>
-                <td mat-cell *matCellDef="let element"> {{element.createdDate | date:'dd/MM/yyyy'}} </td>
-            </ng-container>
-            <!-- Weight Column -->
-            <ng-container matColumnDef="sdate">
-                <th mat-header-cell *matHeaderCellDef class="f-18"> Sent date </th>
-                <td mat-cell *matCellDef="let element"> {{element.sentDate | date:'dd/MM/yyyy'}} </td>
-            </ng-container>
-            <!-- Symbol Column -->
-            <ng-container matColumnDef="clientsign">
-                <th mat-header-cell *matHeaderCellDef class="f-18"> Client consent... </th>
-                <td mat-cell *matCellDef="let element"> {{element.signedDate | date:'dd/MM/yyyy'}} </td>
-            </ng-container>
-            <ng-container matColumnDef="status">
-                <th mat-header-cell *matHeaderCellDef class="f-18 pr-24"> Status </th>
-                <td mat-cell *matCellDef="let element" class="greentext"> {{element.status}} </td>
-            </ng-container>
-            <ng-container matColumnDef="icons">
-                <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 2%;"> </th>
-                <td mat-cell *matCellDef="let element" style="width: 2%;"><i class="material-icons c-p iconscolors" [matMenuTriggerFor]="menu">
-                        more_vert
-                        </i>
-                    <mat-menu #menu="matMenu">
-                        <a mat-menu-item (click)="Open('open')">View document</a>
-                        <a mat-menu-item (click)="deleteModal('QUOTATION')">Delete document</a>
-                    </mat-menu>
-                </td>
-            </ng-container>
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
+      <div class="col-md-4 right text-right p-0">
+        <i class="material-icons mr-12 icon-light v-sub">
+          search
+        </i>
+        <button mat-stroked-button class="btn-default addon mr-12"><i class="material-icons">filter_list</i>FILTERS</button>
+        <button mat-stroked-button class="btn-primary addon"><i class="material-icons">add</i>ADD NEW</button>
+      </div>
     </div>
+    <table mat-table [dataSource]="dataSource" id="table-low" class="mt-8">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef class="f-18"> Client name </th>
+        <td mat-cell *matCellDef="let element" (click)="Open('open')" class="c-p"> {{element.clientName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="docname">
+        <th mat-header-cell *matHeaderCellDef class="f-18"> Document name </th>
+        <td mat-cell *matCellDef="let element"> {{element.documentName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="plan">
+        <th mat-header-cell *matHeaderCellDef class="f-18"> Plan name </th>
+        <td mat-cell *matCellDef="let element"> {{element.planName}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="cdate">
+        <th mat-header-cell *matHeaderCellDef class="f-18"> Created date </th>
+        <td mat-cell *matCellDef="let element"> {{element.createdDate | date:'dd/MM/yyyy'}} </td>
+      </ng-container>
+      <!-- Weight Column -->
+      <ng-container matColumnDef="sdate">
+        <th mat-header-cell *matHeaderCellDef class="f-18"> Sent date </th>
+        <td mat-cell *matCellDef="let element"> {{element.sentDate | date:'dd/MM/yyyy'}} </td>
+      </ng-container>
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="clientsign">
+        <th mat-header-cell *matHeaderCellDef class="f-18"> Client consent... </th>
+        <td mat-cell *matCellDef="let element"> {{element.signedDate | date:'dd/MM/yyyy'}} </td>
+      </ng-container>
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef class="f-18 pr-24"> Status </th>
+        <td mat-cell *matCellDef="let element" class="greentext"> {{element.status}} </td>
+      </ng-container>
+      <ng-container matColumnDef="icons">
+        <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 2%;"> </th>
+        <td mat-cell *matCellDef="let element" style="width: 2%;"><i class="material-icons c-p iconscolors" [matMenuTriggerFor]="menu">
+          more_vert
+        </i>
+          <mat-menu #menu="matMenu">
+            <a mat-menu-item (click)="Open('open')">View document</a>
+            <a mat-menu-item (click)="deleteModal('QUOTATION')">Delete document</a>
+          </mat-menu>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
 </div>
