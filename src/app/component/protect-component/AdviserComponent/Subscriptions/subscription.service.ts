@@ -215,7 +215,7 @@ export class SubscriptionService {
   }
 
   getSubSummary(data) {
-    const httpParams = new HttpParams().set('advisorId', data.advisorId).set('limit', data.limit).set('offset', data.offset);
+    const httpParams = new HttpParams().set('advisorId', data.advisorId).set('order', data.order).set('flag', data.flag).set('dateType', data.dateType).set('clientId', data.clientId).set('limit', data.limit).set('offset', data.offset);
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SUB_SUMMARY, httpParams);
   }
 

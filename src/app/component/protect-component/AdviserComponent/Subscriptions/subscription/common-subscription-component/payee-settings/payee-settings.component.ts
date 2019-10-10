@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SubscriptionInject } from '../../../subscription-inject.service';
 import { EventService } from 'src/app/Data-service/event.service';
 import { FormBuilder } from '@angular/forms';
@@ -13,6 +13,7 @@ export class PayeeSettingsComponent implements OnInit {
 
   settingsModal;
   payeeSettingsForm;
+  sendData;
   
   constructor(public subInjectService:SubscriptionInject, private eventService:EventService,private subService:SubscriptionService,private fb:FormBuilder) {
     // this.eventService.rightSliderData.subscribe(
@@ -25,6 +26,7 @@ export class PayeeSettingsComponent implements OnInit {
    OnInit() {
     
    }
+   @Output() getEditData = new EventEmitter();
   getClientPayeeSettings(data) {
 
     console.log("payee data", data);
@@ -129,11 +131,12 @@ export class PayeeSettingsComponent implements OnInit {
       "id":this.payeeSettingsForm.controls.id.value,
       "clientId": 2970
     }
+    this.sendData = obj1;
     this.subService.editPayeeSettings(obj1).subscribe(
-      data => console.log("edit payee settings", data)
+      data =>this.editSettingResData(data)
     )
    
-    }else{
+}else{
       let obj = {
         "gstin": this.payeeSettingsForm.controls.gstIn.value,
         "gstTreatmentId": 1,
@@ -154,6 +157,10 @@ export class PayeeSettingsComponent implements OnInit {
       )
       
     }
-    
+  }
+  editSettingResData(data) {
+   if(data == true){
+    this.getEditData.emit(this.sendData)
+   }
   }
 }

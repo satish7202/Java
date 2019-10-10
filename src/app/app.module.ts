@@ -90,6 +90,8 @@ import { CustomHtmlComponent } from './common/customhtml/customhtml/custom-html.
 import { CustomerComponent } from './component/protect-component/customers/component/customer/customer.component';
 import { AccountsComponent } from './component/protect-component/customers/component/customer/accounts/accounts.component';
 import { SummaryComponent } from './component/protect-component/customers/component/customer/accounts/summary/summary.component';
+import { ChangePayeeComponent } from './component/change-payee/change-payee.component';
+
 
 @NgModule({
   declarations: [
@@ -169,7 +171,8 @@ import { SummaryComponent } from './component/protect-component/customers/compon
     CommonFroalaComponent,
     CustomerComponent,
     AccountsComponent,
-    SummaryComponent
+    SummaryComponent,
+    ChangePayeeComponent,
   ],
   imports: [
     BrowserModule,
