@@ -1,7 +1,7 @@
 /* tslint:disable:max-line-length */
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {MaterialModule} from './material/material';
@@ -50,7 +50,7 @@ import {SipAmcWiseComponent} from './component/protect-component/AdviserComponen
 import {SipSchemeWiseComponent} from './component/protect-component/AdviserComponent/backOffice/MIS/mutual-funds/sip/sip-scheme-wise/sip-scheme-wise.component';
 import {SipClientWiseComponent} from './component/protect-component/AdviserComponent/backOffice/MIS/mutual-funds/sip/sip-client-wise/sip-client-wise.component';
 import {SipApplicantWiseComponent} from './component/protect-component/AdviserComponent/backOffice/MIS/mutual-funds/sip/sip-applicant-wise/sip-applicant-wise.component';
-import { SlimLoadingBarModule} from 'ng2-slim-loading-bar';
+import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
 import {InvoicePdfDocumentComponent} from './component/protect-component/AdviserComponent/Subscriptions/subscription/invoices-subscription/invoice-pdf-document/invoice-pdf-document.component';
 import {ClientsDashboardComponent} from './component/protect-component/AdviserComponent/Subscriptions/subscription/dashboard-subscription/clients-dashboard/clients-dashboard.component';
 import {QuotationsComponent} from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/quotations/quotations.component';
@@ -83,13 +83,14 @@ import {HowToUseDialogComponent} from './component/protect-component/AdviserComp
 import {AddDocumentComponent} from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/add-document/add-document.component';
 import {ModifyFeeDialogComponent} from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/modify-fee-dialog/modify-fee-dialog.component';
 import {PreferenceEmailInvoiceComponent} from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/preference-email-invoice/preference-email-invoice.component';
-import { ConsentTandCComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/consent-tand-c/consent-tand-c.component';
-import { CommonFroalaComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/common-froala/common-froala.component';
+import {ConsentTandCComponent} from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/consent-tand-c/consent-tand-c.component';
+import {CommonFroalaComponent} from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/common-froala/common-froala.component';
 
-import { CustomHtmlComponent } from './common/customhtml/customhtml/custom-html.component';
-import { CustomerComponent } from './component/protect-component/customers/component/customer/customer.component';
-import { AccountsComponent } from './component/protect-component/customers/component/customer/accounts/accounts.component';
-import { SummaryComponent } from './component/protect-component/customers/component/customer/accounts/summary/summary.component';
+import {CustomHtmlComponent} from './common/customhtml/customhtml/custom-html.component';
+import {CustomerComponent} from './component/protect-component/customers/component/customer/customer.component';
+import {AccountsComponent} from './component/protect-component/customers/component/customer/accounts/accounts.component';
+import {SummaryComponent} from './component/protect-component/customers/component/customer/accounts/summary/summary.component';
+import { CustomFormInputComponent } from './common/custom-form-input/custom-form-input.component';
 
 @NgModule({
   declarations: [
@@ -169,8 +170,8 @@ import { SummaryComponent } from './component/protect-component/customers/compon
     CommonFroalaComponent,
     CustomerComponent,
     AccountsComponent,
-    SummaryComponent
-  ],
+    SummaryComponent,
+    CustomFormInputComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -189,7 +190,7 @@ import { SummaryComponent } from './component/protect-component/customers/compon
     ConfirmDialogComponent, SubscriptionPopupComponent,
     DeleteSubscriptionComponent, HowToUseDialogComponent,
     AddDocumentComponent, PreferenceEmailInvoiceComponent,
-    ModifyFeeDialogComponent,ConsentTandCComponent]
+    ModifyFeeDialogComponent, ConsentTandCComponent]
 })
 export class AppModule {
 }

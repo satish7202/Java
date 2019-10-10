@@ -23,6 +23,7 @@ export class OverviewComponent implements OnInit {
   @Input() upperData;
   ngOnInit() {
     this.overviewDesign='true';
+    // this.openForm('','addPlanDetails','open');
   }
   dialogClose() {
     this.dialogRef.close();
@@ -55,10 +56,10 @@ export class OverviewComponent implements OnInit {
        autoFocus:false,
 
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
-  
+
     });
-  
+
   }
 }

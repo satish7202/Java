@@ -177,7 +177,7 @@ export class SubscriptionService {
   }
 
   getMapDocumentToService(data) {
-    const httpParams = new HttpParams().set('advisorId', data.advisorId);
+    const httpParams = new HttpParams().set('advisorId', data.advisorId).set('serviceId', data.serviceId);
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_MAP_DOCUMENT_To_SERVICE, httpParams);
   }
 
@@ -226,6 +226,11 @@ export class SubscriptionService {
   editPlanSettings(data)
   {
     return this.http.put(apiConfig.MAIN_URL+appConfig.EDIT_PLAN_SETTING,data)
+  }
+  getModuleServiceData(data)
+  {
+    const httpParams=new HttpParams().set('serviceId',data.serviceId)
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SERVICE_MODULE,httpParams)
   }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data, 10000);

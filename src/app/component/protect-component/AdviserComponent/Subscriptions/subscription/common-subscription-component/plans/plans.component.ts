@@ -31,7 +31,7 @@ export class PlansComponent implements OnInit {
 
     this.servicePlanData = data;
     this.servicePlanData.forEach(element => {
-      if (element.isActive == 1) {
+      if (element.selected==true) {
         this.mappedPlan.push(element);
       }
     });
@@ -41,28 +41,31 @@ export class PlansComponent implements OnInit {
   }
   selectServicePlan(data) {
 
-    (data.isActive == 1) ? this.unmapPlanToService(data) : this.mapPlanToService(data);
+    (data.selected) ? this.unmapPlanToService(data) : this.mapPlanToService(data);
   }
   mapPlanToService(data) {
-    data.isActive = 1
+    data.selected = true
+    console.log(data)
     this.mappedPlan.push(data)
   }
   unmapPlanToService(data) {
-    data.isActive = 0
+    data.selected = false
     _.remove(this.mappedPlan, function (delData) {
       return delData.id == data.id;
     })
+    console.log(data)
   }
   saveMappedPlans() {
    console.log("Mapped Plan",this.mappedPlan)
    console.log("clientId",this.upperData) 
-    let obj={
-      "planIds":[],
-      "serviceId":this.upperData.id,
-      "advisorId":12345
-    }
+    let obj=[]
    this.mappedPlan.forEach(planData=>{
-     obj.planIds.push(planData.id)
+     let data={
+       "advisorId":12345,
+       "planId":planData.id,
+       "serviceId":this.upperData.id
+     }
+     obj.push(data);
    })
    console.log("Mapped Plans",obj)
 
