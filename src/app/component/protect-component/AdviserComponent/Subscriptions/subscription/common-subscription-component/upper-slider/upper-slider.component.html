@@ -42,7 +42,7 @@
                 <mat-tab label="FEE STRUCTURE">
                     <app-fee-structure [upperData]="upperData" (serviceEvent)="serviceId=$event"></app-fee-structure>
                 </mat-tab>
-                <mat-tab #tab [disabled]='upperData==""' label="PLANS">
+                <mat-tab matTooltip="Info about the action" #tab [disabled]='upperData==""' label="PLANS">
                     <app-plans [upperData]="upperData" *ngIf="subscriptionTab=='PLANS'" [componentFlag]='plans'>
                     </app-plans>
                 </mat-tab>
@@ -51,7 +51,7 @@
                         [componentFlag]='servicesDocuments'></app-document>
                 </mat-tab>
                 <mat-tab #tab [disabled]='upperData==""' label="MODULES">
-                    <app-modules *ngIf="subscriptionTab=='MODULES'"></app-modules>
+                    <app-modules [upperData]="upperData" *ngIf="subscriptionTab=='MODULES'"></app-modules>
                 </mat-tab>
             </mat-tab-group>
         </div>
@@ -82,13 +82,13 @@
                     </app-subscriptions-upper-slider>
                 </mat-tab>
                 <mat-tab label="QUOTATIONS">
-                  <div class="wrapper-20 bg-grey lter heading-fix">
-                    <h3 class="m-0 text-center head-common">{{fragmentData.clientData.name}}</h3>
-                  </div>
-                  <app-quotations-subscription [upperData]="fragmentData.clientData" [screenType]="1"
-                                               *ngIf="subscriptionTab=='QUOTATIONS'"></app-quotations-subscription>
-<!--                    <app-quotations [upperData]="fragmentData.clientData" *ngIf="subscriptionTab=='QUOTATIONS'">-->
-<!--                    </app-quotations>-->
+<!--                  <div class="wrapper-20 bg-grey lter heading-fix">-->
+<!--                    <h3 class="m-0 text-center head-common">{{fragmentData.clientData.name}}</h3>-->
+<!--                  </div>-->
+<!--                  <app-quotations-subscription [upperData]="fragmentData.clientData" [screenType]="1"-->
+<!--                                               *ngIf="subscriptionTab=='QUOTATIONS'"></app-quotations-subscription>-->
+                    <app-quotations [upperData]="fragmentData.clientData" *ngIf="subscriptionTab=='QUOTATIONS'">
+                    </app-quotations>
                 </mat-tab>
                 <mat-tab label="INVOICES">
                     <app-invoices [upperData]="fragmentData.clientData" *ngIf="subscriptionTab=='INVOICES'">

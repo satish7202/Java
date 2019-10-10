@@ -91,5 +91,6 @@ export const appConfig = {
     CHANGE_PAYEE_SETTING:'subscription/client-biller/setting/subscription/update',
     CHANGE_BILLER_SETTING:'subscription/change/biller-settings/subscription',
     EDIT_PLAN_SETTING:'/subscription/plan/edit',
+    GET_SERVICE_MODULE:'subscription/service/module/get',
     GET_BASE_64:'api/v1/test/base64/decode'
 } 

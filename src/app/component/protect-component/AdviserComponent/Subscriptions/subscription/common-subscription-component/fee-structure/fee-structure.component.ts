@@ -11,9 +11,13 @@ export class FeeStructureComponent implements OnInit {
 
   constructor(public subInjectService: SubscriptionInject, private eventService: EventService) { }
   @Input() upperData;
+  selectedFee;
   ngOnInit() {
   }
-
+  selectedFees(feeType)
+  {
+    this.selectedFee=feeType
+  }
   openPlanSliderFee(data, value, state) {
     this.eventService.sliderData(value);
     this.subInjectService.rightSideData(data);

@@ -5,10 +5,10 @@
 <div *ngIf="quotationDesign=='true'" class="bg-white">
 
   <div class="wrapper-40 pr-20">
-    <div class="pt-180 pr-0">
+    <div class="pt-150 pr-0">
       <div class="row">
         <div class="col-md-12 p-0">
-          <button mat-button class="right text-right" (click)="openPopup('QuotationHelpPopup')">HELP</button>
+          <button mat-button class="right text-right mt-20 br-0" (click)="openPopup('QuotationHelpPopup')">HELP</button>
         </div>
       </div>
     </div>
@@ -33,7 +33,7 @@
         </mat-menu>
       </div>
       <div class="col-md-9 p-0 ml-8">
-        <p class="m-0 text-black text-left pt-8">{{dataCount}} documents selected</p>
+        <p class="m-0 text-black text-left pt-10">{{dataCount}} documents selected</p>
       </div>
     </div>
     <table mat-table [dataSource]="dataSource" class="mt-8" id="table-low">
