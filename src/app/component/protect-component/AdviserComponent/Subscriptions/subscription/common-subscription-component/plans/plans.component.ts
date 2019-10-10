@@ -56,13 +56,14 @@ export class PlansComponent implements OnInit {
   saveMappedPlans() {
    console.log("Mapped Plan",this.mappedPlan)
    console.log("clientId",this.upperData) 
-    let obj={
-      "planIds":[],
-      "serviceId":this.upperData.id,
-      "advisorId":12345
-    }
+    let obj=[]
    this.mappedPlan.forEach(planData=>{
-     obj.planIds.push(planData.id)
+     let data={
+       "advisorId":12345,
+       "planId":planData.id,
+       "serviceId":this.upperData.id
+     }
+     obj.push(data);
    })
    console.log("Mapped Plans",obj)
 
