@@ -438,12 +438,21 @@ color: #3F3F3F;
  #ui-silder {
     .mat-radio-button{
         min-width: auto !important;
+        // height: 10px;
+        // width: 10px;
     }
     .mat-radio-outer-circle{
-    border-width: 0px !important;
+    // border-width: 0px !important;
     border-style: none !important;
-    border-radius: 0% !important;
+    // border-radius: 0% !important;
+    background-color: #b0adac;
+    height: 10px;
+    width: 10px;
     }
+    .mat-radio-inner-circle{
+        height: 10px;
+        width: 10px;
+      }
     img{
         max-width: 70%;
         margin: 0 auto;
