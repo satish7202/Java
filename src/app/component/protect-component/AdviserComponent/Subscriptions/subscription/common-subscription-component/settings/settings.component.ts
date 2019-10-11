@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SubscriptionInject } from '../../../subscription-inject.service';
 import { EventService } from 'src/app/Data-service/event.service';
 import { SubscriptionService } from '../../../subscription.service';
@@ -39,6 +39,7 @@ export class SettingsComponent implements OnInit {
     this.eventService.sliderData(value);
     this.subInjectService.rightSliderData(state)
     this.subInjectService.rightSideData(profileData);
+    console.log("profileData*********",profileData)
   }
   deleteModal(value) {
     let dialogData = {
@@ -62,4 +63,7 @@ export class SettingsComponent implements OnInit {
     });
 
 }
+  dataTosendSetting(value){
+    console.log("data setting send by Output",value)
+  }
 }

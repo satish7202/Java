@@ -51,7 +51,7 @@ export class SubscriptionsSubscriptionComponent implements OnInit {
     this.dataSource=data
     this.DataToSend = data
   }
-  Open(data,value,state)
+  Open(value,state,data)
   {
     this.eventService.sidebarData(value)
     this.subscriptionValue = value

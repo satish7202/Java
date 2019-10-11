@@ -24,7 +24,7 @@
           </mat-menu>
         </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item class="b-t" *ngIf="dataCount == 0">Select invoice to see more actions</button>
+          <button mat-menu-item class="b-t" *ngIf="dataCount == 0">Select Quotation to see more actions</button>
           <button mat-menu-item (click)="openQuotationsESign('eSignQuotations','open')" *ngIf="dataCount != 0">Email
             with eSign request
           </button>
