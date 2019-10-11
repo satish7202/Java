@@ -91,6 +91,7 @@ import {CustomerComponent} from './component/protect-component/customers/compone
 import {AccountsComponent} from './component/protect-component/customers/component/customer/accounts/accounts.component';
 import {SummaryComponent} from './component/protect-component/customers/component/customer/accounts/summary/summary.component';
 import { CustomFormInputComponent } from './common/custom-form-input/custom-form-input.component';
+// import {CommonSubscriptionComponent} from "./component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/CommonSubscriptionComponent";
 
 @NgModule({
   declarations: [
@@ -182,6 +183,7 @@ import { CustomFormInputComponent } from './common/custom-form-input/custom-form
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    // CommonSubscriptionComponent,
     SlimLoadingBarModule.forRoot(),
     FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),
     MDBBootstrapModule.forRoot()
