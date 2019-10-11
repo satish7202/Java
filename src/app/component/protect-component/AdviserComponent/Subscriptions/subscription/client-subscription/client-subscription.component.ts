@@ -1,9 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { UpperSliderComponent } from '../common-subscription-component/upper-slider/upper-slider.component';
-import { MatDialog } from '@angular/material';
-import { EventService } from 'src/app/Data-service/event.service';
-import { SubscriptionInject } from '../../subscription-inject.service';
-import { SubscriptionService } from '../../subscription.service';
+import {Component, OnInit, Input} from '@angular/core';
+import {UpperSliderComponent} from '../common-subscription-component/upper-slider/upper-slider.component';
+import {MatDialog} from '@angular/material';
+import {EventService} from 'src/app/Data-service/event.service';
+import {SubscriptionInject} from '../../subscription-inject.service';
+import {SubscriptionService} from '../../subscription.service';
+
 export interface PeriodicElement {
   name: string;
   email: string;
@@ -18,46 +19,51 @@ export interface PeriodicElement {
 })
 export class ClientSubscriptionComponent implements OnInit {
 
-  constructor(public dialog:MatDialog, public eventService:EventService, public subInjectService:SubscriptionInject, private subService:SubscriptionService) { }
-  @Input() upperData:any;
-  ngOnInit() {
-    console.log("clients")
-    this.getClientSubscriptionList();
+  constructor(public dialog: MatDialog, public eventService: EventService, public subInjectService: SubscriptionInject,
+              private subService: SubscriptionService) {
   }
-  displayedColumns: string[] = ['name','email', 'num', 'balance'];
+
+  @Input() upperData: any;
+
+  displayedColumns: string[] = ['name', 'email', 'num', 'balance'];
   dataSource;
 
-  getClientSubscriptionList()
-  {
-    let obj={
-       'id':2808
-    }
-   this.subService.getSubscriptionClientsList(obj).subscribe(
-     data =>this.getClientListRespobnse(data)
-   )
+  ngOnInit() {
+    console.log('clients');
+    this.getClientSubscriptionList();
   }
-   getClientListRespobnse(data)
-   {
-    console.log('client-subscription List',data)
-    this.dataSource=data
-   }
-  Open(value,state)
-  {
-    this.eventService.sidebarData(value)
+
+  getClientSubscriptionList() {
+    const obj = {
+      id: 2808
+    };
+    this.subService.getSubscriptionClientsList(obj).subscribe(
+      data => this.getClientListRespobnse(data)
+    );
+  }
+
+  getClientListRespobnse(data) {
+    console.log('client-subscription List', data);
+    this.dataSource = data;
+  }
+
+  Open(value, state) {
+    this.eventService.sidebarData(value);
     this.subInjectService.rightSideData(state);
   }
-  openFragment(data,clientData) {
-    let Fragmentdata = {
+
+  openFragment(data, clientData) {
+    const Fragmentdata = {
       Flag: data,
-      id:1,
-      clientData:clientData
-    }
+      id: 1,
+      clientData
+    };
 
     const dialogRef = this.dialog.open(UpperSliderComponent, {
-       width: '1400px',
-       data: Fragmentdata,
-       autoFocus:false,
-       panelClass:'dialogBox',
+      width: '1400px',
+      data: Fragmentdata,
+      autoFocus: false,
+      panelClass: 'dialogBox',
     });
 
     dialogRef.afterClosed().subscribe(result => {

@@ -52,7 +52,7 @@
 
             <ng-container matColumnDef="client">
                 <th mat-header-cell *matHeaderCellDef class="f-18 t-20"> Client & Plan details </th>
-                <td mat-cell *matCellDef="let element" (click)="Open(element,'SUBSCRIPTIONS','open')" class="c-p t-20"> {{element.clientName}} </td>
+                <td mat-cell *matCellDef="let element" (click)="Open('SUBSCRIPTIONS','open',element)" class="c-p t-20"> {{element.planName}} </td>
             </ng-container>
             <ng-container matColumnDef="service">
                 <th mat-header-cell *matHeaderCellDef class="f-18 t-12"> Service name </th>
@@ -60,23 +60,26 @@
             </ng-container>
             <ng-container matColumnDef="amt">
                 <th mat-header-cell *matHeaderCellDef class="f-18 t-10"> Fee amount </th>
-                <td mat-cell *matCellDef="let element" (click)="Open(element,'modifyFees','open')" class="c-p t-10"> {{element.amt}} </td>
+                <td mat-cell *matCellDef="let element" (click)="Open('modifyFees','open',element)" class="c-p t-10 text-primary"> veiw details</td>
             </ng-container>
 
             <!-- Name Column -->
             <ng-container matColumnDef="sub">
                 <th mat-header-cell *matHeaderCellDef class="f-18 t-10"> Subs # </th>
-                <td mat-cell *matCellDef="let element" class="t-10 c-p"> {{element.sub}} </td>
+                <td mat-cell *matCellDef="let element" class="t-10 c-p"> {{element.subscriptionNumber}} </td>
             </ng-container>
             <!-- Weight Column -->
             <ng-container matColumnDef="status">
                 <th mat-header-cell *matHeaderCellDef class="f-18 t-10"> Status </th>
-                <td mat-cell *matCellDef="let element" class="greentext t-10"> {{element.statusInString}} </td>
+                <td mat-cell *matCellDef="let element" class="greentext t-10"> {{element.status}} </td>
             </ng-container>
             <!-- Weight Column -->
             <ng-container matColumnDef="activation">
                 <th mat-header-cell *matHeaderCellDef class="f-18 t-6"> Activation... </th>
-                <td mat-cell *matCellDef="let element" class="t-6"> {{element.activation}} </td>
+                <td mat-cell *matCellDef="let element" >
+                <div *ngIf="element.startsOn!='START'"> {{element.startsOn | date:'dd/MM/yyyy'}}</div>
+                <div *ngIf="element.startsOn=='START'" (click)="openPlanSlider('createSub','open')"><button mat-stroked-button class="btn-header btn-xs ml-8 br-0 btn-sm">{{element.startsOn}}</button></div>
+                </td>
             </ng-container>
 
             <!-- Symbol Column -->
@@ -100,7 +103,7 @@
                     <mat-menu #menu="matMenu">
                         <a mat-menu-item (click)="Open('modifyFees','open')" >View & Modify fee structure</a>
                         <a mat-menu-item class="bt-1" (click)="Open('billerSettings','open')">Change Biller</a>
-                        <a mat-menu-item (click)="Open('payeeSettings','open')">Change Payee</a>
+                        <a mat-menu-item (click)="Open('changePayee','open')">Change Payee</a>
                         <a mat-menu-item class="bt-1" (click)="delete('cancelSubscription')">Cancel subscription</a>
                         <a mat-menu-item (click)="deleteModal('SUBSCRIPTION')">Delete subscription</a>
                     </mat-menu>

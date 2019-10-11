@@ -215,7 +215,7 @@ export class SubscriptionService {
   }
 
   getSubSummary(data) {
-    const httpParams = new HttpParams().set('advisorId', data.advisorId).set('limit', data.limit).set('offset', data.offset);
+    const httpParams = new HttpParams().set('advisorId', data.advisorId).set('order', data.order).set('flag', data.flag).set('dateType', data.dateType).set('clientId', data.clientId).set('limit', data.limit).set('offset', data.offset);
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SUB_SUMMARY, httpParams);
   }
 
@@ -231,6 +231,10 @@ export class SubscriptionService {
   {
     const httpParams=new HttpParams().set('serviceId',data.serviceId)
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SERVICE_MODULE,httpParams)
+  }
+  mapModuleToplanData(data)
+  { 
+    return this.http.put(apiConfig.MAIN_URL + appConfig.MAP_MODULE_TO_PLANS,data)
   }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data, 10000);

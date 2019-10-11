@@ -4,6 +4,7 @@ import { EventService } from 'src/app/Data-service/event.service';
 import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material';
 import { DeleteSubscriptionComponent } from '../delete-subscription/delete-subscription.component';
+import { SubscriptionService } from '../../../subscription.service';
 export interface PeriodicElement {
   service: string;
   amt: string;
@@ -16,31 +17,60 @@ export interface PeriodicElement {
   mode:string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {service: "Financial Planning", amt: "Rs.1,00,000/Quarter", type: "FIXED", subs: 'SUB-0001',status:"LIVE",date:"25/08/2019",bdate:"25/08/2019",ndate:"25/08/2019",mode:"Cheque"},
-  {service: "Investment management - AUM Linked fee", amt: "View details", type: "VARIABLE", subs: '-',status:"FUTURE",date:"25/08/2019",bdate:"-",ndate:"25/08/2019",mode:"Auto debit"},
-  {service: "Investment management - AUM Linked fee", amt: "View details", type: "VARIABLE", subs: '-',status:"NOT STARTED",date:"START",bdate:"-",ndate:"25/08/2019",mode:"NEFT/RTGS"},
-  
+// const ELEMENT_DATA: PeriodicElement[] = [
+//   {service: "Financial Planning", amt: "Rs.1,00,000/Quarter", type: "FIXED", subs: 'SUB-0001',status:"LIVE",date:"25/08/2019",bdate:"25/08/2019",ndate:"25/08/2019",mode:"Cheque"},
+//   {service: "Investment management - AUM Linked fee", amt: "View details", type: "VARIABLE", subs: '-',status:"FUTURE",date:"25/08/2019",bdate:"-",ndate:"25/08/2019",mode:"Auto debit"},
+//   {service: "Investment management - AUM Linked fee", amt: "View details", type: "VARIABLE", subs: '-',status:"NOT STARTED",date:"START",bdate:"-",ndate:"25/08/2019",mode:"NEFT/RTGS"},
  
-];
+// ];
 @Component({
+
   selector: 'app-subscriptions-upper-slider',
   templateUrl: './subscriptions-upper-slider.component.html',
   styleUrls: ['./subscriptions-upper-slider.component.scss']
 })
 export class SubscriptionsUpperSliderComponent implements OnInit {
 
-  constructor(public subInjectService:SubscriptionInject, private eventService:EventService, public dialog:MatDialog) { }
-
+  constructor(public subInjectService:SubscriptionInject, private eventService:EventService, public dialog:MatDialog,public subscription:SubscriptionService) { }
+  ELEMENT_DATA;
+  dataSource;
   ngOnInit() {
+    this.getSummaryDataClient()
   }
   displayedColumns: string[] = ['service', 'amt', 'type', 'subs','status','date','bdate','ndate','mode','icons'];
-  dataSource = ELEMENT_DATA;
+  
   @Input() upperData;
   openPlanSlider(value,state)
   {
     this.eventService.sliderData(value);
     this.subInjectService.rightSliderData(state)
+  }
+  getSummaryDataClient(){
+    let obj={
+      // 'id':2735, //pass here advisor id for Invoice advisor 
+      // 'module':1,
+      'advisorId' : 12345,
+      'clientId' : this.upperData.id,
+      'flag' : 4,
+      'dateType':0,
+      'limit':10,
+      'offset':0,
+      'order':0,
+     }
+ 
+     this.subscription.getSubSummary(obj).subscribe(
+       data =>this.getSubSummaryRes(data)
+     )
+  }
+  getSubSummaryRes(data){
+    console.log(data)
+     this.ELEMENT_DATA=data;
+     this.ELEMENT_DATA.forEach(ele => {
+      ele.feeMode = (ele.feeMode == 1)?"FIXED":"VARIABLE";
+      ele.startsOn = (ele.status == 1)?"START":ele.startsOn;
+      ele.status = (ele.status == 1)?"NOT STARTED":(ele.status == 2)?"LIVE":(ele.status == 3)?"FUTURE":"CANCELLED";
+     });
+     this.dataSource = this.ELEMENT_DATA;
   }
   deleteModal(value)
   {
