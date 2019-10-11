@@ -32,3 +32,12 @@ h2{
     line-height: 32px;
     margin: 0;
 }
+.max-height-300{
+    max-height: 300px;
+}
+#table-low tr{
+    left: 0px;
+    position: sticky;
+    z-index: -1;
+    border: 1px solid #ddd;
+}
