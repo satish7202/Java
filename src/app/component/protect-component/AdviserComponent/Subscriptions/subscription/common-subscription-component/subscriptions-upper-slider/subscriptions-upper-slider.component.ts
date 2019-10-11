@@ -36,14 +36,17 @@ export class SubscriptionsUpperSliderComponent implements OnInit {
   dataSource;
   ngOnInit() {
     this.getSummaryDataClient()
+    console.log(this.upperData);
   }
   displayedColumns: string[] = ['service', 'amt', 'type', 'subs','status','date','bdate','ndate','mode','icons'];
   
   @Input() upperData;
-  openPlanSlider(value,state)
+  openPlanSlider(data,value,state)
   {
     this.eventService.sliderData(value);
     this.subInjectService.rightSliderData(state)
+    this.subInjectService.addSingleProfile(data)
+
   }
   getSummaryDataClient(){
     let obj={

@@ -15,14 +15,14 @@
     </div>
 
     <div class="row">
-            <div class="col-md-6 mt-20" *ngFor="let singlePlan of planSettingData">
-                    <mat-card class="p-0 ba-blue">
+            <div class="col-md-6 mt-20 hover c-p" *ngFor="let singlePlan of billerSettingData"  (click)="selectedBiller(singlePlan.isPrimary)">
+                    <mat-card class="p-0 pa-blue" [ngClass]="{'ba-blue': isPrimary=='true','b-a':isPrimary!='true'}" >
                             <div class="row bg-grey lter">
                                     <div class="col-md-12 p-0">
-                                            <mat-checkbox class="right text-right" checked="false"></mat-checkbox>
+                                            <mat-checkbox class="right text-right"  checked="singlePlan.isPrimary"></mat-checkbox>
                                     </div>
                                     <div class="col-md-12 p-0">
-                                        <h3 class="m-0 pt-18 pl-24">{{singlePlan.title}}</h3>
+                                        <h3 class="m-0 pt-18 pl-24">{{singlePlan.companyDisplayName}}</h3>
                                         <h5 class="m-0 pt-4 pb-44 pl-24 text-custom">{{singlePlan.code}}</h5>
                                     </div>
                                 </div>
@@ -38,8 +38,11 @@
                                         <div class="row">
                                             <div class="col-md-12 p-0">
                                                 <p class="f-12 mb-0 text-primitive">BILLER ADDRESS</p>
-                                                <h5 class="mb-0">{{singlePlan.Address}}</h5>
-                                                
+                                                <h5 class="mb-0">{{singlePlan.billerAddress}},</h5>
+                                                <h5 class="mb-0">{{singlePlan.city}},</h5>
+                                                <h5 class="mb-0">{{singlePlan.state}},</h5>
+                                                <h5 class="mb-0">{{singlePlan.country}},</h5>
+                                                <h5 class="mb-0">{{singlePlan.zipCode}}</h5>
                                             </div>
                                     </div>
                                 </div>
@@ -48,18 +51,6 @@
                       
                     </mat-card>
                 </div>
-                <div class="col-md-6 mt-20" >
-                        <mat-card class="example-card height-470 bg-grey lter bd-1">
-    
-                            <mat-card-content>
-                                <p class="text-center">
-                                    <i class="material-icons icon-center" (click)="openFragment('plan')">
-                                                                        add   </i>
-                                </p>
-                            </mat-card-content>
-    
-                        </mat-card>
-                    </div>
                 </div>
     </div>
 

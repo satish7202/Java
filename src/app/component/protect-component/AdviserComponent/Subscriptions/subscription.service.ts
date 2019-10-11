@@ -236,6 +236,14 @@ export class SubscriptionService {
   { 
     return this.http.put(apiConfig.MAIN_URL + appConfig.MAP_MODULE_TO_PLANS,data)
   }
+  getBillerProfile(data){
+    const httpParams=new HttpParams().set('advisorId',data.advisorId).set('subId', data.subId)
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_BILLER_PROFILE,httpParams)
+  }
+  getPayeerProfile(data){
+    const httpParams=new HttpParams().set('clientId',data.clientId).set('subId', data.subId)
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_PAYEE_PROFILE,httpParams)
+  }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data, 10000);
   }
