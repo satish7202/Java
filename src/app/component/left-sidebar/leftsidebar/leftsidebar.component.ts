@@ -1,6 +1,8 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import {Component, OnInit, ElementRef} from '@angular/core';
 import $ from "jquery";
-import { AuthService } from 'src/app/auth-service/authService';
+import {AuthService} from 'src/app/auth-service/authService';
+import {EventService} from "../../../Data-service/event.service";
+
 @Component({
   selector: 'app-leftsidebar',
   templateUrl: './leftsidebar.component.html',
@@ -8,78 +10,76 @@ import { AuthService } from 'src/app/auth-service/authService';
 })
 export class LeftsidebarComponent implements OnInit {
 
-  showTabs=true;
-  showSettings=false;
-  arrow=false;
-  userInfo :any;
+  showTabs = true;
+  showSettings = false;
+  arrow = false;
+  userInfo: any;
+  sideNavContainerClass;
 
-  constructor(private authService:AuthService,private _eref: ElementRef) { }
+  constructor(private authService: AuthService, private _eref: ElementRef, private eventService: EventService) {
+    this.eventService.sideNavContainerClassData.subscribe(
+      data => this.sideNavContainerClass = data
+    );
+  }
 
   ngOnInit() {
-      this.onResize(); 
-      this.userInfo = this.authService.getUserInfo()
-      console.log(this.userInfo)
+    this.onResize();
+    this.userInfo = this.authService.getUserInfo()
+    console.log(this.userInfo)
   }
-    
 
-  showMainNavWrapper(){
+
+  showMainNavWrapper() {
     $("#d").addClass("width-230");
     $("#d").removeClass("width-60");
-    $('#left').css("margin-left","230px") 
-    this.showTabs=true;
-    this.arrow=false;
+    $('#left').css("margin-left", "230px")
+    this.showTabs = true;
+    this.arrow = false;
   }
 
-  showsmallNavWrapper(){
+  showsmallNavWrapper() {
     $("#d").removeClass("width-230");
-    $('#left').css("margin-left","65px")
-    $('#left').css("transition","margin-left 0.3s")
-    $('#d').css("transition","width 0.2s")
-    this.showTabs=false
-    this.arrow=false;
+    $('#left').css("margin-left", "65px")
+    $('#left').css("transition", "margin-left 0.3s")
+    $('#d').css("transition", "width 0.2s")
+    this.showTabs = false
+    this.arrow = false;
   }
 
-  onResize()
-  {
-    if(window.innerHeight>=670 || window.innerHeight==670)
-    {
-      this.showSettings=false;
+  onResize() {
+    if (window.innerHeight >= 670 || window.innerHeight == 670) {
+      this.showSettings = false;
     }
-    if(window.innerWidth <= 600)
-    {
-      this.showTabs=false;
-      $('#left').css("margin-left","65px");
+    if (window.innerWidth <= 600) {
+      this.showTabs = false;
+      $('#left').css("margin-left", "65px");
       $("#d").addClass("width,60px");
       $("#d").removeClass("width-230");
-    }
-    else{
-      if(this.showTabs==false)
-      {
-         this.showTabs=false;
-      }
-      else{
-        this.showTabs=true;
+    } else {
+      if (this.showTabs == false) {
+        this.showTabs = false;
+      } else {
+        this.showTabs = true;
         $("#d").addClass("width-230");
         $("#d").removeClass("width-60");
       }
     }
   }
-  openSettings()
-  {
-    if(this.showSettings==false)
-    {
-      $("#showSettings").css("transition","0.5s")
-      this.showSettings=true;
+
+  openSettings() {
+    if (this.showSettings == false) {
+      $("#showSettings").css("transition", "0.5s")
+      this.showSettings = true;
+    } else {
+      this.showSettings = false;
     }
-    else{
-      this.showSettings=false;
-    }   
   }
-  backSections()
-  {
-    this.arrow=this.arrow?this.arrow=false:this.arrow=true
+
+  backSections() {
+    this.arrow = this.arrow ? this.arrow = false : this.arrow = true
   }
-  logout(){
-     this.authService.logout();
+
+  logout() {
+    this.authService.logout();
   }
 }
