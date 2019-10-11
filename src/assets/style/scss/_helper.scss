@@ -401,6 +401,9 @@ $lineheight:20px;
 .pt-100{
     padding-top: 100px !important;
 }
+.pt-120{
+    padding-top: 120px !important;
+}
 .pt-125{
     padding-top: 125px !important;
 }
@@ -776,11 +779,15 @@ $lineheight:20px;
 .mb-0 {
     margin-bottom: $zeropx !important;
 }
-
+.mb-2{
+    margin-bottom: 2px !important;
+}
 .mb-4 {
     margin-bottom: $p4 !important;
 }
-
+.mb-5{
+    margin-bottom: 5px !important;
+}
 .mb-8 {
     margin-bottom: $p4*2 !important;
 }
