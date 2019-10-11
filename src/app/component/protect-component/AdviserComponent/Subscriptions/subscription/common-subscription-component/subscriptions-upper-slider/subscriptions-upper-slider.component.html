@@ -42,7 +42,7 @@
   </div>
 
   <div class="wrapper-40 pt-0 mt-24">
-    <h4 class="mb-8 text-black" *ngIf="dataSource != undefined">{{dataSource[0].planName}}</h4>
+    <h4 class="pb-8 text-black" *ngIf="dataSource != undefined">{{dataSource[0].planName}}</h4>
   <div class="max-height-300 overflow-auto">
       <table mat-table [dataSource]="dataSource"  id="table-low">
         <ng-container matColumnDef="service">

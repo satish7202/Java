@@ -242,24 +242,24 @@ button:focus {
 .mat-tab-label {
     height: 64px !important;
 }
-::-webkit-scrollbar {
+/*::-webkit-scrollbar {
     width: 10px;
-}
-
- ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey;
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
-
- ::-webkit-scrollbar-thumb {
-    background: #CACFD2;
-    border-radius: 10px;
-}
-
- ::-webkit-scrollbar-thumb:hover {
-    background: #CACFD2;
-}
+}*/
+//
+// ::-webkit-scrollbar-track {
+//    box-shadow: inset 0 0 5px grey;
+//    border-radius: 10px;
+//    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+//}
+//
+// ::-webkit-scrollbar-thumb {
+//    background: #CACFD2;
+//    border-radius: 10px;
+//}
+//
+// ::-webkit-scrollbar-thumb:hover {
+//    background: #CACFD2;
+//}
 
 #aumtabs .mat-tab-label,
 #aumtabs1 .mat-tab-label {
