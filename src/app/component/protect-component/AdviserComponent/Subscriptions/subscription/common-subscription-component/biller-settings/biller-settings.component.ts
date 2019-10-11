@@ -8,6 +8,7 @@ import { SubscriptionService } from '../../../subscription.service';
   styleUrls: ['./biller-settings.component.scss']
 })
 export class BillerSettingsComponent implements OnInit {
+  obj1: { 'advisorId': number; };
 
   constructor(public subInjectService:SubscriptionInject,private subService:SubscriptionService) { }
   obj={
@@ -17,6 +18,7 @@ export class BillerSettingsComponent implements OnInit {
   }
   ngOnInit() {
     this.getChangeBillerSetting();
+    this.getBillerProfileList();
   }
   getChangeBillerSetting()
   {
@@ -27,6 +29,17 @@ export class BillerSettingsComponent implements OnInit {
   changeBillerSettingData(data)
   {
     console.log("data",data)
+  }
+  getBillerProfileList(){
+    this.obj1={
+      'advisorId':12345
+    }
+    this.subService.getBillerProfile(this.obj).subscribe(
+      data=> this.getBillerProfileRes(data)
+    )
+  }
+  getBillerProfileRes(data){
+    console.log("getBillerProfileRes data",data)
   }
   Close(state)
   {

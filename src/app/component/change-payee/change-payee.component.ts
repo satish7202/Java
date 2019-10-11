@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SubscriptionInject } from '../protect-component/AdviserComponent/Subscriptions/subscription-inject.service';
+import { SubscriptionService } from '../protect-component/AdviserComponent/Subscriptions/subscription.service';
 
 @Component({
   selector: 'app-change-payee',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChangePayeeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public subInjectService: SubscriptionInject,private subService:SubscriptionService) { }
 
   ngOnInit() {
   }
-
+  Close(state)
+  {
+    this.subInjectService.rightSideData(state)
+    this.subInjectService.rightSliderData(state)
+  }
 }
