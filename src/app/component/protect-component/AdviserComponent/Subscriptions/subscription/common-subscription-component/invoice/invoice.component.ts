@@ -22,24 +22,27 @@ export class InvoiceComponent implements OnInit {
   dataSub: any;
   storeData;
   showRecord: any;
+  clientInvoice: any;
+  invData: any;
 
   constructor(public subInjectService:SubscriptionInject) {
     this.dataSub = this.subInjectService.singleProfileData.subscribe(
       data=>this.getInvoiceData(data)
     );
    }
-   getInvoiceData(data)
-   {
-    this.storeData = data
-   }
   @Input() invoiceData;
   @Input() invoiceInSub;
+  @Input() clientData;
   @Output() valueChange = new EventEmitter();
   ngOnInit() {
   console.log('this.invoiceSubscription',this.invoiceInSub);
   this.showRecord=false;
   }
  @Input() invoiceTab;
+ getInvoiceData(data)
+   {
+    this.storeData = data
+   }
  recordPayment()
  {
   this.showRecord=true;
@@ -47,6 +50,11 @@ export class InvoiceComponent implements OnInit {
  cancel()
  {
    this.showRecord=false;
+ }
+ passInvoice(data)
+ {
+  console.log(data);
+  this.storeData=data;
  }
   Close(state)
   { 

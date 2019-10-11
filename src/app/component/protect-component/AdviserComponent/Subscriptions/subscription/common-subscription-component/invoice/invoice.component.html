@@ -36,363 +36,27 @@
     </div>
     <div class="row ">
         <div class="col-md-4 p-0 height-500">
-            <div class="row pt-12 pb-12 bg-white hover roboto">
+            <div class="row pt-12 pb-12 bg-white hover roboto bb-1"  *ngFor="let strData of clientData" (click)="passInvoice(strData)">
                 <!-- <div class="col-md-1">
                     <mat-checkbox checked="false"></mat-checkbox>
                 </div> -->
                 <div class="col-md-8">
-                    <p class="m-0 f-15">Drasti Zaveri</p>
+                    <p class="m-0 f-15">{{strData.clientName}}</p>
                 </div>
                 <div class="col-md-4 text-right pr-8">
-                    <p class="m-0 f-15">Rs.20,000</p>
+                    <p class="m-0 f-15">{{strData.finalAmount}}</p>
                 </div>
                 
                 <div class="col-md-5">
-                    <p class="m-0 f-13 pt-12">INV-19-20-103001</p>
+                    <p class="m-0 f-13 pt-12">{{strData.invoiceNumber}}</p>
                 </div>
                 <div class="col-md-2 p-0">
-                    <p class="m-0 f-13 pt-12">26/08/2019</p>
+                    <p class="m-0 f-13 pt-12">{{strData.invoiceDate | date:'dd/MM/yyyy'}}</p>
                 </div>
                 <div class="col-md-5 text-right pr-8">
-                    <p class="m-0 f-13 pt-12 text-danger"> OVERDUE</p>
+                    <p class="m-0 f-13 pt-12" [ngClass]="strData.status == 'PAID' ? 'text-success f-400' : 'text-danger f-400'">{{strData.status}}</p>
                 </div>
             </div>
-            <div class="row pt-12 pb-12 bg-white hover bt-1 roboto">
-                <!-- <div class="col-md-1">
-                    <mat-checkbox></mat-checkbox>
-                </div> -->
-                <div class="col-md-8">
-                    <p class="m-0 f-15">Drasti Zaveri</p>
-                </div>
-                <div class="col-md-4 text-right pr-8">
-                    <p class="m-0 f-15">Rs.20,000</p>
-                </div>
-                
-                <div class="col-md-5">
-                    <p class="m-0 f-13 pt-12">INV-19-20-103001</p>
-                </div>
-                <div class="col-md-2 p-0">
-                    <p class="m-0 f-13 pt-12">26/08/2019</p>
-                </div>
-                <div class="col-md-5 text-right pr-8">
-                    <p class="m-0 f-13 pt-12 text-danger"> OVERDUE</p>
-                </div>
-            </div>
-            <div class="row pt-12 pb-12 bg-white hover bt-1 roboto">
-                <!-- <div class="col-md-1">
-                    <mat-checkbox></mat-checkbox>
-                </div> -->
-                <div class="col-md-8">
-                    <p class="m-0 f-15">Drasti Zaveri</p>
-                </div>
-                <div class="col-md-4 text-right pr-8">
-                    <p class="m-0 f-15">Rs.20,000</p>
-                </div>
-                
-                <div class="col-md-5">
-                    <p class="m-0 f-13 pt-12">INV-19-20-103001</p>
-                </div>
-                <div class="col-md-2 p-0">
-                    <p class="m-0 f-13 pt-12">26/08/2019</p>
-                </div>
-                <div class="col-md-5 text-right pr-8">
-                    <p class="m-0 f-13 pt-12 text-primary"> SENT</p>
-                </div>
-            </div>
-            <div class="row pt-12 pb-12 bg-white hover bt-1 roboto">
-                <!-- <div class="col-md-1">
-                    <mat-checkbox checked="false"></mat-checkbox>
-                </div> -->
-                <div class="col-md-8">
-                    <p class="m-0 f-15">Drasti Zaveri</p>
-                </div>
-                <div class="col-md-4 text-right pr-8">
-                    <p class="m-0 f-15">Rs.20,000</p>
-                </div>
-                
-                <div class="col-md-5">
-                    <p class="m-0 f-13 pt-12">INV-19-20-103001</p>
-                </div>
-                <div class="col-md-2 p-0">
-                    <p class="m-0 f-13 pt-12">26/08/2019</p>
-                </div>
-                <div class="col-md-5 text-right pr-8">
-                    <p class="m-0 f-13 pt-12 text-success"> PAID</p>
-                </div>
-            </div>
-            <div class="row pt-12 pb-12 bg-white hover bt-1 roboto">
-                <!-- <div class="col-md-1">
-                    <mat-checkbox checked="false"></mat-checkbox>
-                </div> -->
-                <div class="col-md-8">
-                    <p class="m-0 f-15">Drasti Zaveri</p>
-                </div>
-                <div class="col-md-4 text-right pr-8">
-                    <p class="m-0 f-15">Rs.20,000</p>
-                </div>
-               
-                <div class="col-md-5">
-                    <p class="m-0 f-13 pt-12">INV-19-20-103001</p>
-                </div>
-                <div class="col-md-2 p-0">
-                    <p class="m-0 f-13 pt-12">26/08/2019</p>
-                </div>
-                <div class="col-md-5 text-right pr-8">
-                    <p class="m-0 f-13 pt-12 text-danger"> OVERDUE</p>
-                </div>
-            </div>
-            <div class="row pt-12 pb-12 bg-white hover bt-1 roboto">
-                <!-- <div class="col-md-1">
-                    <mat-checkbox></mat-checkbox>
-                </div> -->
-                <div class="col-md-8">
-                    <p class="m-0 f-15">Drasti Zaveri</p>
-                </div>
-                <div class="col-md-4 text-right pr-8">
-                    <p class="m-0 f-15">Rs.20,000</p>
-                </div>
-              
-                <div class="col-md-5">
-                    <p class="m-0 f-13 pt-12">INV-19-20-103001</p>
-                </div>
-                <div class="col-md-2 p-0">
-                    <p class="m-0 f-13 pt-12">26/08/2019</p>
-                </div>
-                <div class="col-md-5 text-right pr-8">
-                    <p class="m-0 f-13 pt-12 text-danger"> OVERDUE</p>
-                </div>
-            </div>
-            <div class="row pt-12 pb-12 bg-white hover bt-1 roboto">
-                <!-- <div class="col-md-1">
-                    <mat-checkbox></mat-checkbox>
-                </div> -->
-                <div class="col-md-8">
-                    <p class="m-0 f-15">Drasti Zaveri</p>
-                </div>
-                <div class="col-md-4 text-right pr-8">
-                    <p class="m-0 f-15">Rs.20,000</p>
-                </div>
-               
-                <div class="col-md-5">
-                    <p class="m-0 f-13 pt-12">INV-19-20-103001</p>
-                </div>
-                <div class="col-md-2 p-0">
-                    <p class="m-0 f-13 pt-12">26/08/2019</p>
-                </div>
-                <div class="col-md-5 text-right pr-8">
-                    <p class="m-0 f-13 pt-12 text-primary"> SENT</p>
-                </div>
-            </div>
-            <div class="row pt-12 pb-12 bg-white hover bt-1 roboto bb-1">
-                <!-- <div class="col-md-1">
-                    <mat-checkbox></mat-checkbox>
-                </div> -->
-                <div class="col-md-8">
-                    <p class="m-0 f-15">Drasti Zaveri</p>
-                </div>
-                <div class="col-md-4 text-right pr-8">
-                    <p class="m-0 f-15">Rs.20,000</p>
-                </div>
-               
-                <div class="col-md-5">
-                    <p class="m-0 f-13 pt-12">INV-19-20-103001</p>
-                </div>
-                <div class="col-md-2 p-0">
-                    <p class="m-0 f-13 pt-12">26/08/2019</p>
-                </div>
-                <div class="col-md-5 text-right pr-8">
-                    <p class="m-0 f-13 pt-12 text-success"> PAID</p>
-                </div>
-            </div>
-            <div class="row pt-12 pb-12 bg-white hover bt-1 roboto bb-1">
-                    <!-- <div class="col-md-1">
-                        <mat-checkbox></mat-checkbox>
-                    </div> -->
-                    <div class="col-md-8">
-                        <p class="m-0 f-15">Drasti Zaveri</p>
-                    </div>
-                    <div class="col-md-4 text-right pr-8">
-                        <p class="m-0 f-15">Rs.20,000</p>
-                    </div>
-                   
-                    <div class="col-md-5">
-                        <p class="m-0 f-13 pt-12">INV-19-20-103001</p>
-                    </div>
-                    <div class="col-md-2 p-0">
-                        <p class="m-0 f-13 pt-12">26/08/2019</p>
-                    </div>
-                    <div class="col-md-5 text-right pr-8">
-                        <p class="m-0 f-13 pt-12 text-success"> PAID</p>
-                    </div>
-                </div>
-                <div class="row pt-12 pb-12 bg-white hover bt-1 roboto bb-1">
-                        <!-- <div class="col-md-1">
-                            <mat-checkbox></mat-checkbox>
-                        </div> -->
-                        <div class="col-md-8">
-                            <p class="m-0 f-15">Drasti Zaveri</p>
-                        </div>
-                        <div class="col-md-4 text-right pr-8">
-                            <p class="m-0 f-15">Rs.20,000</p>
-                        </div>
-                       
-                        <div class="col-md-5">
-                            <p class="m-0 f-13 pt-12">INV-19-20-103001</p>
-                        </div>
-                        <div class="col-md-2 p-0">
-                            <p class="m-0 f-13 pt-12">26/08/2019</p>
-                        </div>
-                        <div class="col-md-5 text-right pr-8">
-                            <p class="m-0 f-13 pt-12 text-success"> PAID</p>
-                        </div>
-                    </div>
-                    <div class="row pt-12 pb-12 bg-white hover bt-1 roboto bb-1">
-                            <!-- <div class="col-md-1">
-                                <mat-checkbox></mat-checkbox>
-                            </div> -->
-                            <div class="col-md-8">
-                                <p class="m-0 f-15">Drasti Zaveri</p>
-                            </div>
-                            <div class="col-md-4 text-right pr-8">
-                                <p class="m-0 f-15">Rs.20,000</p>
-                            </div>
-                            
-                            <div class="col-md-5">
-                                <p class="m-0 f-13 pt-12">INV-19-20-103001</p>
-                            </div>
-                            <div class="col-md-2 p-0">
-                                <p class="m-0 f-13 pt-12">26/08/2019</p>
-                            </div>
-                            <div class="col-md-5 text-right pr-8">
-                                <p class="m-0 f-13 pt-12 text-success"> PAID</p>
-                            </div>
-                        </div>
-                        <div class="row pt-12 pb-12 bg-white hover bt-1 roboto bb-1">
-                                <!-- <div class="col-md-1">
-                                    <mat-checkbox></mat-checkbox>
-                                </div> -->
-                                <div class="col-md-8">
-                                    <p class="m-0 f-15">Drasti Zaveri</p>
-                                </div>
-                                <div class="col-md-4 text-right pr-8">
-                                    <p class="m-0 f-15">Rs.20,000</p>
-                                </div>
-                                
-                                <div class="col-md-5">
-                                    <p class="m-0 f-13 pt-12">INV-19-20-103001</p>
-                                </div>
-                                <div class="col-md-2 p-0">
-                                    <p class="m-0 f-13 pt-12">26/08/2019</p>
-                                </div>
-                                <div class="col-md-5 text-right pr-8">
-                                    <p class="m-0 f-13 pt-12 text-success"> PAID</p>
-                                </div>
-                            </div>
-                            <div class="row pt-12 pb-12 bg-white hover bt-1 roboto bb-1">
-                                    <!-- <div class="col-md-1">
-                                        <mat-checkbox></mat-checkbox>
-                                    </div> -->
-                                    <div class="col-md-8">
-                                        <p class="m-0 f-15">Drasti Zaveri</p>
-                                    </div>
-                                    <div class="col-md-4 text-right pr-8">
-                                        <p class="m-0 f-15">Rs.20,000</p>
-                                    </div>
-                                   
-                                    <div class="col-md-5">
-                                        <p class="m-0 f-13 pt-12">INV-19-20-103001</p>
-                                    </div>
-                                    <div class="col-md-2 p-0">
-                                        <p class="m-0 f-13 pt-12">26/08/2019</p>
-                                    </div>
-                                    <div class="col-md-5 text-right pr-8">
-                                        <p class="m-0 f-13 pt-12 text-success"> PAID</p>
-                                    </div>
-                                </div>
-                                <div class="row pt-12 pb-12 bg-white hover bt-1 roboto bb-1">
-                                        <!-- <div class="col-md-1">
-                                            <mat-checkbox></mat-checkbox>
-                                        </div> -->
-                                        <div class="col-md-8">
-                                            <p class="m-0 f-15">Drasti Zaveri</p>
-                                        </div>
-                                        <div class="col-md-4 text-right pr-8">
-                                            <p class="m-0 f-15">Rs.20,000</p>
-                                        </div>
-                                       
-                                        <div class="col-md-5">
-                                            <p class="m-0 f-13 pt-12">INV-19-20-103001</p>
-                                        </div>
-                                        <div class="col-md-2 p-0">
-                                            <p class="m-0 f-13 pt-12">26/08/2019</p>
-                                        </div>
-                                        <div class="col-md-5 text-right pr-8">
-                                            <p class="m-0 f-13 pt-12 text-success"> PAID</p>
-                                        </div>
-                                    </div>
-                                    <div class="row pt-12 pb-12 bg-white hover bt-1 roboto bb-1">
-                                            <!-- <div class="col-md-1">
-                                                <mat-checkbox></mat-checkbox>
-                                            </div> -->
-                                            <div class="col-md-8">
-                                                <p class="m-0 f-15">Drasti Zaveri</p>
-                                            </div>
-                                            <div class="col-md-4 text-right pr-8">
-                                                <p class="m-0 f-15">Rs.20,000</p>
-                                            </div>
-                                          
-                                            <div class="col-md-5">
-                                                <p class="m-0 f-13 pt-12">INV-19-20-103001</p>
-                                            </div>
-                                            <div class="col-md-2 p-0">
-                                                <p class="m-0 f-13 pt-12">26/08/2019</p>
-                                            </div>
-                                            <div class="col-md-5 text-right pr-8">
-                                                <p class="m-0 f-13 pt-12 text-success"> PAID</p>
-                                            </div>
-                                        </div>
-                                        <div class="row pt-12 pb-12 bg-white hover bt-1 roboto bb-1">
-                                                <!-- <div class="col-md-1">
-                                                    <mat-checkbox></mat-checkbox>
-                                                </div> -->
-                                                <div class="col-md-8">
-                                                    <p class="m-0 f-15">Drasti Zaveri</p>
-                                                </div>
-                                                <div class="col-md-4 text-right pr-8">
-                                                    <p class="m-0 f-15">Rs.20,000</p>
-                                                </div>
-                                               
-                                                <div class="col-md-5">
-                                                    <p class="m-0 f-13 pt-12">INV-19-20-103001</p>
-                                                </div>
-                                                <div class="col-md-2 p-0">
-                                                    <p class="m-0 f-13 pt-12">26/08/2019</p>
-                                                </div>
-                                                <div class="col-md-5 text-right pr-8">
-                                                    <p class="m-0 f-13 pt-12 text-success"> PAID</p>
-                                                </div>
-                                            </div>
-                                            <div class="row pt-12 pb-12 bg-white hover bt-1 roboto bb-1">
-                                                    <!-- <div class="col-md-1">
-                                                        <mat-checkbox></mat-checkbox>
-                                                    </div> -->
-                                                    <div class="col-md-8">
-                                                        <p class="m-0 f-15">Drasti Zaveri</p>
-                                                    </div>
-                                                    <div class="col-md-4 text-right pr-8">
-                                                        <p class="m-0 f-15">Rs.20,000</p>
-                                                    </div>
-                                                  
-                                                    <div class="col-md-5">
-                                                        <p class="m-0 f-13 pt-12">INV-19-20-103001</p>
-                                                    </div>
-                                                    <div class="col-md-2 p-0">
-                                                        <p class="m-0 f-13 pt-12">26/08/2019</p>
-                                                    </div>
-                                                    <div class="col-md-5 text-right pr-8">
-                                                        <p class="m-0 f-13 pt-12 text-success"> PAID</p>
-                                                    </div>
-                                                </div>
         </div>
     
    <div class="col-md-8 p-0 bl-1 ">
@@ -434,13 +98,14 @@
                             <h4 class="text-black pt-48">{{storeData.clientName}}</h4>
                             
                             <p class="f-14 text-custom l-20">{{storeData.billingAddress}}</p>
+
                         </div>
                     </div>
             
             <div class="row pt-44">
                 <div class="col-md-8">
                     <p class="text-black f-400"><span class="text-custom f-16">Invoice no</span>: {{storeData.invoiceNumber}}</p>
-                    <p class="text-black f-400"><span class="text-custom f-16">Invoice date</span>: {{storeData.invoiceDate | date:'dd/MM/yyyy'}}</p>
+                    <p class="text-black f-400"><span class="text-custom f-16">Invoice date</span>: {{storeData.invoiceDate| date:'dd/MM/yyyy'}}</p>
                 </div>
                 <div class="col-md-4">
                     <h2 [ngClass]="storeData.status == 'PAID' ? 'text-success f-400' : 'text-danger f-400'">{{storeData.status}}</h2>
