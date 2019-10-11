@@ -24,6 +24,11 @@
       margin-top: -6px;
   }
   .height-500{
-    height: 400px;
+    height: 450px;
+    overflow: auto;
+    padding-bottom: 20px !important;
+  }
+  .height-350{
+    height: 320px;
     overflow: auto;
   }
