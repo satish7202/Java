@@ -24,6 +24,7 @@ export interface PeriodicElement {
  
 // ];
 @Component({
+
   selector: 'app-subscriptions-upper-slider',
   templateUrl: './subscriptions-upper-slider.component.html',
   styleUrls: ['./subscriptions-upper-slider.component.scss']
@@ -67,7 +68,7 @@ export class SubscriptionsUpperSliderComponent implements OnInit {
      this.ELEMENT_DATA.forEach(ele => {
       ele.feeMode = (ele.feeMode == 1)?"FIXED":"VARIABLE";
       ele.startsOn = (ele.status == 1)?"START":ele.startsOn;
-      ele.status = (ele.status == 2)?"LIVE":"NOT STARTED";
+      ele.status = (ele.status == 1)?"NOT STARTED":(ele.status == 2)?"LIVE":(ele.status == 3)?"FUTURE":"CANCELLED";
      });
      this.dataSource = this.ELEMENT_DATA;
   }

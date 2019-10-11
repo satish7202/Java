@@ -29,27 +29,41 @@ export class SubscriptionsSubscriptionComponent implements OnInit {
   }
 
   ngOnInit() {
-   this.getSubscriptionList();
+   this.getSummaryDataAdvisor();
   }
   displayedColumns: string[] = ['client','service','amt','sub','status','activation', 'lastbilling', 'nextbilling','feemode','icons'];
   dataSource;
   DataToSend;
-  getSubscriptionList()
-  {
+  getSummaryDataAdvisor(){
     let obj={
-      'advisorId':12345,
+      // 'id':2735, //pass here advisor id for Invoice advisor 
+      // 'module':1,
+      'advisorId' : 12345,
+      'clientId' : 0,
+      'flag' : 2,
       'dateType':0,
-      'order':0
-    }
-    this.subService.getSubscriptionSubscriptionData(obj).subscribe(
-      data=> this.getSubscriptionListResponse(data)
+      'limit':10,
+      'offset':0,
+      'order':0,
+     }
+    this.subService.getSubSummary(obj).subscribe(
+      data =>this.getSubSummaryRes(data)
     )
   }
-  getSubscriptionListResponse(data)
+  getSubSummaryRes(data){
+    console.log(data)
+    data.forEach(element => {
+      element.feeMode = (element.feeMode == 1)?"FIXED":"VARIABLE";
+      element.startsOn = (element.status == 1)?"START":element.startsOn;
+      element.status = (element.status == 1)?"NOT STARTED":(element.status == 2)?"LIVE":(element.status == 3)?"FUTURE":"CANCELLED"
+    });
+     this.dataSource=data;
+     this.DataToSend = data
+  }
+  openPlanSlider(value,state)
   {
-    console.log("subscription data",data)
-    this.dataSource=data
-    this.DataToSend = data
+    this.eventService.sidebarData(value);
+    this.subInjectService.rightSideData(state)
   }
   Open(value,state,data)
   {
