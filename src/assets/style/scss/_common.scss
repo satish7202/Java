@@ -574,3 +574,14 @@ color: #3F3F3F;
   -ms-filter: blur(2px);
   filter: blur(2px);
 }
+
+.mat-header-row {
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  background: white;
+}
+
+.max-height-400px {
+  max-height: 400px;
+}
