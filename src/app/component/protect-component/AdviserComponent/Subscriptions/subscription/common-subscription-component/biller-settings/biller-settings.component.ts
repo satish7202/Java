@@ -9,8 +9,15 @@ import { SubscriptionService } from '../../../subscription.service';
 })
 export class BillerSettingsComponent implements OnInit {
   obj1: { 'advisorId': number; };
-
-  constructor(public subInjectService:SubscriptionInject,private subService:SubscriptionService) { }
+  billerSettingData:any;
+  dataSub: any;
+  dataObj:any
+  isPrimary: any;
+  constructor(public subInjectService:SubscriptionInject,private subService:SubscriptionService) { 
+    this.dataSub = this.subInjectService.singleProfileData.subscribe(
+      data=>this.getBillerData(data)
+    );
+  }
   obj={
     'advisorId':12345,
     'subscriptionId':1,
@@ -18,7 +25,16 @@ export class BillerSettingsComponent implements OnInit {
   }
   ngOnInit() {
     this.getChangeBillerSetting();
-    this.getBillerProfileList();
+  }
+  getBillerData(data){
+    console.log(data);
+    this.dataObj={
+      'advisorId':12345,
+      'subId':data.id
+    }
+    this.subService.getBillerProfile(this.dataObj).subscribe(
+      data=> this.getBillerProfileRes(data)
+    )
   }
   getChangeBillerSetting()
   {
@@ -30,25 +46,22 @@ export class BillerSettingsComponent implements OnInit {
   {
     console.log("data",data)
   }
-  getBillerProfileList(){
-    this.obj1={
-      'advisorId':12345
-    }
-    this.subService.getBillerProfile(this.obj).subscribe(
-      data=> this.getBillerProfileRes(data)
-    )
-  }
   getBillerProfileRes(data){
     console.log("getBillerProfileRes data",data)
+    this.billerSettingData=data;
+  }
+  selectedBiller(data)
+  {
+    this.isPrimary=data;
   }
   Close(state)
   {
     this.subInjectService.rightSideData(state);
     this.subInjectService.rightSliderData(state); 
   }
-  planSettingData=[{'title':'RONAK HINDOCHA','code':'ARN123','Address':'#46,Street 1,Lokhandwala Township,Borivali East,Mumbai 400 066'},
-                   {'title':'RUPA HINDOCHA','code':'ARN124','Address':'#46,Street 1,Lokhandwala Township,Borivali East,Mumbai 400 066'},
-                   {'title':'DHYAAN HINDOCHA','code':'ARN125','Address':'#46,Street 1,Lokhandwala Township,Borivali East,Mumbai 400 066'}]
+  // planSettingData=[{'title':'RONAK HINDOCHA','code':'ARN123','Address':'#46,Street 1,Lokhandwala Township,Borivali East,Mumbai 400 066'},
+  //                  {'title':'RUPA HINDOCHA','code':'ARN124','Address':'#46,Street 1,Lokhandwala Township,Borivali East,Mumbai 400 066'},
+  //                  {'title':'DHYAAN HINDOCHA','code':'ARN125','Address':'#46,Street 1,Lokhandwala Township,Borivali East,Mumbai 400 066'}]
   editProfileData(data)
   {
     console.log

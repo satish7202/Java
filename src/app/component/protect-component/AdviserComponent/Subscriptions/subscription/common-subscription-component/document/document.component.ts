@@ -59,6 +59,7 @@ export class DocumentComponent implements OnInit {
     this.getplanDocumentData();
     this.getServiceDocumentData();
     this.documentDesign = 'true';
+    console.log('upperData',this.upperData)
   }
 
   openDocument(data) {
