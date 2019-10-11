@@ -14,3 +14,6 @@ h5{
 p.f-12,h5{
     font-family: "Proxima Nova",sans-serif;
 }
+::ng-deep .mat-checkbox-layout{
+    vertical-align: top !important;
+}

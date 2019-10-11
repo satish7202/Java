@@ -83,7 +83,9 @@ a,a:hover{
     height: 100vh;
     box-shadow: 0px 30px 32px rgba(0, 0, 0, 0.161) !important;
 }
-
+.text-underline{
+    text-decoration: underline !important;
+}
 .h-auto {
     height: $auto;
 }
