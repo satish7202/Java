@@ -122,5 +122,6 @@
     <app-biller-settings *ngIf="rightSliderData=='billerSettings'"></app-biller-settings>
     <app-modify-fee-structure [ModifyFeesChange]="rightSliderData" *ngIf="rightSliderData=='modifyFees'">
     </app-modify-fee-structure>
+    <app-change-payee *ngIf="rightSliderData=='changePayee'"></app-change-payee>
     <app-email-quotation *ngIf="rightSliderData=='eSignInvoices'"></app-email-quotation>
 </div>

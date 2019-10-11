@@ -1,6 +1,6 @@
-<div class="row bb-1">
+<div class="row bb-1 popup-header-fix-60">
   <div class="col-md-10 p-0">
-      <p class="f-16 mb-0 wrapper-20">CREATE SUBSCRIPTION FOR RONAK HASMUKH HINDOCHA</p>
+      <h5 class="mb-0 wrapper-20">CREATE SUBSCRIPTION FOR RONAK HASMUKH HINDOCHA</h5>
   </div>
   <div class="col-md-2 text-right">
       <i class="material-icons pt-16 c-p" (click)="Close('close')">
@@ -8,7 +8,7 @@
                           </i>
   </div>
 </div>
- <mat-horizontal-stepper  [@.disabled]="true" [linear]="isLinear" #stepper id="ui-stepper">
+ <mat-horizontal-stepper  [@.disabled]="true" [linear]="isLinear" #stepper id="ui-stepper" class="pt-72">
     <mat-step  [stepControl]="firstFormGroup">
         <ng-template matStepLabel>Fee structure</ng-template>
      <div class="wrapper-20 pt-44 mb-44 pb-44">
@@ -289,18 +289,6 @@
                 </div>
             </mat-card>
                 </div>
-                <div class="col-md-6 pt-24">
-                    <mat-card class="example-card height-470 bg-grey lter bd-1">
-    
-                        <mat-card-content>
-                            <p class="text-center">
-                                <i class="material-icons icon-center" (click)="openFragment('plan')">
-                                                                    add   </i>
-                            </p>
-                        </mat-card-content>
-    
-                    </mat-card>
-                </div>
             </div>
         </div>
     </mat-step>
@@ -418,18 +406,6 @@
                     </div>
                 </div>
             </mat-card>
-                </div>
-                <div class="col-md-6 pt-24">
-                    <mat-card class="example-card height-470 bg-grey lter bd-1">
-    
-                        <mat-card-content>
-                            <p class="text-center">
-                                <i class="material-icons icon-center" (click)="openFragment('plan')">
-                                                                    add   </i>
-                            </p>
-                        </mat-card-content>
-    
-                    </mat-card>
                 </div>
             </div>
         </div>

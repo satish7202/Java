@@ -97,9 +97,5 @@ p{
     height: 225px;
     overflow: auto;
   }
-  ::ng-deep #table-low thead tr th {
-    bottom: 0px;
-    position: sticky;
-    z-index: 10;
-  }
+ 
   
