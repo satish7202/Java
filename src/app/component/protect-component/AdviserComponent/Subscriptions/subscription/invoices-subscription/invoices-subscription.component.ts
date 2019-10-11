@@ -26,6 +26,7 @@ export class InvoicesSubscriptionComponent implements OnInit {
   subscriptionValue: any;
   invoiceSub: any;
   invoiceSubscription: string;
+  invoiceClientData: any;
   constructor(public subInjectService:SubscriptionInject, private eventService:EventService,public subscription:SubscriptionService) {
     this.ngOnInit(); 
   }
@@ -52,6 +53,7 @@ export class InvoicesSubscriptionComponent implements OnInit {
   {
     console.log(data)
     const ELEMENT_DATA=data;
+    this.invoiceClientData=data;
    this.dataSource=ELEMENT_DATA;
    this.showLoader=false;
   }
