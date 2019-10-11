@@ -1,3 +1,7 @@
+<div *ngIf="showLoader">
+    <mat-spinner class="loader" [diameter]="30"></mat-spinner>
+</div>
+<div  *ngIf="showLoader==false">
 <div class="full-lights pb-36" id="ui-subscription-completeness">
     <div class="wrapper-20">
         <div class="row">
@@ -16,8 +20,8 @@
                                         </i>
                             </div>
                             <div class="col-md-10 p-0" (click)="goToSelectivePage()">
-                                <h4 class="mb-0 c-p">{{obj.data}}</h4>
-                                <p class="text-primitive mb-0 f-14 pt-8">{{obj.innerData}}</p>
+                                <h4 class="mb-0 c-p">{{obj.stepType}}</h4>
+                                <p class="text-primitive mb-0 f-14 pt-8">{{obj.stepTypeDescription}}</p>
                             </div>
                         </div>
                     </mat-card>
@@ -109,4 +113,5 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
