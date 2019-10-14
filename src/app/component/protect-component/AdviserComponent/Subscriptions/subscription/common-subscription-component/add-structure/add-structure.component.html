@@ -38,7 +38,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="form-group mb-0">
-                            <input type="email" formControlName="code" maxlength="10" class="form-control br-2">
+                            <input type="email" formControlName="code" maxlength="{{getFormControl().code.maxLength}}" class="form-control br-2">
                         </div>
                         <div class="row">
                             <div class="col-md-8">
@@ -47,7 +47,7 @@
                                     Code is Required</mat-error>
                             </div>
                             <div class="col-md-4">
-                                <p class="mb-0 f-12 text-custom text-right pt-4">0/20</p>
+                                <p class="mb-0 f-12 text-custom text-right pt-4">{{getFormControl().code.value?.length?getFormControl().code.value.length:0}}/{{getFormControl().code.maxLength}}</p>
                             </div>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                     </div>
                     <div class="col-md-5">
                         <div class="form-group mb-0">
-                            <textarea class="form-control br-2" maxlength="160" formControlName="description" rows="5"></textarea>
+                            <textarea class="form-control br-2" maxlength="{{getFormControl().description.maxLength}}" formControlName="description" rows="5"></textarea>
                         </div>
                         <div class="row">
                             <div class="col-md-8">
@@ -67,7 +67,7 @@
                                     Description is Required</mat-error>
                             </div>
                             <div class="col-md-4">
-                                <p class="mb-0 f-12 text-custom text-right pt-4">0/20</p>
+                                <p class="mb-0 f-12 text-custom text-right pt-4">{{getFormControl().description.value?.length?getFormControl().description.value.length:0}}/{{getFormControl().description.maxLength}}</p>
                             </div>
                         </div>
                     </div>

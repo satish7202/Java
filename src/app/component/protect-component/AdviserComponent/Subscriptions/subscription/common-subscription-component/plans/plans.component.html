@@ -59,7 +59,7 @@
                         </div>
                             </mat-card>
                     </div> -->
-                    <div class="col-md-4 pb-40" *ngFor="let singleServicePlan of servicePlanData">
+                    <div class="col-md-4 pb-40 c-p" *ngFor="let singleServicePlan of servicePlanData">
                             <mat-card class="p-0 b-a" (click)="selectServicePlan(singleServicePlan)" [ngClass]="{'p-0': singleServicePlan.selected==false,'b-a':singleServicePlan.selected==false,'p-0':singleServicePlan.selected==true,'ba-blue':singleServicePlan.selected==true}">
                                 <div class="row bg-grey lter">
                                     <div class="col-md-12 p-0">

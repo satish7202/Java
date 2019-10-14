@@ -3,6 +3,7 @@ import { MatDialogRef } from '@angular/material';
 import { SubscriptionService } from '../../../subscription.service';
 import * as _ from 'lodash';
 import { UpperSliderComponent } from '../upper-slider/upper-slider.component';
+import { EventService } from 'src/app/Data-service/event.service';
 @Component({
   selector: 'app-modules',
   templateUrl: './modules.component.html',
@@ -10,7 +11,7 @@ import { UpperSliderComponent } from '../upper-slider/upper-slider.component';
 })
 export class ModulesComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<UpperSliderComponent>, private subService: SubscriptionService) { }
+  constructor(public dialogRef: MatDialogRef<UpperSliderComponent>, private subService: SubscriptionService,private eventService: EventService) { }
   @Input() upperData;
   ModuleData;
   mappedData = [];
@@ -48,7 +49,9 @@ export class ModulesComponent implements OnInit {
     console.log(this.mappedData.length)
   }
   mapModuleToPlan() {
-    let data=[];
+    let data={
+      "serviceModuleMappingList":[]
+    };
     if(this.mappedData.length==0)
     {
       return;
@@ -60,7 +63,7 @@ export class ModulesComponent implements OnInit {
           "serviceId": this.upperData.id,
           "subModuleId": element.subModuleId
         }
-        data.push(obj)
+        data.serviceModuleMappingList.push(obj)
       })
       this.subService.mapModuleToplanData(data).subscribe(
         data =>this.mapModuleToPlanResponse(data)
@@ -72,5 +75,6 @@ export class ModulesComponent implements OnInit {
   {
     this.dialogRef.close();
    console.log("Module Map data",data)
+   this.eventService.openSnackBar("Module is mapped","OK")
   }
 }
