@@ -7,6 +7,8 @@ import { SubscriptionPopupComponent } from '../subscription-popup/subscription-p
 import { SubscriptionService } from '../../../subscription.service';
 import * as _ from 'lodash';
 import { AddDocumentComponent } from '../add-document/add-document.component';
+import { element } from 'protractor';
+import { timingSafeEqual } from 'crypto';
 
 export interface PeriodicElement {
   document: string;
@@ -217,5 +219,34 @@ export class DocumentComponent implements OnInit {
   display(data) {
     console.log(data)
     this.ngOnInit()
+  }
+  mapDocumentToService()
+  {
+    if(this.mappedData.length==0)
+    {
+      return;
+    }
+    else{
+      const obj=[];
+      this.mappedData.forEach(element=>{
+        const data={
+          "mappedType":2,
+          "mappingId":element.mappingId,
+          "id":element.id,
+          "documentRepositoryId":element.documentRepositoryId,
+          "advisorId":12345
+        }
+        obj.push(data)
+      })
+      this.subService.mapDocumentToService(obj).subscribe(
+       data =>this.mapDocumentToServiceResponse(data)
+      ) 
+    }
+  }
+  mapDocumentToServiceResponse(data)
+  {
+     console.log(data)
+     this.eventService.openSnackBar("Document is mapped","OK")
+
   }
 }

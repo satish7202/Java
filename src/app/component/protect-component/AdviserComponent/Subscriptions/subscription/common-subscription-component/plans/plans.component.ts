@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { SubscriptionService } from '../../../subscription.service';
 import * as _ from "lodash";
+import { EventService } from 'src/app/Data-service/event.service';
 @Component({
   selector: 'app-plans',
   templateUrl: './plans.component.html',
@@ -9,7 +10,7 @@ import * as _ from "lodash";
 })
 export class PlansComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<PlansComponent>, private subService: SubscriptionService) { }
+  constructor(public dialogRef: MatDialogRef<PlansComponent>, private subService: SubscriptionService,private eventService:EventService) { }
   @Input() componentFlag: string;
   @Input() upperData;
   servicePlanData;
@@ -70,7 +71,11 @@ export class PlansComponent implements OnInit {
    console.log("Mapped Plans",obj)
 
    this.subService.mapPlanToServiceSettings(obj).subscribe(
-     data =>console.log("mapped sucessfully",data)
+     data =>this.saveMappedPlansResponse(data)
    )
+  }
+  saveMappedPlansResponse(data)
+  {
+    this.eventService.openSnackBar("Plan is mapped","OK")
   }
 }
