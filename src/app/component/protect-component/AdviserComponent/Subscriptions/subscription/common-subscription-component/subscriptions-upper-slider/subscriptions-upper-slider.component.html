@@ -52,7 +52,7 @@
 
         <ng-container matColumnDef="amt">
           <th mat-header-cell *matHeaderCellDef> Fee amount</th>
-          <td mat-cell *matCellDef="let element" (click)="openPlanSlider('modifyFees','open')" class="c-p text-primary text-underline"> View
+          <td mat-cell *matCellDef="let element" (click)="openPlanSlider('modifyFees','open',element)" class="c-p text-primary text-underline"> View
             details
           </td>
         </ng-container>
@@ -101,9 +101,9 @@
             more_vert
           </i>
             <mat-menu #menu="matMenu">
-              <a mat-menu-item (click)="openPlanSlider('modifyFees','open')">View fee structure</a>
-              <a mat-menu-item (click)="openPlanSlider(element,'billerSettings','open')">Edit Biller settings</a>
-              <a mat-menu-item class="bt-1" (click)="openPlanSlider(element,'changePayee','open')">Edit Payee settings</a>
+              <a mat-menu-item (click)="openPlanSlider('modifyFees','open',element)">View fee structure</a>
+              <a mat-menu-item (click)="openPlanSlider('billerSettings','open',element)">Edit Biller settings</a>
+              <a mat-menu-item class="bt-1" (click)="openPlanSlider('changePayee','open',element)">Edit Payee settings</a>
               <a mat-menu-item (click)="delete('cancelSubscription')">Cancel subscription</a>
               <a mat-menu-item class="bt-1" (click)="deleteModal('SUBSCRIPTION')">Delete subscription</a>
             </mat-menu>

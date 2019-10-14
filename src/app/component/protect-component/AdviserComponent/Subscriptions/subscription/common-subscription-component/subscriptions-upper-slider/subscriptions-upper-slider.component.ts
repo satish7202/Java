@@ -47,10 +47,10 @@ export class SubscriptionsUpperSliderComponent implements OnInit {
     console.log(this.upperData);
   }
 
-  openPlanSlider(data, value) {
+  openPlanSlider(value,state,data) {
     this.eventService.sliderData(value);
     /*TODO Removed state param and passed value*/
-    this.subInjectService.rightSliderData(value);
+    this.subInjectService.rightSliderData(state);
     this.subInjectService.addSingleProfile(data);
 
   }
