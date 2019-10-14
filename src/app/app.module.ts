@@ -184,6 +184,7 @@ import { AssetsComponent } from './component/protect-component/customers/compone
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    // CommonSubscriptionComponent,
     SlimLoadingBarModule.forRoot(),
     FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),
     MDBBootstrapModule.forRoot()

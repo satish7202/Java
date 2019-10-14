@@ -24,6 +24,7 @@ export class InvoiceComponent implements OnInit {
   showRecord: any;
   clientInvoice: any;
   invData: any;
+  showEdit: boolean;
 
   constructor(public subInjectService:SubscriptionInject) {
     this.dataSub = this.subInjectService.singleProfileData.subscribe(
@@ -37,6 +38,7 @@ export class InvoiceComponent implements OnInit {
   ngOnInit() {
   console.log('this.invoiceSubscription',this.invoiceInSub);
   this.showRecord=false;
+  this.showEdit=false;
   }
  @Input() invoiceTab;
  getInvoiceData(data)
@@ -55,6 +57,14 @@ export class InvoiceComponent implements OnInit {
  {
   console.log(data);
   this.storeData=data;
+ }
+ editInvoice()
+ {
+  this.showEdit=true;
+ }
+ closeEditInv()
+ {
+  this.showEdit=false;
  }
   Close(state)
   { 

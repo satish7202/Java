@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SubscriptionInject } from '../../../subscription-inject.service';
 import { SubscriptionService } from '../../../subscription.service';
+import { EventService } from 'src/app/Data-service/event.service';
 
 @Component({
   selector: 'app-biller-settings',
@@ -9,13 +10,19 @@ import { SubscriptionService } from '../../../subscription.service';
 })
 export class BillerSettingsComponent implements OnInit {
   obj1: { 'advisorId': number; };
+  @Input() upperData;
   billerSettingData:any;
   dataSub: any;
   dataObj:any
-  isPrimary: any;
-  constructor(public subInjectService:SubscriptionInject,private subService:SubscriptionService) { 
+  isSelectedPlan: any;
+  getSubsciption: any;
+  getDataRow: any;
+  constructor(public subInjectService:SubscriptionInject,public subService:SubscriptionService,public eventService:EventService) { 
     this.dataSub = this.subInjectService.singleProfileData.subscribe(
       data=>this.getBillerData(data)
+    );
+    this.eventService.rightSliderData.subscribe(
+      value=>this.getBillerData1(value)
     );
   }
   obj={
@@ -24,35 +31,58 @@ export class BillerSettingsComponent implements OnInit {
     'billerProfileId':5
   }
   ngOnInit() {
-    this.getChangeBillerSetting();
+   
   }
   getBillerData(data){
-    console.log(data);
-    this.dataObj={
-      'advisorId':12345,
-      'subId':data.id
-    }
-    this.subService.getBillerProfile(this.dataObj).subscribe(
-      data=> this.getBillerProfileRes(data)
-    )
+    this.getDataRow = data
   }
-  getChangeBillerSetting()
+  getBillerData1(value){
+     if(value == 'billerSettings'){
+      this.dataObj={
+        'advisorId':12345,
+        'subId': this.getDataRow.id
+      }
+      this.subService.getBillerProfile(this.dataObj).subscribe(
+        data=> this.getBillerProfileRes(data)
+      )
+      this.getSubsciption =  this.getDataRow
+     }
+
+  }
+  saveChangeBillerSetting()
   {
-    this.subService.changeBillerSetting(this.obj).subscribe(
+    let obj={
+      id:this.isSelectedPlan.id,
+      subscriptionId:this.getSubsciption.id
+    }
+    this.subService.changeBillerSetting(obj).subscribe(
       data=> this.changeBillerSettingData(data)
     )
   }
   changeBillerSettingData(data)
   {
     console.log("data",data)
+    if(data == true){
+      this.Close('close')
+    }
   }
   getBillerProfileRes(data){
     console.log("getBillerProfileRes data",data)
     this.billerSettingData=data;
+    this.billerSettingData.forEach(element => {
+      element.selected = (element.selected == 0)?false:true  
+      });
   }
-  selectedBiller(data)
+  selectedBiller(data,singlePlan)
   {
-    this.isPrimary=data;
+    singlePlan.selected = true;
+    console.log('selected value',data)
+    console.log('selected singlePlan',singlePlan);
+    this.billerSettingData.forEach(element => {
+      element.selected = false;
+    });
+    singlePlan.selected = true;
+    this.isSelectedPlan=singlePlan;
   }
   Close(state)
   {

@@ -3,6 +3,8 @@ import { SubscriptionService } from '../../subscription.service';
 import { SubscriptionInject } from '../../subscription-inject.service';
 import { EventService } from 'src/app/Data-service/event.service';
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
+import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
+import { MatDialog } from '@angular/material';
 
 export interface PeriodicElement {
   date:string;
@@ -27,7 +29,8 @@ export class InvoicesSubscriptionComponent implements OnInit {
   invoiceSub: any;
   invoiceSubscription: string;
   invoiceClientData: any;
-  constructor(public subInjectService:SubscriptionInject, private eventService:EventService,public subscription:SubscriptionService) {
+  dataCount: any;
+  constructor(public dialog:MatDialog,public subInjectService:SubscriptionInject, private eventService:EventService,public subscription:SubscriptionService) {
     this.ngOnInit(); 
   }
   
@@ -37,6 +40,7 @@ export class InvoicesSubscriptionComponent implements OnInit {
   ngOnInit() {
    this.getInvoiceSubData();
    this.invoiceSubscription='false';
+   this.dataCount=0;
   }
   getInvoiceSubData()
   {
@@ -54,6 +58,7 @@ export class InvoicesSubscriptionComponent implements OnInit {
     console.log(data)
     const ELEMENT_DATA=data;
     this.invoiceClientData=data;
+    ELEMENT_DATA.forEach(item => item.selected = false);
    this.dataSource=ELEMENT_DATA;
    this.showLoader=false;
   }
@@ -79,11 +84,79 @@ this.subInjectService.addSingleProfile(data)
   {
     this.singleInvoiceData=data
   }
-  
+  selectAll(event){
+    // const checked = event.target.checked;
+    // this.dataSource.forEach(item => item.selected = 'checked');
+    this.dataSource.forEach(item => {
+    //   if(item.selected==false) 
+    //   {
+    //     item.selected = true;
+    //     this.dataCount++;
+    //   }else{
+    //     item.selected = false;
+    //     this.dataCount--;
+    //   }
+    // });
+    item.selected = event.checked;
+    // if(item.dataCountd>=1){
+    //   this.dataCount=1
+    // }else{
+    //   this.dataCount++
+    // }
+    });
+    // if(item.selected=="true"){
+    //   this.dataCount++;
+    // }else{
+    //   this.dataCount--;
+    // }
+    
+  }
+  changeSelect(data)
+  {
+    if(data.selected==false)
+    {
+      data.selected = true;
+      this.dataCount++;
+      data.dataCountd =this.dataCount;
+    }else{
+      data.selected = false;
+      this.dataCount--;
+      data.dataCountd =this.dataCount;
+    }
+  }
   display(data)
   {
     console.log(data);
     this.ngOnInit();
   }
-  
+  deleteModal(value) {
+    const dialogData = {
+      data: value,
+      header: 'DELETE',
+      body: 'Are you sure you want to delete the document GD?',
+      body2: 'This cannot be undone',
+      btnYes: 'CANCEL',
+      btnNo: 'DELETE',
+      positiveMethod: () => {
+        console.log('11111111111111111111111111111111111111111111');
+      },
+      negativeMethod: () => {
+        console.log('2222222222222222222222222222222222222');
+      }
+    }
+    console.log(dialogData+"11111111111111");
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '400px',
+      data: dialogData,
+      autoFocus: false,
+
+
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
+
+  }
 }

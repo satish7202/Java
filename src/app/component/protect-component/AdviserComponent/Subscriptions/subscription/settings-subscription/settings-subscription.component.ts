@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-settings-subscription',
@@ -7,14 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsSubscriptionComponent implements OnInit {
 
-  constructor() { }
-  
-  ngOnInit() {
-    this.selectedTab="PLANS"
+  constructor() {
   }
-   selectedTab;
-  tabClick(value)
-  {
-   this.selectedTab=value.tab.textLabel;
+
+  selected = 0;
+  selectedTab;
+
+  ngOnInit() {
+    // this.selectedTab="PLANS"
+    this.selectedTab = 'SERVICES';
+    // this.selected = 1;
+  }
+
+  tabClick(value) {
+    this.selectedTab = value.tab.textLabel;
   }
 }
