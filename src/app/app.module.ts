@@ -91,6 +91,7 @@ import {CustomerComponent} from './component/protect-component/customers/compone
 import {AccountsComponent} from './component/protect-component/customers/component/customer/accounts/accounts.component';
 import {SummaryComponent} from './component/protect-component/customers/component/customer/accounts/summary/summary.component';
 import { CustomFormInputComponent } from './common/custom-form-input/custom-form-input.component';
+import { AssetsComponent } from './component/protect-component/customers/component/customer/accounts/assets/assets.component';
 
 @NgModule({
   declarations: [
@@ -172,7 +173,8 @@ import { CustomFormInputComponent } from './common/custom-form-input/custom-form
     AccountsComponent,
     SummaryComponent,
     ChangePayeeComponent,
-    CustomFormInputComponent
+    CustomFormInputComponent,
+    AssetsComponent
   ],
   imports: [
     BrowserModule,

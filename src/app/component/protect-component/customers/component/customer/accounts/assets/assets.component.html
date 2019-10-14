@@ -1,3 +1,158 @@
 <div id="ui-assets">
-test
+<div class="row">
+    <div class="col-md-2 p-0 bg-light pt-12 pb-44">
+        <ul>
+            <li>Mutual Funds</li>
+        </ul>
+    </div>
+    <div class="col-md-10 p-0">
+        <div class="wrapper-8">
+        <div class="row">
+            <div class="col-md-12 right text-right pt-28 pb-28 pr-0">
+                <button mat-stroked-button [matMenuTriggerFor]="menu" class="b-a br-0">Overview Report <mat-icon aria-hidden="false" aria-label="Example home icon">keyboard_arrow_down</mat-icon>
+                </button>
+                    <mat-menu #menu="matMenu">
+                    <button mat-menu-item>Overview Report</button>
+                    <button mat-menu-item>Summary</button>
+                    <button mat-menu-item>All Transactions</button>
+                    <button mat-menu-item>Unrealized Transactions</button>
+                    <button mat-menu-item>Capital Gains</button>
+                    <button mat-menu-item>Goal Linkage</button>
+                    </mat-menu>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 p-0">
+                <h4 class="m-0 text-black roboto">Mutual fund overview</h4>
+            </div>
+            <div class="col-md-8 p-0 right text-right">
+                <img src="assets/images/svg/download-bordered.svg" class="c-p">
+                <img src="assets/images/svg/up-down.svg" class="c-p">
+                <img src="assets/images/svg/three-dot-bordered.svg" class="c-p mr-12">
+
+                <button mat-stroked-button class="btn-default addon mr-12 v-middle"><i class="material-icons">filter_list</i>FILTERS</button>
+                <button mat-stroked-button class="btn-primary addon v-middle"><i class="material-icons">add</i>ADD NEW</button>
+            </div>
+        </div>
+    </div>
+        <div class="row pt-12">
+            <div class="col-md-5 pr-4 pl-8">
+                <div class="row b-a bl-0">
+                    <div class="col-md-12 bg-grey lter p-0">
+                        <h5 class="mb-0 wrapper-8 pt-12 pb-16 text-black b-b">Summary</h5>
+                    </div>
+                    <div class="col-md-12 p-0">
+                        <p class="m-0 text-custom pt-24 pl-8">Current value</p>
+                        <h2 class="m-0 f-300 text-black pt-4 pl-8 pb-24">₹28,37,842</h2>
+                    </div>
+                    <div class="col-md-12 p-0">
+                        <div class="row bg-light lter pt-20 pb-20 bt-1">
+                            <div class="col-md-4 pr-0 pl-12">
+                                <p class="text-custom m-0">Amount invested</p>
+                                <h5 class="m-0 text-black">₹19,24,908</h5>
+                            </div>
+                            <div class="col-md-4 pr-0 pl-12">
+                                    <p class="text-custom m-0">Unrealized gain/loss</p>
+                                    <h5 class="m-0 text-success">₹9,13,206</h5>
+                                </div>
+                                <div class="col-md-4 pr-0 pl-12">
+                                        <p class="text-custom m-0">Returns</p>
+                                        <h5 class="m-0 text-success">12.23% <i class="material-icons f-14 f-700">
+                                                arrow_upward
+                                                </i></h5>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 pl-4 pr-8">
+                <div class="row">
+                    <div class="col-md-5 p-0 b-a">
+                    <img src="assets/images/svg/circle-chart.svg" class="center-img">
+                    </div>
+                    <div class="col-md-7 b-a p-0">
+                        <div class="row b-b pt-12">
+                            <div class="col-md-1">
+                                <div class="hw-16 bg-primary"></div>
+                            </div>
+                            <div class="col-md-5">
+                                <p class="f-500 text-black">Equity</p>
+                            </div>
+                            <div class="col-md-3">
+                                    <p class="text-black">5,24,819</p>
+                            </div>
+                            <div class="col-md-3">
+                                    <p class="text-black">23.43%</p>
+                            </div>
+                           </div>
+                           <div class="row b-b pt-12">
+                                <div class="col-md-1">
+                                    <div class="hw-16 bg-success"></div>
+                                </div>
+                                <div class="col-md-5">
+                                    <p class="f-500 text-black">Debt</p>
+                                </div>
+                                <div class="col-md-3">
+                                        <p class="text-black">5,24,819</p>
+                                </div>
+                                <div class="col-md-3">
+                                        <p class="text-black">23.43%</p>
+                                </div>
+                               </div>
+                               <div class="row b-b pt-12">
+                                    <div class="col-md-1">
+                                        <div class="hw-16 bg-warning"></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <p class="f-500 text-black">Hybrid</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                            <p class="text-black">5,24,819</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                            <p class="text-black">23.43%</p>
+                                    </div>
+                                   </div>
+                                   <div class="row b-b pt-12">
+                                        <div class="col-md-1">
+                                            <div class="hw-16 bg-danger"></div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <p class="f-500 text-black">Solutions oriented</p>
+                                        </div>
+                                        <div class="col-md-3">
+                                                <p class="text-black">5,24,819</p>
+                                        </div>
+                                        <div class="col-md-3">
+                                                <p class="text-black">23.43%</p>
+                                        </div>
+                                       </div>
+                                       <div class="row pt-12">
+                                            <div class="col-md-1">
+                                                <div class="hw-16 bg-grey dker"></div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <p class="f-500 text-black">Others</p>
+                                            </div>
+                                            <div class="col-md-3">
+                                                    <p class="text-black">5,24,819</p>
+                                            </div>
+                                            <div class="col-md-3">
+                                                    <p class="text-black">23.43%</p>
+                                            </div>
+                                           </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="bg-grey">
+                    <h5 class="m-0 wrapper-8">Scheme wise allocation</h5>
+                </div>
+            </div>
+            <div class="col-md-6"></div>
+        </div>
+    </div>
+</div>
 </div>
