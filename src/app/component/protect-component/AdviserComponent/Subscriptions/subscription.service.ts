@@ -210,7 +210,7 @@ export class SubscriptionService {
     return this.http.put(apiConfig.MAIN_URL + appConfig.CHANGE_PAYEE_SETTING, data);
   }
 
-  changeBillerSetting(data) {
+  changeBillerSetting(data) {  
     return this.http.put(apiConfig.MAIN_URL + appConfig.CHANGE_BILLER_SETTING, data);
   }
 
@@ -241,7 +241,7 @@ export class SubscriptionService {
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_BILLER_PROFILE,httpParams)
   }
   getPayeerProfile(data){
-    const httpParams=new HttpParams().set('clientId',data.clientId).set('subId', data.subId)
+    const httpParams=new HttpParams().set('clientId', data.clientId).set('subId', data.subId)
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_PAYEE_PROFILE,httpParams)
   }
   base_64Data(data) {

@@ -119,9 +119,9 @@
     <app-add-variable-fee *ngIf="rightSliderData=='varibleFee'"></app-add-variable-fee>
     <app-add-fixed-fee *ngIf="rightSliderData=='fixedFee'"></app-add-fixed-fee>
     <app-overview-blank-quotation [blankOverview]="blankOverview" *ngIf='blankOverview'></app-overview-blank-quotation>
-    <app-biller-settings *ngIf="rightSliderData=='billerSettings'"></app-biller-settings>
+    <app-biller-settings [upperData]="fragmentData.clientData" *ngIf="rightSliderData=='billerSettings'"></app-biller-settings>
     <app-modify-fee-structure [ModifyFeesChange]="rightSliderData" *ngIf="rightSliderData=='modifyFees'">
     </app-modify-fee-structure>
-    <app-change-payee *ngIf="rightSliderData=='changePayee'"></app-change-payee>
+    <app-change-payee [upperData]="fragmentData.clientData" *ngIf="rightSliderData=='changePayee'"></app-change-payee>
     <app-email-quotation *ngIf="rightSliderData=='eSignInvoices'"></app-email-quotation>
 </div>
