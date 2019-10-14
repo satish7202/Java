@@ -77,6 +77,7 @@ export class SubscriptionsUpperSliderComponent implements OnInit {
     console.log(data);
     this.ELEMENT_DATA = data;
     this.ELEMENT_DATA.forEach(ele => {
+      ele.clientId = this.upperData.id
       ele.feeMode = (ele.feeMode == 1) ? 'FIXED' : 'VARIABLE';
       ele.startsOn = (ele.status == 1) ? 'START' : ele.startsOn;
       ele.status = (ele.status == 1) ? 'NOT STARTED' : (ele.status == 2) ? 'LIVE' : (ele.status == 3) ? 'FUTURE' : 'CANCELLED';

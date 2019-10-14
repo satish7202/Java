@@ -95,5 +95,7 @@ export const appConfig = {
     MAP_MODULE_TO_PLANS:'subscription/subscription/service/module-list/edit',
     GET_BILLER_PROFILE : 'subscription/biller/profiles/get',
     GET_PAYEE_PROFILE : 'subscription/client-biller/profiles/get',
+    MAP_DOCUMENTS_TO_SERVICE:'subscription/mapped/document/service/insert',
+    GET_DATA_FOR_CREATE_SERVICE:'subscription/service/create/details/get',
     GET_BASE_64:'api/v1/test/base64/decode'
 } 

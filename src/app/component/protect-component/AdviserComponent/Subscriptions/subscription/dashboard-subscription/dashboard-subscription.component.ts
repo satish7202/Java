@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material';
 import { DeleteSubscriptionComponent } from '../common-subscription-component/delete-subscription/delete-subscription.component';
 import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
 import { SubscriptionService } from '../../subscription.service';
+import { EnumServiceService } from '../enum-service.service';
 
 export interface PeriodicElement {
   name: string;
@@ -29,13 +30,14 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class DashboardSubscriptionComponent implements OnInit {
 
-  constructor(public subInjectService:SubscriptionInject, public eventService:EventService, public dialog:MatDialog,private subService:SubscriptionService) { }
+  constructor(private enumService:EnumServiceService,public subInjectService:SubscriptionInject, public eventService:EventService, public dialog:MatDialog,private subService:SubscriptionService) { }
 
   ngOnInit() {
-    this.docSentSignedCountData()
-    this.clientWithSubscription()
-    this.invoiceToBeReviewed()
-     this.getSummaryDataDashboard()
+    // this.docSentSignedCountData()
+    // this.clientWithSubscription()
+    // this.invoiceToBeReviewed()
+    //  this.getSummaryDataDashboard()
+     this.getDataForCreateService();
   }
       advisorId=400;
       dataSourceSingCount
@@ -164,5 +166,12 @@ getSubSummaryRes(data){
   
     });
   
+  }
+  getDataForCreateService()
+  {
+    let obj={}
+    this.subService.getDataForCreateService(obj).subscribe(
+      data=>this.enumService.setOtherAssetData(data)
+    )
   }
 }

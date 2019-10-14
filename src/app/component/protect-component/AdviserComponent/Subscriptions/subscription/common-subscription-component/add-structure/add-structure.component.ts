@@ -44,7 +44,9 @@ export class AddStructureComponent implements OnInit {
       code: [data.code, [Validators.required]],
       description: [data.description, [Validators.required]]
     });
-    this.getFormControl().planName.maxLength = 20;
+    this.getFormControl().planName.maxLength = 40;
+    this.getFormControl().code.maxLength = 10;
+    this.getFormControl().description.maxLength = 160;
   }
 
   addPlanData(state) {

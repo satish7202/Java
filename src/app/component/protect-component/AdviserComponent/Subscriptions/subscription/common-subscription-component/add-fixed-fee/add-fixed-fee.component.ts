@@ -2,6 +2,7 @@ import { Component, OnInit, Output } from '@angular/core';
 import { SubscriptionInject } from '../../../subscription-inject.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { SubscriptionService } from '../../../subscription.service';
+import { EventService } from 'src/app/Data-service/event.service';
 
 @Component({
   selector: 'app-add-fixed-fee',
@@ -14,7 +15,7 @@ export class AddFixedFeeComponent implements OnInit {
   isDescriptionValid;
   isFeesValid;
   isbillEvery;
-  constructor(public subInjectService: SubscriptionInject, private fb: FormBuilder,private subService:SubscriptionService) { 
+  constructor(public subInjectService: SubscriptionInject, private fb: FormBuilder,private subService:SubscriptionService,private eventService:EventService) { 
     this.subInjectService.rightSideBarData.subscribe(
       data=>this.getFeeFormData(data)
     )
@@ -48,6 +49,10 @@ export class AddFixedFeeComponent implements OnInit {
       billEvery: [data,[Validators.required]],
       billingMode: [1]
     })
+    this.getFormControl().serviceName.maxLength = 40;
+    this.getFormControl().code.maxLength = 10;
+    this.getFormControl().description.maxLength = 160;
+    this.getFormControl().fees.maxLength =10;
   }
   Close(state) {
     this.subInjectService.rightSliderData(state)
@@ -121,5 +126,6 @@ export class AddFixedFeeComponent implements OnInit {
     
     this.subInjectService.pushUpperData(data);
     this.subInjectService.rightSliderData(state)
+    this.eventService.openSnackBar("Service is Created","OK")
   }
 }
