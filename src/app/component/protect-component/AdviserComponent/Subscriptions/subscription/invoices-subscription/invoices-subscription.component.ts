@@ -1,22 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { SubscriptionService } from '../../subscription.service';
-import { SubscriptionInject } from '../../subscription-inject.service';
-import { EventService } from 'src/app/Data-service/event.service';
-import { ValueConverter } from '@angular/compiler/src/render3/view/template';
-import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
-import { MatDialog } from '@angular/material';
+import {Component, OnInit} from '@angular/core';
+import {SubscriptionService} from '../../subscription.service';
+import {SubscriptionInject} from '../../subscription-inject.service';
+import {EventService} from 'src/app/Data-service/event.service';
+import {ValueConverter} from '@angular/compiler/src/render3/view/template';
+import {ConfirmDialogComponent} from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
+import {MatDialog} from '@angular/material';
 
 export interface PeriodicElement {
-  date:string;
-  invoicenum:string;
+  date: string;
+  invoicenum: string;
   name: string;
   email: string;
-  status:string;
+  status: string;
   duedate: string;
   amt: string;
-  balance:string;
-  
-} 
+  balance: string;
+
+}
 
 @Component({
   selector: 'app-invoices-subscription',
@@ -24,45 +24,51 @@ export interface PeriodicElement {
   styleUrls: ['./invoices-subscription.component.scss']
 })
 export class InvoicesSubscriptionComponent implements OnInit {
+
+  constructor(public dialog: MatDialog, public subInjectService: SubscriptionInject,
+              private eventService: EventService, public subscription: SubscriptionService) {
+    this.ngOnInit();
+  }
+
   dataSource: any;
   subscriptionValue: any;
   invoiceSub: any;
   invoiceSubscription: string;
   invoiceClientData: any;
   dataCount: any;
-  constructor(public dialog:MatDialog,public subInjectService:SubscriptionInject, private eventService:EventService,public subscription:SubscriptionService) {
-    this.ngOnInit(); 
-  }
-  
+
   showPdfInvoice;
   singleInvoiceData;
-  showLoader=true;
+  showLoader = true;
+
+  displayedColumns: string[] = ['checkbox', 'date', 'invoicenum', 'name', 'status', 'email', 'duedate', 'amt', 'balance'];
+
   ngOnInit() {
-   this.getInvoiceSubData();
-   this.invoiceSubscription='false';
-   this.dataCount=0;
+    this.getInvoiceSubData();
+    this.invoiceSubscription = 'false';
+    this.dataCount = 0;
   }
-  getInvoiceSubData()
-  {
-    let obj={
-     'id':2735, //pass here advisor id for Invoice advisor 
-     'module':1
-    }
+
+  getInvoiceSubData() {
+    const obj = {
+      id: 2735, // pass here advisor id for Invoice advisor
+      module: 1
+    };
 
     this.subscription.getInvoices(obj).subscribe(
-      data =>this.getInvoiceResponseData(data)
-    )
+      data => this.getInvoiceResponseData(data)
+    );
   }
-  getInvoiceResponseData(data)
-  {
-    console.log(data)
-    const ELEMENT_DATA=data;
-    this.invoiceClientData=data;
+
+  getInvoiceResponseData(data) {
+    console.log(data);
+    const ELEMENT_DATA = data;
+    this.invoiceClientData = data;
     ELEMENT_DATA.forEach(item => item.selected = false);
-   this.dataSource=ELEMENT_DATA;
-   this.showLoader=false;
+    this.dataSource = ELEMENT_DATA;
+    this.showLoader = false;
   }
-  displayedColumns: string[] = ['checkbox','date','invoicenum','name','status','email', 'duedate', 'amt','balance'];
+
   // showInvoicePdf(value)
   // {
   //  this.subscription.getSingleInvoiceData(value.id).subscribe(
@@ -70,52 +76,57 @@ export class InvoicesSubscriptionComponent implements OnInit {
   //  )
   // this.showPdfInvoice=true;
   // }
-  openInvoice(data,value,state)
-  {
-    this.invoiceSub=value;
-    this.invoiceSubscription='true';
+  openInvoice(data, value, state) {
+    this.invoiceSub = value;
+    this.invoiceSubscription = 'true';
 //     this.eventService.sidebarData(value)
 // this.subscriptionValue = value
 // this.subInjectService.rightSideData(state);
-this.subInjectService.addSingleProfile(data)
+    this.subInjectService.addSingleProfile(data);
 
   }
-  getSingleResponseInvoicePdf(data)
-  {
-    this.singleInvoiceData=data
+
+  getSingleResponseInvoicePdf(data) {
+    this.singleInvoiceData = data;
   }
-  selectAll(event){
+
+  selectAll(event) {
     // const checked = event.target.checked;
     // this.dataSource.forEach(item => item.selected = 'checked');
+    this.dataCount = 0;
     this.dataSource.forEach(item => {
-    //   if(item.selected==false) 
-    //   {
-    //     item.selected = true;
-    //     this.dataCount++;
-    //   }else{
-    //     item.selected = false;
-    //     this.dataCount--;
-    //   }
-    // });
-    item.selected = event.checked;
-    // if(item.dataCountd>=1){
-    //   this.dataCount=1
-    // }else{
-    //   this.dataCount++
-    // }
+      //   if(item.selected==false)
+      //   {
+      //     item.selected = true;
+      //     this.dataCount++;
+      //   }else{
+      //     item.selected = false;
+      //     this.dataCount--;
+      //   }
+      // });
+      item.selected = event.checked;
+      if (item.selected) {
+        this.dataCount++;
+      }
+      // if(item.dataCountd>=1){
+      //   this.dataCount=1
+      // }else{
+      //   this.dataCount++
+      // }
     });
     // if(item.selected=="true"){
     //   this.dataCount++;
     // }else{
     //   this.dataCount--;
     // }
-    
+
   }
-  changeSelect(data)
-  {
-    this.dataCount=0;
+
+  changeSelect(data) {
+    this.dataCount = 0;
     this.dataSource.forEach(item => {
-      if(item.selected==true){
+      console.log('item item ', item);
+      if (item.selected) {
         this.dataCount++;
       }
     });
@@ -130,11 +141,12 @@ this.subInjectService.addSingleProfile(data)
     //   data.dataCountd =this.dataCount;
     // }
   }
-  display(data)
-  {
+
+  display(data) {
     console.log(data);
     this.ngOnInit();
   }
+
   deleteModal(value) {
     const dialogData = {
       data: value,
@@ -149,8 +161,8 @@ this.subInjectService.addSingleProfile(data)
       negativeMethod: () => {
         console.log('2222222222222222222222222222222222222');
       }
-    }
-    console.log(dialogData+"11111111111111");
+    };
+    console.log(dialogData + '11111111111111');
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '400px',
