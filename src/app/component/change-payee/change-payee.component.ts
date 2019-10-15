@@ -21,14 +21,10 @@ export class ChangePayeeComponent implements OnInit {
     this.dataSub = this.subInjectService.singleProfileData.subscribe(
       data=>this.getPayeeData(data)
     );
-    this.eventService.rightSliderData.subscribe(
-      value=>this.getPayeeData1(value)
-    );
   }
 
   ngOnInit() {
     console.log("change payee upperData",this.upperData)
-    this.getPayeeData1(this.getRowData)
   }
   Close(state)
   {
@@ -37,19 +33,14 @@ export class ChangePayeeComponent implements OnInit {
   }
   getPayeeData(data){
     this.getRowData = data 
-   
+    this.dataObj={
+      'clientId': this.getRowData.clientId,
+      'subId':this.getRowData.id
     }
-    getPayeeData1(data){
-      if(data == 'changePayee'){
-        this.dataObj={
-          'clientId': this.getRowData.clientId,
-          'subId':this.getRowData.id
-        }
-        this.subService.getPayeerProfile(this.dataObj).subscribe(
-          data=> this.getPayeeProfileRes(data)
-        )
-      }
-
+    this.subService.getPayeerProfile(this.dataObj).subscribe(
+      data=> this.getPayeeProfileRes(data)
+    )
+   
     }
 
   getPayeeProfileRes(data){
