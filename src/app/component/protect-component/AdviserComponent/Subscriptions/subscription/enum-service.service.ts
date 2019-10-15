@@ -1,25 +1,26 @@
-import { Injectable } from '@angular/core';
-import { element } from 'protractor';
+import {Injectable} from '@angular/core';
+import {element} from 'protractor';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EnumServiceService {
 
-  constructor() { }
-  OtherAssetsData;
+  constructor() {
+  }
 
-  setOtherAssetData(data)
-  {
-    let obj=data.OTHER_ASSET_TYPES
+  private otherAssetsData;
+  private globalEnumData;
+
+  setGlobalEnumData(data) {
     // obj.forEach(element =>
     //   {
     //     element.selected=false;
     //   })
-    this.OtherAssetsData=data;
+    this.globalEnumData = data;
   }
-  getOtherAssetData()
-  {
-    return this.OtherAssetsData;
+
+  getOtherAssetData() {
+    return this.globalEnumData.otherAssetTypes;
   }
 }
