@@ -454,7 +454,7 @@ button:active {
     border-left: 1px solid $grey;
 }
 .bb-grey {
-    border-bottom: 1px solid $grey;
+    border-bottom: 1px solid $grey !important;
 }
 .bl-0{
     border-left: 0px !important;

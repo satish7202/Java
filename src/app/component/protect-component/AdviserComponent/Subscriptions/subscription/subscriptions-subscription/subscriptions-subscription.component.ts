@@ -1,4 +1,4 @@
-import {Component,OnInit} from '@angular/core';
+import {Component,OnInit, Input} from '@angular/core';
 import { EventService } from 'src/app/Data-service/event.service';
 import { SubscriptionInject } from '../../subscription-inject.service';
 import { MatDialog } from '@angular/material';
@@ -24,12 +24,13 @@ export interface PeriodicElement {
 })
 export class SubscriptionsSubscriptionComponent implements OnInit {
   subscriptionValue: any;
- 
+  @Input() upperData;
   constructor(public dialog:MatDialog, public subInjectService:SubscriptionInject, private eventService:EventService, private subService:SubscriptionService) {
   }
 
   ngOnInit() {
    this.getSummaryDataAdvisor();
+   console.log('upperData',this.upperData)
   }
   displayedColumns: string[] = ['client','service','amt','sub','status','activation', 'lastbilling', 'nextbilling','feemode','icons'];
   dataSource;

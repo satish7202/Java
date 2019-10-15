@@ -15,11 +15,11 @@
     </div>
 
     <div class="row">
-            <div class="col-md-6 mt-20 hover c-p" *ngFor="let singlePlan of billerSettingData"  (click)="selectedBiller(singlePlan.isPrimary)">
-                    <mat-card class="p-0 pa-blue" [ngClass]="{'ba-blue': isPrimary=='true','b-a':isPrimary!='true'}" >
+            <div class="col-md-6 mt-20 hover c-p" *ngFor="let singlePlan of billerSettingData">
+                    <mat-card class="p-0 pa-blue" [ngClass]="singlePlan.selected == true ? 'ba-blue' : 'b-a'" (click)="selectedBiller(singlePlan.selected,singlePlan)">
                             <div class="row bg-grey lter">
                                     <div class="col-md-12 p-0">
-                                            <mat-checkbox class="right text-right"  checked="singlePlan.isPrimary"></mat-checkbox>
+                                            <mat-checkbox class="right text-right" [(ngModel)]= "singlePlan.selected"></mat-checkbox>
                                     </div>
                                     <div class="col-md-12 p-0">
                                         <h3 class="m-0 pt-18 pl-24">{{singlePlan.companyDisplayName}}</h3>
@@ -61,7 +61,7 @@
             <h5 class="mb-0 pt-8 text-white c-p" (click)="Close('close')">Cancel</h5>
             </div>
             <div class="col-md-8 right text-right">
-                <button mat-button  class="btn-bottom br-0 text-inherit">Save</button>
+                <button mat-button  class="btn-bottom br-0 text-inherit" (click)="saveChangeBillerSetting()">Save</button>
                 
 
             </div>
