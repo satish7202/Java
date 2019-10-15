@@ -210,7 +210,7 @@ export class SubscriptionService {
     return this.http.put(apiConfig.MAIN_URL + appConfig.CHANGE_PAYEE_SETTING, data);
   }
 
-  changeBillerSetting(data) {  
+  changeBillerSetting(data) {
     return this.http.put(apiConfig.MAIN_URL + appConfig.CHANGE_BILLER_SETTING, data);
   }
 
@@ -233,7 +233,7 @@ export class SubscriptionService {
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SERVICE_MODULE,httpParams)
   }
   mapModuleToplanData(data)
-  { 
+  {
     return this.http.put(apiConfig.MAIN_URL + appConfig.MAP_MODULE_TO_PLANS,data)
   }
   getBillerProfile(data){
@@ -250,7 +250,7 @@ export class SubscriptionService {
   }
   getDataForCreateService(data)
   {
-    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_DATA_FOR_CREATE_SERVICE,data)
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_DATA_FOR_CREATE_SERVICE,data);
   }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data, 10000);
