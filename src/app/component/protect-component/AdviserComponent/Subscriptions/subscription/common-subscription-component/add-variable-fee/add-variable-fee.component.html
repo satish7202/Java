@@ -39,13 +39,13 @@
                class="form-control br-0">
       </div>
       <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-8">
           <mat-error class="f-12 pt-4"
                      *ngIf="isServiceValid && getFormControl().serviceName.invalid || (getFormControl().serviceName.touched && getFormControl().serviceName.invalid)">
             Service Name is Required
           </mat-error>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-4">
           <p
             class="mb-0 f-12 text-custom text-right pt-4">{{getFormControl().serviceName.value?.length ? getFormControl().serviceName.value.length : 0}}
             /{{getFormControl().serviceName.maxLength}}</p>
@@ -65,13 +65,13 @@
                    class="form-control br-0">
           </div>
           <div class="row">
-            <div class="col-md-10 pr-0">
+            <div class="col-md-9 pr-0">
               <mat-error class="f-12 pt-4"
                          *ngIf="isCodeValid && getFormControl().code.invalid || getFormControl().code.touched && getFormControl().code.invalid">
                 Code is Required
               </mat-error>
             </div>
-            <div class="col-md-2 pl-0">
+            <div class="col-md-3 pl-0">
               <p
                 class="mb-0 f-12 text-custom text-right pt-4">{{getFormControl().code.value?.length ? getFormControl().code.value.length : 0}}
                 /{{getFormControl().code.maxLength}}</p>
@@ -216,11 +216,11 @@
         <div class="col-md-10 p-0">
           <div class="b-a wrapper-12">
             <mat-chip-list aria-label="Fish selection">
-              <mat-chip *ngFor="let data of otherAssetData" class="f-13 f-400 wrapper-16"><i
+              <mat-chip class="f-13 f-400 wrapper-16"><i
                 class="material-icons mr-8 text-white f-16">
                 check</i>Stocks
               </mat-chip>
-              <!-- <mat-chip class="btn-primary f-13 f-400 wrapper-16"><i
+              <mat-chip class="btn-primary f-13 f-400 wrapper-16"><i
                       class="material-icons mr-8 text-white f-16">
                       check
                   </i>Insurance</mat-chip>
@@ -232,8 +232,8 @@
               <mat-chip class="btn-primary f-13 f-400 wrapper-16"><i
                       class="material-icons mr-8 text-white f-16">
                       check
-                  </i>Fixed deposits</mat-chip> -->
-              <!-- <mat-chip class="f-13 f-400 wrapper-16">Gold</mat-chip> -->
+                  </i>Fixed deposits</mat-chip>
+              <mat-chip class="f-13 f-400 wrapper-16">Gold</mat-chip>
             </mat-chip-list>
           </div>
         </div>

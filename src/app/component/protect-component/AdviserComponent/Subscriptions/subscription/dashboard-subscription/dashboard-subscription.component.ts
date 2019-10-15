@@ -33,10 +33,10 @@ export class DashboardSubscriptionComponent implements OnInit {
   constructor(private enumService:EnumServiceService,public subInjectService:SubscriptionInject, public eventService:EventService, public dialog:MatDialog,private subService:SubscriptionService) { }
 
   ngOnInit() {
-    // this.docSentSignedCountData()
-    // this.clientWithSubscription()
-    // this.invoiceToBeReviewed()
-    //  this.getSummaryDataDashboard()
+    this.docSentSignedCountData()
+    this.clientWithSubscription()
+    this.invoiceToBeReviewed()
+     this.getSummaryDataDashboard()
      this.getDataForCreateService();
   }
       advisorId=400;

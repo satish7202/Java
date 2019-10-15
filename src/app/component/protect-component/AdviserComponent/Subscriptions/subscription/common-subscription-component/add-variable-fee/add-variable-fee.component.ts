@@ -100,31 +100,31 @@ export class AddVariableFeeComponent implements OnInit {
     } else if (this.variableFeeData.controls.regularFees.invalid) {
       this.isRegularFees = true;
     } else {
-      const obj = {
-        advisorId: 12345,
-        description: this.variableFeeData.controls.description.value,
-        global: false,
-        serviceCode: this.variableFeeData.controls.code.value,
-        serviceName: this.variableFeeData.controls.serviceName.value,
-        servicePricing: {
-          billEvery: 1,
-          billingNature: parseInt(this.variableFeeData.controls.billingNature.value),
-          feeId: parseInt(feeType),
-          pricingList: [
+      let obj = {
+        "advisorId": 12345,
+        "description": this.variableFeeData.controls.description.value,
+        "global": false,
+        "serviceCode": this.variableFeeData.controls.code.value,
+        "serviceName": this.variableFeeData.controls.serviceName.value,
+        "servicePricing": {
+          "billEvery": 1,
+          "billingNature": parseInt(this.variableFeeData.controls.billingNature.value),
+          "feeTypeId": parseInt(feeType),
+          "pricingList": [
             {
-              assetClassId: 1,
-              debtAllocation: this.variableFeeData.controls.directFees.controls.dept.value,
-              equityAllocation: this.variableFeeData.controls.directFees.controls.equity.value,
-              liquidAllocation: this.variableFeeData.controls.directFees.controls.liquid.value,
-              otherAssets: [
+              "assetClassId": 1,
+              "debtAllocation": this.variableFeeData.controls.directFees.controls.debt.value,
+              "equityAllocation": this.variableFeeData.controls.directFees.controls.equity.value,
+              "liquidAllocation": this.variableFeeData.controls.directFees.controls.liquid.value,
+              "otherAssets": [
                 0
               ],
               pricing: 0
             }, {
-              assetClassId: 2,
-              debtAllocation: this.variableFeeData.controls.regularFees.controls.dept.value,
-              equityAllocation: this.variableFeeData.controls.regularFees.controls.dept.value,
-              liquidAllocation: this.variableFeeData.controls.regularFees.controls.dept.value,
+              "assetClassId": 2,
+              "debtAllocation": this.variableFeeData.controls.regularFees.controls.debt.value,
+              "equityAllocation": this.variableFeeData.controls.regularFees.controls.equity.value,
+              "liquidAllocation": this.variableFeeData.controls.regularFees.controls.liquid .value,
               // "otherAssets": [
               //   1, 2
               // ],
