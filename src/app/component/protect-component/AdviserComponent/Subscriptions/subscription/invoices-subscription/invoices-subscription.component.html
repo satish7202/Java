@@ -4,22 +4,26 @@
 <div *ngIf="invoiceSubscription=='false'" class="bg-white pb-36 mt-70" id="ui-invoice">
     <div class="wrapper-20">
         <div class="row">
-            <div class="col-md-8 p-0">
+            <div class="col-md-1 p-0">
                 <h4 class="pt-8 mb-0">Invoices</h4>
             </div>
-            <div class="col-md-1 p-0">
-                    <button mat-button [matMenuTriggerFor]="menu" class="b-a pr-0">Actions <i class="material-icons text-custom">
-                            arrow_drop_down
-                            </i></button>
-                          <mat-menu #menu="matMenu">
-                              <button mat-menu-item class="b-t"  *ngIf="dataCount == 0">Select invoice to see more actions</button>
-                              <button mat-menu-item class="b-t" (click)="deleteModal('INVOICE')"*ngIf="dataCount != 0">Delete Invoices</button>
-                          </mat-menu>
+            <div class="col-md-5 p-0">
+                          <div class="row">
+                              <div class="col-md-3 p-0">
+                                    <button mat-button [matMenuTriggerFor]="menu" class="b-a pr-0">Actions <i class="material-icons text-custom">
+                                            arrow_drop_down
+                                            </i></button>
+                                          <mat-menu #menu="matMenu">
+                                              <button mat-menu-item class="b-t"  *ngIf="dataCount == 0">Select invoice to see more actions</button>
+                                              <button mat-menu-item class="b-t" (click)="deleteModal('INVOICE')"*ngIf="dataCount != 0">Delete Invoices</button>
+                                          </mat-menu>
+                              </div>
+                              <div class="col-md-8 p-0">
+                                    <p class="m-0 text-black text-left pt-12">{{dataCount}} invoices selected</p>
+                              </div>
                           </div>
-                          <div class="col-md-8 p-0">
-                                <p class="m-0 text-black text-left pt-12">{{dataCount}} invoices selected</p>
-                          </div>
-            <div class="col-md-4 right text-right p-0">
+      </div>
+            <div class="col-md-6 right text-right p-0">
                 <i class="material-icons mr-12 icon-light v-sub c-p">
                 search
             </i>
@@ -31,10 +35,10 @@
         <table mat-table [dataSource]="dataSource" id="table-low" class="mt-8">
             <ng-container matColumnDef="checkbox">
                 <th mat-header-cell *matHeaderCellDef class="f-18">
-                    <mat-checkbox (change)="selectAll($event)" name="selectAll" [value]="element">{{dataCount}}</mat-checkbox>
+                    <mat-checkbox (change)="selectAll($event)" name="selectAll" [value]="element"></mat-checkbox>
                 </th>
                 <td mat-cell *matCellDef="let element">
-                    <mat-checkbox name="selectedData" [checked]="element.selected"  (change)="changeSelect(element)"></mat-checkbox>
+                    <mat-checkbox name="selectedData"  [(ngModel)]="element.selected" (change)="changeSelect(element)"></mat-checkbox>
                 </td>
             </ng-container>
             <ng-container matColumnDef="date" >
@@ -164,7 +168,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="mt-28 b-a">
                     <div class="row bg-grey lter">
                         <div class="col-md-6 p-0">
@@ -194,7 +198,7 @@
                                                     </i>
                                     </div>
                                 </div>
-    
+
                             </div>
                         </div>
                         <div class="col-md-2 p-0">
@@ -207,7 +211,7 @@
                             <p class="m-0 text-black wrapper-16 text-right">9,440</p>
                         </div>
                     </div>
-    
+
                 </div>
                 <div class="row pt-12">
                     <div class="col-md-8"></div>

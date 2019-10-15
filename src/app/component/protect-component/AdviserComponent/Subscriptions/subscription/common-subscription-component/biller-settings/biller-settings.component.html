@@ -16,7 +16,7 @@
 
     <div class="row">
             <div class="col-md-6 mt-20 hover c-p" *ngFor="let singlePlan of billerSettingData">
-                    <mat-card class="p-0 pa-blue" [ngClass]="singlePlan.selected == true ? 'ba-blue' : 'b-a'" (click)="selectedBiller(singlePlan.selected,singlePlan)">
+                    <mat-card class="p-0 pa-blue" [ngClass]="singlePlan.selected == true ? 'ba-blue' : 'b-ua'" (click)="selectedBiller(singlePlan.selected,singlePlan)">
                             <div class="row bg-grey lter">
                                     <div class="col-md-12 p-0">
                                             <mat-checkbox class="right text-right" [(ngModel)]= "singlePlan.selected"></mat-checkbox>

@@ -71,7 +71,8 @@ export class SubscriptionsSubscriptionComponent implements OnInit {
     this.eventService.sidebarData(value)
     this.subscriptionValue = value
     this.subInjectService.rightSideData(state);
-    this.subInjectService.addSingleProfile(data)
+    this.subInjectService.addSingleProfile(data);
+    
   }
   deleteModal(value)
   {
