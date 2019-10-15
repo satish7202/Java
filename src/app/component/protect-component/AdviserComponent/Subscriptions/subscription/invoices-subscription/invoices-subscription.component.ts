@@ -113,16 +113,22 @@ this.subInjectService.addSingleProfile(data)
   }
   changeSelect(data)
   {
-    if(data.selected==false)
-    {
-      data.selected = true;
-      this.dataCount++;
-      data.dataCountd =this.dataCount;
-    }else{
-      data.selected = false;
-      this.dataCount--;
-      data.dataCountd =this.dataCount;
-    }
+    this.dataCount=0;
+    this.dataSource.forEach(item => {
+      if(item.selected==true){
+        this.dataCount++;
+      }
+    });
+    // if(data.selected==false)
+    // {
+    //   data.selected = true;
+    //   this.dataCount++;
+    //   data.dataCountd =this.dataCount;
+    // }else{
+    //   data.selected = false;
+    //   this.dataCount--;
+    //   data.dataCountd =this.dataCount;
+    // }
   }
   display(data)
   {
