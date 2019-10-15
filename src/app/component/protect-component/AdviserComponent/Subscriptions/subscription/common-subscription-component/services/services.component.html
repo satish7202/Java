@@ -29,12 +29,12 @@
         </div>
         <div class="wrapper-40">
             <div class="row text-center padder-80">
-                <div *ngFor="let serviceData of planServiceData; index as i" class="col-md-4 pl-10 pr-10 pb-28">
+                <div *ngFor="let serviceData of planServiceData; index as i" class="col-md-4 c-p pl-10 pr-10 pb-28">
 
-                    <div [ngClass]="{'box':serviceData.selected,'b-a':serviceData.selected==false }" (click)="selectService(serviceData,i)">
+                    <div [ngClass]="{'ba-blue':serviceData.selected,'b-ua':serviceData.selected==false }" (click)="selectService(serviceData,i)">
 
                         <div class="bg-grey lter text-left">
-                            <mat-checkbox class="custom-checkbox" checked="false" color="primary" [ngClass]="{'v-h':serviceData.selected==false }"></mat-checkbox>
+                            <mat-checkbox class="custom-checkbox" checked="false" [ngClass]="{'v-h':serviceData.selected==false }"></mat-checkbox>
 
                             <div class="pl-24 pt-20">
                                 <h3 class="f-24 p-0 mb-0">{{serviceData.serviceName}} </h3>
