@@ -259,19 +259,19 @@
                                         <h5 class="m-0 pt-8 text-right">payment mode</h5>
                                     </div>
                                     <div class="col-md-5">
-                                        <div class="form-group">
+                                        <div class="form-group mb-0">
                                             <input type="text" class="form-control"  formControlName="paymentMode"  maxlength="{{getFormControl().paymentMode.maxLength}}">
                                         </div>
-                                    </div>
                                     <div class="row">
-                                        <div class="col-md-10">
+                                        <div class="col-md-10 pr-0">
                                             <mat-error class="f-12 pt-4"
                                                 *ngIf="ismodeValid && getFormControl().paymentMode.invalid || (getFormControl().paymentMode.touched && getFormControl().paymentMode.invalid)">
                                                 feild is required</mat-error>
                                         </div>
-                                        <div class="col-md-2">
+                                        <div class="col-md-2 pl-0">
                                             <p class="mb-0 f-12 text-custom text-right pt-4">{{getFormControl().paymentMode.value?.length?getFormControl().paymentMode.value.length:0}}/{{getFormControl().paymentMode.maxLength}}</p>
                                         </div>
+                                    </div>
                                     </div>
                                 </div>
                                 <div class="row pt-24">
@@ -535,7 +535,6 @@
                                    <div class="form-group mb-0">
                                        <input type="text" class="form-control"  formControlName="paymentMode"  maxlength="{{getFormControl().paymentMode.maxLength}}">
                                    </div>
-                               </div>
                                <div class="row">
                                    <div class="col-md-10 pr-0">
                                        <mat-error class="f-12 pt-4"
@@ -545,6 +544,7 @@
                                    <div class="col-md-2  pl-0">
                                        <p class="mb-0 f-12 text-custom text-right pt-4">{{getFormControl().paymentMode.value?.length?getFormControl().paymentMode.value.length:0}}/{{getFormControl().paymentMode.maxLength}}</p>
                                    </div>
+                               </div>
                                </div>
                            </div>
                            <div class="row pt-24">
