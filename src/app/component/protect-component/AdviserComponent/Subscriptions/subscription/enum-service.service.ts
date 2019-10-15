@@ -9,7 +9,6 @@ export class EnumServiceService {
   constructor() {
   }
 
-  private otherAssetsData;
   private globalEnumData;
 
   setGlobalEnumData(data) {
