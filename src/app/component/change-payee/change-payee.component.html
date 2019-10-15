@@ -18,7 +18,7 @@
   </div>
   <div class="row">
     <div class="col-md-6 mt-20 hover c-p" *ngFor="let singlePlan of PayeeSettingData">
-              <mat-card class="p-0 ba-blue" [ngClass]="singlePlan.selected == true ? 'ba-blue' : 'b-a'" (click)="selectedPayee(singlePlan.selected,singlePlan)">
+              <mat-card class="p-0 b-ua" [ngClass]="singlePlan.selected == true || singlePlan.selected == 1 ? 'ba-blue' : 'b-ua'" (click)="selectedPayee(singlePlan.selected,singlePlan)">
                   <div class="row bg-grey lter">
                       <div class="col-md-12 p-0">
                               <mat-checkbox class="custom-checkbox" [(ngModel)]= "singlePlan.selected"></mat-checkbox>

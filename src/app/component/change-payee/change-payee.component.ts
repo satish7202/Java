@@ -47,16 +47,19 @@ export class ChangePayeeComponent implements OnInit {
     console.log("getPayeeProfileRes data",data)
     this.PayeeSettingData=data;
   }
+
   saveChangePayeeSetting(){
-    // this.PayeeSettingData.forEach(element => {
-    //   if(element.selected == 1 || element.selected == true){
-    //   this.arraTosend.push(element.id)
-    //   }
-    // });
-  let obj=[{
-    id:this.isSelectedPlan.id,
-    subscriptionId:this.getRowData.id
-  }]
+    let obj = []
+    this.PayeeSettingData.forEach(element => {
+     if(element.selected == 1 || element.selected == true){
+      let obj1={
+        id:element.id,
+        subscriptionId:this.getRowData.id
+      }
+      obj.push(obj1)
+     } 
+    });
+    console.log('obj ====',obj)
     this.subService.changePayeeSetting(obj).subscribe(
       data=> this.changePayeeSettingRes(data)
     )
@@ -69,10 +72,10 @@ export class ChangePayeeComponent implements OnInit {
   }
   selectedPayee(data,singlePlan)
   {
-    singlePlan.selected = true;
-    console.log('selected value',data)
-    console.log('selected singlePlan',singlePlan);
-    singlePlan.selected = true;
-    this.isSelectedPlan=singlePlan;
+    if(data == true || data == 1){
+      singlePlan.selected = false;
+    }else {
+      singlePlan.selected = true;
+    }
   }
 }
