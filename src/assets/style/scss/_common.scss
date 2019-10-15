@@ -414,7 +414,7 @@ color: #3F3F3F;
     }
 
     .mat-stepper-horizontal-line{
-        margin: 0 -80px;
+        margin: 0 -60px;
     }
     .mat-step-header .mat-step-icon-selected{
         background-color:#008FFF !important;
@@ -595,4 +595,7 @@ color: #3F3F3F;
 }
 .lh-23{
     line-height: 23px;
+}
+.mat-card{
+    border-radius: 0px !important;
 }
