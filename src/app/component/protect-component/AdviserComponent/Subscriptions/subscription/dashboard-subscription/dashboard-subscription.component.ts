@@ -191,11 +191,11 @@ export class DashboardSubscriptionComponent implements OnInit {
           billingNature: [],
           otherAssetTypes: []
         };
-        newJsonForConsumption.billingNature = UtilService.convertObjectToArray(data.BILLING_NATURE);
-        newJsonForConsumption.otherAssetTypes = UtilService.convertObjectToArray(data.OTHER_ASSET_TYPES);
-        newJsonForConsumption.feeTypes = UtilService.convertObjectToArray(data.FEE_TYPES);
-        newJsonForConsumption.assetTypes = UtilService.convertObjectToArray(data.ASSET_TYPES);
-        newJsonForConsumption.billingMode = UtilService.convertObjectToArray(data.BILLING_MODE);
+        newJsonForConsumption.billingNature = UtilService.convertObjectToArray(data.billingNature);
+        newJsonForConsumption.otherAssetTypes = UtilService.convertObjectToArray(data.otherAssetTypes);
+        newJsonForConsumption.feeTypes = UtilService.convertObjectToArray(data.feeTypes);
+        newJsonForConsumption.assetTypes = UtilService.convertObjectToArray(data.assetTypes);
+        newJsonForConsumption.billingMode = UtilService.convertObjectToArray(data.billingMode);
 
         console.log('data newJsonForConsumption ', newJsonForConsumption);
         this.enumService.setGlobalEnumData(newJsonForConsumption);

@@ -13,7 +13,9 @@ export class ModifyFeeStructureComponent implements OnInit {
   feeStructureForm;
   constructor(public subInjectService: SubscriptionInject,private fb:FormBuilder) {
   }
-  
+  ngOnInit() {
+   this.setFeeStructureForm('')
+  }
   setFeeStructureForm(data)
   {
    this.feeStructureForm=this.fb.group({
@@ -31,9 +33,6 @@ export class ModifyFeeStructureComponent implements OnInit {
     }),
     otherAssetClassFees: [data]
    })  
-  }
- 
-  ngOnInit() {
   }
 
   Close(state) {
