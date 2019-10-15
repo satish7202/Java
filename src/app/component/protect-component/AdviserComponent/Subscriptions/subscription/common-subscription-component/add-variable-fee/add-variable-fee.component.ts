@@ -108,11 +108,11 @@ export class AddVariableFeeComponent implements OnInit {
         "servicePricing": {
           "billEvery": 1,
           "billingNature": parseInt(this.variableFeeData.controls.billingNature.value),
-          "feeId": parseInt(feeType),
+          "feeTypeId": parseInt(feeType),
           "pricingList": [
             {
               "assetClassId": 1,
-              "debtAllocation": this.variableFeeData.controls.directFees.controls.dept.value,
+              "debtAllocation": this.variableFeeData.controls.directFees.controls.debt.value,
               "equityAllocation": this.variableFeeData.controls.directFees.controls.equity.value,
               "liquidAllocation": this.variableFeeData.controls.directFees.controls.liquid.value,
               "otherAssets": [
@@ -121,9 +121,9 @@ export class AddVariableFeeComponent implements OnInit {
               "pricing": 0
             }, {
               "assetClassId": 2,
-              "debtAllocation": this.variableFeeData.controls.regularFees.controls.dept.value,
-              "equityAllocation": this.variableFeeData.controls.regularFees.controls.dept.value,
-              "liquidAllocation": this.variableFeeData.controls.regularFees.controls.dept.value,
+              "debtAllocation": this.variableFeeData.controls.regularFees.controls.debt.value,
+              "equityAllocation": this.variableFeeData.controls.regularFees.controls.equity.value,
+              "liquidAllocation": this.variableFeeData.controls.regularFees.controls.liquid .value,
               // "otherAssets": [
               //   1, 2
               // ],
