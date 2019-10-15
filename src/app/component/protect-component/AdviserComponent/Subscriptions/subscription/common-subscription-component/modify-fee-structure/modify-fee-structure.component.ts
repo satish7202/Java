@@ -1,5 +1,6 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {SubscriptionInject} from '../../../subscription-inject.service';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-modify-fee-structure',
@@ -9,11 +10,29 @@ import {SubscriptionInject} from '../../../subscription-inject.service';
 export class ModifyFeeStructureComponent implements OnInit {
 
   @Input() ModifyFeesChange;
-
-  constructor(public subInjectService: SubscriptionInject) {
+  feeStructureForm;
+  constructor(public subInjectService: SubscriptionInject,private fb:FormBuilder) {
   }
-
   ngOnInit() {
+   this.setFeeStructureForm('')
+  }
+  setFeeStructureForm(data)
+  {
+   this.feeStructureForm=this.fb.group({
+     billingNature:[1,[Validators.required]],
+     billEvery:[data,[Validators.required]],
+     directFees: this.fb.group({
+      equity: [data, [Validators.required]],
+      debt: [data, [Validators.required]],
+      liquid: [data, [Validators.required]]
+    }),
+    regularFees: this.fb.group({
+      equity: [data, [Validators.required]],
+      debt: [data, [Validators.required]],
+      liquid: [data, [Validators.required]]
+    }),
+    otherAssetClassFees: [data]
+   })  
   }
 
   Close(state) {

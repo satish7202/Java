@@ -33,12 +33,12 @@ export class PayeeSettingsComponent implements OnInit {
     this.payeeSettingsForm = this.fb.group({
       customerName: [data.name],
       displayName: [data.companyDisplayName],
-      customerType: [data.customerType],
+      customerType:[(data.customerTypeId == 1)?'Bussiness':'Individual'],
       companyName: [data.companyName],
       emailId: [data.email],
       mobileNo: [],
       pan: [data.pan],
-      gstTreatment: [data.gstTreatment],
+      gstTreatment: [(data.gstTreatmentId == 1)?'Registered Business - Regular':(data.gstTreatmentId == 2)?'Registered Business - Composition':'Unregistered Business'],
       gstIn: [data.gstin],
       billingAddress: [data.billerAddress],
       city: [data.city],
@@ -118,9 +118,9 @@ export class PayeeSettingsComponent implements OnInit {
       "companyName": this.payeeSettingsForm.controls.companyName.value,
       "country": this.payeeSettingsForm.controls.country.value,
       "currency": "string",
-      "customerTypeId": 1,
+      "customerTypeId": (this.payeeSettingsForm.controls.customerType == 'Bussiness')?1:2,
       "email":this.payeeSettingsForm.controls.emailId.value,
-      "gstTreatmentId": 1,
+      "gstTreatmentId": (this.payeeSettingsForm.controls.gstTreatment == 'Registered Business - Regular')?1:(this.payeeSettingsForm.controls.gstTreatment == 'Registered Business - Composition')?2:3,
       "gstin": this.payeeSettingsForm.controls.gstIn.value,
       "payeeTypeId": 1,
       "paymentTermsId": 1,
@@ -139,18 +139,20 @@ export class PayeeSettingsComponent implements OnInit {
 }else{
       let obj = {
         "gstin": this.payeeSettingsForm.controls.gstIn.value,
-        "gstTreatmentId": 1,
+        "gstTreatmentId": (this.payeeSettingsForm.controls.gstTreatment == 'Registered Business - Regular')?1:(this.payeeSettingsForm.controls.gstTreatment == 'Registered Business - Composition')?2:3,
         "email": this.payeeSettingsForm.controls.emailId.value,
-        "customerTypeId": 1,
+        "customerTypeId": (this.payeeSettingsForm.controls.customerType == 'Bussiness')?'1':'2',
         "primaryContact": this.payeeSettingsForm.controls.mobileNo.value,
         "companyName": this.payeeSettingsForm.controls.companyName.value,
         "companyDisplayName": this.payeeSettingsForm.controls.displayName.value,
         "billerAddress": this.payeeSettingsForm.controls.billingAddress.value,
         "city": this.payeeSettingsForm.controls.city.value,
         "state": this.payeeSettingsForm.controls.state.value,
+        "pan":this.payeeSettingsForm.controls.pan.value,
         "country": this.payeeSettingsForm.controls.country.value,
         "zipCode": this.payeeSettingsForm.controls.pincode.value,
-        "clientId": 2970
+        "clientId": 2970,
+        
       }
       this.subService.addClientBillerProfile(obj).subscribe(
         data => console.log("client biller Profile", data)
@@ -161,6 +163,7 @@ export class PayeeSettingsComponent implements OnInit {
   editSettingResData(data) {
    if(data == true){
     this.getEditData.emit(this.sendData)
+    this.Close('close')
    }
   }
 }

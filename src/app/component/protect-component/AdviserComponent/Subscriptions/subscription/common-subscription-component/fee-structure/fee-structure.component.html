@@ -56,8 +56,8 @@
                                 more_vert
                             </i>
                             <mat-menu #menu="matMenu">
-                                <a mat-menu-item (click)="openPlanSliderFee(upperData,'fixedFee','open')" >Edit Plan</a>
-                                
+                                <a mat-menu-item *ngIf="upperData.feeTypeId==1" (click)="openPlanSliderFee(upperData,'fixedFee','open')" >Edit Service</a>
+                                <a mat-menu-item *ngIf="upperData.feeTypeId==2" (click)="openPlanSliderFee(upperData,'varibleFee','open')" >Edit Service</a>
                             </mat-menu>
                             </div>
                         </div>

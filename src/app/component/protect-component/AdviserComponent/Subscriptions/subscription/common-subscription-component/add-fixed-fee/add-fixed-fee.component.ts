@@ -105,7 +105,7 @@ export class AddFixedFeeComponent implements OnInit {
         "billingCycle": 1,
         "billingMode":parseInt(this.fixedFeeData.controls.billingMode.value) ,
         "billingNature": parseInt(this.fixedFeeData.controls.billingNature.value),
-        "feeId":parseInt(feeType),
+        "feeTypeId":parseInt(feeType),
         "pricingList": [
           {
             "pricing":this.fixedFeeData.controls.fees.value,
