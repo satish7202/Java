@@ -29,7 +29,11 @@ export class AddVariableFeeComponent implements OnInit {
 
   ngOnInit() {
     this.setValidation(false);
-    // this.otherAssetData=this.enumService.getOtherAssetData();
+    this.otherAssetData = [];
+    this.enumService.getOtherAssetData().forEach(element => {
+      this.otherAssetData.push(Object.assign({},element));
+    });
+    console.log(this.otherAssetData)
   }
 
   setValidation(flag) {
@@ -139,5 +143,9 @@ export class AddVariableFeeComponent implements OnInit {
       // )
     }
 
+  }
+  select(assetData)
+  {
+    console.log(assetData)
   }
 }

@@ -39,11 +39,7 @@ h3 p{
     position: relative;
     right: 20%;
 }
-.box{
-    
-box-sizing: border-box;
-border-radius: 4px;
-}
+
 label{
     background: #004164;
     border-radius: 4px;
@@ -68,3 +64,13 @@ label{
     line-height: .9;
 }
 
+::ng-deep .mat-checkbox-checked .mat-checkbox-background, .mat-checkbox-indeterminate .mat-checkbox-background {
+    background-color: #008FFF !important;
+  }
+  
+  // overwrite the ripple overlay on hover and click
+  ::ng-deep .mat-checkbox:not(.mat-checkbox-disabled) .mat-checkbox-ripple .mat-ripple-element {
+    background-color: #008FFF !important;
+  }
+  
+ 

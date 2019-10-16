@@ -9,10 +9,10 @@
                     class="material-icons">add</i>ADD NOW</button>
         </div>
     </div>
-    <div *ngIf="upperData!=''" class="wrapper-44 w-50 pt-180 block m-auto">
+    <div *ngIf="upperData!=''" class="wrapper-44 w-50 pt-130 block m-auto">
         <div class="row">
             
-            <div class="col-md-12">
+            <div class="col-md-12 pt-72">
                 <div class="example-card">
                 <mat-card class="p-0 b-a br-0">
                     <div class="row bg-grey lter">
@@ -20,7 +20,7 @@
                             <h3 class="m-0 pt-18 pt-24 pl-24" *ngIf="upperData">{{upperData.name}}</h3>
                             <h5 class="m-0 pt-4 pb-44 pl-24" *ngIf="upperData">{{upperData.code}}</h5>
                         </div>
-                        <div class="col-md-2 pr-0">
+                        <div class="col-md-2">
                             <i class="material-icons text-right right text-custom f-28 pt-12 c-p"
                                 [matMenuTriggerFor]="menu" [matMenuTriggerFor]="belowMenu">
                                 more_vert
