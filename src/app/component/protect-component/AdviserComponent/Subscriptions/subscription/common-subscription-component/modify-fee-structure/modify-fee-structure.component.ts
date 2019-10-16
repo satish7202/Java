@@ -16,18 +16,24 @@ export class ModifyFeeStructureComponent implements OnInit {
   modifyFeeData;
   otherAssetData: any[];
   selectedOtherAssets=[];
+  isBillValid;
   constructor(public subInjectService: SubscriptionInject,private fb:FormBuilder,private subInject:SubscriptionInject,private enumService: EnumServiceService) {
    this.subInject.singleProfileData.subscribe(
      data =>this.modifyFeeData=data
    )
   }
   ngOnInit() {
+    this.setValidation(false)
    this.setFeeStructureForm('')
    this.otherAssetData = [];
    this.enumService.getOtherAssetData().forEach(element => {
      this.otherAssetData.push(Object.assign({}, element));
    });
    console.log(this.otherAssetData)
+  }
+  setValidation(flag)
+  {
+   this.isBillValid=flag
   }
   setFeeStructureForm(data)
   {
@@ -50,6 +56,9 @@ export class ModifyFeeStructureComponent implements OnInit {
 
    })  
   }
+  getFormControl() {
+    return this.feeStructureForm.controls;
+  }
 
   Close(state) {
     this.ngOnInit();
@@ -71,5 +80,13 @@ export class ModifyFeeStructureComponent implements OnInit {
     _.remove(this.selectedOtherAssets, function (delData) {
       return delData.id == data.id;
     })
+  }
+  saveModifyFees()
+  {
+    if(this.getFormControl().billEvery.invalid)
+    {
+      this.isBillValid=true;
+      return
+    }
   }
 }

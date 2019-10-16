@@ -47,8 +47,10 @@
                         </select>
                     </div>
                 </div>
+                <mat-error *ngIf="isBillValid && getFormControl().billEvery.invalid || getFormControl().billEvery.touched && getFormControl().billEvery.invalid" class="f-12">Field is required</mat-error>
             </div>
         </div>
+        
     </div>
     <div class="row pt-28">
         <div class="col-md-5">
