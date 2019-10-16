@@ -34,7 +34,7 @@
     </div>
     <div class="row ">
         <div class="col-md-4 p-0 height-500">
-            <div class="row pt-12 pb-12 bg-white hover roboto bb-1"  *ngFor="let strData of clientData" (click)="passInvoice(strData)">
+            <div class="row pt-12 pb-12 bg-white hover roboto bb-1"  [ngClass]="strData.id == storeData.id  ? 'bg-grey lter' : 'none'" *ngFor="let strData of clientData" (click)="passInvoice(strData,$event)">
                 <!-- <div class="col-md-1">
                     <mat-checkbox checked="false"></mat-checkbox>
                 </div> -->
