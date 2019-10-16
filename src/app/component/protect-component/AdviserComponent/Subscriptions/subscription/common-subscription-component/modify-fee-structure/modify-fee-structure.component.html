@@ -1,4 +1,4 @@
-<div *ngIf="ModifyFeesChange=='modifyFees' || modifyFeeData" class="row bb-1 popup-header-fix-60">
+<div *ngIf="ModifyFeesChange=='modifyFees'" class="row bb-1 popup-header-fix-60">
     <div class="col-md-8 p-0">
         <h4 class="wrapper-20 m-0 lh-23">MODIFY FEE STRUCTURE</h4>
     </div>
@@ -75,13 +75,13 @@
                     </div>
                     <div class="row ui-mff">
                         <div class="col-md-4 p-0 bl-0 br-grey">
-                            <input type="number" placeholder="%" formGroupName="equity" class="form-control br-0 h-39">
+                            <input type="number" pattern="\d*" onKeyPress="if(this.value.length==4) return false;" placeholder="%" formGroupName="equity" class="form-control br-0 h-39">
                         </div>
                         <div class="col-md-4 p-0 br-grey">
-                            <input type="number" placeholder="%" formGroupName="debt" class="form-control br-0 h-39">
+                            <input type="number" pattern="\d*" onKeyPress="if(this.value.length==4) return false;" placeholder="%" formGroupName="debt" class="form-control br-0 h-39">
                         </div>
                         <div class="col-md-4 p-0">
-                            <input type="number" placeholder="%" formGroupName="liquid" class="form-control br-0 h-39">
+                            <input type="number" pattern="\d*" onKeyPress="if(this.value.length==4) return false;" placeholder="%" formGroupName="liquid" class="form-control br-0 h-39">
                         </div>
                     </div>
                 </div>
@@ -100,20 +100,21 @@
                     </div>
                     <div class="row ui-mff">
                         <div class="col-md-4 br-grey p-0 bl-0 bb-grey">
-                            <input type="number" placeholder="%" formGroupName="equity"
+                            <input type="number" pattern="\d*" onKeyPress="if(this.value.length==4) return false;" placeholder="%"  formGroupName="equity"
                                 class="form-control br-0 h-39 br-grey">
                         </div>
                         <div class="col-md-4 br-grey bb-grey p-0">
-                            <input type="number" placeholder="%" formGroupName="debt"
+                            <input type="number" pattern="\d*" onKeyPress="if(this.value.length==4) return false;" placeholder="%" formGroupName="debt"
                                 class="form-control br-0 h-39 br-grey">
                         </div>
                         <div class="col-md-4 br-grey bb-grey p-0">
-                            <input type="number" placeholder="%" formGroupName="liquid"
+                            <input type="number" pattern="\d*" onKeyPress="if(this.value.length==4) return false;" placeholder="%" formGroupName="liquid"
                                 class="form-control br-0 h-39 br-grey">
                         </div>
                     </div>
                 </div>
             </div>
+            <mat-error *ngIf="mutualFundFees" class="f-12 pt-4">Please fill fees details</mat-error>
         </div>
     </div>
     <div class="row pt-44">

@@ -1,5 +1,5 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {SubscriptionInject} from '../../../subscription-inject.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { SubscriptionInject } from '../../../subscription-inject.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { EnumServiceService } from '../../enum-service.service';
 import * as _ from "lodash";
@@ -15,46 +15,48 @@ export class ModifyFeeStructureComponent implements OnInit {
   feeStructureForm;
   modifyFeeData;
   otherAssetData: any[];
-  selectedOtherAssets=[];
+  selectedOtherAssets = [];
   isBillValid;
-  constructor(public subInjectService: SubscriptionInject,private fb:FormBuilder,private subInject:SubscriptionInject,private enumService: EnumServiceService) {
-   this.subInject.singleProfileData.subscribe(
-     data =>this.modifyFeeData=data
-   )
+  mutualFundFees: any;
+  pricing: boolean;
+  constructor(public subInjectService: SubscriptionInject, private fb: FormBuilder, private subInject: SubscriptionInject, private enumService: EnumServiceService) {
+    this.subInject.singleProfileData.subscribe(
+      data => this.modifyFeeData = data
+    )
   }
   ngOnInit() {
     this.setValidation(false)
-   this.setFeeStructureForm('')
-   this.otherAssetData = [];
-   this.enumService.getOtherAssetData().forEach(element => {
-     this.otherAssetData.push(Object.assign({}, element));
-   });
-   console.log(this.otherAssetData)
+    this.setFeeStructureForm('')
+    this.otherAssetData = [];
+    this.enumService.getOtherAssetData().forEach(element => {
+      this.otherAssetData.push(Object.assign({}, element));
+    });
+    console.log(this.otherAssetData)
   }
-  setValidation(flag)
-  {
-   this.isBillValid=flag
+  setValidation(flag) {
+    this.isBillValid = flag
+    this.mutualFundFees = flag;
+    this.otherAssetData = flag
   }
-  setFeeStructureForm(data)
-  {
-   this.feeStructureForm=this.fb.group({
-     billingNature:[1,[Validators.required]],
-     billEvery:[data,[Validators.required]],
-     Duration:[1],
-     directFees: this.fb.group({
-      equity: [data, [Validators.required]],
-      debt: [data, [Validators.required]],
-      liquid: [data, [Validators.required]]
-    }),
-    regularFees: this.fb.group({
-      equity: [data, [Validators.required]],
-      debt: [data, [Validators.required]],
-      liquid: [data, [Validators.required]]
-    }),
-    otherAssetClassFees: [data],
-    pricing: [data,[Validators.required]]
+  setFeeStructureForm(data) {
+    this.feeStructureForm = this.fb.group({
+      billingNature: [1, [Validators.required]],
+      billEvery: [data, [Validators.required]],
+      Duration: [1],
+      directFees: this.fb.group({
+        equity: [data, [Validators.required]],
+        debt: [data, [Validators.required]],
+        liquid: [data, [Validators.required]]
+      }),
+      regularFees: this.fb.group({
+        equity: [data, [Validators.required]],
+        debt: [data, [Validators.required]],
+        liquid: [data, [Validators.required]]
+      }),
+      otherAssetClassFees: [data],
+      pricing: [data, [Validators.required]]
 
-   })  
+    })
   }
   getFormControl() {
     return this.feeStructureForm.controls;
@@ -81,12 +83,57 @@ export class ModifyFeeStructureComponent implements OnInit {
       return delData.id == data.id;
     })
   }
-  saveModifyFees()
-  {
-    if(this.getFormControl().billEvery.invalid)
-    {
-      this.isBillValid=true;
+  saveModifyFees() {
+    if (this.getFormControl().billEvery.invalid) {
+      this.isBillValid = true;
       return
+    }
+    else if (this.getFormControl().directFees.invalid || this.getFormControl().regularFees.invalid) {
+      this.mutualFundFees = true
+      return;
+    }
+    else if (this.getFormControl().directFees.pricing.invalid) {
+      this.pricing = true
+      return;
+    }
+    else if (this.selectedOtherAssets.length == 0) {
+      this.pricing = true;
+      return;
+    }
+    else {
+      var obj = {
+        "subscriptionId": 12,
+        "billingNature": 1,
+        "billingMode": 1,
+        "billEvery": 6,
+        "subscriptionAssetPricingList": [
+          {
+            "directRegular": 1,
+            "assetClassId": 1,
+            "equityAllocation": 0.75,
+            "debtAllocation": 0.25,
+            "liquidAllocation": 0.25
+          }, {
+            "directRegular": 2,
+            "assetClassId": 1,
+            "equityAllocation": 0.75,
+            "debtAllocation": 0.25,
+            "liquidAllocation": 0.25
+          }, {
+            "assetClassId": 2,
+            "pricing": 1.0,
+            "subscriptionSubAssets": [
+              {
+                "subAssetClassId": 1
+              }, {
+                "subAssetClassId": 3
+              }
+            ]
+          }
+        ]
+      }
+     console.log(obj)
+
     }
   }
 }
