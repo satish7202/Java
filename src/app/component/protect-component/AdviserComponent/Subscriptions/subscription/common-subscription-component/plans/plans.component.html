@@ -9,10 +9,7 @@
                             <p>Map services to the selected plan.</p>
                     </div>
                     <div class="col-md-1 text-left p-0">
-        
-                            <i class="material-icons text-primary">
-                                    error_outline
-                                    </i>
+                        <img src="/assets/images/svg/info.svg" class="c-p">
                     </div>
                     <div class="col-md-2 right text-right p-0 button-fix">
                             <button mat-stroked-button class="btn-primary br-0 mt-8">{{mappedPlan.length}} Plans mapped</button>
@@ -60,6 +57,7 @@
                             </mat-card>
                     </div> -->
                     <div class="col-md-4 pb-40 c-p" *ngFor="let singleServicePlan of servicePlanData">
+                        <div class="example-card">
                             <mat-card class="p-0 b-a" (click)="selectServicePlan(singleServicePlan)" [ngClass]="{'p-0': singleServicePlan.selected==false,'b-a':singleServicePlan.selected==false,'p-0':singleServicePlan.selected==true,'ba-blue':singleServicePlan.selected==true}">
                                 <div class="row bg-grey lter">
                                     <div class="col-md-12 p-0">
@@ -78,7 +76,8 @@
                                 </div>
                             </div>
                         </div>
-                            </mat-card>
+                        </mat-card>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -28,10 +28,7 @@
                             <p class="m-0 pt-20">Map documents to the selected plan.</p>
                         </div>
                         <div class="col-md-1 text-left p-0">
-
-                            <i class="material-icons text-primary pt-16">
-                                error_outline
-                            </i>
+                            <img src="/assets/images/svg/info.svg" class="c-p pt-20">
                         </div>
                     </div>
                 </div>
@@ -45,7 +42,7 @@
         <div class="wrapper-40">
             <div class="row text-center padder-80">
                 <div *ngFor="let documentData of planDocumentData" class="col-md-4 c-p pl-10 mb-20 pr-10">
-
+                    <div class="example-card">
                     <div (click)="selectDocument(documentData)"
                         [ngClass]="{'box': documentData.selected,'active': documentData.selected,'b-a':documentData.selected==false}">
                         <mat-checkbox class="custom-checkbox" checked="false" *ngIf="documentData.selected">
@@ -66,6 +63,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -99,10 +97,7 @@
                             <p class="pt-4">Map documents to the selected plan.</p>
                         </div>
                         <div class="col-md-1 text-left p-0">
-
-                            <i class="material-icons text-primary">
-                                error_outline
-                            </i>
+                            <img src="/assets/images/svg/info.svg" class="c-p">
                         </div>
                     </div>
                 </div>
@@ -116,7 +111,7 @@
         <div class="wrapper-40">
             <div class="row text-center padder-80">
                 <div (click)="selectDocument(document)" *ngFor="let document of serviceDocumentData" class="col-md-4 c-p pl-10 pr-10 mt-20">
-
+                    <div class="example-card">
                     <div class="b-a" [ngClass]="{'ba-blue': document.selected}">
                         <mat-checkbox class="custom-checkbox" checked="false"
                             [ngClass]="{'v-h':document.selected==false}"></mat-checkbox>
@@ -137,6 +132,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>

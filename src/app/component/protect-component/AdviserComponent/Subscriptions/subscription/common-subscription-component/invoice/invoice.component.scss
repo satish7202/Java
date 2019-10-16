@@ -28,7 +28,7 @@
     overflow: auto;
     padding-bottom: 20px !important;
   }
-  .height-350{
-    height: 320px;
-    overflow: auto;
+  .max-height-100{
+    max-height: calc(100vh - 9rem);
+    overflow-y: auto;
   }

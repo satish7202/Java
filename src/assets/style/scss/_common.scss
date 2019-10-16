@@ -51,15 +51,23 @@ p {
     font-family: "proxima-nova", sans-serif;
 
 }
+.mat-checkbox-frame{
+    border-radius: 0px !important;
+}
 a,a:hover{
     text-decoration: none !important;
     color: rgba(0,0,0,.87) !important;
+}
+.mat-tab-label{
+    min-width: 0 !important;
 }
 .width-230 {
     width: 230px;
     height: 100vh;
 }
-
+.h-39{
+    height: 39px !important;
+}
 .font-400 {
     font-weight: 400;
 }
