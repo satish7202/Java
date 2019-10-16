@@ -40,7 +40,7 @@ export class ServicesSettingsComponent implements OnInit {
   getServiceSettingSubData() {
     this.showLoader = true;
     let obj = {
-      'advisorId': 12345
+      'advisorId': 2808
     }
     this.subService.getSubscriptionServiceSettingsData(obj).subscribe(
       data => this.getServiceSettingSubResponse(data),

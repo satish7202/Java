@@ -24,7 +24,7 @@
                             <div class="col-md-8">
                                 <mat-error 
                                     [ngClass]="{'d-n': !(isPlanValid && getFormControl().planName.invalid || getFormControl().planName.touched && getFormControl().planName.invalid)}">
-                                    Plan Name is Required</mat-error>
+                                    Plan name is required</mat-error>
                             </div>
                             <div class="col-md-4">
                                 <p class="mb-0 f-12 text-custom text-right pt-4">{{getFormControl().planName.value?.length?getFormControl().planName.value.length:0}}/{{getFormControl().planName.maxLength}}</p>
@@ -44,7 +44,7 @@
                             <div class="col-md-8">
                                 <mat-error class="f-12"
                                     [ngClass]="{'d-n': !(isCodeValid && getFormControl().code.invalid || getFormControl().code.touched && getFormControl().code.invalid)}">
-                                    Code is Required</mat-error>
+                                    Code is required</mat-error>
                             </div>
                             <div class="col-md-4">
                                 <p class="mb-0 f-12 text-custom text-right pt-4">{{getFormControl().code.value?.length?getFormControl().code.value.length:0}}/{{getFormControl().code.maxLength}}</p>
@@ -64,7 +64,7 @@
                             <div class="col-md-8">
                                 <mat-error class="f-12"
                                     [ngClass]="{'d-n': !(isDescValid && getFormControl().description.invalid || getFormControl().description.touched && getFormControl().description.invalid)}">
-                                    Description is Required</mat-error>
+                                    Description is required</mat-error>
                             </div>
                             <div class="col-md-4">
                                 <p class="mb-0 f-12 text-custom text-right pt-4">{{getFormControl().description.value?.length?getFormControl().description.value.length:0}}/{{getFormControl().description.maxLength}}</p>
