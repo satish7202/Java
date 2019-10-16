@@ -1,15 +1,17 @@
 <div *ngIf="componentFlag=='plansDocuments'">
-    <mat-toolbar class="bottom-fixed">
-        <div class="row w-100">
-            <div class="col-md-6 text-left">
-                <p class="text-white f-16 mb-0 pt-12 c-p" (click)="dialogClose()">Cancel</p>
+  
+    <div class="bottom-fixed wrapper-12">
+        <div class="row">
+            <div class="col-md-4">
+            <h5 class="mb-0 pt-8 text-white c-p" (click)="dialogClose()">Cancel</h5>
             </div>
-            <div class="col-md-6 text-right">
-                <button type="button" mat-stroked-button class="btn-bottom br-0"
-                    (click)="saveMappingDocumentToPlans()">Save</button>
+            <div class="col-md-8 right text-right">
+                <button mat-button  class="btn-bottom br-0 text-inherit"(click)="saveMappingDocumentToPlans()">Save</button>
+                
+    
             </div>
         </div>
-    </mat-toolbar>
+    </div>
     <div class="bg-grey lter heading-fix">
         <div class="row">
             <div class="col-md-12">
@@ -26,10 +28,7 @@
                             <p class="m-0 pt-20">Map documents to the selected plan.</p>
                         </div>
                         <div class="col-md-1 text-left p-0">
-
-                            <i class="material-icons text-primary pt-16">
-                                error_outline
-                            </i>
+                            <img src="/assets/images/svg/info.svg" class="c-p pt-20">
                         </div>
                     </div>
                 </div>
@@ -43,7 +42,7 @@
         <div class="wrapper-40">
             <div class="row text-center padder-80">
                 <div *ngFor="let documentData of planDocumentData" class="col-md-4 c-p pl-10 mb-20 pr-10">
-
+                    <div class="example-card">
                     <div (click)="selectDocument(documentData)"
                         [ngClass]="{'box': documentData.selected,'active': documentData.selected,'b-a':documentData.selected==false}">
                         <mat-checkbox class="custom-checkbox" checked="false" *ngIf="documentData.selected">
@@ -65,6 +64,7 @@
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
         </div>
     </div>
@@ -80,6 +80,7 @@
             </div>
         </div>
     </mat-toolbar>
+    
     <div class="bg-grey lter wrapper-20 heading-fix">
         <div class="row">
             <div class="col-md-12">
@@ -96,10 +97,7 @@
                             <p class="pt-4">Map documents to the selected plan.</p>
                         </div>
                         <div class="col-md-1 text-left p-0">
-
-                            <i class="material-icons text-primary">
-                                error_outline
-                            </i>
+                            <img src="/assets/images/svg/info.svg" class="c-p">
                         </div>
                     </div>
                 </div>
@@ -113,7 +111,7 @@
         <div class="wrapper-40">
             <div class="row text-center padder-80">
                 <div (click)="selectDocument(document)" *ngFor="let document of serviceDocumentData" class="col-md-4 c-p pl-10 pr-10 mt-20">
-
+                    <div class="example-card">
                     <div class="b-a" [ngClass]="{'ba-blue': document.selected}">
                         <mat-checkbox class="custom-checkbox" checked="false"
                             [ngClass]="{'v-h':document.selected==false}"></mat-checkbox>
@@ -134,6 +132,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>

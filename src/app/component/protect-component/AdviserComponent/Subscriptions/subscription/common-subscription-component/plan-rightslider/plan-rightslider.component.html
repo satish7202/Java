@@ -1,7 +1,7 @@
 
     <div class="row bb-1 popup-header-fix-60">
         <div class="col-md-10 p-0">
-            <h5 class="mb-8 wrapper-20 pb-16 roboto">SELECT A PLAN FOR RONAK HASMUKH HINDOCHA</h5>
+            <h4 class="wrapper-20 m-0 lh-23 roboto">SELECT A PLAN FOR RONAK HASMUKH HINDOCHA</h4>
         </div>
         <div class="col-md-2 text-right">
             <i class="material-icons pt-16 pr-16 c-p" (click)="Close('close')"> clear</i>
@@ -15,8 +15,9 @@
     </div>
 
     <div class="row">
-            <div class="col-md-6 mt-20" *ngFor="let singlePlan of planSettingData">
-                    <mat-card class="p-0" (click)="select(singlePlan)" [ngClass]="{'ba-blue':singlePlan.selected}">
+            <div class="col-md-6 mt-20 c-p" *ngFor="let singlePlan of planSettingData">
+                <div class="example-card">
+                    <mat-card class="p-0 b-ua" (click)="select(singlePlan)" [ngClass]="{'ba-blue':singlePlan.selected}">
                             <div class="row bg-grey lter">
                                     <div class="col-md-12 p-0">
                                             <mat-checkbox class="custom-checkbox" [ngClass]="{'v-h':singlePlan.selected==false}"></mat-checkbox>
@@ -40,6 +41,7 @@
                             </mat-card-content>
                       
                     </mat-card>
+                </div>
                 </div>
                 </div>
     </div>

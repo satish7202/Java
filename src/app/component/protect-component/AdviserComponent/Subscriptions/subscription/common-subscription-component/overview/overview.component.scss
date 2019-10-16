@@ -44,3 +44,9 @@ h5{
 .mat-card:not([class*=mat-elevation-z]){
     box-shadow: none !important;
 }
+::ng-deep .hoverable{
+    transition: box-shadow 0.3s;
+}
+::ng-deep .hoverable:hover{
+    box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+}
