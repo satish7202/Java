@@ -108,7 +108,7 @@
             </div>
             <div class="col-md-4">
                 <div class="form-group mb-0">
-                    <input type="text" (keypress)="keyPress($event)" formControlName="mobileNo" class="form-control"  maxlength="{{getFormControl().mobileNo.maxLength}}" maxlength=10>
+                    <input type="text" (keypress)="keyPress($event)" formControlName="mobileNo" class="form-control"  maxlength="{{getFormControl().mobileNo.maxLength}}">
                   </div>
                   <div class="row pt-0">
                     <div class="col-md-9">
@@ -163,7 +163,7 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <input type="text" formControlName="gstIn" class="form-control" maxlength="{{getFormControl().companyName.maxLength}}"> 
+                    <input type="text" formControlName="gstIn" class="form-control" maxlength="{{getFormControl().gstIn.maxLength}}"> 
                   </div>
                   <div class="row pt-0">
                     <div class="col-md-8">
@@ -172,7 +172,7 @@
                       GSTIN is required</mat-error>
                    </div>
                     <div class="col-md-4">
-                      <p class="mb-0 f-12 text-custom text-right pt-4">{{getFormControl().gstIn.value?.length?getFormControl().companyName.gstIn.length:0}}/{{getFormControl().gstIn.maxLength}}</p>
+                      <p class="mb-0 f-12 text-custom text-right pt-4">{{getFormControl().gstIn.value?.length?getFormControl().gstIn.value.length:0}}/{{getFormControl().gstIn.maxLength}}</p>
                   </div>
                   </div>
             </div>

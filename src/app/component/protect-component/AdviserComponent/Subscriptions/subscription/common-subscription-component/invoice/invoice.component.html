@@ -400,7 +400,7 @@
                 <p class="text-black f-400">Sub total</p>
             </div>
             <div class="col-md-4 text-right">
-                <p class="text-black f-400">Rs.{{formatter(storeData.subTotal)}}</p>
+                <p class="text-black f-400">₹{{formatter(storeData.subTotal)}}</p>
             </div>
             </div>
             <div class="row" *ngIf="storeData.igst!=undefined">
@@ -408,7 +408,7 @@
                         <p>IGST ({{storeData.igst}}%)</p>
                     </div>
                     <div class="col-md-4">
-                        <p class="text-right">Rs.{{formatter(storeData.igstTaxAmount)}}</p>
+                        <p class="text-right">₹{{formatter(storeData.igstTaxAmount)}}</p>
                     </div>
                 </div>
                 <div class="row" *ngIf="storeData.cgst!=undefined">
@@ -416,7 +416,7 @@
                             <p>CGST ({{storeData.cgst}}%)</p>
                         </div>
                         <div class="col-md-4">
-                            <p class="text-right">Rs.{{formatter(storeData.cgstTaxAmount)}}</p>
+                            <p class="text-right">₹{{formatter(storeData.cgstTaxAmount)}}</p>
                         </div>
                     </div>
                     <div class="row" *ngIf="storeData.sgst!=undefined">
@@ -424,7 +424,7 @@
                                 <p>SGST ({{storeData.sgst}}%)</p>
                             </div>
                             <div class="col-md-4">
-                                <p class="text-right">Rs.{{formatter(storeData.sgstTaxAmount)}}</p>
+                                <p class="text-right">₹{{formatter(storeData.sgstTaxAmount)}}</p>
                             </div>
                         </div>
             <div class="row bt-1">
@@ -730,7 +730,7 @@
                     <h5 class="m-0">Sub total</h5>
                 </div>
                 <div class="col-md-2 p-0">
-                    <h5 class="m-0 text-right pr-8">Rs.8,000</h5>
+                    <h5 class="m-0 text-right pr-8">₹8,000</h5>
                 </div>
             </div>
             <div class="row pt-20">
@@ -739,7 +739,7 @@
                     <h5 class="m-0">Discount</h5>
                 </div>
                 <div class="col-md-2 p-0">
-                    <h5 class="m-0 text-right pr-8">Rs.0</h5>
+                    <h5 class="m-0 text-right pr-8">₹0</h5>
                 </div>
             </div>
             <div class="row pt-20 pb-12">
@@ -748,7 +748,7 @@
                     <h5 class="m-0">IGST (18%)</h5>
                 </div>
                 <div class="col-md-2 p-0">
-                    <h5 class="m-0 text-right pr-8">Rs.1,440</h5>
+                    <h5 class="m-0 text-right pr-8">₹1,440</h5>
                 </div>
             </div>
             <div class="row pb-8">
