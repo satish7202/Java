@@ -31,10 +31,13 @@
             <div class="col-md-6">
                 <h5 class="m-0">Customer Type</h5>
             </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <input type="text" formControlName="customerType" class="form-control">
-                  </div>
+            <div class="col-md-6">
+                    <div class="form-group"> 
+                            <select formControlName="customerType" class="form-control" id="sel1">
+                              <option>Bussiness</option>
+                              <option>Individual</option>
+                            </select>
+                          </div>
             </div>
         </div>
         <div class="row">
@@ -89,9 +92,13 @@
                 <h5 class="m-0">GST Treatment</h5>
             </div>
             <div class="col-md-6">
-                <div class="form-group">
-                    <input type="text" formControlName="gstTreatment" class="form-control">
-                  </div>
+                    <div class="form-group"> 
+                            <select formControlName="gstTreatment" class="form-control" id="sel11">
+                              <option>Registered Business - Regular</option>
+                              <option>Registered Business - Composition</option>
+                              <option>Unregistered Business</option>
+                            </select>
+                          </div>
             </div>
         </div>
         <div class="row">

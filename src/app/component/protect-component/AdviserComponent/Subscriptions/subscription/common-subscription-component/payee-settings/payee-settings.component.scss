@@ -19,6 +19,11 @@ h5{
     padding-top: 12px;
 }
 }
+::ng-deep .customer-btn{
+    min-width: 320px;
+    border: 1px solid #ced4da !important;
+    height: 38px;
+}
 // #ui-payee-setting{
 //    display: flex;
 //    justify-content: center;

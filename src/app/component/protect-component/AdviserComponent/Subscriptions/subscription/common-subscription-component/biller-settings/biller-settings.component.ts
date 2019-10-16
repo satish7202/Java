@@ -21,23 +21,12 @@ export class BillerSettingsComponent implements OnInit {
     this.dataSub = this.subInjectService.singleProfileData.subscribe(
       data=>this.getBillerData(data)
     );
-    this.eventService.rightSliderData.subscribe(
-      value=>this.getBillerData1(value)
-    );
-  }
-  obj={
-    'advisorId':12345,
-    'subscriptionId':1,
-    'billerProfileId':5
   }
   ngOnInit() {
    
   }
   getBillerData(data){
     this.getDataRow = data
-  }
-  getBillerData1(value){
-     if(value == 'billerSettings'){
       this.dataObj={
         'advisorId':12345,
         'subId': this.getDataRow.id
@@ -46,7 +35,6 @@ export class BillerSettingsComponent implements OnInit {
         data=> this.getBillerProfileRes(data)
       )
       this.getSubsciption =  this.getDataRow
-     }
 
   }
   saveChangeBillerSetting()

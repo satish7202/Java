@@ -14,7 +14,7 @@ import {CustomerDocumentsComponent} from './component/customer/accounts/customer
 
 
 @NgModule({
-  declarations: [/*CustomerComponent, AccountsComponent,SummaryComponent,*/ AssetsComponent,
+  declarations: [/*CustomerComponent, AccountsComponent,SummaryComponent,*/ /*AssetsComponent,*/
     LiabilitiesComponent, InsuranceComponent, IncomeComponent, ExpensesComponent, CustomerDocumentsComponent],
   imports: [
     CommonModule,
