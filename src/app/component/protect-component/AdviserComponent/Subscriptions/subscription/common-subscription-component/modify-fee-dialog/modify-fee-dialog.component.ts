@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {MatDialogRef, MatDialog} from '@angular/material';
 import {trigger, state, style, transition, animate} from '@angular/animations';
 import {SubscriptionInject} from '../../../subscription-inject.service';
 import {FormGroup, FormControl} from '@angular/forms';
 import {HowToUseDialogComponent} from '../how-to-use-dialog/how-to-use-dialog.component';
+import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-modify-fee-dialog',
@@ -15,8 +16,10 @@ export class ModifyFeeDialogComponent implements OnInit {
   editorContent;
 
   constructor(public dialogRef: MatDialogRef<ModifyFeeDialogComponent>,
-              public subInjectService: SubscriptionInject, public dialog: MatDialog) {
-    console.log('ModifyFeeDialogComponent constructor: ', this.dialogRef);
+              public subInjectService: SubscriptionInject, public dialog: MatDialog,
+              @Inject(MAT_DIALOG_DATA) public fragmentData: any) {
+    console.log('ModifyFeeDialogComponent constructor: ', this.fragmentData);
+    this.editorContent = this.fragmentData.data.docText;
   }
 
   mailForm = new FormGroup({
