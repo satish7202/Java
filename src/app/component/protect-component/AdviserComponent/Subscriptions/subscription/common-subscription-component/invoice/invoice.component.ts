@@ -134,7 +134,7 @@ export class InvoiceComponent implements OnInit {
     data=Math.round(data);
     return data;
   }
-  passInvoice(data) {
+  passInvoice(data,event) {
     console.log(data);
     this.storeData = data;
   }

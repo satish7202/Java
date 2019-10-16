@@ -16,17 +16,17 @@
 
     <div class="row">
             <div class="col-md-6 mt-20 hover c-p" *ngFor="let singlePlan of billerSettingData">
-                    <mat-card class="p-0 pa-blue" [ngClass]="singlePlan.selected == true ? 'ba-blue' : 'b-ua'" (click)="selectedBiller(singlePlan.selected,singlePlan)">
+                    <mat-card class="p-0 pa-blue" [ngClass]="singlePlan.selected == true ? 'ba-blue' : 'b-au'" (click)="selectedBiller(singlePlan.selected,singlePlan)">
                             <div class="row bg-grey lter">
                                     <div class="col-md-12 p-0">
-                                            <mat-checkbox class="right text-right" [(ngModel)]= "singlePlan.selected"></mat-checkbox>
-                                    </div>
-                                    <div class="col-md-12 p-0">
-                                        <h3 class="m-0 pt-18 pl-24">{{singlePlan.companyDisplayName}}</h3>
-                                        <h5 class="m-0 pt-4 pb-44 pl-24 text-custom">{{singlePlan.code}}</h5>
-                                    </div>
+                                            <mat-checkbox class="right text-right" *ngIf="singlePlan.selected == true" [(ngModel)]= "singlePlan.selected"></mat-checkbox>
+                                            <div class="col-md-12 p-0">
+                                                <h3 class="m-0 pt-20 pl-24">{{singlePlan.companyDisplayName}}</h3>
+                                                <h5 class="m-0 pt-4 pb-44 pl-24 text-custom">{{singlePlan.code}}</h5>
+                                            </div>
+                                        </div>
                                 </div>
-                        <mat-card-content class="bg-white mb-0">
+                        <mat-card-content >
                                 <!-- <div class="row wrapper-20">
                                     <div class="col-md-12 p-0">
                                         <p class="mb-0 text-primitive f-12">ADDRESS</p>
