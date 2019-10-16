@@ -59,6 +59,61 @@ export class InvoicesComponent implements OnInit {
     }
     
   }
+  changeSelect(data) {
+    this.dataCount = 0;
+    this.dataSource.forEach(item => {
+      console.log('item item ', item);
+      if (item.selected) {
+        this.dataCount++;
+      }
+    });
+    // if(data.selected==false)
+    // {
+    //   data.selected = true;
+    //   this.dataCount++;
+    //   data.dataCountd =this.dataCount;
+    // }else{
+    //   data.selected = false;
+    //   this.dataCount--;
+    //   data.dataCountd =this.dataCount;
+    // }
+  }
+  selectAll(event) {
+    // const checked = event.target.checked;
+    // this.dataSource.forEach(item => item.selected = 'checked');
+    this.dataCount = 0;
+    this.dataSource.forEach(item => {
+      //   if(item.selected==false)
+      //   {
+      //     item.selected = true;
+      //     this.dataCount++;
+      //   }else{
+      //     item.selected = false;
+      //     this.dataCount--;
+      //   }
+      // });
+      item.selected = event.checked;
+      if (item.selected) {
+        this.dataCount++;
+      }
+      // if(item.dataCountd>=1){
+      //   this.dataCount=1
+      // }else{
+      //   this.dataCount++
+      // }
+    });
+    // if(item.selected=="true"){
+    //   this.dataCount++;
+    // }else{
+    //   this.dataCount--;
+    // }
+
+  }
+  formatter(data)
+  {
+    data=Math.round(data);
+    return data;
+  }
   getInvoiceListResponse(data)
   {
     data.forEach(singleData => {

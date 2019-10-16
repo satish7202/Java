@@ -41,7 +41,7 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <p>CUSTOMER TYPE</p>
-                                        <h5>{{profileData.customerType}}</h5>
+                                        <h5>{{(profileData.customerTypeId == 1) ?'Bussiness':'Individual'}}</h5>
                                     </div>
                                     <div class="col-md-3">
                                         <p>PAN</p>
@@ -49,7 +49,7 @@
                                     </div>
                                     <div class="col-md-3">
                                             <p>GST TREATMENT</p>
-                                            <h5>{{profileData.gstTreatment}}</h5>
+                                            <h5>{{(profileData.gstTreatmentId == 1)?'Registered Business - Regular':(profileData.gstTreatmentId == 2)?'Registered Business - Composition':'Unregistered Business'}}</h5>
                                         </div>
                                         <div class="col-md-3">
                                             <p>GST</p>
@@ -57,7 +57,7 @@
                                         </div>
                                 </div>
                             </div>
-                            <div class="wrapper-24 pl-36 bt-1">
+                            <div class="wrapper-20 pl-36 bt-1">
                                 <div class="row ">
                                     <div class="col-md-6 p-0">
                                         <p>BILLING ADDRESS</p>
@@ -70,16 +70,26 @@
                                     <div class="col-md-3 p-0">
                                             <p>DISPLAY NAME</p>
                                             <h5>{{profileData.companyDisplayName}}</h5>
+                                            <div class="row">
                                             <div class="col-md-12 block p-0 pt-24">
-                                                    <p>EMAIL</p>
-                                                    <h5>{{profileData.email}}</h5>
-                                                </div>
+                                                <p>MOBILE NO</p>
+                                                <h5>{{profileData.mobileNo}}</h5>
+                                            </div>
+                                           
+                                            </div>
+                                               
                                         </div>
                                         <div class="col-md-3 p-0">
                                                 <p>COMPANY NAME</p>
                                                 <h5>{{profileData.companyName}}</h5>
+                                                <div class="row">
+                                                    <div class="col-md-12 block p-0 pt-24">
+                                                        <p>EMAIL</p>
+                                                        <h5>{{profileData.email}}</h5>
+                                                    </div>
+                                                </div>
                                             </div>
-                                   
+                                          
                                 </div>
                             </div>
                         </div>

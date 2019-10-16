@@ -114,7 +114,7 @@ export class SubscriptionsUpperSliderComponent implements OnInit {
     };
     if (data == 'cancelSubscription') {
       const dialogRef = this.dialog.open(DeleteSubscriptionComponent, {
-        width: '20%',
+        width: '50%',
         // height:'40%',
         data: Fragmentdata,
         autoFocus: false,

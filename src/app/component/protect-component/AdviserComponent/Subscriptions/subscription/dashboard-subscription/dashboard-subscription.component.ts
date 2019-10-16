@@ -198,6 +198,7 @@ export class DashboardSubscriptionComponent implements OnInit {
         newJsonForConsumption.billingMode = UtilService.convertObjectToArray(data.billingMode);
 
         console.log('data newJsonForConsumption ', newJsonForConsumption);
+
         this.enumService.setGlobalEnumData(newJsonForConsumption);
       }
     );
