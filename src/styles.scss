@@ -285,7 +285,7 @@
     
 }
 .example-card {
-    border: 1px solid rgba(0, 0, 0, 0.12);
+    // border: 1px solid rgba(0, 0, 0, 0.12);
     transition: box-shadow .3s;
     &:hover{
         box-shadow: 0 0 11px rgba(33,33,33,.2);
@@ -463,7 +463,8 @@ mat-tab-group[vertical] {
         font-weight: normal;
         padding: 8px 12px 4px;
         text-align: left;
-        border: 1px solid transparent !important;
+        
+        border-right: 0px !important;
     }
    
     li:after{

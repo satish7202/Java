@@ -144,3 +144,9 @@ a:hover {
 .mat-card-actions {
 height: 20%;
 }
+::ng-deep .example-card{
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+// ::ng-deep .mat-card:not([class*=mat-elevation-z]){
+//     box-shadow: none !important;
+// }
