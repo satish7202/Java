@@ -129,7 +129,11 @@ export class InvoiceComponent implements OnInit {
   cancel() {
     this.showRecord = false;
   }
-
+  formatter(data)
+  {
+    data=Math.round(data);
+    return data;
+  }
   passInvoice(data) {
     console.log(data);
     this.storeData = data;

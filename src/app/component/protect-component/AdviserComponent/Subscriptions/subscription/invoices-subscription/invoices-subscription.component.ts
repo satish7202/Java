@@ -146,7 +146,11 @@ export class InvoicesSubscriptionComponent implements OnInit {
     console.log(data);
     this.ngOnInit();
   }
-
+  formatter(data)
+  {
+    data=Math.round(data);
+    return data;
+  }
   deleteModal(value) {
     const dialogData = {
       data: value,

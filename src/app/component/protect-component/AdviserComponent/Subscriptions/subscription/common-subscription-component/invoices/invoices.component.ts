@@ -109,6 +109,11 @@ export class InvoicesComponent implements OnInit {
     // }
 
   }
+  formatter(data)
+  {
+    data=Math.round(data);
+    return data;
+  }
   getInvoiceListResponse(data)
   {
     data.forEach(singleData => {

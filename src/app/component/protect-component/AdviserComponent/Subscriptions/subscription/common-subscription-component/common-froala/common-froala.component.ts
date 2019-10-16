@@ -15,7 +15,11 @@ export class CommonFroalaComponent implements OnInit {
     this.showActivityLog=false;
   }
   Close(value) {
+    if(this.showActivityLog==true){
+      this.showActivityLog=false;
+    }else{
     this.subInjectService.rightSideData(value);
+    }
   }
   openFroala()
   {
