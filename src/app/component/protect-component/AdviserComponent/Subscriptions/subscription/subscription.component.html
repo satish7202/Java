@@ -43,7 +43,7 @@
   </div>
 </div>
 <div [@openClose]="currentState" class="right_sidenav">
-  <app-common-froala *ngIf="subscriptionTab=='DOCUMENTS'"></app-common-froala>
+  <app-common-froala *ngIf="subscriptionTab=='DOCUMENTS'" [screenType]="subscriptionTab"></app-common-froala>
   <app-common-froala *ngIf="subscriptionTab=='QUOTATIONS'"></app-common-froala>
   <app-invoice-history *ngIf="subscriptionTab=='SUBSCRIPTIONS'"></app-invoice-history>
   <app-invoice-history *ngIf="subscriptionTab=='subscriptionFees'"></app-invoice-history>
