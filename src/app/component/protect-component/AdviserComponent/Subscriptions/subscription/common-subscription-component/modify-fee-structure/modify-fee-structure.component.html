@@ -1,4 +1,4 @@
-<div *ngIf="ModifyFeesChange=='modifyFees'" class="row bb-1 popup-header-fix-60">
+<div *ngIf="ModifyFeesChange=='modifyFees' || modifyFeeData" class="row bb-1 popup-header-fix-60">
     <div class="col-md-8 p-0">
         <h4 class="wrapper-20 pb-16">MODIFY FEE STRUCTURE</h4>
     </div>
@@ -35,18 +35,17 @@
             <div class="row">
                 <div class="col-md-5 p-0">
                     <div class="form-group">
-                        <input type="text" formControlName="billEvery" class="form-control br-0 h-39">
+                        <input type="number" pattern="\d*" onKeyPress="if(this.value.length==2) return false;" formControlName="billEvery" class="form-control br-0 h-39">
                     </div>
                 </div>
+
                 <div class="col-md-5 p-0">
-                    <button mat-button [matMenuTriggerFor]="menu" class="b-a br-0 min-39">Months <i
-                            class="material-icons ml-44 text-custom">
-                            arrow_drop_down
-                        </i></button>
-                    <mat-menu #menu="matMenu">
-                        <button mat-menu-item>quarterly</button>
-                        <button mat-menu-item>yearly</button>
-                    </mat-menu>
+                    <div class="form-group">
+                        <select class="form-control" formControlName="Duration" id="sel1">
+                            <option value="1">Monthly</option>
+                            <option value="12">Yearly</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
@@ -99,13 +98,16 @@
                     </div>
                     <div class="row ui-mff">
                         <div class="col-md-4 br-grey p-0 bl-0 bb-grey">
-                            <input type="number" placeholder="%" formGroupName="equity" class="form-control br-0 h-39 br-grey">
+                            <input type="number" placeholder="%" formGroupName="equity"
+                                class="form-control br-0 h-39 br-grey">
                         </div>
                         <div class="col-md-4 br-grey bb-grey p-0">
-                            <input type="number" placeholder="%" formGroupName="debt" class="form-control br-0 h-39 br-grey">
+                            <input type="number" placeholder="%" formGroupName="debt"
+                                class="form-control br-0 h-39 br-grey">
                         </div>
                         <div class="col-md-4 br-grey bb-grey p-0">
-                            <input type="number" placeholder="%" formGroupName="liquid" class="form-control br-0 h-39 br-grey">
+                            <input type="number" placeholder="%" formGroupName="liquid"
+                                class="form-control br-0 h-39 br-grey">
                         </div>
                     </div>
                 </div>
@@ -124,26 +126,19 @@
                 <div class="col-md-10 p-0">
                     <div class="b-a wrapper-12">
                         <mat-chip-list aria-label="Fish selection">
-                            <mat-chip class="f-13 f-400 wrapper-16 c-p">Stocks</mat-chip>
-                            <mat-chip class="btn-primary f-13 f-400 wrapper-16"><i
-                                    class="material-icons mr-8 text-white f-16">
+                            <mat-chip (click)="select(assets)" *ngFor="let assets of otherAssetData"
+                                [ngClass]="{'btn-primary':assets.selected}" class="f-13 f-400 wrapper-16"><i
+                                    class="material-icons mr-8 text-grey f-16">
                                     check
-                                </i>Insurance</mat-chip>
-                            <mat-chip class="btn-primary f-13 f-400 wrapper-16"><i
-                                    class="material-icons mr-8 text-white f-16">
-                                    check
-                                </i>Real estate</mat-chip>
-                            <mat-chip class="f-14 f-400 wrapper-16">Retirement accounts</mat-chip>
-                            <mat-chip class="btn-primary f-13 f-400 wrapper-16"><i
-                                    class="material-icons mr-8 text-white f-16">
-                                    check
-                                </i>Fixed deposits</mat-chip>
-                            <mat-chip class="f-13 f-400 wrapper-16">Gold</mat-chip>
+                                </i>
+                                <div *ngIf="assets">{{assets.name}}</div>
+                            </mat-chip>
                         </mat-chip-list>
                     </div>
                 </div>
                 <div class="col-md-2 p-0">
-                    <h5 class="b-a wrapper-8 pl-12 mb-0">1.0%</h5>
+                    <input type="number" maxlength="4" formControlName="pricing" placeholder="%"
+                        class="form-control br-0 h-39 br-grey">
                 </div>
 
             </div>
@@ -156,12 +151,7 @@
             <h5 class="mb-0 pt-8 text-white c-p" (click)="Close('close')">Cancel</h5>
         </div>
         <div class="col-md-8 right text-right">
-            <button mat-button [matMenuTriggerFor]="menu" class="btn-bottom br-0 text-inherit">Save</button>
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item>Item 1</button>
-                <button mat-menu-item>Item 2</button>
-            </mat-menu>
-
+            <button mat-button (click)="saveModifyFees()" class="btn-bottom br-0 text-inherit">Save</button>
         </div>
     </div>
 </div>

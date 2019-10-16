@@ -56,8 +56,9 @@
                                 more_vert
                             </i>
                             <mat-menu #menu="matMenu">
-                                <a mat-menu-item *ngIf="upperData.feeTypeId==1" (click)="openPlanSliderFee(upperData,'fixedFee','open')" >Edit Service</a>
-                                <a mat-menu-item *ngIf="upperData.feeTypeId==2" (click)="openPlanSliderFee(upperData,'varibleFee','open')" >Edit Service</a>
+                                <a mat-menu-item *ngIf="upperData.servicePricing.feeTypeId==1" (click)="openPlanSliderFee(upperData,'fixedFee','open')" >Edit Service</a>
+                                <a mat-menu-item *ngIf="upperData.servicePricing.feeTypeId==2" (click)="openPlanSliderFee(upperData,'varibleFee','open')" >Edit Service</a>
+                                <a mat-menu-item (click)="deleteService(upperData)"></a>
                             </mat-menu>
                             </div>
                         </div>
@@ -80,7 +81,7 @@
                             </div>
                             <div *ngIf="upperData" class="col-md-3 text-left">
                                     <p class="text-custom m-0 f-12">FEES</p>
-                                    <h4 class="m-0 p-0 lh-16" *ngIf="upperData.servicePricing.feeTypeId==2">{{upperData.amount}}% / Year</h4>
+                                    <h4 class="m-0 p-0 lh-16" *ngIf="upperData.servicePricing.feeTypeId==2">{{upperData.servicePricing.pricingList[2].pricing}}% / Year</h4>
                                     <h4 class="m-0 p-0 lh-16" *ngIf="upperData.servicePricing.feeTypeId==1">Rs{{upperData.amount}} / Year</h4>
                             </div>
                     </div>
@@ -109,13 +110,13 @@
                                    </div>
                                  <div class="row">
                                      <div class="col-md-4 pr-4 pl-0 br-grey bl-0">
-                                       <h5 class="m-0 wrapper-8">1.0%</h5>
+                                       <h5 class="m-0 wrapper-8">{{upperData.servicePricing.pricingList[0].equityAllocation}}%</h5>
                                      </div>
                                      <div class="col-md-4 pr-4 br-grey pl-0">
-                                         <h5 class="m-0 wrapper-8">0.5%</h5>
+                                         <h5 class="m-0 wrapper-8">{{upperData.servicePricing.pricingList[0].debtAllocation}}%</h5>
                                      </div>
                                      <div class="col-md-4 pr-4 pl-0">
-                                         <h5 class="m-0 wrapper-8">0.2%</h5>
+                                         <h5 class="m-0 wrapper-8">{{upperData.servicePricing.pricingList[0].liquidAllocation}}%</h5>
                                      </div>
                                    </div>
                                 </div>
@@ -134,13 +135,13 @@
                                      </div>
                                      <div class="row">
                                          <div class="col-md-4 pr-4 bb-grey pl-0 br-grey bl-0">
-                                           <h5 class="m-0 wrapper-8">0.5%</h5>
+                                           <h5 class="m-0 wrapper-8">{{upperData.servicePricing.pricingList[1].equityAllocation}}%</h5>
                                          </div>
                                          <div class="col-md-4 pr-4 pl-0 bb-grey br-grey">
-                                             <h5 class="m-0 wrapper-8">0.2%</h5>
+                                             <h5 class="m-0 wrapper-8">{{upperData.servicePricing.pricingList[1].debtAllocation}}%</h5>
                                          </div>
                                          <div class="col-md-4 pr-4 pl-0 bb-grey br-grey">
-                                             <h5 class="m-0 wrapper-8">0%</h5>
+                                             <h5 class="m-0 wrapper-8">{{upperData.servicePricing.pricingList[1].liquidAllocation}}%</h5>
                                          </div>
                                        </div>
                                 </div>

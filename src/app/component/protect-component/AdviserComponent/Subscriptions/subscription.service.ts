@@ -162,7 +162,6 @@ export class SubscriptionService {
   }
 
   deleteSubscriptionPlan(data) {
-    const httpParams = new HttpParams().set('advisorId', data.advisorId).set('planId', data.planId);
     return this.http.put(apiConfig.MAIN_URL + appConfig.DELETE_SUBSCRIPTION_PLAN, data);
   }
 

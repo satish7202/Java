@@ -23,4 +23,8 @@ export class FeeStructureComponent implements OnInit {
     this.subInjectService.rightSideData(data);
     this.subInjectService.rightSliderData(state);
   }
+  deleteService(feeData)
+  {
+    
+  }
 }
