@@ -24,6 +24,7 @@ export class DocumentsSettingsComponent implements OnInit {
   }
 
   ngOnInit() {
+    // this.openFragment('documents');
     this.getDocumentsSetting();
   }
 
@@ -32,7 +33,7 @@ export class DocumentsSettingsComponent implements OnInit {
     let obj = {
       "advisorId": 2735
     }
-    let data = [{},{},{}]
+    let data = [{}, {}, {}]
     this.getDocumentsSettingResponse(data);
     // this.subService.getSubscriptionDocumentSetting(obj).subscribe(
     //   data => this.getDocumentsSettingResponse(data)
@@ -165,9 +166,10 @@ export class DocumentsSettingsComponent implements OnInit {
     this.subInjectService.rightSideData(state);
   }
 
-  openFragment(data) {
+  openFragment(data, singleDocument) {
     let Fragmentdata = {
       Flag: data,
+      data: singleDocument,
       id: 1
     }
     if (Fragmentdata.Flag == 'documents') {
