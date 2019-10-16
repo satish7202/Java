@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef, MatDialog } from '@angular/material';
+import {Component, OnInit} from '@angular/core';
+import {MatDialogRef, MatDialog} from '@angular/material';
 import {trigger, state, style, transition, animate} from '@angular/animations';
-import { SubscriptionInject } from '../../../subscription-inject.service';
-import { FormGroup, FormControl } from '@angular/forms';
-import { HowToUseDialogComponent } from '../how-to-use-dialog/how-to-use-dialog.component';
+import {SubscriptionInject} from '../../../subscription-inject.service';
+import {FormGroup, FormControl} from '@angular/forms';
+import {HowToUseDialogComponent} from '../how-to-use-dialog/how-to-use-dialog.component';
 
 @Component({
   selector: 'app-modify-fee-dialog',
@@ -12,17 +12,25 @@ import { HowToUseDialogComponent } from '../how-to-use-dialog/how-to-use-dialog.
 })
 export class ModifyFeeDialogComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<ModifyFeeDialogComponent>,public subInjectService: SubscriptionInject, public dialog: MatDialog) { }
+  editorContent;
+
+  constructor(public dialogRef: MatDialogRef<ModifyFeeDialogComponent>,
+              public subInjectService: SubscriptionInject, public dialog: MatDialog) {
+    console.log('ModifyFeeDialogComponent constructor: ', this.dialogRef);
+  }
+
   mailForm = new FormGroup({
     mail_body: new FormControl(''),
 
   });
+
   ngOnInit() {
   }
+
   dialogClose() {
     this.dialogRef.close();
   }
- 
+
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.log(this.mailForm.value);
