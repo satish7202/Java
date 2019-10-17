@@ -24,3 +24,7 @@ input[type=number]::-webkit-outer-spin-button {
 .ui-mff .form-control{
     border: 0px !important;
 }
+.form-control:focus{
+    box-shadow: none !important;
+    border-color: #ced4da !important;
+}
