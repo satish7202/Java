@@ -94,6 +94,7 @@ import { CustomFormInputComponent } from './common/custom-form-input/custom-form
 import { AssetsComponent } from './component/protect-component/customers/component/customer/accounts/assets/assets.component';
 import {DragDropModule} from "@angular/cdk/drag-drop";
 import { FroalaComponent } from './component/protect-component/common-component/froala/froala.component';
+import { EmailOnlyComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/email-only/email-only.component';
 
 @NgModule({
   declarations: [
@@ -177,7 +178,8 @@ import { FroalaComponent } from './component/protect-component/common-component/
     ChangePayeeComponent,
     CustomFormInputComponent,
     AssetsComponent,
-    FroalaComponent
+    FroalaComponent,
+    EmailOnlyComponent
   ],
   imports: [
     BrowserModule,
