@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material';
 import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
 import { SubscriptionInject } from '../../subscription-inject.service';
 import { SubscriptionService } from '../../subscription.service';
+import { EventService } from 'src/app/Data-service/event.service';
 
 export interface PeriodicElement {
   name: string;
@@ -22,7 +23,7 @@ export interface PeriodicElement {
 })
 export class QuotationsSubscriptionComponent implements OnInit {
 
-  constructor(public subInjectService:SubscriptionInject , public dialog: MatDialog, private subService:SubscriptionService) { }
+  constructor(public eventService:EventService,public subInjectService:SubscriptionInject , public dialog: MatDialog, private subService:SubscriptionService) { }
 
   ngOnInit() {
     this.getQuotationsData();
@@ -74,9 +75,14 @@ export class QuotationsSubscriptionComponent implements OnInit {
     });
 
   }
-
-  Open(value)
+  Open(value,state,data)
   {
-    this.subInjectService.rightSideData(value);
+    this.eventService.sidebarData(value)
+    this.subInjectService.rightSideData(state);    
+    this.subInjectService.addSingleProfile(data);
   }
+  // Open(value)
+  // {
+  //   this.subInjectService.rightSideData(value);
+  // }
 }

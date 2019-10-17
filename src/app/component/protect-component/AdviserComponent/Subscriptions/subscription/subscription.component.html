@@ -44,7 +44,8 @@
 </div>
 <div [@openClose]="currentState" class="right_sidenav">
   <app-common-froala *ngIf="subscriptionTab=='DOCUMENTS'" [screenType]="subscriptionTab"></app-common-froala>
-  <app-common-froala *ngIf="subscriptionTab=='QUOTATIONS'"></app-common-froala>
+  <app-common-froala *ngIf="subscriptionTab=='viewQuotation'"></app-common-froala>
+  <app-common-froala [changeFooter]='subscriptionTab' *ngIf="subscriptionTab=='emailQuotation'"></app-common-froala>
   <app-invoice-history *ngIf="subscriptionTab=='SUBSCRIPTIONS'"></app-invoice-history>
   <app-invoice-history *ngIf="subscriptionTab=='subscriptionFees'"></app-invoice-history>
   <app-clients-dashboard *ngIf="subscriptionTab=='dashboardSubscription'"></app-clients-dashboard>

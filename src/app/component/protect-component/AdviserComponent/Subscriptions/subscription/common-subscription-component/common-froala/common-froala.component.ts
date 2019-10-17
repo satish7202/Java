@@ -49,11 +49,17 @@ import {SubscriptionInject} from '../../../subscription-inject.service';
   ]
 })
 export class CommonFroalaComponent implements ControlValueAccessor, OnInit {
+  dataSub: any;
+  storeData: any;
 
   constructor(public subInjectService: SubscriptionInject) {
+    this.dataSub = this.subInjectService.singleProfileData.subscribe(
+      data=>this.getcommanFroalaData(data)
+    );
   }
 
   @Input() screenType;
+  @Input() changeFooter;
   showActivityLog: boolean;
 
   // End ControlValueAccesor methods.
@@ -68,7 +74,10 @@ export class CommonFroalaComponent implements ControlValueAccessor, OnInit {
     this.showActivityLog = false;
     console.log('CommonFroalaComponent ngOnInit screenType: ', this.screenType);
   }
-
+  getcommanFroalaData(data)
+  {
+    this.storeData=data;
+  }
   Close(value) {
     if (this.showActivityLog == true) {
       this.showActivityLog = false;

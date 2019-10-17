@@ -36,11 +36,10 @@ export class QuotationsComponent implements OnInit {
   quotationDesignEmail;
   quotationDesign;
   dataCount;
-
   @Input() upperData;
-  displayedColumns: string[] = ['checkbox', 'document', 'plan', 'date', 'sdate', 'cdate', 'status', 'icons'];
+  displayedColumns: string[] = ['checkbox', 'document', 'plan', 'date', 'sdate', 'cdate', 'status','send', 'icons'];
   dataSource;
-
+  changeEmail='footerChange';
   ngOnInit() {
     this.quotationDesign = 'true';
     console.log('quotation');
@@ -158,5 +157,9 @@ export class QuotationsComponent implements OnInit {
   display(data) {
     console.log(data);
     this.ngOnInit();
+  }
+  viewQuotation(data)
+  {
+    this.quotationDesign = data;
   }
 }
