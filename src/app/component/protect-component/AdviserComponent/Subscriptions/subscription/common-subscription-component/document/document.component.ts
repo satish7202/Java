@@ -1,14 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MatDialogRef, MatDialog } from '@angular/material';
-import { SubscriptionInject } from '../../../subscription-inject.service';
-import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
-import { EventService } from 'src/app/Data-service/event.service';
-import { SubscriptionPopupComponent } from '../subscription-popup/subscription-popup.component';
-import { SubscriptionService } from '../../../subscription.service';
+import {Component, OnInit, Input} from '@angular/core';
+import { MatDialog} from '@angular/material';
+import {SubscriptionInject} from '../../../subscription-inject.service';
+import {ConfirmDialogComponent} from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
+import {EventService} from 'src/app/Data-service/event.service';
+import {SubscriptionPopupComponent} from '../subscription-popup/subscription-popup.component';
+import {SubscriptionService} from '../../../subscription.service';
 import * as _ from 'lodash';
-import { AddDocumentComponent } from '../add-document/add-document.component';
-import { element } from 'protractor';
-import { timingSafeEqual } from 'crypto';
+import {AddDocumentComponent} from '../add-document/add-document.component';
+// import {element} from 'protractor';
+// import {timingSafeEqual} from 'crypto';
 
 export interface PeriodicElement {
   selected: any;
@@ -23,7 +23,7 @@ export interface PeriodicElement {
 
 const ELEMENT_DATA: PeriodicElement[] = [
   {
-    selected:'',
+    selected: '',
     document: 'Scope of work',
     plan: 'Starter plan',
     service: 'AUM Linked fee',
@@ -43,8 +43,9 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class DocumentComponent implements OnInit {
   quotationDesignEmail: any;
   @Input() upperData;
-  constructor(public dialogRef: MatDialogRef<DocumentComponent>, public subInjectService: SubscriptionInject,
-    private eventService: EventService, public dialog: MatDialog, private subService: SubscriptionService) {
+
+  constructor(public subInjectService: SubscriptionInject,
+              private eventService: EventService, public dialog: MatDialog, private subService: SubscriptionService) {
     this.subInjectService.rightSliderDocument.subscribe(
       data => this.getDocumentsDesignData(data)
     );
@@ -64,8 +65,8 @@ export class DocumentComponent implements OnInit {
     this.getplanDocumentData();
     this.getServiceDocumentData();
     this.documentDesign = 'true';
-    console.log('upperData',this.upperData)
-    this.dataCount=0;
+    console.log('upperData', this.upperData);
+    this.dataCount = 0;
   }
 
   openDocument(data) {
@@ -99,7 +100,9 @@ export class DocumentComponent implements OnInit {
   }
 
   dialogClose() {
-    this.dialogRef.close();
+    this.eventService.changeUpperSliderState({state: 'close'});
+
+    // this.dialogRef.close();
   }
 
   selectDocument(data) {
@@ -148,22 +151,25 @@ export class DocumentComponent implements OnInit {
     data.forEach(singleData => {
       singleData.isChecked = false;
     });
-    console.log("document Data", data)
+    console.log('document Data', data);
     this.planDocumentData = data;
   }
+
   getServiceDocumentData() {
-    let obj = {
-      'advisorId': 12345,
-      'serviceId':this.upperData.id
-    }
+    const obj = {
+      advisorId: 12345,
+      serviceId: this.upperData.id
+    };
     this.subService.getMapDocumentToService(obj).subscribe(
       data => this.getServiceDocumentDataResponse(data)
-    )
+    );
   }
+
   getServiceDocumentDataResponse(data) {
-    console.log("service Documents", data.documentList)
+    console.log('service Documents', data.documentList);
     this.serviceDocumentData = data.documentList;
   }
+
   deleteModal(value) {
     const dialogData = {
       data: value,
@@ -186,26 +192,27 @@ export class DocumentComponent implements OnInit {
     });
 
   }
+
   saveMappingDocumentToPlans() {
     if (this.mappedData.length >= 0) {
-      let obj = [];
+      const obj = [];
       this.mappedData.forEach(element => {
-        let data = {
-          'advisorId': 12345,
-          'documentRepositoryId': element.documentRepositoryId,
-          'mappingId': this.upperData.id
-        }
-        obj.push(data)
-      })
+        const data = {
+          advisorId: 12345,
+          documentRepositoryId: element.documentRepositoryId,
+          mappingId: this.upperData.id
+        };
+        obj.push(data);
+      });
       this.subService.mapDocumentsToPlanData(obj).subscribe(
-        data => console.log("sucessful")
-      )
-      this.dialogRef.close();
-    }
-    else {
+        data => console.log('sucessful')
+      );
+      this.dialogClose();
+    } else {
       return;
     }
   }
+
   savePlanMapToDocument() {
     const obj = [];
     this.mappedData.forEach(element => {
@@ -220,39 +227,39 @@ export class DocumentComponent implements OnInit {
       data => console.log(data)
     );
   }
+
   display(data) {
-    console.log(data)
-    this.ngOnInit()
+    console.log(data);
+    this.ngOnInit();
   }
-  mapDocumentToService()
-  {
-    if(this.mappedData.length==0)
-    {
+
+  mapDocumentToService() {
+    if (this.mappedData.length === 0) {
       return;
-    }
-    else{
-      const obj=[];
-      this.mappedData.forEach(element=>{
-        const data={
-          "mappedType":2,
-          "mappingId":element.mappingId,
-          "id":element.id,
-          "documentRepositoryId":element.documentRepositoryId,
-          "advisorId":12345
-        }
-        obj.push(data)
-      })
+    } else {
+      const obj = [];
+      this.mappedData.forEach(element => {
+        const data = {
+          mappedType: 2,
+          mappingId: element.mappingId,
+          id: element.id,
+          documentRepositoryId: element.documentRepositoryId,
+          advisorId: 12345
+        };
+        obj.push(data);
+      });
       this.subService.mapDocumentToService(obj).subscribe(
-       data =>this.mapDocumentToServiceResponse(data)
-      ) 
+        data => this.mapDocumentToServiceResponse(data)
+      );
     }
   }
-  mapDocumentToServiceResponse(data)
-  {
-     console.log(data)
-     this.eventService.openSnackBar("Document is mapped","OK")
+
+  mapDocumentToServiceResponse(data) {
+    console.log(data);
+    this.eventService.openSnackBar('Document is mapped', 'OK');
 
   }
+
   selectAll(event) {
     // const checked = event.target.checked;
     // this.dataSource.forEach(item => item.selected = 'checked');
@@ -284,6 +291,7 @@ export class DocumentComponent implements OnInit {
     // }
 
   }
+
   changeSelect(data) {
     this.dataCount = 0;
     this.dataSource.forEach(item => {

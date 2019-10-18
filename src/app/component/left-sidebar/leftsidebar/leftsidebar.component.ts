@@ -4,6 +4,7 @@ import {AuthService} from 'src/app/auth-service/authService';
 import {EventService} from '../../../Data-service/event.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {SubscriptionInject} from '../../protect-component/AdviserComponent/Subscriptions/subscription-inject.service';
+import {RouterOutlet} from "@angular/router";
 
 @Component({
   selector: 'app-leftsidebar',
@@ -88,5 +89,8 @@ export class LeftsidebarComponent implements OnInit {
     this.authService.logout();
   }
 
+  // prepareRoute(outlet: RouterOutlet) {
+  //   return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
+  // }
 
 }

@@ -1,5 +1,5 @@
 import {Component, OnInit, Inject} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+// import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {trigger, state, style, transition, animate} from '@angular/animations';
 import {EventService} from 'src/app/Data-service/event.service';
 import {SubscriptionInject} from '../../../subscription-inject.service';
@@ -28,9 +28,12 @@ import {SubscriptionInject} from '../../../subscription-inject.service';
 })
 
 export class UpperSliderComponent implements OnInit {
+  fragmentData;
 
-  constructor(private eventService: EventService, private subinject: SubscriptionInject, public dialogRef: MatDialogRef<UpperSliderComponent>,
-              @Inject(MAT_DIALOG_DATA) public fragmentData: any) {
+  constructor(private eventService: EventService, private subinject: SubscriptionInject
+              // public dialogRef: MatDialogRef<UpperSliderComponent>,
+              // @Inject(MAT_DIALOG_DATA) public fragmentData: any
+  ) {
     this.eventService.rightSliderData.subscribe(
       data => this.getTabValueData(data)
     );
@@ -40,7 +43,15 @@ export class UpperSliderComponent implements OnInit {
     this.subinject.upperData.subscribe(
       data => this.getUpperDataValue(data)
     );
+    this.eventService.upperSliderDataObs.subscribe(
+      data => {
+        console.log('DialogContainerComponent constructor upperSliderDataObs: ', data);
+
+        this.fragmentData = data;
+      }
+    );
   }
+
   subscriptionTab: any;
 
   State;
@@ -56,6 +67,8 @@ export class UpperSliderComponent implements OnInit {
   blankOverview;
 
   ngOnInit() {
+    console.log('UpperSlider constructor ngOnInit: ', this.fragmentData);
+
     this.State = 'close';
     if (this.fragmentData.Flag === 'plan') {
       this.upperData = this.fragmentData.planData;
@@ -68,7 +81,8 @@ export class UpperSliderComponent implements OnInit {
   }
 
   dialogClose() {
-    this.dialogRef.close();
+    this.eventService.changeUpperSliderState({state: 'close'});
+    // this.dialogRef.close();
   }
 
   getStateData(data) {

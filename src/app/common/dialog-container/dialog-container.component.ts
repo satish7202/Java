@@ -45,15 +45,26 @@ import {SubscriptionInject} from '../../component/protect-component/AdviserCompo
     })),
 
     transition('close => open', [animate('0.3s')]),
-    transition('open => close', [animate('0.1s')]),
-    transition('close => openHelp', [animate('0.3s')]),
-    transition('openHelp => close', [animate('0.1s')])
+    transition('open => close', [animate('0.1s')])
   ]),
+    trigger('upperSliderOpenClose', [
+      state('open', style({
+        top: '0%'
+      })),
+      state('close', style({
+        // width:'0%'
+        top: '-100%'
+      })),
+
+      transition('close => open', [animate('0.3s')]),
+      transition('open => close', [animate('0.1s')]),
+      transition('close => openHelp', [animate('0.3s')]),
+      transition('openHelp => close', [animate('0.1s')])
+    ])
   ]
 })
+//
 export class DialogContainerComponent implements OnInit {
-
-  selectedSubscriptionTab: any;
 
   constructor(private eventService: EventService, private subinject: SubscriptionInject) {
     this.eventService.overlayVisibleData.subscribe(
@@ -70,12 +81,23 @@ export class DialogContainerComponent implements OnInit {
     this.eventService.tabChangeData.subscribe(
       data => this.getSubscriptionTabChangeData(data)
     );
+    this.eventService.upperSliderDataObs.subscribe(
+      data => {
+        console.log('DialogContainerComponent constructor upperSliderDataObs: ', data);
+        this.upperSliderData = data;
+      }
+    );
+    // this.eventService.changeUpperSliderState()
   }
+
+  selectedSubscriptionTab: any;
 
   isOverlayVisible;
   currentState;
   subscriptionTab;
   dialogState;
+
+  upperSliderData;
 
   ngOnInit() {
   }
@@ -105,5 +127,4 @@ export class DialogContainerComponent implements OnInit {
   getSubscriptionTabChangeData(data) {
     this.selectedSubscriptionTab = data;
   }
-
 }

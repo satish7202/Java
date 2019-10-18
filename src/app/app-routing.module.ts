@@ -27,8 +27,15 @@ const routes: Routes = [
         path: 'subscription',
         component: SubscriptionComponent,
         children: [
-          {path: ''},
-          {path: 'clients', component: UpperSliderComponent}]
+          {
+            path: '',
+            component: SubscriptionComponent,
+            data: {animation: 'SubscriptionHome'}
+          },
+          {
+            path: 'clients',
+            component: CustomerComponent
+          }]
       },
       {
         path: '',
@@ -39,7 +46,9 @@ const routes: Routes = [
         component: MisComponent
       }
 
-    ]
+    ],
+    data: {animation: 'LeftBar'}
+
   },
   {
     path: '',
@@ -51,7 +60,10 @@ const routes: Routes = [
   },
   {
     path: 'customer',
-    component: CustomerComponent
+    component: CustomerComponent,
+    data: {
+      animation: 'ClientDetails'
+    }
   }
   // { path: 'customer-detail', loadChildren: () => import('./component/protect-component/customers/customers.module')
   // .then(m => m.CustomersModule) },

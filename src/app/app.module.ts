@@ -92,7 +92,7 @@ import {AccountsComponent} from './component/protect-component/customers/compone
 import {SummaryComponent} from './component/protect-component/customers/component/customer/accounts/summary/summary.component';
 import { CustomFormInputComponent } from './common/custom-form-input/custom-form-input.component';
 import { AssetsComponent } from './component/protect-component/customers/component/customer/accounts/assets/assets.component';
-import {DragDropModule} from "@angular/cdk/drag-drop";
+import {DragDropModule} from '@angular/cdk/drag-drop';
 import { FroalaComponent } from './component/protect-component/common-component/froala/froala.component';
 import { EmailOnlyComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/email-only/email-only.component';
 import { HowItWorksComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/how-it-works/how-it-works.component';
