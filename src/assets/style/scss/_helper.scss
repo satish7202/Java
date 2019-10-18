@@ -340,7 +340,9 @@ $lineheight:20px;
 .pt-0 {
     padding-top: $zeropx !important;
 }
-
+.pt-2{
+    padding-top: $p4 - 2 !important;
+}
 .pt-4 {
     padding-top: $p4 !important;
 }

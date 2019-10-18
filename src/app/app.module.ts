@@ -95,6 +95,9 @@ import { AssetsComponent } from './component/protect-component/customers/compone
 import {DragDropModule} from "@angular/cdk/drag-drop";
 import { FroalaComponent } from './component/protect-component/common-component/froala/froala.component';
 import { EmailOnlyComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/email-only/email-only.component';
+import { LiabilitiesComponent } from './component/protect-component/customers/component/customer/accounts/liabilities/liabilities.component';
+import { InsuranceComponent } from './component/protect-component/customers/component/customer/accounts/insurance/insurance.component';
+import { ExpensesComponent } from './component/protect-component/customers/component/customer/accounts/expenses/expenses.component';
 
 @NgModule({
   declarations: [
@@ -179,7 +182,10 @@ import { EmailOnlyComponent } from './component/protect-component/AdviserCompone
     CustomFormInputComponent,
     AssetsComponent,
     FroalaComponent,
-    EmailOnlyComponent
+    EmailOnlyComponent,
+    LiabilitiesComponent,
+    InsuranceComponent,
+    ExpensesComponent
   ],
   imports: [
     BrowserModule,

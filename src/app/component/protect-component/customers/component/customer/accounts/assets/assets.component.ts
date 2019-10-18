@@ -17,6 +17,9 @@ export class AssetsComponent implements OnInit {
   datasource1=ELEMENT_DATA1;
   displayedColumns2 = ['sname', 'amts','cvalue','profit','abs','xirr','pay','outs','unit','date','sip','icons'];
   datasource2=ELEMENT_DATA2;
+  displayedColumns3 = ['no', 'owner','type','value','pvale','desc','status','icons'];
+  datasource3=ELEMENT_DATA3;
+ 
 }
 
 export interface PeriodicElement {
@@ -72,5 +75,21 @@ const ELEMENT_DATA1: PeriodicElement1[] = [
   {data: 'g. Market Value', amts: "2,28,580"},
   {data: 'h. Net Gain (g-f)', amts: "2,28,580"},
   {data: 'i. Realized XIRR (All Transactions)', amts: "2.81 %"},
+ 
+];
+export interface PeriodicElement3{
+  no:string;
+  owner:string;
+  type:string;
+  value:string;
+  pvale:string;
+  desc:string;
+  status:string;
+}
+
+const ELEMENT_DATA3: PeriodicElement3[] = [
+  {no:'1', owner: "Rahul Jain",type:'Type',value:"60,000",pvale:'60,000',desc:'ICICI FD',status:'MATURED'},
+  {no:'2', owner: "Shilpa Jain",type:'Type',value:"60,000",pvale:'60,000',desc:'Axis bank FD',status:'LIVE'},
+  {no:'', owner: "Total",type:'',value:"1,28,925",pvale:'1,28,925',desc:'',status:''},
  
 ];
