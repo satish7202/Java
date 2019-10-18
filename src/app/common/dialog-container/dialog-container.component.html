@@ -1,24 +1,24 @@
-<div [@dialogContainer]="dialogState" [@dialogContainerBackground]="currentState" class="custom-overlay">
+<div [@dialogContainer]="dialogState" *ngIf="isOverlayVisible" class="custom-overlay">
+</div>
 
-  <div [@openClose]="currentState" class="right_sidenav">
-    <app-common-froala *ngIf="subscriptionTab=='viewDocuments'" [screenType]="subscriptionTab"></app-common-froala>
-    <app-common-froala   [changeEmailOnly]='subscriptionTab' *ngIf="subscriptionTab=='openEmailQuot'"></app-common-froala>
-    <app-common-froala [changeFooter]='subscriptionTab' *ngIf="subscriptionTab=='emailQuotation'"></app-common-froala>
-    <app-common-froala [changeFooter]='subscriptionTab' *ngIf="subscriptionTab=='viewQuotation'"></app-common-froala>
-    <app-email-quotation *ngIf="subscriptionTab=='eSignRequest'"></app-email-quotation>
-    <app-invoice-history *ngIf="subscriptionTab=='SUBSCRIPTIONS'"></app-invoice-history>
-    <app-invoice-history *ngIf="subscriptionTab=='subscriptionFees'"></app-invoice-history>
-    <app-clients-dashboard *ngIf="subscriptionTab=='dashboardSubscription'"></app-clients-dashboard>
-    <app-modify-fee-structure *ngIf="subscriptionTab=='modifyFees'"></app-modify-fee-structure>
-    <app-biller-profile-advisor [Selected]="selectedSubscriptionTab"
-                                *ngIf="subscriptionTab=='billerProfile'"></app-biller-profile-advisor>
-    <app-help *ngIf="subscriptionTab=='clientHelp'"></app-help>
-    <app-biller-settings *ngIf="subscriptionTab=='billerSettings'"></app-biller-settings>
-    <!-- <app-payee-settings *ngIf="subscriptionTab=='payeeSettings'"></app-payee-settings> -->
-    <app-help *ngIf="subscriptionTab=='documentHelp'"></app-help>
-    <app-invoice *ngIf="subscriptionTab=='invoiceUpperSlider'"></app-invoice>
-    <app-change-payee *ngIf="subscriptionTab=='changePayee'"></app-change-payee>
-    <app-create-subscription *ngIf="subscriptionTab=='createSub'"></app-create-subscription>
+<div [@openClose]="currentState" class="right_sidenav">
+  <app-common-froala *ngIf="subscriptionTab=='viewDocuments'" [screenType]="subscriptionTab"></app-common-froala>
+  <app-common-froala [changeEmailOnly]='subscriptionTab' *ngIf="subscriptionTab=='openEmailQuot'"></app-common-froala>
+  <app-common-froala [changeFooter]='subscriptionTab' *ngIf="subscriptionTab=='emailQuotation'"></app-common-froala>
+  <app-common-froala [changeFooter]='subscriptionTab' *ngIf="subscriptionTab=='viewQuotation'"></app-common-froala>
+  <app-email-quotation *ngIf="subscriptionTab=='eSignRequest'"></app-email-quotation>
+  <app-invoice-history *ngIf="subscriptionTab=='SUBSCRIPTIONS'"></app-invoice-history>
+  <app-invoice-history *ngIf="subscriptionTab=='subscriptionFees'"></app-invoice-history>
+  <app-clients-dashboard *ngIf="subscriptionTab=='dashboardSubscription'"></app-clients-dashboard>
+  <app-modify-fee-structure *ngIf="subscriptionTab=='modifyFees'"></app-modify-fee-structure>
+  <app-biller-profile-advisor [Selected]="selectedSubscriptionTab"
+                              *ngIf="subscriptionTab=='billerProfile'"></app-biller-profile-advisor>
+  <app-help *ngIf="subscriptionTab=='clientHelp'"></app-help>
+  <app-biller-settings *ngIf="subscriptionTab=='billerSettings'"></app-biller-settings>
+  <!-- <app-payee-settings *ngIf="subscriptionTab=='payeeSettings'"></app-payee-settings> -->
+  <app-help *ngIf="subscriptionTab=='documentHelp'"></app-help>
+  <app-invoice *ngIf="subscriptionTab=='invoiceUpperSlider'"></app-invoice>
+  <app-change-payee *ngIf="subscriptionTab=='changePayee'"></app-change-payee>
+  <app-create-subscription *ngIf="subscriptionTab=='createSub'"></app-create-subscription>
 
-  </div>
 </div>

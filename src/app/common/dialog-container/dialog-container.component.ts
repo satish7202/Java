@@ -9,19 +9,24 @@ import {SubscriptionInject} from '../../component/protect-component/AdviserCompo
   styleUrls: ['./dialog-container.component.scss'],
   animations: [trigger('dialogContainer', [
     state('open', style({
-      'z-index': 10
+      opacity: 0.25
+      // 'z-index': 10
     })),
     state('openHelp', style({
+      opacity: 0.25
       // left: '0%',
-      'z-index': 10
+      // 'z-index': 10
 // width: '35%'
     })),
     state('close', style({
+      opacity: 0
       // width:'0%'
       // left: '100%'
-      'z-index': -1
+      // 'z-index': -1
 
     })),
+    transition('close => open', [style({opacity: 0}),
+      animate(300, style({opacity: 0.25}))]),
     // transition('close => open', [animate('0.3s')]),
     // transition('open => close', [animate('0.1s')]),
     // transition('close => openHelp', [animate('0.3s')]),
@@ -38,32 +43,13 @@ import {SubscriptionInject} from '../../component/protect-component/AdviserCompo
       // width:'0%'
       left: '100%'
     })),
+
     transition('close => open', [animate('0.3s')]),
     transition('open => close', [animate('0.1s')]),
     transition('close => openHelp', [animate('0.3s')]),
     transition('openHelp => close', [animate('0.1s')])
   ]),
-    trigger('dialogContainerBackground', [
-      state('open', style({
-        // opacity: 0.5
-        'background-color': '#66808080',
-
-      })),
-      state('openHelp', style({
-        'background-color': '#66808080',
-        // opacity: 0.5
-
-      })),
-      state('close', style({
-        // opacity: 0
-        'background-color': '#66808080',
-
-      })),
-      // transition('close => open', [animate('0.3s')]),
-      // transition('open => close', [animate('0.1s')]),
-      // transition('close => openHelp', [animate('0.3s')]),
-      // transition('openHelp => close', [animate('0.1s')])
-    ])]
+  ]
 })
 export class DialogContainerComponent implements OnInit {
 
@@ -102,16 +88,14 @@ export class DialogContainerComponent implements OnInit {
       }, 300);
       // this.eventService.changeOverlayVisible(false);
     } else {
-      this.dialogState = value;
+      this.currentState = value;
+
       setTimeout(() => {
-        this.currentState = value;
-      }, 300);
+        this.dialogState = value;
+      }, 100);
       // this.eventService.changeOverlayVisible(true);
     }
 
-    this.dialogState = value;
-
-    this.currentState = value;
   }
 
   getFileResponseDataAum(data) {
