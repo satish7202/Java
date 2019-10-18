@@ -11,6 +11,10 @@
 @import './assets/style/scss/_card';
 @import'./assets/style/scss/table';
 @import'./assets/style/scss/plugin';
+@import'./assets/style/scss/config';
+@import'./assets/style/scss/border';
+@import'./assets/style/scss/fixing';
+@import'./assets/style/scss/height-width';
 @import'./assets/style/scss/progressbar';
 @import'./assets/style/scss/_footer';
 
@@ -245,6 +249,7 @@
         line-height: 19px;
         letter-spacing: 0.2px;
         color: #3F3F3F;
+        word-break: break-all;
     }
     .mat-card-header {
         font-family: 'Playfair Display', sans-serif;
@@ -383,12 +388,11 @@
 .right_sidenav {
     height: 100%;
     position: fixed;
-    z-index: 9999;
+    z-index: 222;
     top: 0;
     width: 60%;
     // right: 0;
     left: 100%;
-    opacity: 1!important;
     background-color: #fff;
     overflow-x: hidden;
     // transition: 0.4s;
@@ -447,7 +451,7 @@ mat-tab-group[vertical] {
         box-shadow: none !important;
     }
 }
-#ui-perferences{
+#ui-perferences,#ui-assets{
         .vertical-menu {
 
         height: 100%;
@@ -473,6 +477,14 @@ mat-tab-group[vertical] {
     }
     a{
         padding: 8px;
+    }
+}
+#ui-assets{
+    li{
+        padding-top: 12px;
+        padding-left: 24px;
+        padding-bottom: 8px;
+        font-size: 14px;
     }
 }
 #ui-biller-tabs{
@@ -510,7 +522,6 @@ mat-tab-group[vertical] {
 }
 }
 
-
 #ui-customer{
 
     .mat-tab-header{
@@ -536,7 +547,7 @@ mat-tab-group[vertical] {
     }
     .mat-tab-label{
 
-        min-width: 100px;
+        min-width: 100px !important;
     }
     .mat-ink-bar{
         height: 6px !important;

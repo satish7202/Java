@@ -1,5 +1,7 @@
 import { Component, OnInit, forwardRef, Input, EventEmitter, Output } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { EventService } from 'src/app/Data-service/event.service';
+import { SubscriptionInject } from '../../../subscription-inject.service';
 
 @Component({
   selector: 'app-email-only',
@@ -16,16 +18,19 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 export class EmailOnlyComponent implements OnInit {
   model: any;
 
-  constructor() { }
+  constructor(public eventService:EventService,public subInjectService:SubscriptionInject) { }
   @Input() emailSend;
   @Input() emailSendfooter;
+  @Input() emailDocumentSend;
+  @Input() emailDocument;
   @Output() valueChange = new EventEmitter();
   config: Object = {
     charCounterCount: false
   };
 
   ngOnInit() {
-    console.log(this.emailSend);
+    console.log(this.emailSendfooter);
+    console.log(this.emailDocumentSend);
   }
 // Begin ControlValueAccesor methods.
 onChange = (_) => {
@@ -47,5 +52,11 @@ registerOnTouched(fn: () => void): void {
 }
 Close(value) {
   this.valueChange.emit(this.emailSend);
+}
+openEmailQuot(value,state,data)
+{
+  this.eventService.sliderData(value);
+  this.subInjectService.rightSliderData(state)
+  this.subInjectService.addSingleProfile(data)
 }
 }

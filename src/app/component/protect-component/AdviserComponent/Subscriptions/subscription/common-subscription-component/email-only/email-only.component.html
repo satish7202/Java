@@ -23,8 +23,10 @@
               </div> -->
             </div>
             <div class="col-md-12 p-0">
-                    <textarea [froalaEditor]="config" (froalaModelChange)="onChange($event)" [(froalaModel)]="model"></textarea>
-            </div>
+                    <!-- <textarea [froalaEditor]="config" (froalaModelChange)="onChange($event)" [(froalaModel)]="model"></textarea> -->
+            
+                  <app-froala></app-froala>
+                  </div>
           </div>
        
       </div>
@@ -55,19 +57,30 @@
                       <div class="col-md-2 p-0">
                             <h5 class="m-0 pt-8 text-white c-p ">Help</h5>
                       </div>
-                      <div class="col-md-4  right text-right">
-                            <button mat-button class="btn-bottom br-0 text-inherit" *ngIf="emailSendfooter!='footerChange'">SAVE</button>
-                            <div *ngIf="emailSendfooter=='footerChange'">
-                            <button mat-button class="btn-bottom br-0 text-inherit" [matMenuTriggerFor]="menu">Email with eSign Request <i
+                      <div class="col-md-4  right text-right" *ngIf="emailDocumentSend!=undefined || emailDocument!=undefined">
+                            <div>
+                                <button mat-button class="btn-bottom br-0 text-inherit mr-20" *ngIf="emailDocument=='readyToSend'">Email only <i
+                                  class="material-icons">
+                                  arrow_drop_up
+                                </i></button>                              
+                            <button mat-button class="btn-bottom br-0 text-inherit" (click)="openEmailQuot('emailQuot','open',element)">Email with eSign Request <i
                                 class="material-icons">
                                 arrow_drop_up
                               </i></button>
-                              <mat-menu #menu="matMenu">
-                                <button mat-menu-item>Item 1</button>
-                                <button mat-menu-item>Item 2</button>
-                              </mat-menu>
                               </div>
                     </div>
-                   
+                    <div class="col-md-4  right text-right" *ngIf="emailSendfooter!=undefined || emailSend!=undefined">
+                        <button mat-button class="btn-bottom br-0 text-inherit" *ngIf="emailSendfooter!='footerChange' ">SAVE</button>
+                        <div *ngIf="emailSendfooter=='footerChange'">
+                            <button mat-button class="btn-bottom br-0 text-inherit mr-20">Email only <i
+                              class="material-icons">
+                              arrow_drop_up
+                            </i></button>
+                        <button mat-button class="btn-bottom br-0 text-inherit" (click)="openEmailQuot('emailQuot','open',element)">Email with eSign Request <i
+                            class="material-icons">
+                            arrow_drop_up
+                          </i></button>
+                          </div>
+                </div>
                   </div>
         </div>

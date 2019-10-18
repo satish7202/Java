@@ -100,10 +100,10 @@
   </div>
 </div>
 
-<div  class="pt-150 pr-0"  *ngIf="quotationDesign=='emailQuotation'">
+<div  class="pt-130 pr-0"  *ngIf="quotationDesign=='emailQuotation'">
 <app-email-only [emailSend]="quotationDesign"  (valueChange)='display($event)'></app-email-only>
 </div>
-<div  class="pt-150 pr-0"  *ngIf="quotationDesign=='emailQuotationSend'">
+<div  class="pt-130 pr-0"  *ngIf="quotationDesign=='emailQuotationSend'">
     <app-email-only [emailSendfooter]="changeEmail"  (valueChange)='display($event)'></app-email-only>
     </div>
 <div class="pt-14 pr-0">

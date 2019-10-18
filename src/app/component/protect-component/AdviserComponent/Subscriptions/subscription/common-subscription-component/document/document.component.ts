@@ -11,6 +11,7 @@ import { element } from 'protractor';
 import { timingSafeEqual } from 'crypto';
 
 export interface PeriodicElement {
+  selected: any;
   document: string;
   plan: string;
   service: string;
@@ -22,6 +23,7 @@ export interface PeriodicElement {
 
 const ELEMENT_DATA: PeriodicElement[] = [
   {
+    selected:'',
     document: 'Scope of work',
     plan: 'Starter plan',
     service: 'AUM Linked fee',
@@ -52,6 +54,7 @@ export class DocumentComponent implements OnInit {
   planDocumentData;
   serviceDocumentData;
   mappedData = [];
+  dataCount;
   @Input() componentFlag: string;
 
   displayedColumns: string[] = ['checkbox', 'document', 'plan', 'service', 'date', 'sdate', 'cdate', 'status', 'icons'];
@@ -62,6 +65,7 @@ export class DocumentComponent implements OnInit {
     this.getServiceDocumentData();
     this.documentDesign = 'true';
     console.log('upperData',this.upperData)
+    this.dataCount=0;
   }
 
   openDocument(data) {
@@ -248,5 +252,55 @@ export class DocumentComponent implements OnInit {
      console.log(data)
      this.eventService.openSnackBar("Document is mapped","OK")
 
+  }
+  selectAll(event) {
+    // const checked = event.target.checked;
+    // this.dataSource.forEach(item => item.selected = 'checked');
+    this.dataCount = 0;
+    this.dataSource.forEach(item => {
+      //   if(item.selected==false)
+      //   {
+      //     item.selected = true;
+      //     this.dataCount++;
+      //   }else{
+      //     item.selected = false;
+      //     this.dataCount--;
+      //   }
+      // });
+      item.selected = event.checked;
+      if (item.selected) {
+        this.dataCount++;
+      }
+      // if(item.dataCountd>=1){
+      //   this.dataCount=1
+      // }else{
+      //   this.dataCount++
+      // }
+    });
+    // if(item.selected=="true"){
+    //   this.dataCount++;
+    // }else{
+    //   this.dataCount--;
+    // }
+
+  }
+  changeSelect(data) {
+    this.dataCount = 0;
+    this.dataSource.forEach(item => {
+      console.log('item item ', item);
+      if (item.selected) {
+        this.dataCount++;
+      }
+    });
+    // if(data.selected==false)
+    // {
+    //   data.selected = true;
+    //   this.dataCount++;
+    //   data.dataCountd =this.dataCount;
+    // }else{
+    //   data.selected = false;
+    //   this.dataCount--;
+    //   data.dataCountd =this.dataCount;
+    // }
   }
 }
