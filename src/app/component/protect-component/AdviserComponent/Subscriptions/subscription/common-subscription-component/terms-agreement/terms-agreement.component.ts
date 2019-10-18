@@ -20,22 +20,22 @@ export class TermsAgreementComponent implements OnInit {
     mail_body: new FormControl(''),
 
   });
-  private froalaEditorContent = 'This is Intial Data';
-  public froalaEditorOptions = {
-    placeholder: 'Edit Me',
-    charCounterCount: false,
-
-    events: {
-      focus(e, editor) {
-        console.log('froalaEditorContent: ', this.froalaEditorContent);
-        console.log('editor: ', editor);
-
-        console.log('e: ', e);
-
-        console.log(editor.selection.get());
-      }
-    }
-  };
+  // private froalaEditorContent = 'This is Intial Data';
+  // public froalaEditorOptions = {
+  //   placeholder: 'Edit Me',
+  //   charCounterCount: false,
+  //
+  //   events: {
+  //     focus(e, editor) {
+  //       console.log('froalaEditorContent: ', this.froalaEditorContent);
+  //       console.log('editor: ', editor);
+  //
+  //       console.log('e: ', e);
+  //
+  //       console.log(editor.selection.get());
+  //     }
+  //   }
+  // };
 
   ngOnInit() {
     console.log('quotationDesign', this.quotationDesignE);

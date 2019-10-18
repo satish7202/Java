@@ -6,7 +6,7 @@
       </h3>
       <form [formGroup]="mailForm" id="ui-froala">
 <!--        formControlName="mail_body"-->
-        <textarea [froalaEditor]='froalaEditorOptions'  [(froalaModel)]="froalaEditorContent"></textarea>
+<!--        <textarea [froalaEditor]='froalaEditorOptions'  [(froalaModel)]="froalaEditorContent"></textarea>-->
         <button type="submit" (click)="onSubmit()" [disabled]="!mailForm.valid" mat-stroked-button
                 class="mt-16 btn-primary br-0">Submit
         </button>
