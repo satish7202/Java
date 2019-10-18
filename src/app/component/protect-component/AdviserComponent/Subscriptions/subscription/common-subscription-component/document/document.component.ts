@@ -23,6 +23,7 @@ export interface PeriodicElement {
 
 const ELEMENT_DATA: PeriodicElement[] = [
   {
+    selected:'',
     document: 'Scope of work',
     plan: 'Starter plan',
     service: 'AUM Linked fee',
