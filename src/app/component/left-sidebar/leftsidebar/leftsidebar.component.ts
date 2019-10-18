@@ -1,13 +1,73 @@
 import {Component, OnInit, ElementRef} from '@angular/core';
-import $ from "jquery";
+import $ from 'jquery';
 import {AuthService} from 'src/app/auth-service/authService';
-import {EventService} from "../../../Data-service/event.service";
+import {EventService} from '../../../Data-service/event.service';
+import {animate, state, style, transition, trigger} from "@angular/animations";
+import {SubscriptionInject} from '../../protect-component/AdviserComponent/Subscriptions/subscription-inject.service';
 
 @Component({
   selector: 'app-leftsidebar',
   templateUrl: './leftsidebar.component.html',
-  styleUrls: ['./leftsidebar.component.scss']
+  styleUrls: ['./leftsidebar.component.scss'],
+  animations: [trigger('dialogContainer', [
+    state('open', style({
+      'z-index': 10
+    })),
+    state('openHelp', style({
+      // left: '0%',
+      'z-index': 10
+// width: '35%'
+    })),
+    state('close', style({
+      // width:'0%'
+      // left: '100%'
+      'z-index': -1
+
+    })),
+    // transition('close => open', [animate('0.3s')]),
+    // transition('open => close', [animate('0.1s')]),
+    // transition('close => openHelp', [animate('0.3s')]),
+    // transition('openHelp => close', [animate('0.1s')])
+  ]), trigger('openClose', [
+    state('open', style({
+      left: '40%'
+    })),
+    state('openHelp', style({
+      left: '65%',
+      // width: '35%'
+    })),
+    state('close', style({
+      // width:'0%'
+      left: '100%'
+    })),
+    transition('close => open', [animate('0.3s')]),
+    transition('open => close', [animate('0.1s')]),
+    transition('close => openHelp', [animate('0.3s')]),
+    transition('openHelp => close', [animate('0.1s')])
+  ]),
+    trigger('dialogContainerBackground', [
+      state('open', style({
+        // opacity: 0.5
+        'background-color': '#66808080',
+
+      })),
+      state('openHelp', style({
+        'background-color': '#66808080',
+        // opacity: 0.5
+
+      })),
+      state('close', style({
+        // opacity: 0
+        'background-color': '#66808080',
+
+      })),
+      // transition('close => open', [animate('0.3s')]),
+      // transition('open => close', [animate('0.1s')]),
+      // transition('close => openHelp', [animate('0.3s')]),
+      // transition('openHelp => close', [animate('0.1s')])
+    ])]
 })
+
 export class LeftsidebarComponent implements OnInit {
 
   showTabs = true;
@@ -15,34 +75,50 @@ export class LeftsidebarComponent implements OnInit {
   arrow = false;
   userInfo: any;
   sideNavContainerClass;
+  isOverlayVisible;
+  currentState;
+  subscriptionTab;
+  dialogState;
 
-  constructor(private authService: AuthService, private _eref: ElementRef, private eventService: EventService) {
+  constructor(private authService: AuthService, private _eref: ElementRef,
+              private eventService: EventService, private subinject: SubscriptionInject) {
     this.eventService.sideNavContainerClassData.subscribe(
       data => this.sideNavContainerClass = data
+    );
+    this.eventService.overlayVisibleData.subscribe(
+      data => {
+        this.isOverlayVisible = data;
+      }
+    );
+    this.subinject.rightSideBarData.subscribe(
+      data => this.getRightSliderData(data)
+    );
+    this.eventService.sidebarSubscribeData.subscribe(
+      data => this.getFileResponseDataAum(data)
     );
   }
 
   ngOnInit() {
     this.onResize();
-    this.userInfo = this.authService.getUserInfo()
-    console.log(this.userInfo)
+    this.userInfo = this.authService.getUserInfo();
+    console.log(this.userInfo);
   }
 
 
   showMainNavWrapper() {
-    $("#d").addClass("width-230");
-    $("#d").removeClass("width-60");
-    $('#left').css("margin-left", "230px")
+    $('#d').addClass('width-230');
+    $('#d').removeClass('width-60');
+    $('#left').css('margin-left', '230px');
     this.showTabs = true;
     this.arrow = false;
   }
 
   showsmallNavWrapper() {
-    $("#d").removeClass("width-230");
-    $('#left').css("margin-left", "65px")
-    $('#left').css("transition", "margin-left 0.3s")
-    $('#d').css("transition", "width 0.2s")
-    this.showTabs = false
+    $('#d').removeClass('width-230');
+    $('#left').css('margin-left', '65px');
+    $('#left').css('transition', 'margin-left 0.3s');
+    $('#d').css('transition', 'width 0.2s');
+    this.showTabs = false;
     this.arrow = false;
   }
 
@@ -52,23 +128,23 @@ export class LeftsidebarComponent implements OnInit {
     }
     if (window.innerWidth <= 600) {
       this.showTabs = false;
-      $('#left').css("margin-left", "65px");
-      $("#d").addClass("width,60px");
-      $("#d").removeClass("width-230");
+      $('#left').css('margin-left', '65px');
+      $('#d').addClass('width,60px');
+      $('#d').removeClass('width-230');
     } else {
       if (this.showTabs == false) {
         this.showTabs = false;
       } else {
         this.showTabs = true;
-        $("#d").addClass("width-230");
-        $("#d").removeClass("width-60");
+        $('#d').addClass('width-230');
+        $('#d').removeClass('width-60');
       }
     }
   }
 
   openSettings() {
     if (this.showSettings == false) {
-      $("#showSettings").css("transition", "0.5s")
+      $('#showSettings').css('transition', '0.5s');
       this.showSettings = true;
     } else {
       this.showSettings = false;
@@ -76,10 +152,34 @@ export class LeftsidebarComponent implements OnInit {
   }
 
   backSections() {
-    this.arrow = this.arrow ? this.arrow = false : this.arrow = true
+    this.arrow = this.arrow ? this.arrow = false : this.arrow = true;
   }
 
   logout() {
     this.authService.logout();
+  }
+
+  getRightSliderData(value) {
+    if (value === 'close') {
+      this.currentState = value;
+      setTimeout(() => {
+        this.dialogState = value;
+      }, 300);
+      // this.eventService.changeOverlayVisible(false);
+    } else {
+      this.dialogState = value;
+      setTimeout(() => {
+        this.currentState = value;
+      }, 300);
+      // this.eventService.changeOverlayVisible(true);
+    }
+
+    this.dialogState = value;
+
+    this.currentState = value;
+  }
+
+  getFileResponseDataAum(data) {
+    this.subscriptionTab = data;
   }
 }

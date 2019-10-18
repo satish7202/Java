@@ -1,8 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { trigger, state, style, transition, animate } from '@angular/animations';
-import { EventService } from 'src/app/Data-service/event.service';
-import { SubscriptionInject } from '../../../subscription-inject.service';
+import {Component, OnInit, Inject} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {trigger, state, style, transition, animate} from '@angular/animations';
+import {EventService} from 'src/app/Data-service/event.service';
+import {SubscriptionInject} from '../../../subscription-inject.service';
 
 @Component({
   selector: 'app-upper-slider',
@@ -28,62 +28,66 @@ import { SubscriptionInject } from '../../../subscription-inject.service';
 })
 
 export class UpperSliderComponent implements OnInit {
-  subscriptionTab: any;
+
   constructor(private eventService: EventService, private subinject: SubscriptionInject, public dialogRef: MatDialogRef<UpperSliderComponent>,
-    @Inject(MAT_DIALOG_DATA) public fragmentData: any) {
+              @Inject(MAT_DIALOG_DATA) public fragmentData: any) {
     this.eventService.rightSliderData.subscribe(
       data => this.getTabValueData(data)
-    )
+    );
     this.subinject.rightslider.subscribe(
       data => this.getStateData(data)
-    )
+    );
     this.subinject.upperData.subscribe(
-      data =>this.getUpperDataValue(data)
-    )
+      data => this.getUpperDataValue(data)
+    );
   }
+  subscriptionTab: any;
+
   State;
   rightSliderData;
   upperData;
-  ngOnInit() {
-    this.State = 'close'
-    if(this.fragmentData.Flag=='plan')
-    {
-     this.upperData=this.fragmentData.planData;  
-    }
-    if(this.fragmentData.Flag=='services')
-    {
-      this.upperData=this.fragmentData.FeeData;
-    }
-    console.log("upperData",this.upperData)
-    console.log(this.fragmentData)
-  }
 
   Flag = 'planOverview';
   plan = 'planServices';
   documents = 'plansDocuments';
   plans = 'servicesPlans';
   clientDocuments = 'clientDocuments';
-  servicesDocuments = 'servicesDocuments'
+  servicesDocuments = 'servicesDocuments';
   blankOverview;
+
+  ngOnInit() {
+    this.State = 'close';
+    if (this.fragmentData.Flag === 'plan') {
+      this.upperData = this.fragmentData.planData;
+    }
+    if (this.fragmentData.Flag === 'services') {
+      this.upperData = this.fragmentData.FeeData;
+    }
+    console.log('upperData', this.upperData);
+    console.log(this.fragmentData);
+  }
+
   dialogClose() {
     this.dialogRef.close();
   }
 
   getStateData(data) {
-    this.State=data;
+    this.State = data;
   }
-  getUpperDataValue(data)
-  {
-   this.upperData=data;
-   console.log("upperData",this.upperData)
+
+  getUpperDataValue(data) {
+    this.upperData = data;
+    console.log('upperData', this.upperData);
   }
+
   getTabValueData(data) {
     this.blankOverview = data;
     this.rightSliderData = data;
-    console.log('value', data)
+    console.log('value', data);
   }
+
   tabClick(event) {
-    console.log(event)
+    console.log(event);
     this.subscriptionTab = event.tab.textLabel;
   }
 

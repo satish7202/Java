@@ -24,6 +24,12 @@ export class EventService {
   private sideNavContainerClassValue = new BehaviorSubject('sidenav-container'); /*blur-filter*/
   sideNavContainerClassData = this.sideNavContainerClassValue.asObservable();
 
+  private overlayVisibleValue = new BehaviorSubject(false);
+  overlayVisibleData = this.overlayVisibleValue.asObservable();
+
+  changeOverlayVisible(isVisible: boolean) {
+    this.overlayVisibleValue.next(isVisible);
+  }
 
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {

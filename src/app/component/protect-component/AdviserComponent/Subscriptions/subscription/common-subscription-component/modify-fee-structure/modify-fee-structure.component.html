@@ -42,15 +42,15 @@
                 <div class="col-md-5 p-0">
                     <div class="form-group">
                         <select class="form-control" formControlName="Duration" id="sel1">
-                            <option value="1">Monthly</option>
-                            <option value="12">Yearly</option>
+                            <option value="1">Months</option>
+                            <option value="12">Years</option>
                         </select>
                     </div>
                 </div>
                 <mat-error *ngIf="isBillValid && getFormControl().billEvery.invalid || getFormControl().billEvery.touched && getFormControl().billEvery.invalid" class="f-12">Field is required</mat-error>
             </div>
         </div>
-        
+
     </div>
     <div class="row pt-28">
         <div class="col-md-5">
