@@ -8,8 +8,8 @@
           <form [formGroup]="mailForm">
 
 <!--        formControlName="mail_body"-->
-<textarea [froalaEditor]="config" (froalaModelChange)="onChange($event)" [(froalaModel)]="model"></textarea>
-<!-- <button type="submit" (click)="onSubmit()" [disabled]="!mailForm.valid" mat-stroked-button
+<!--        <textarea [froalaEditor]='froalaEditorOptions'  [(froalaModel)]="froalaEditorContent"></textarea>-->
+        <button type="submit" (click)="onSubmit()" [disabled]="!mailForm.valid" mat-stroked-button
                 class="mt-16 btn-primary br-0">Submit
         </button> -->
       </form>
