@@ -34,7 +34,7 @@
     </div>
     <div class="row ">
         <div class="col-md-4 p-0 height-500">
-            <div class="row pt-12 pb-12 bg-white hover roboto bb-1"  *ngFor="let strData of clientData" (click)="passInvoice(strData)">
+            <div class="row pt-12 pb-12 bg-white hover roboto bb-1"  [ngClass]="strData.id == storeData.id  ? 'bg-grey lter' : 'none'" *ngFor="let strData of clientData" (click)="passInvoice(strData,$event)">
                 <!-- <div class="col-md-1">
                     <mat-checkbox checked="false"></mat-checkbox>
                 </div> -->
@@ -128,7 +128,7 @@
                         <p class="text-black f-400">Sub total</p>
                     </div>
                     <div class="col-md-4 text-right">
-                        <p class="text-black f-400">Rs.{{formatter(storeData.subTotal)}}</p>
+                        <p class="text-black f-400">₹{{formatter(storeData.subTotal)}}</p>
                     </div>
                     </div>
                     <div class="row" *ngIf="storeData.igst!=undefined">
@@ -136,7 +136,7 @@
                             <p>IGST ({{storeData.igst}}%)</p>
                         </div>
                         <div class="col-md-4">
-                            <p class="text-right">Rs.{{formatter(storeData.igstTaxAmount)}}</p>
+                            <p class="text-right">₹{{formatter(storeData.igstTaxAmount)}}</p>
                         </div>
                     </div>
                     <div class="row" *ngIf="storeData.cgst!=undefined">
@@ -144,7 +144,7 @@
                                 <p>CGST ({{storeData.cgst}}%)</p>
                             </div>
                             <div class="col-md-4">
-                                <p class="text-right">Rs.{{formatter(storeData.cgstTaxAmount)}}</p>
+                                <p class="text-right">₹{{formatter(storeData.cgstTaxAmount)}}</p>
                             </div>
                         </div>
                         <div class="row" *ngIf="storeData.sgst!=undefined">
@@ -152,7 +152,7 @@
                                     <p>SGST ({{storeData.sgst}}%)</p>
                                 </div>
                                 <div class="col-md-4">
-                                    <p class="text-right">Rs.{{formatter(storeData.sgstTaxAmount)}}</p>
+                                    <p class="text-right">₹{{formatter(storeData.sgstTaxAmount)}}</p>
                                 </div>
                             </div>
                     <div class="row bt-1">
@@ -160,10 +160,10 @@
                                 <p class="f-500 roboto pt-8">Total</p>
                             </div>
                             <div class="col-md-4 text-right" *ngIf="storeData.cgst!=undefined && storeData.sgst!=undefined">
-                                <p class="f-500 roboto pt-8">{{formatter(storeData.subTotal+storeData.cgstTaxAmount+storeData.sgstTaxAmount)}}</p>
+                                <p class="f-500 roboto pt-8">₹{{formatter(storeData.subTotal+storeData.cgstTaxAmount+storeData.sgstTaxAmount)}}</p>
                             </div>
                             <div class="col-md-4 text-right" *ngIf="storeData.igst!=undefined">
-                                <p class="f-500 roboto pt-8">{{formatter(storeData.subTotal+storeData.igstTaxAmount)}}</p>
+                                <p class="f-500 roboto pt-8">₹{{formatter(storeData.subTotal+storeData.igstTaxAmount)}}</p>
                             </div>
                         </div>
                         <div class="row bt-1 bb-1">
@@ -171,7 +171,7 @@
                                     <p class="f-500 roboto pt-8">Balance due</p>
                                 </div>
                                 <div class="col-md-4">
-                                    <p class="f-500 roboto pt-8 text-right">{{formatter(storeData.balanceDue)}}</p>
+                                    <p class="f-500 roboto pt-8 text-right">₹{{formatter(storeData.balanceDue)}}</p>
                                 </div>
                             </div>
                 </div>
@@ -339,7 +339,7 @@
         <img class="b-a wrapper-8 ml-8" src="assets/images/svg/delete.svg">
     </div>
     <div class="col-md-4 right text-right">
-            <button mat-stroked-button class="btn-primary br-0 mb-8"  (click)="recordPayment()">RECORD PAYMENT</button>
+            <button mat-stroked-button class="btn-primary br-0 mb-8" *ngIf="storeData.status !='PAID'" (click)="recordPayment()">RECORD PAYMENT</button>
     </div>
 </div>
 
@@ -384,15 +384,15 @@
          <div> 
     <div class="row">
         <div class="col-md-7 mt-70">
-           <p class="f-12 text-black f-400 roboto"> For payment via NEFT/IMPS/Cheque, see details below.
-            A/c: {{storeData.billerNameAsPerBank}}
-            A/c No: {{storeData.billerAcNumber}}
-            IFSC: {{storeData.billerIfscCode}}
+           <p class="f-12 text-black f-400 roboto"> For payment via NEFT/IMPS/Cheque, see details below.</p>
+            A/c: {{storeData.billerNameAsPerBank}}<br>
+            A/c No: {{storeData.billerAcNumber}}<br>
+            IFSC: {{storeData.billerIfscCode}}<br>
             Bank:{{storeData.billerBranchAddress}},
             ({{storeData.billerBranchCity}},
             {{storeData.billerBranchState}},
             {{storeData.billerBranchCountry}},
-            {{storeData.billerBranchZipCode}})</p>
+            {{storeData.billerBranchZipCode}})
         </div>
         <div class="col-md-5">
             <div class="row pt-44">
@@ -400,7 +400,7 @@
                 <p class="text-black f-400">Sub total</p>
             </div>
             <div class="col-md-4 text-right">
-                <p class="text-black f-400">Rs.{{formatter(storeData.subTotal)}}</p>
+                <p class="text-black f-400">₹{{formatter(storeData.subTotal)}}</p>
             </div>
             </div>
             <div class="row" *ngIf="storeData.igst!=undefined">
@@ -408,7 +408,7 @@
                         <p>IGST ({{storeData.igst}}%)</p>
                     </div>
                     <div class="col-md-4">
-                        <p class="text-right">Rs.{{formatter(storeData.igstTaxAmount)}}</p>
+                        <p class="text-right">₹{{formatter(storeData.igstTaxAmount)}}</p>
                     </div>
                 </div>
                 <div class="row" *ngIf="storeData.cgst!=undefined">
@@ -416,7 +416,7 @@
                             <p>CGST ({{storeData.cgst}}%)</p>
                         </div>
                         <div class="col-md-4">
-                            <p class="text-right">Rs.{{formatter(storeData.cgstTaxAmount)}}</p>
+                            <p class="text-right">₹{{formatter(storeData.cgstTaxAmount)}}</p>
                         </div>
                     </div>
                     <div class="row" *ngIf="storeData.sgst!=undefined">
@@ -424,7 +424,7 @@
                                 <p>SGST ({{storeData.sgst}}%)</p>
                             </div>
                             <div class="col-md-4">
-                                <p class="text-right">Rs.{{formatter(storeData.sgstTaxAmount)}}</p>
+                                <p class="text-right">₹{{formatter(storeData.sgstTaxAmount)}}</p>
                             </div>
                         </div>
             <div class="row bt-1">
@@ -597,7 +597,7 @@
             </div>
           </div>
 </div>
-<div class="bg-white pb-44 " *ngIf="showEdit==true" [ngClass]="{'mt-70': invoiceInSub=='invoiceSubscription','mt-4':invoiceInSub!='invoiceSubscription'}"  >
+<div class="bg-white pb-44 " [formGroup]="editPayment"*ngIf="showEdit==true" [ngClass]="{'mt-70': invoiceInSub=='invoiceSubscription','mt-4':invoiceInSub!='invoiceSubscription'}"  >
     <div class="row">
         <div class="col-md-10">
             <h2 class="m-0 pl-12 pt-12">Edit Invoice of {{storeData.invoiceNumber}}</h2>
@@ -610,28 +610,22 @@
         <div class="col-md-3">
             <h5 class="m-0 text-right pt-8">Client name </h5>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-8">
             <div class="form-group">
-                <input type="text" class="form-control br-0">
+                <input type="text"class="form-control br-0" formControlName="clientName">
             </div>
             <div class="row">
                 <div class="col-md-6 p-0">
                     <p class="m-0 text-custom f-12">BILLER ADDRESS</p>
-                    <p class="m-0 text-black">#46, Street 1,
-                        <br> Lokhandwala Township
-                        <br> Borivali East
-                        <br> Mumbai 400 066
-                    </p>
-                    <p class="m-0 text-primary">CHANGE</p>
+                    <p *ngIf="editAdd1 == false" class="m-0 text-black">{{storeData.billerAddress}}</p>
+                    <textarea rows="5" *ngIf="editAdd1 == true" class="form-control br-0" formControlName="billerAddress"></textarea>  
+                    <p class="m-0 text-primary" (click)="onclickChangeAdd1(editAdd1)">CHANGE</p>
                 </div>
                 <div class="col-md-6 p-0">
                     <p class="m-0 text-custom f-12">PAYEE ADDRESS</p>
-                    <p class="m-0 text-black">#46, Street 1,
-                        <br> Lokhandwala Township
-                        <br> Borivali East
-                        <br> Mumbai 400 066
-                    </p>
-                    <p class="m-0 text-primary">CHANGE</p>
+                    <p *ngIf="editAdd2 == false" class="m-0 text-black">{{storeData.billingAddress}}</p>
+                    <textarea rows="5"*ngIf="editAdd2 == true" class="form-control br-0" formControlName="billingAddress"></textarea>
+                    <p class="m-0 text-primary" (click)="onclickChangeAdd2(editAdd2)">CHANGE</p>
                 </div>
             </div>
         </div>
@@ -646,7 +640,7 @@
                         </div>
                         <div class="col-md-7 p-0">
                             <div class="form-group mb-0">
-                                <input type="email" class="form-control br-0">
+                                <input type="email" class="form-control br-0"formControlName="invoiceNumber">
                             </div>
                             <div class="col-md-12">
                                 <p class="m-0 text-custom f-12 text-right pt-4"> 0 / 10</p>
@@ -661,7 +655,7 @@
                         </div>
                         <div class="col-md-6 pr-0">
                             <div class="form-group mb-0">
-                                <input type="email" class="form-control br-0">
+                                <input type="email" class="form-control br-0" formControlName="invoiceDate">
                             </div>
                         </div>
                     </div>
@@ -673,7 +667,7 @@
                         </div>
                         <div class="col-md-6 p-0">
                             <div class="form-group mb-0">
-                                <input type="email" class="form-control br-0">
+                                <input type="email" class="form-control br-0" formControlName="invoiceDate">
                             </div>
                         </div>
                     </div>
@@ -701,7 +695,7 @@
                             <div class="row">
                                 <div class="col-md-8 p-0">
                                     <p class="m-0 text-black  pb-0 f-500">Investment management fees</p>
-                                    <p class="m-0 text-custom">For the period 20/08/2019 to 19/08/2020</p>
+                                    <p class="m-0 text-custom">For the period {{storeData.services[0].fromDate | date:'dd/MM/yyyy' }} to {{storeData.services[0].toDate | date:'dd/MM/yyyy'}}</p>
                                 </div>
                                 <div class="col-md-3 p-0">
                                     <i class="material-icons text-custom text-right right f-18 pt-8">
@@ -713,13 +707,16 @@
                         </div>
                     </div>
                     <div class="col-md-2 p-0">
-                        <p class="m-0 text-black wrapper-16 text-right">8,000 </p>
+                        <p class="m-0 text-black wrapper-16 text-right">{{storeData.finalAmount}} </p>
                     </div>
-                    <div class="col-md-2 p-0">
-                        <p class="m-0 text-black wrapper-16">IGST (18%)</p>
+                    <div class="col-md-2 p-0" *ngIf="storeData.igst != undefined">
+                        <p class="m-0 text-black wrapper-16">IGST({{storeData.igst}})%</p>
                     </div>
+                    <div class="col-md-2 p-0" *ngIf="storeData.sgst != undefined">
+                            <p class="m-0 text-black wrapper-16">SGST({{storeData.sgst}})%</p>
+                        </div>
                     <div class="col-md-2 p-0">
-                        <p class="m-0 text-black wrapper-16 text-right">9,440</p>
+                        <p class="m-0 text-black wrapper-16 text-right"></p>
                     </div>
                 </div>
 
@@ -730,7 +727,7 @@
                     <h5 class="m-0">Sub total</h5>
                 </div>
                 <div class="col-md-2 p-0">
-                    <h5 class="m-0 text-right pr-8">Rs.8,000</h5>
+                    <h5 class="m-0 text-right pr-8">₹{{storeData.subTotal}}</h5>
                 </div>
             </div>
             <div class="row pt-20">
@@ -739,16 +736,21 @@
                     <h5 class="m-0">Discount</h5>
                 </div>
                 <div class="col-md-2 p-0">
-                    <h5 class="m-0 text-right pr-8">Rs.0</h5>
+                    <input type="text" class="form-control br-0" formControlName="discount">
+                    <!-- <h5 class="m-0 text-right pr-8">₹{{storeData.discount}}</h5> -->
                 </div>
             </div>
             <div class="row pt-20 pb-12">
                 <div class="col-md-8"></div>
-                <div class="col-md-2">
-                    <h5 class="m-0">IGST (18%)</h5>
+                <div class="col-md-2" *ngIf="storeData.igst != undefined">
+                    <h5 class="m-0">IGST({{storeData.igst}})%</h5>
                 </div>
+                <div class="col-md-2" *ngIf="storeData.sgst != undefined">
+                        <h5 class="m-0">SGST({{storeData.sgst}})%</h5>
+                        <h5 class="m-0">CGST({{storeData.cgst}})%</h5>
+                    </div>
                 <div class="col-md-2 p-0">
-                    <h5 class="m-0 text-right pr-8">Rs.1,440</h5>
+                    <h5 class="m-0 text-right pr-8">₹{{storeData.sgstTaxAmount}}{{storeData.igstTaxAmount}}</h5>
                 </div>
             </div>
             <div class="row pb-8">
@@ -757,7 +759,8 @@
                     <h5 class="m-0 text-black pt-8 f-500">Total</h5>
                 </div>
                 <div class="col-md-2 bt-grey p-0">
-                    <h5 class="m-0 text-right pr-8 pt-8 text-black f-500">9,440</h5>
+                    <h5  *ngIf="storeData.sgst != undefined"class="m-0 text-right pr-8 pt-8 text-black f-500">{{storeData.subTotal+storeData.sgstTaxAmount+storeData.cgstTaxAmount}}</h5>
+                    <h5  *ngIf="storeData.igst != undefined"class="m-0 text-right pr-8 pt-8 text-black f-500">{{storeData.subTotal+storeData.igstTaxAmount}}</h5>
                 </div>
             </div>
             <div class="row pb-8">
@@ -766,7 +769,7 @@
                     <h5 class="m-0 text-black pt-8 f-500">Balance due</h5>
                 </div>
                 <div class="col-md-2 bt-grey p-0">
-                    <h5 class="m-0 text-right pr-8 pt-8 text-black f-500">9,440</h5>
+                    <h5 class="m-0 text-right pr-8 pt-8 text-black f-500">{{storeData.balanceDue}}</h5>
                 </div>
             </div>
         </div>
@@ -780,7 +783,7 @@
                     </div>
                     <div class="col-md-9 p-0">
                             <div class="form-group mb-0">
-                                    <textarea class="form-control" rows="5"></textarea>
+                                    <textarea class="form-control" rows="5" formControlName="Footnote"></textarea>
                                   </div>
                                   <div class="row">
                                       <div class="col-md-6">
@@ -800,7 +803,7 @@
                             </div>
                             <div class="col-md-9 p-0">
                                     <div class="form-group mb-0">
-                                            <textarea class="form-control" rows="5"></textarea>
+                                            <textarea class="form-control" rows="5" formControlName="terms"></textarea>
                                           </div>
                                           <div class="row">
                                                 <div class="col-md-6">

@@ -5,7 +5,7 @@
         <div class="wrapper-20 pb-0 mt-32 pt-180">
             <div class="row">
                 <div class="col-md-12 p-0">
-                        <button mat-stroked-button class="btn-primary br-0 right text-right addon"><i class="material-icons">
+                        <button mat-stroked-button class="btn-primary br-0 right text-right addon"(click)="openEdit('edit')"><i class="material-icons">
                                 add</i> ADD INVOICE</button>
                         <button mat-button class="m-0 text-black text-right mr-12 right br-0">HELP</button>
                       
@@ -70,8 +70,8 @@
                         <td mat-cell *matCellDef="let element" class="c-p" (click)="openInvoice(element,'invoiceUpperSlider','open')"> {{formatter(element.finalAmount)}} </td>
                     </ng-container>
                     <ng-container matColumnDef="Balance due">
-                            <th mat-header-cell *matHeaderCellDef class="text-right"> Balance due(Rs.)</th>
-                            <td mat-cell *matCellDef="let element" class="c-p text-right"> {{element.balanceDue}} </td>
+                            <th mat-header-cell *matHeaderCellDef class="text-right"> Balance due(₹)</th>
+                            <td mat-cell *matCellDef="let element" class="c-p text-right"> {{formatter(element.balanceDue)}} </td>
                         </ng-container>
                 <ng-container matColumnDef="icons">
                     <th mat-header-cell *matHeaderCellDef class="f-18" style="width: 2%;"> </th>
@@ -101,4 +101,7 @@
       </div>
       <div class="pt-14 pr-0" >
             <app-terms-agreement [quotationDesignE]="quotationDesignEmail" *ngIf="invoiceDesign=='emailInvoices'"  (valueChange)='display($event)'  ></app-terms-agreement>
+            </div>
+            <div class="pt-130">
+             <app-invoice [invoiceValue]="invoiceDesign" *ngIf="invoiceDesign=='edit'"></app-invoice>
             </div>

@@ -53,9 +53,10 @@ export class DashboardSubscriptionComponent implements OnInit {
     this.getDataForCreateService();
   }
 
-  Open(value, state) {
-    this.eventService.sidebarData(value);
+  Open(value, state,data) {
+    this.eventService.sidebarData(value)
     this.subInjectService.rightSideData(state);
+    this.subInjectService.addSingleProfile(data);
   }
 
   showSubscriptionSteps() {

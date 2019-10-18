@@ -25,7 +25,7 @@ export class InvoicesComponent implements OnInit {
   selectedInvoiceCount: any;
   countOfSelect: number;
   dataCount;
- 
+  
 
   constructor(public subInjectService:SubscriptionInject, private eventService:EventService, private subService:SubscriptionService,public dialog: MatDialog) { }
 
@@ -50,6 +50,10 @@ export class InvoicesComponent implements OnInit {
      data => this.getInvoiceListResponse(data)
    )
   }
+  openEdit(edit){
+    this.invoiceDesign = edit;
+    console.log("edit",edit)
+  } 
   selectedInvoice(ele){
     console.log("invoice data",ele)
     if(ele==false){

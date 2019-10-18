@@ -92,6 +92,9 @@ import {AccountsComponent} from './component/protect-component/customers/compone
 import {SummaryComponent} from './component/protect-component/customers/component/customer/accounts/summary/summary.component';
 import { CustomFormInputComponent } from './common/custom-form-input/custom-form-input.component';
 import { AssetsComponent } from './component/protect-component/customers/component/customer/accounts/assets/assets.component';
+import {DragDropModule} from "@angular/cdk/drag-drop";
+import { FroalaComponent } from './component/protect-component/common-component/froala/froala.component';
+import { EmailOnlyComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/email-only/email-only.component';
 
 @NgModule({
   declarations: [
@@ -174,7 +177,9 @@ import { AssetsComponent } from './component/protect-component/customers/compone
     SummaryComponent,
     ChangePayeeComponent,
     CustomFormInputComponent,
-    AssetsComponent
+    AssetsComponent,
+    FroalaComponent,
+    EmailOnlyComponent
   ],
   imports: [
     BrowserModule,
@@ -187,7 +192,7 @@ import { AssetsComponent } from './component/protect-component/customers/compone
     // CommonSubscriptionComponent,
     SlimLoadingBarModule.forRoot(),
     FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(), DragDropModule
   ],
   providers: [AuthService, HttpService],
   bootstrap: [AppComponent],

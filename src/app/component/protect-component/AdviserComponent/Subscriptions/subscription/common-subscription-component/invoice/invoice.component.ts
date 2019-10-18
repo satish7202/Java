@@ -52,10 +52,14 @@ export class InvoiceComponent implements OnInit {
   @Input() invoiceData;
   @Input() invoiceInSub;
   @Input() clientData;
+  @Input() invoiceValue
   @Output() valueChange = new EventEmitter();
 
   @Input() invoiceTab;
   rPayment;
+  editPayment
+  editAdd1;
+  editAdd2;
 
   displayedColumns: string[] = ['checkbox', 'document', 'plan', 'date', 'sdate', 'cdate', 'status', 'icons'];
   dataSource = ELEMENT_DATA;
@@ -64,8 +68,28 @@ export class InvoiceComponent implements OnInit {
     console.log('this.invoiceSubscription', this.invoiceInSub);
     this.showRecord = false;
     this.showEdit = false;
+    this.editAdd1 = false
+    this.editAdd2 = false
+    console.log("invoiceValue+++++++++++",this.invoiceValue)
+    if(this.invoiceValue == 'edit'){
+      this.showEdit = true;
+      this.storeData = []
+    }
   }
-
+  onclickChangeAdd1(editVlaue){
+    if(editVlaue == false){
+      this.editAdd1 = true
+    }else{
+      this.editAdd1 = false
+    }
+  }
+  onclickChangeAdd2(editVlaue){
+    if(editVlaue == false){
+      this.editAdd2 = true
+    }else{
+      this.editAdd2 = false
+    }
+  }
   getRecordPayment(data) {
     console.log('payee data', data);
     this.rPayment = this.fb.group({
@@ -84,12 +108,31 @@ export class InvoiceComponent implements OnInit {
     this.getFormControl().notes.maxLength = 10;
 
   }
+  getInvoiceData(data) {
+    this.storeData = data;
+    console.log(this.storeData)
+    this.editPayment =  this.fb.group({
+      clientName : [data.clientName, [Validators.required]],
+      billerAddress:[data.billerAddress, [Validators.required]],
+      billingAddress:[data.billingAddress, [Validators.required]],
+      invoiceNumber:[data.invoiceNumber, [Validators.required]],
+      invoiceDate:[data.invoiceDate, [Validators.required]],
+      discount:[data.discount,[Validators.required]]
+      
+    })
+    this.getFormControledit().clientName.maxLength = 10;
+    this.getFormControledit().billerAddress.maxLength = 150;
+    this.getFormControledit().billingAddress.maxLength = 150;
+    this.getFormControledit().invoiceNumber.maxLength = 10;
+  }
 
+  getFormControledit() {
+    return this.editPayment.controls;
+  }
   getFormControl() {
     return this.rPayment.controls;
   }
-
-  saveFormData(state) {
+ saveFormData(state) {
     if (this.rPayment.controls.amountReceive.invalid) {
       this.isamountValid = true;
       return;
@@ -117,11 +160,6 @@ export class InvoiceComponent implements OnInit {
     }
     this.cancel();
   }
-
-  getInvoiceData(data) {
-    this.storeData = data;
-  }
-
   recordPayment() {
     this.showRecord = true;
   }
@@ -134,7 +172,7 @@ export class InvoiceComponent implements OnInit {
     data=Math.round(data);
     return data;
   }
-  passInvoice(data) {
+  passInvoice(data,event) {
     console.log(data);
     this.storeData = data;
   }
