@@ -96,6 +96,7 @@ import {DragDropModule} from "@angular/cdk/drag-drop";
 import { FroalaComponent } from './component/protect-component/common-component/froala/froala.component';
 import { EmailOnlyComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/email-only/email-only.component';
 import { HowItWorksComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/how-it-works/how-it-works.component';
+import { DialogContainerComponent } from './common/dialog-container/dialog-container.component';
 
 @NgModule({
   declarations: [
@@ -181,7 +182,8 @@ import { HowItWorksComponent } from './component/protect-component/AdviserCompon
     AssetsComponent,
     FroalaComponent,
     EmailOnlyComponent,
-    HowItWorksComponent
+    HowItWorksComponent,
+    DialogContainerComponent
   ],
   imports: [
     BrowserModule,
