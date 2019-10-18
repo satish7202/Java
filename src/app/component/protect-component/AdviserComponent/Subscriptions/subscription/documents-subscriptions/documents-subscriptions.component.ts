@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SubscriptionInject } from '../../subscription-inject.service';
 import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
 import { MatDialogRef, MatDialog } from '@angular/material';
+import { EventService } from 'src/app/Data-service/event.service';
 
 
 export interface PeriodicElement {
@@ -25,17 +26,22 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class DocumentsSubscriptionsComponent implements OnInit {
 
-  constructor(public subInjectService:SubscriptionInject, public dialog:MatDialog ) { }
+  constructor(public subInjectService:SubscriptionInject, public dialog:MatDialog,public eventService:EventService ) { }
 
   ngOnInit() {
   }
   displayedColumns: string[] = ['name','docname','plan', 'servicename', 'cdate','sdate','clientsign','status','icons'];
   dataSource = ELEMENT_DATA;
-
-  Open(value)
- {
-   this.subInjectService.rightSideData(value);
- }
+  Open(value,state,data)
+  {
+    this.eventService.sidebarData(value)
+    this.subInjectService.rightSideData(state);    
+    this.subInjectService.addSingleProfile(data);
+  }
+//   Open(value)
+//  {
+//    this.subInjectService.rightSideData(value);
+//  }
  deleteModal(value)
   {
     let dialogData = {
