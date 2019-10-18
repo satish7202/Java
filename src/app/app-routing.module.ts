@@ -6,6 +6,7 @@ import {SubscriptionComponent} from './component/protect-component/AdviserCompon
 import {MisComponent} from './component/protect-component/AdviserComponent/backOffice/MIS/mis/mis.component';
 import {LoginComponent} from './component/no-protected/login/login.component';
 import {CustomerComponent} from './component/protect-component/customers/component/customer/customer.component';
+import {UpperSliderComponent} from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/upper-slider/upper-slider.component';
 
 const routes: Routes = [
   {
@@ -24,7 +25,10 @@ const routes: Routes = [
 
       {
         path: 'subscription',
-        component: SubscriptionComponent
+        component: SubscriptionComponent,
+        children: [
+          {path: ''},
+          {path: 'clients', component: UpperSliderComponent}]
       },
       {
         path: '',

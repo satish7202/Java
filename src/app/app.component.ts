@@ -4,7 +4,7 @@ import {
   NavigationStart,
   NavigationEnd,
   Event,
-  Router
+  Router, RouterOutlet
 } from '@angular/router';
 import {EventService} from './Data-service/event.service';
 
@@ -41,6 +41,8 @@ export class AppComponent {
       this.lBar.complete();
     }
   }
-
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  }
 
 }
