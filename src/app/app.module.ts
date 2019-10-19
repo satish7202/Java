@@ -97,6 +97,9 @@ import { FroalaComponent } from './component/protect-component/common-component/
 import { EmailOnlyComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/email-only/email-only.component';
 import { HowItWorksComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/how-it-works/how-it-works.component';
 import { DialogContainerComponent } from './common/dialog-container/dialog-container.component';
+import { LiabilitiesComponent } from './component/protect-component/customers/component/customer/accounts/liabilities/liabilities.component';
+import { InsuranceComponent } from './component/protect-component/customers/component/customer/accounts/insurance/insurance.component';
+import { ExpensesComponent } from './component/protect-component/customers/component/customer/accounts/expenses/expenses.component';
 
 @NgModule({
   declarations: [
@@ -183,7 +186,10 @@ import { DialogContainerComponent } from './common/dialog-container/dialog-conta
     FroalaComponent,
     EmailOnlyComponent,
     HowItWorksComponent,
-    DialogContainerComponent
+    DialogContainerComponent,
+    LiabilitiesComponent,
+    InsuranceComponent,
+    ExpensesComponent
   ],
   imports: [
     BrowserModule,
