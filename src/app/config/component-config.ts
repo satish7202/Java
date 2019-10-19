@@ -88,6 +88,7 @@ export const appConfig = {
   CREATE_SUBSCRIPTION: 'subscription/client/subscription/add',
   EDIT_PAYEE_SETTINGS: 'subscription/client/setting/profile/update',
   MAP_PLAN_TO_SERVICE_SETTING: 'subscription/map/plan/service',
+  UPDATE_INVOICE : '/subscription/invoice/edit',
   CHANGE_PAYEE_SETTING: 'subscription/client-biller/setting/subscription/update',
   CHANGE_BILLER_SETTING: 'subscription/change/biller-settings/subscription',
   EDIT_PLAN_SETTING: 'subscription/plan/edit',

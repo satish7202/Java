@@ -7,6 +7,8 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
   styleUrls: ['./froala.component.scss']
 })
 export class FroalaComponent implements ControlValueAccessor {
+  data: any;
+  plainText: any;
 
   constructor() {
 
@@ -22,7 +24,10 @@ export class FroalaComponent implements ControlValueAccessor {
   };
 
   // Begin ControlValueAccesor methods.
-  onChange = (_) => {
+  onChange = (data) => {
+    console.log(data)
+    this.plainText = data.replace(/<[^>]*>/g, '');
+    this.save(this.plainText);
   };
   onTouched = () => {
   };
@@ -39,5 +44,9 @@ export class FroalaComponent implements ControlValueAccessor {
 
   registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
+  }
+  save(data){
+    console.log(data)
+    this.modelChange.emit(data);
   }
 }

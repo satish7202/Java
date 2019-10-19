@@ -121,4 +121,8 @@ export class CommonFroalaComponent implements ControlValueAccessor, OnInit {
     this.subInjectService.rightSideData(state);    
     this.subInjectService.addSingleProfile(data);
   }
+  saveData(data)
+  {
+    console.log(data);
+  }
 }
