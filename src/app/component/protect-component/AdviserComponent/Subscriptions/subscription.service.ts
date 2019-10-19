@@ -255,6 +255,9 @@ export class SubscriptionService {
   {
     return this.http.put(apiConfig.MAIN_URL + appConfig.EDIT_FEE_MODIFY_STRUCTURE,data)
   }
+  updateInvoiceInfo(data){
+    return this.http.put(apiConfig.MAIN_URL + appConfig.UPDATE_INVOICE,data)
+  }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data, 10000);
   }
