@@ -38,7 +38,8 @@ export class CreateSubscriptionComponent implements OnInit {
   }
   getSubStartDetailsResponse(data)
   {
-    this.feeStructureData=data.fees;
+    console.log(data)
+    this.feeStructureData=data;
   }
   subscriptionDetails = this.fb.group({
     subscription: [, [Validators.required]],

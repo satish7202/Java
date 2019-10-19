@@ -12,6 +12,7 @@ import * as _ from "lodash";
 export class ModifyFeeStructureComponent implements OnInit {
 
   @Input() ModifyFeesChange;
+  @Input() createSubData;
   feeStructureForm;
   modifyFeeData;
   otherAssetData: any[];
