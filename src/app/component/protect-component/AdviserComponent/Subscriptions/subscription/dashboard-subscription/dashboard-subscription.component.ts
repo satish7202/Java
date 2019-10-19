@@ -192,7 +192,7 @@ export class DashboardSubscriptionComponent implements OnInit {
           otherAssetTypes: []
         };
         newJsonForConsumption.billingNature = UtilService.convertObjectToArray(data.billingNature);
-        newJsonForConsumption.otherAssetTypes = UtilService.convertObjectToArray(data.otherAssetTypes);
+        newJsonForConsumption.otherAssetTypes = UtilService.convertObjectToCustomArray(data.otherAssetTypes,'subAssetClassName','subAssetClassId');
         newJsonForConsumption.feeTypes = UtilService.convertObjectToArray(data.feeTypes);
         newJsonForConsumption.assetTypes = UtilService.convertObjectToArray(data.assetTypes);
         newJsonForConsumption.billingMode = UtilService.convertObjectToArray(data.billingMode);
