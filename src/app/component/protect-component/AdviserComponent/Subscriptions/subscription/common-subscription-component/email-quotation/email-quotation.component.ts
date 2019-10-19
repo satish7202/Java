@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SubscriptionInject } from '../../../subscription-inject.service';
 import { MatDialog } from '@angular/material';
 import { HowItWorksComponent } from '../how-it-works/how-it-works.component';
@@ -11,9 +11,13 @@ import { HowItWorksComponent } from '../how-it-works/how-it-works.component';
 export class EmailQuotationComponent implements OnInit {
 
   constructor(public subInjectService:SubscriptionInject ,public dialog:MatDialog) { }
+  @Input() headerData;
+  @Input() headerDataInvoice;
+  @Input() headerDataDocuments;
   showSent='false';
   ngOnInit() {
     this.showSent='false';
+
   }
   Close(state)
   {

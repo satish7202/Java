@@ -255,8 +255,15 @@ export class SubscriptionService {
   {
     return this.http.put(apiConfig.MAIN_URL + appConfig.EDIT_FEE_MODIFY_STRUCTURE,data)
   }
+<<<<<<< HEAD
   updateInvoiceInfo(data){
     return this.http.put(apiConfig.MAIN_URL + appConfig.UPDATE_INVOICE,data)
+=======
+  getSubscriptionStartData(data)
+  {
+    let httpParams=new HttpParams().set('advisorId',data.advisorId).set('clientId',data.clientId).set('subId',data.subId);
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SUBSCRIPTION_START_DATA,httpParams)
+>>>>>>> dbda8d55030904272d1a4b8ca273e5f5bb2b1f00
   }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data, 10000);

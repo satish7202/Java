@@ -559,8 +559,8 @@ mat-tab-group[vertical] {
         margin: 0;
     }
     .mat-tab-label{
-
-        min-width: 100px !important;
+       
+        min-width: 110px !important;
     }
     .mat-ink-bar{
         height: 6px !important;
@@ -604,4 +604,18 @@ mat-tab-group[vertical] {
     color: #FFC100;
     margin-left: 20px;
 
+}
+
+.real-estate{
+    tr.mat-header-row {
+        height: 40px;
+        padding: 10px 8px !important;
+    }
+     tr.mat-row{
+    // padding: 3px 5px !important;
+    height: 40px !important;
+  }
+  #table-low tbody td{
+        padding: 6px 8px !important;
+    }
 }

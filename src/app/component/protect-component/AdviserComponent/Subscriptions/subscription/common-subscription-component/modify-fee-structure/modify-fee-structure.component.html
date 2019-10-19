@@ -41,9 +41,9 @@
 
                 <div class="col-md-5 p-0">
                     <div class="form-group">
-                        <select class="form-control" formControlName="Duration" id="sel1">
-                            <option value="1">Months</option>
-                            <option value="12">Years</option>
+                        <select class="form-control br-0" formControlName="Duration" id="sel1">
+                            <option value="1">Monthly</option>
+                            <option value="12">Yearly</option>
                         </select>
                     </div>
                 </div>
@@ -134,7 +134,7 @@
                                     class="material-icons mr-8 text-grey f-16">
                                     check
                                 </i>
-                                <div *ngIf="assets">{{assets.name}}</div>
+                                <div *ngIf="assets">{{assets.subAssetClassName}}</div>
                             </mat-chip>
                         </mat-chip-list>
                     </div>
