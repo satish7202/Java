@@ -29,11 +29,11 @@ table {
 ::ng-deep .mat-row:last-child{
   font-weight: 700;
 }
-::ng-deep #table-low .cashflow tbody td{
+::ng-deep #table-low .cashflow tbody td,::ng-deep #table-low .real-estate tbody td{
   padding: 3px 5px !important;
   color: #000000;
 }
-::ng-deep #table-low .cashflow tr.mat-row{
+::ng-deep #table-low .cashflow tr.mat-row, ::ng-deep #table-low .real-estate tr.mat-row{
   height: 28px;
 }
 ::ng-deep  .add-new .mat-menu-item{
