@@ -218,15 +218,23 @@ export class PayeeSettingsComponent implements OnInit {
           
         }
         this.subService.addClientBillerProfile(obj).subscribe(
-          data => console.log("client biller Profile", data)
+          data => this.addClientBillerProfileRes(data)
         )
         
       }
     }
     
   }
+  addClientBillerProfileRes(data){
+    console.log("addClientBillerProfileRes",data)
+    if(data == true){
+      this.eventService.openSnackBar("Family member added successfully","OK")
+      this.Close('close')
+     }
+  }
   editSettingResData(data) {
    if(data == true){
+    this.eventService.openSnackBar("Family member updated successfully","OK")
     this.getEditData.emit(this.sendData)
     this.Close('close')
    }

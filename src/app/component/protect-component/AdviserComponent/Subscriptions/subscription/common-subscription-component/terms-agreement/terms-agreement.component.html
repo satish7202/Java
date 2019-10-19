@@ -4,12 +4,14 @@
       <h3 class="mb-8 mt-20">Terms of agreement <img src="assets/images/svg/pencil.svg" class="pl-8"/>
 
       </h3>
-      <form [formGroup]="mailForm" id="ui-froala">
+      <!-- <form [formGroup]="mailForm" id="ui-froala"> -->
+          <form [formGroup]="mailForm">
+
 <!--        formControlName="mail_body"-->
-        <textarea [froalaEditor]='froalaEditorOptions'  [(froalaModel)]="froalaEditorContent"></textarea>
+<!--        <textarea [froalaEditor]='froalaEditorOptions'  [(froalaModel)]="froalaEditorContent"></textarea>-->
         <button type="submit" (click)="onSubmit()" [disabled]="!mailForm.valid" mat-stroked-button
                 class="mt-16 btn-primary br-0">Submit
-        </button>
+        </button> -->
       </form>
     </div>
     <div class="col-md-3 pr-0" id="ui-tc-insert">

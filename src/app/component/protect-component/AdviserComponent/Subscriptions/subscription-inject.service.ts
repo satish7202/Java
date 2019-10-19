@@ -6,7 +6,7 @@ import {Injectable} from '@angular/core';
 })
 export class SubscriptionInject {
   // right slider part
-  private openCloseRightSlider = new BehaviorSubject<any>('');
+  private openCloseRightSlider = new BehaviorSubject<any>('close');
   rightSideBarData = this.openCloseRightSlider.asObservable();
 
   // upper slider part
@@ -50,7 +50,7 @@ export class SubscriptionInject {
 
   private upper=new BehaviorSubject("");
   upperData=this.upper.asObservable();
-   
+
   pushUpperData(data)
   {
     this.upper.next(data);

@@ -292,7 +292,7 @@ button {
     border: none;
     text-transform: capitalize;
     cursor: pointer;
-    border-radius: 4px;
+    // border-radius: 4px;
     font-size: 14px;
     font-style: normal;
     font-weight: normal;
@@ -333,7 +333,7 @@ button.btn-rounded {
     font-size: 14px !important;
     text-align: center !important;
     color: #757575 !important;
-    border-radius: 1px !important;
+    border-radius: 0px !important;
     position:absolute;
     cursor: pointer;
     .material-icons {
@@ -441,24 +441,6 @@ button:active {
     box-shadow: 0 0 0 0em !important;
 }
 
-.b-grey {
-    border: 1px solid $grey;
-}
-.bt-grey {
-    border-top: 1px solid $grey;
-}
-.br-grey {
-    border-right: 1px solid $grey;
-}
-.bl-grey {
-    border-left: 1px solid $grey;
-}
-.bb-grey {
-    border-bottom: 1px solid $grey !important;
-}
-.bl-0{
-    border-left: 0px !important;
-}
 .icon-light{
     color: $light;
 }
@@ -466,23 +448,6 @@ button:active {
     color: #757575 !important;
 }
 
-
-
-.b-grey {
-    border: 1px solid $grey;
-}
-.bt-grey {
-    border-top: 1px solid $grey;
-}
-.br-grey {
-    border-right: 1px solid $grey;
-}
-.bl-grey {
-    border-left: 1px solid $grey;
-}
-.bb-grey {
-    border-bottom: 1px solid $grey !important;
-}
-.bl-0{
-    border-left: 0px !important;
+button:focus {
+    outline: none;
 }

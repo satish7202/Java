@@ -11,49 +11,49 @@ import {SubscriptionInject} from '../../../subscription-inject.service';
   styleUrls: ['./plans-settings.component.scss']
 })
 export class PlansSettingsComponent implements OnInit {
-  button: any;
 
   constructor(public dialog: MatDialog, private subService: SubscriptionService, private dataService: EventService,
               private subinject: SubscriptionInject) {
   }
+  button: any;
 
   showLoader;
+
+  planSettingData;
 
   ngOnInit() {
     this.getSettingsPlanData();
     // this.openFragment('', 'plan');
   }
 
-  planSettingData;
-
   getSettingsPlanData() {
     this.showLoader = true;
-    let obj = {
-      'advisorId': 12345
-    }
+    const obj = {
+      advisorId: 12345
+    };
     this.subService.getSubscriptionPlanSettingsData(obj).subscribe(
       data => this.getSettingsPlanResponse(data),
       err => this.getFilerrorResponse(err)
-    )
+    );
   }
 
   getSettingsPlanResponse(data) {
-    console.log("get plan", data)
+    console.log('get plan', data);
     this.planSettingData = data;
     this.showLoader = false;
   }
 
   getFilerrorResponse(err) {
-    this.dataService.openSnackBar(err, 'Dismiss')
+    this.dataService.openSnackBar(err, 'Dismiss');
   }
 
   openFragment(singlePlan, data) {
-    this.subinject.pushUpperData(singlePlan)
+    this.subinject.pushUpperData(singlePlan);
 
-    let Fragmentdata = {
+    const Fragmentdata = {
       Flag: data,
       planData: singlePlan
-    }
+    };
 
     const dialogRef = this.dialog.open(UpperSliderComponent, {
       width: '1400px',

@@ -1,7 +1,8 @@
 <!-- <p>email-quotation works!</p> -->
+<div *ngIf="showSent=='false'">
 <div class="row bb-1 popup-header-fix-60">
         <div class="col-md-10 p-0">
-            <h5 class="mb-4 wrapper-20 roboto">EMAIL QUOTATION</h5>
+            <h5 class="mb-4 wrapper-20 roboto">EMAIL DOCS WITH E-SIGN REQUEST</h5>
         </div>
         <div class="col-md-2 text-right">
             <i  class="material-icons pt-16 pr-8 c-p" (click)="Close('close')"> clear</i>
@@ -11,7 +12,7 @@
 <div class="wrapper-28 pt-72 pb-44">
     <div class="row">
         <div class="col-md-12 text-right">
-            <p class="m-0 text-primary c-p pt-8 pb-16">HOW IT WORKS</p>
+            <p class="m-0 text-primary c-p pt-8 pb-16" (click)="openModel()">HOW IT WORKS</p>
         </div>
     </div>
     <div class="row">
@@ -56,8 +57,18 @@
           </div>
     </div>
 </div>
-
-<!-- 
+<div class="bottom-fixed wrapper-12" >
+        <div class="row">
+            <div class="col-md-4">
+                <h5 class="mb-0 pt-8 text-white c-p"  (click)="Close('close')">Cancel</h5>
+            </div>
+            <div class="col-md-8 right text-right">
+                <button mat-button  class="btn-bottom br-0 text-inherit" (click)="sentMail()">SEND</button>    
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="showSent=='true'">
 <div class="row bb-1 popup-header-fix-60">
     <div class="col-md-10 p-0">
         <h5 class="mb-0 wrapper-20 roboto">SUCCESSFULLY SENT!</h5>
@@ -77,19 +88,20 @@
     <div class="col-md-12 text-center">
             <h5 class="m-0 pb-8 pt-44">Great work! The email has been successfully sent.</h5>
                 <h5 class="m-0">If you want to know what happens next, checkout the complete process here.</h5>
-                <p class="text-primary pt-16 m-0 c-p pb-44">How It Work</p>
+                <p class="text-primary pt-16 m-0 c-p pb-44"  (click)="openModel()">How It Work</p>
 
     </div>
    
 </div>
-</div> -->
-
-<div class="bottom-fixed wrapper-12">
-    <div class="row">
-        <div class="col-md-12 right text-right">
-            <button mat-button  class="btn-bottom br-0 text-inherit" (click)="Close('close')">CLOSE</button>
-            
-
+</div>
+<div class="bottom-fixed wrapper-12" >
+        <div class="row">
+            <!-- <div class="col-md-4">
+                <h5 class="mb-0 pt-8 text-white c-p"  (click)="Close('close')">Cancel</h5>
+            </div> -->
+            <div class="col-md-12 right text-right">
+                <button mat-button  class="btn-bottom br-0 text-right" (click)="Close('close')">CLOSE</button>    
+            </div>
         </div>
     </div>
 </div>

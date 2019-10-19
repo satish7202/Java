@@ -51,6 +51,7 @@ export class BillerSettingsComponent implements OnInit {
   {
     console.log("data",data)
     if(data == true){
+      this.eventService.openSnackBar("Biller is updated","OK")
       this.Close('close')
     }
   }
