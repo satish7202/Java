@@ -5,16 +5,24 @@
 </div>
 <mat-tab-group mat-align-tabs="center" id="ui-account-second-head" animationDuration="0ms">
             <mat-tab label="SUMMARY">
-                <!-- <app-summary></app-summary> -->
-                <app-assets></app-assets>
+                <app-summary></app-summary>
+                <!-- <app-assets></app-assets> -->
             </mat-tab>
         <mat-tab label="ASSETS">
             <app-assets></app-assets>
         </mat-tab>
-        <mat-tab label="LIABILITIES">Content 3</mat-tab>
-        <mat-tab label="SUMMARY">Content 1</mat-tab>
-        <mat-tab label="ASSETS">Content 2</mat-tab>
-        <mat-tab label="LIABILITIES">Content 3</mat-tab>
+        <mat-tab label="LIABILITIES">
+           <app-liabilities></app-liabilities>
+        </mat-tab>
+        <mat-tab label="INSURANCE">
+           <app-insurance></app-insurance>
+         </mat-tab>
+        <mat-tab label="INCOME">
+           
+        </mat-tab>
+        <mat-tab label="EXPENSES">
+            <app-expenses></app-expenses>
+        </mat-tab>
         <mat-tab label="DOCUMENTS">Content 3</mat-tab>
       </mat-tab-group>
 

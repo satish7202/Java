@@ -20,4 +20,17 @@ export class UtilService {
 
     return outputArray;
   }
+
+  static convertObjectToCustomArray(inputObject: object,keyNameForOutput:string,keyValueForOutput:string): object[] {
+    const outputArray = [];
+    Object.keys(inputObject).map(key => {
+      const object = {selected : false};
+      object[keyNameForOutput] = inputObject[key];
+        object[keyValueForOutput] = key;
+
+      outputArray.push(object);
+    });
+
+    return outputArray;
+  }
 }

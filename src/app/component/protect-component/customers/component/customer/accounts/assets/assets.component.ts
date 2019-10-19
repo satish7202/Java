@@ -18,6 +18,7 @@ export class AssetsComponent implements OnInit {
   datasource2 = ELEMENT_DATA2;
   viewMode;
   ngOnInit() {
+    this.viewMode="tab1"
   }
 
   getPrefixData(type) {

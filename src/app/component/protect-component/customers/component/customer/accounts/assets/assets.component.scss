@@ -14,13 +14,15 @@ p{
 .example-container {
   height: 320px;
   overflow: auto;
+ 
 }
+
 table {
   width: 100%;
 }
-::ng-deep #table-low th{
-  padding: 7px 5px !important 
-}
+// ::ng-deep #table-low th{
+//   padding: 7px 5px !important 
+// }
 ::ng-deep #table-low tbody td.br {
   border-right: 1px solid #dee5e7 !important;
 }
