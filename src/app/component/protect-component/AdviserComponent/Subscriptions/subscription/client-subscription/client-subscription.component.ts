@@ -53,22 +53,25 @@ export class ClientSubscriptionComponent implements OnInit {
   }
 
   openFragment(data, clientData) {
-    const Fragmentdata = {
+    const fragmentData = {
       Flag: data,
       id: 1,
-      clientData
+      clientData,
+      state: 'open'
     };
 
-    const dialogRef = this.dialog.open(UpperSliderComponent, {
-      width: '1400px',
-      data: Fragmentdata,
-      autoFocus: false,
-      panelClass: 'dialogBox',
-    });
+    this.eventService.changeUpperSliderState(fragmentData);
 
-    dialogRef.afterClosed().subscribe(result => {
+    // const dialogRef = this.dialog.open(UpperSliderComponent, {
+    //   width: '1400px',
+    //   data: Fragmentdata,
+    //   autoFocus: false,
+    //   panelClass: 'dialogBox',
+    // });
 
-    });
+    // dialogRef.afterClosed().subscribe(result => {
+    //
+    // });
   }
 
 }

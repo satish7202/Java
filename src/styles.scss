@@ -198,7 +198,7 @@
         float: right;
         width: 100%;
         padding-right: 15px;
-        right: 0;      
+        right: 0;
         z-index: 10;
         background: #fff !important;
         box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0.12), 0px 3px 3px rgba(0, 0, 0, 0.14);
@@ -208,7 +208,7 @@
     .custom-tags .mat-form-field-infix{
           padding-top: 4px;
           border-top:0px !important
-    
+
 }
 .custom-tags .mat-form-field-appearance-legacy .mat-form-field-underline{
     display: none;
@@ -287,7 +287,7 @@
     //     right: 0;
     //     position: absolute;
     // }
-    
+
 }
 .example-card {
     // border: 1px solid rgba(0, 0, 0, 0.12);
@@ -300,8 +300,8 @@
 .example-card.height-470 {
     height: 100%;
     // height: 470px;
- 
-    
+
+
 }
 
 .icon-center {
@@ -419,6 +419,19 @@
     font-size: 36px;
     margin-left: 50px;
 }
+.upper_slider {
+  height: 100%;
+  position: fixed;
+  z-index: 222;
+  top: -100%;
+  width: 100%;
+  // right: 0;
+  left: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  // transition: 0.4s;
+  border: 1px solid #ddd;
+}
 .mat-dialog {
     transition: none;
 }
@@ -453,25 +466,25 @@ mat-tab-group[vertical] {
 }
 #ui-perferences,#ui-assets{
         .vertical-menu {
- 
-        height: 100%;    
+
+        height: 100%;
         display:block !important;
-      
+
         width: 100%;
         text-align: center;
     }
     li{
-        
+
         color: #212121;
         font-size: 16px;
         font-style: normal;
         font-weight: normal;
         padding: 8px 12px 4px;
         text-align: left;
-        
+
         border-right: 0px !important;
     }
-   
+
     li:after{
         display: none;
     }
@@ -494,7 +507,7 @@ mat-tab-group[vertical] {
     .mat-tab-body-content{
         overflow: hidden !important;
     }
-    
+
 .mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination{
     display: none !important;
 
@@ -510,11 +523,11 @@ mat-tab-group[vertical] {
     border-bottom-color: transparent !important;
     height: 50px !important;
     min-width: 75px;
-     
+
 }
 .mat-tab-body-wrapper{
     border:1px solid #ddd;
-   
+
 }
 .mat-tab-label-active{
     border:1px solid #ddd;
@@ -523,7 +536,7 @@ mat-tab-group[vertical] {
 }
 
 #ui-customer{
-    
+
     .mat-tab-header{
         border-bottom: 0px !important;
         position: fixed;
@@ -533,7 +546,7 @@ mat-tab-group[vertical] {
         z-index: 999;
     }
     .left-icons{
-        
+
         position: fixed;
         z-index: 1111;
         padding: 25px;
@@ -567,8 +580,8 @@ mat-tab-group[vertical] {
     // right: 0;
     z-index: 10;
     box-shadow: 5px 1px 10px rgba(0, 0, 0, 0.2), 3px 4px 5px rgba(0, 0, 0, 0.12), 2px 2px 4px rgba(0, 0, 0, 0.14);
-   
-       
+
+
     }
     .mat-tab-label{
         color: #fff;
@@ -590,7 +603,7 @@ mat-tab-group[vertical] {
     border: 1px solid #FFC100;
     color: #FFC100;
     margin-left: 20px;
-  
+
 }
 
 .real-estate{

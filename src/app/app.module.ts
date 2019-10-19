@@ -92,12 +92,11 @@ import {AccountsComponent} from './component/protect-component/customers/compone
 import {SummaryComponent} from './component/protect-component/customers/component/customer/accounts/summary/summary.component';
 import { CustomFormInputComponent } from './common/custom-form-input/custom-form-input.component';
 import { AssetsComponent } from './component/protect-component/customers/component/customer/accounts/assets/assets.component';
-import {DragDropModule} from "@angular/cdk/drag-drop";
+import {DragDropModule} from '@angular/cdk/drag-drop';
 import { FroalaComponent } from './component/protect-component/common-component/froala/froala.component';
 import { EmailOnlyComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/email-only/email-only.component';
-import { LiabilitiesComponent } from './component/protect-component/customers/component/customer/accounts/liabilities/liabilities.component';
-import { InsuranceComponent } from './component/protect-component/customers/component/customer/accounts/insurance/insurance.component';
-import { ExpensesComponent } from './component/protect-component/customers/component/customer/accounts/expenses/expenses.component';
+import { HowItWorksComponent } from './component/protect-component/AdviserComponent/Subscriptions/subscription/common-subscription-component/how-it-works/how-it-works.component';
+import { DialogContainerComponent } from './common/dialog-container/dialog-container.component';
 
 @NgModule({
   declarations: [
@@ -183,9 +182,8 @@ import { ExpensesComponent } from './component/protect-component/customers/compo
     AssetsComponent,
     FroalaComponent,
     EmailOnlyComponent,
-    LiabilitiesComponent,
-    InsuranceComponent,
-    ExpensesComponent
+    HowItWorksComponent,
+    DialogContainerComponent
   ],
   imports: [
     BrowserModule,
@@ -206,7 +204,7 @@ import { ExpensesComponent } from './component/protect-component/customers/compo
     ConfirmDialogComponent, SubscriptionPopupComponent,
     DeleteSubscriptionComponent, HowToUseDialogComponent,
     AddDocumentComponent, PreferenceEmailInvoiceComponent,
-    ModifyFeeDialogComponent, ConsentTandCComponent]
+    ModifyFeeDialogComponent, ConsentTandCComponent , HowItWorksComponent]
 })
 export class AppModule {
 }

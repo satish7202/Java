@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { EventService } from 'src/app/Data-service/event.service';
-import { trigger, state, style, transition, animate } from '@angular/animations';
-import { SubscriptionInject } from '../subscription-inject.service';
+import {Component, OnInit} from '@angular/core';
+import {EventService} from 'src/app/Data-service/event.service';
+import {trigger, state, style, transition, animate} from '@angular/animations';
+import {SubscriptionInject} from '../subscription-inject.service';
+
 @Component({
   selector: 'app-subscription',
   templateUrl: './subscription.component.html',
@@ -13,7 +14,7 @@ import { SubscriptionInject } from '../subscription-inject.service';
       })),
       state('openHelp', style({
         left: '65%',
-        width:'35%'
+        // width: '35%'
       })),
       state('close', style({
         // width:'0%'
@@ -37,25 +38,40 @@ export class SubscriptionComponent implements OnInit {
     this.subinject.rightSideBarData.subscribe(
       data => this.getRightSliderData(data)
     );
+    this.eventService.overlayVisibleData.subscribe(
+      data => {
+        this.isOverlayVisible = data;
+      }
+    );
   }
+
+  isOverlayVisible;
 
   currentState;
   subscriptionTab;
 
   selected: any;
+
   ngOnInit() {
     this.currentState = 'close';
-    this.selected = 6;
+    // this.selected = 6;
   }
 
   getFileResponseDataAum(data) {
     this.subscriptionTab = data;
   }
+
   getTabChangeData(data) {
     this.selected = data;
   }
+
   getRightSliderData(value) {
     this.currentState = value;
+    if (value === 'close') {
+      this.eventService.changeOverlayVisible(false);
+    } else {
+      this.eventService.changeOverlayVisible(true);
+    }
   }
 
 
@@ -66,8 +82,11 @@ export class SubscriptionComponent implements OnInit {
     this.currentState = 'openHelp';
   }*/
   tabClick(event) {
-    this.subscriptionTab = event.tab.textLabel;
+    this.eventService.sidebarData(event.tab.textLabel);
+    // this.subscriptionTab = event.tab.textLabel;
+
   }
+
   help() {
 
   }
