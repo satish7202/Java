@@ -5,13 +5,13 @@
         <li (click)="viewMode ='tab1'" [ngClass]="{'b-ua':viewMode =='tab1'}" class="b-ua c-p">
           Mutual funds
         </li>
-        <li (click)="viewMode ='tab2';getPrefixData(1)" [ngClass]="{'b-ua':viewMode =='tab2'}" class="c-p">
+        <li (click)="viewMode ='tab2'" [ngClass]="{'b-ua':viewMode =='tab2'}" class="c-p">
           Stocks
         </li>
-        <li (click)="viewMode ='tab3';getPrefixData(2)" [ngClass]="{'b-ua':viewMode =='tab3'}" class="c-p">
+        <li (click)="viewMode ='tab3'" [ngClass]="{'b-ua':viewMode =='tab3'}" class="c-p">
           Fixed income
         </li>
-        <li (click)="viewMode ='tab4';getPrefixData(3)" [ngClass]="{'b-ua':viewMode =='tab4'}" class=" c-p">
+        <li (click)="viewMode ='tab4'" [ngClass]="{'b-ua':viewMode =='tab4'}" class=" c-p">
           Real estate
         </li>
         <li (click)="viewMode ='tab5'" [ngClass]="{'b-ua':viewMode =='tab5'}" class=" c-p">
@@ -35,7 +35,7 @@
     <div class="col-md-10 b-a p-0 min-height" [ngSwitch]="viewMode">
       <div *ngSwitchCase="'tab1'">
 
-        <!-- <div class="wrapper-8">
+        <div class="wrapper-8">
             <div class="row">
                 <div class="col-md-12 right text-right pt-28 pb-28 pr-0">
                     <button mat-stroked-button [matMenuTriggerFor]="menu" class="b-a br-0">Overview Report
@@ -588,7 +588,7 @@
                     </table>
                 </div>
             </div>
-        </div> -->
+        </div>
         <div class="wrapper-8 pt-0">
           <div class="row pt-28">
             <div class="col-md-12 right text-right ">
@@ -710,7 +710,74 @@
 
       </div>
       <div *ngSwitchCase="'tab4'">
+        <div class="wrapper-8">
+            <div class="row">
+                <div class="col-md-12 right text-right pt-28 pb-28 pr-0">
+                    <button mat-stroked-button [matMenuTriggerFor]="menu" class="b-a br-0">Overview Report
+                        <mat-icon aria-hidden="false" aria-label="Example home icon">keyboard_arrow_down</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item>Overview Report</button>
+                        <button mat-menu-item>Summary</button>
+                        <button mat-menu-item>All Transactions</button>
+                        <button mat-menu-item>Unrealized Transactions</button>
+                        <button mat-menu-item>Capital Gains</button>
+                        <button mat-menu-item>Goal Linkage</button>
+                    </mat-menu>
+                </div>
+            </div>
 
+            <div class="row">
+                <div class="col-md-4 p-0">
+                    <h4 class="m-0 text-black roboto">Mutual fund overview</h4>
+                </div>
+                <div class="col-md-8 p-0 right text-right">
+                    <img src="assets/images/svg/download-bordered.svg" class="c-p">
+                    <img src="assets/images/svg/up-down.svg" class="c-p">
+                    <img src="assets/images/svg/three-dot-bordered.svg" class="c-p mr-12">
+
+                    <button mat-stroked-button class="btn-default addon mr-12 v-middle"><i class="material-icons">filter_list</i>FILTERS</button>
+                    <button mat-stroked-button class="btn-primary addon v-middle" [matMenuTriggerFor]="menu1"><i class="material-icons">add</i>ADD NEW</button>
+                    <mat-menu #menu1="matMenu" class="add-new">
+                        <button mat-menu-item class="b-b">
+                            <div class="row">
+                                <div class="col-md-2 pr-8 text-right">
+                                    <img src="assets/images/svg/dark-three-dot.svg">
+                                </div>
+                                <div class="col-md-10">
+                                    <p class="m-0 text-black">Portfolio summary</p>
+                                    <p class="m-0 f-13 pt-4 text-custom">Add just the overall portfolio<br> summary. Time saver!</p>
+                                </div>
+                            </div>
+                        </button>
+                        <button mat-menu-item class="b-b">
+                            <div class="row">
+                                <div class="col-md-2 pr-8 text-right">
+                                    <img src="assets/images/svg/scheme-icon.svg">
+                                </div>
+                                <div class="col-md-10">
+                                    <p class="m-0 text-black">Scheme level transactions</p>
+                                    <p class="m-0 pt-4 f-13 text-custom">Add transaction data at<br>
+                                        scheme level for better reporting</p>
+                                </div>
+                            </div>
+                        </button>
+                        <button mat-menu-item>
+                            <div class="row">
+                                <div class="col-md-2 pr-8 text-right">
+                                    <img src="assets/images/svg/dark-download.svg">
+                                </div>
+                                <div class="col-md-10">
+                                    <p class="m-0 text-black">Import data</p>
+                                    <p class="m-0 pt-4 f-13 text-custom">Add transaction data at<br>
+                                        scheme level for better reporting</p>
+                                </div>
+                            </div>
+                        </button>
+                      </mat-menu>
+                </div>
+            </div>
+        </div> 
       </div>
       <div *ngSwitchCase="'tab5'">
 
