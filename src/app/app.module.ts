@@ -100,6 +100,7 @@ import { DialogContainerComponent } from './common/dialog-container/dialog-conta
 import { LiabilitiesComponent } from './component/protect-component/customers/component/customer/accounts/liabilities/liabilities.component';
 import { InsuranceComponent } from './component/protect-component/customers/component/customer/accounts/insurance/insurance.component';
 import { ExpensesComponent } from './component/protect-component/customers/component/customer/accounts/expenses/expenses.component';
+import { AddProfileSummaryComponent } from './component/protect-component/customers/component/common-component/add-profile-summary/add-profile-summary.component';
 
 @NgModule({
   declarations: [
@@ -189,7 +190,8 @@ import { ExpensesComponent } from './component/protect-component/customers/compo
     DialogContainerComponent,
     LiabilitiesComponent,
     InsuranceComponent,
-    ExpensesComponent
+    ExpensesComponent,
+    AddProfileSummaryComponent
   ],
   imports: [
     BrowserModule,
