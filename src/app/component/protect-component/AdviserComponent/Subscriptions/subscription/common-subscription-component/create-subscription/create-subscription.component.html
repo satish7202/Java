@@ -1,6 +1,6 @@
 <div class="row bb-1 popup-header-fix-60">
   <div class="col-md-10 p-0">
-    <h4 class="mb-1 wrapper-20" >CREATE SUBSCRIPTION FOR Ronak</h4>
+    <h4 class="mb-1 wrapper-20" >CREATE SUBSCRIPTION FOR Ronak</h4>{{msg}}
   </div>
   <div class="col-md-2 text-right">
     <i class="material-icons pt-16 pr-16 c-p" (click)="Close('close')">
@@ -101,14 +101,14 @@
         </div>
       </div>
       <div class="row pt-16">
-        <div class="col-md-6">
-          <mat-card class="p-0 ba-blue">
+        <div (click)="select(singleBiller)" *ngFor="let singleBiller of billersData" class="col-md-6">
+          <mat-card class="p-0" [ngClass]="{'ba-blue':singleBiller.selected==1,'b-ua':singleBiller.selected==0}">
             <div class="row bg-grey lter">
               <div class="col-md-12 p-0">
-                <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
+                <mat-checkbox class="custom-checkbox" [ngClass]="{'v-h':singleBiller.selected==0}" checked="false"></mat-checkbox>
               </div>
               <div class="col-md-12 p-0">
-                <h3 class="m-0 pt-18 pl-24">RONAK HINDOCHA</h3>
+                <h3 class="m-0 pt-18 pl-24">{{singleBiller.companyDisplayName}}</h3>
                 <h5 class="m-0 pt-4 pb-44 pl-24 text-custom">CLI123</h5>
               </div>
             </div>
@@ -116,60 +116,13 @@
               <div class="row">
                 <div class="col-md-12 p-0">
                   <p class="f-12 mb-0 text-primitive">BILLER ADDRESS</p>
-                  <p class="mb-0">#46,Street 1</p>
-                  <p class="mb-0">Lokhandwala Township</p>
-                  <p class="mb-0">Borivali East,</p>
-                  <p class="mb-0">Mumbai 400 066</p>
+                  <p class="mb-0">{{singleBiller.billerAddress}}</p>
+                  <p class="mb-0">{{singleBiller.city}}</p>
+                  <p class="mb-0">{{singleBiller.state}}</p>
+                  <p class="mb-0">{{singleBiller.zipCode}}</p>
+                  <!-- <p class="mb-0">Mumbai 400 066</p> -->
                 </div>
 
-              </div>
-            </div>
-          </mat-card>
-        </div>
-        <div class="col-md-6 ">
-          <mat-card class="p-0 ba-blue">
-            <div class="row bg-grey lter">
-              <div class="col-md-12 p-0">
-                <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
-              </div>
-              <div class="col-md-12 p-0">
-                <h3 class="m-0 pt-18 pl-24">RUPA HINDOCHA</h3>
-                <h5 class="m-0 pt-4 pb-44 pl-24 text-custom">ARN125</h5>
-              </div>
-            </div>
-            <div class="wrapper-24">
-              <div class="row">
-                <div class="col-md-12 p-0">
-                  <p class="f-12 mb-0 text-primitive">BILLER ADDRESS</p>
-                  <p class="mb-0">#46,Street 1</p>
-                  <p class="mb-0">Lokhandwala Township</p>
-                  <p class="mb-0">Borivali East,</p>
-                  <p class="mb-0">Mumbai 400 066</p>
-                </div>
-              </div>
-            </div>
-          </mat-card>
-        </div>
-        <div class="col-md-6 pt-20">
-          <mat-card class="p-0 ba-blue">
-            <div class="row bg-grey lter">
-              <div class="col-md-12 p-0">
-                <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
-              </div>
-              <div class="col-md-12 p-0">
-                <h3 class="m-0 pt-18 pl-24">DHYAAN HINDOCHA</h3>
-                <h5 class="m-0 pt-4 pb-44 pl-24 text-custom">ARN125</h5>
-              </div>
-            </div>
-            <div class="wrapper-24">
-              <div class="row">
-                <div class="col-md-12 p-0">
-                  <p class="f-12 mb-0 text-primitive">BILLER ADDRESS</p>
-                  <p class="mb-0">#46,Street 1</p>
-                  <p class="mb-0">Lokhandwala Township</p>
-                  <p class="mb-0">Borivali East,</p>
-                  <p class="mb-0">Mumbai 400 066</p>
-                </div>
               </div>
             </div>
           </mat-card>
@@ -197,14 +150,14 @@
         </div>
       </div>
       <div class="row pt-16">
-        <div class="col-md-6">
-          <mat-card class="p-0 ba-blue">
+        <div (click)="select(singlePayee)" *ngFor="let singlePayee of payeesData" class="col-md-6">
+          <mat-card class="p-0" [ngClass]="{'ba-blue':singlePayee.selected==1,'b-ua':singlePayee.selected==0}">
             <div class="row bg-grey lter">
               <div class="col-md-12 p-0">
-                <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
+                <mat-checkbox class="custom-checkbox" [ngClass]="{'v-h':singlePayee.selected==0}" checked="false"></mat-checkbox>
               </div>
               <div class="col-md-12 p-0">
-                <h3 class="m-0 pt-18 pl-24">RONAK HINDOCHA</h3>
+                <h3 class="m-0 pt-18 pl-24">{{singlePayee.companyDisplayName}}</h3>
                 <h5 class="m-0 pt-4 pb-44 pl-24 text-custom">ARN123</h5>
               </div>
             </div>
@@ -212,80 +165,10 @@
               <div class="row">
                 <div class="col-md-6 p-0">
                   <p class="f-12 mb-0 text-primitive">BILLER ADDRESS</p>
-                  <p class="mb-0">#46,Street 1</p>
-                  <p class="mb-0">Lokhandwala Township</p>
-                  <p class="mb-0">Borivali East,</p>
-                  <p class="mb-0">Mumbai 400 066</p>
-                </div>
-                <div class="col-md-6 p-0">
-                  <p class="text-custom m-0 f-12 pl-24"> SPLITTING RATIO (%)</p>
-                  <div class="row">
-                    <div class="col-md-8">
-                      <mat-slider class="ml-24" id="custom-mat-slider"></mat-slider>
-                    </div>
-                    <div class="col-md-4 pr-0 pt-8">
-                      <p class="m-0 f-13 text-black b-a wrapper-8">50</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </mat-card>
-        </div>
-        <div class="col-md-6 ">
-          <mat-card class="p-0 ba-blue">
-            <div class="row bg-grey lter">
-              <div class="col-md-12 p-0">
-                <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
-              </div>
-              <div class="col-md-12 p-0">
-                <h3 class="m-0 pt-18 pl-24">RUPA HINDOCHA</h3>
-                <h5 class="m-0 pt-4 pb-44 pl-24 text-custom">ARN125</h5>
-              </div>
-            </div>
-            <div class="wrapper-24">
-              <div class="row">
-                <div class="col-md-6 p-0">
-                  <p class="f-12 mb-0 text-primitive">BILLER ADDRESS</p>
-                  <p class="mb-0">#46,Street 1</p>
-                  <p class="mb-0">Lokhandwala Township</p>
-                  <p class="mb-0">Borivali East,</p>
-                  <p class="mb-0">Mumbai 400 066</p>
-                </div>
-                <div class="col-md-6 p-0">
-                  <p class="text-custom m-0 f-12 pl-24"> SPLITTING RATIO (%)</p>
-                  <div class="row">
-                    <div class="col-md-8">
-                      <mat-slider class="ml-24" id="custom-mat-slider"></mat-slider>
-                    </div>
-                    <div class="col-md-4 pr-0 pt-8">
-                      <p class="m-0 f-13 text-black b-a wrapper-8">50</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </mat-card>
-        </div>
-        <div class="col-md-6 pt-20">
-          <mat-card class="p-0 ba-blue">
-            <div class="row bg-grey lter">
-              <div class="col-md-12 p-0">
-                <mat-checkbox class="custom-checkbox" checked="false"></mat-checkbox>
-              </div>
-              <div class="col-md-12 p-0">
-                <h3 class="m-0 pt-18 pl-24">DHYAAN HINDOCHA</h3>
-                <h5 class="m-0 pt-4 pb-44 pl-24 text-custom">ARN125</h5>
-              </div>
-            </div>
-            <div class="wrapper-24">
-              <div class="row">
-                <div class="col-md-6 p-0">
-                  <p class="f-12 mb-0 text-primitive">BILLER ADDRESS</p>
-                  <p class="mb-0">#46,Street 1</p>
-                  <p class="mb-0">Lokhandwala Township</p>
-                  <p class="mb-0">Borivali East,</p>
-                  <p class="mb-0">Mumbai 400 066</p>
+                  <p class="mb-0">{{singlePayee.billerAddress}}</p>
+                  <p class="mb-0">{{singlePayee.state}}</p>
+                  <p class="mb-0">{{singlePayee.city}}</p>
+                  <p class="mb-0">{{singlePayee.zipCode}}</p>
                 </div>
                 <div class="col-md-6 p-0">
                   <p class="text-custom m-0 f-12 pl-24"> SPLITTING RATIO (%)</p>
