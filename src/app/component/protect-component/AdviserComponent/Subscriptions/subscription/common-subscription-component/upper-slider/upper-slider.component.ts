@@ -65,7 +65,9 @@ export class UpperSliderComponent implements OnInit {
   clientDocuments = 'clientDocuments';
   servicesDocuments = 'servicesDocuments';
   blankOverview;
-
+  headerData='EMAIL QUOTATION';
+  headerDataInvoice='EMAIL INVOICE'
+  headerDataDocuments='EMAIL DOCS WITH E-SIGN REQUEST'
   ngOnInit() {
     console.log('UpperSlider constructor ngOnInit: ', this.fragmentData);
 

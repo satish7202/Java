@@ -98,6 +98,8 @@ export class DialogContainerComponent implements OnInit {
   dialogState;
 
   upperSliderData;
+  headerData='EMAIL QUOTATION';
+  headerDataDocuments='EMAIL DOCS WITH E-SIGN REQUEST';
 
   ngOnInit() {
   }
