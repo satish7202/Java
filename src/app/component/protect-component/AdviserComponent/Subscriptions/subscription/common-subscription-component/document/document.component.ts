@@ -130,10 +130,11 @@ export class DocumentComponent implements OnInit {
     this.documentDesign = data;
   }
 
-  changeDisplay(value) {
+  changeDisplay(value,data) {
     this.documentDesign = value;
     this.quotationDesignEmail = this.documentDesign;
-
+    data.documentText="helooooooo....."
+    this.subInjectService.addSingleProfile(data);
   }
 
   getplanDocumentData() {

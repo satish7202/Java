@@ -158,8 +158,10 @@ export class QuotationsComponent implements OnInit {
     console.log(data);
     this.ngOnInit();
   }
-  viewQuotation(data)
+  viewQuotation(value,data)
   {
-    this.quotationDesign = data;
+    this.quotationDesign = value;
+    console.log(data);
+    this.subInjectService.addSingleProfile(data);
   }
 }

@@ -14,9 +14,10 @@ export interface PeriodicElement {
   sdate: string;
   clientsign: string;
   status:string;
+  documentText:string;
 } 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {name: 'Neelam Singh',docname: 'Scope of work', plan: 'Starter plan', servicename: 'AUM Linked fee', cdate: '25/08/2019', sdate: '25/08/2019', clientsign: '25/08/2019',status:'READY TO SEND'},
+  {name: 'Neelam Singh',docname: 'Scope of work', plan: 'Starter plan', servicename: 'AUM Linked fee', cdate: '25/08/2019', sdate: '25/08/2019', clientsign: '25/08/2019',status:'READY TO SEND',documentText:'hello'},
    
 ];
 @Component({

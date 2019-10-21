@@ -17,13 +17,20 @@ import { SubscriptionInject } from '../../../subscription-inject.service';
 })
 export class EmailOnlyComponent implements OnInit {
   model: any;
+  dataSub: any;
+  storeData: any;
 
-  constructor(public eventService:EventService,public subInjectService:SubscriptionInject) { }
+  constructor(public eventService:EventService,public subInjectService:SubscriptionInject) { 
+    this.dataSub = this.subInjectService.singleProfileData.subscribe(
+      data=>this.getcommanFroalaData(data)
+    );
+  }
   @Input() emailSend;
   @Input() emailSendfooter;
   @Input() emailDocumentSend;
   @Input() emailDocument;
   @Output() valueChange = new EventEmitter();
+  @Input() quotationData;
   config: Object = {
     charCounterCount: false
   };
@@ -31,6 +38,7 @@ export class EmailOnlyComponent implements OnInit {
   ngOnInit() {
     console.log(this.emailSendfooter);
     console.log(this.emailDocumentSend);
+    console.log(this.quotationData);
   }
 // Begin ControlValueAccesor methods.
 onChange = (_) => {
@@ -59,4 +67,13 @@ openEmailQuot(value,state,data)
   this.subInjectService.rightSliderData(state)
   this.subInjectService.addSingleProfile(data)
 }
+getcommanFroalaData(data){
+  console.log(data)
+  this.storeData=data;
+}
+saveData(data)
+  {
+    console.log(data);
+    this.storeData.documentText=data;
+  }
 }

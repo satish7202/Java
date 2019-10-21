@@ -124,5 +124,10 @@ export class CommonFroalaComponent implements ControlValueAccessor, OnInit {
   saveData(data)
   {
     console.log(data);
+    this.storeData.documentText=data;
+  }
+  save(){
+    console.log("here is saved data",this.storeData.documentText);
+    this.Close('close');
   }
 }

@@ -18,8 +18,13 @@ import {MatDialog} from '@angular/material';
 })
 export class TermsAgreementComponent implements OnInit {
   model: any;
+  dataSub: any;
+  storeData: any;
 
   constructor(public subInjectService: SubscriptionInject, public dialog: MatDialog) {
+    this.dataSub = this.subInjectService.singleProfileData.subscribe(
+      data=>this.getcommanFroalaData(data)
+    );
   }
 
   @Input() quotationDesignE;
@@ -92,5 +97,14 @@ export class TermsAgreementComponent implements OnInit {
 
   registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
+  }
+  getcommanFroalaData(data)
+  {
+    this.storeData=data;
+  }
+  saveData(data)
+  {
+    console.log(data);
+    
   }
 }
