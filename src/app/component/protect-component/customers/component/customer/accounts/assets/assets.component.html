@@ -533,8 +533,13 @@
                 </div>
                 <div *ngSwitchCase="'tab3'">
                     <div class="wrapper-8">
-                        <div class="row">
-                            <div class="col-md-12 right text-right pt-28 pb-28 pr-0">
+                        <div class="row pt-28 pb-28">
+                            <div class="col-md-6 pl-0">
+                                    <button mat-stroked-button class="btn-default text-primary br-0">Fixed deposits</button>
+                                    <button mat-button class="btn-default text-custom br-0">Recurring deposits</button>
+                                    <button mat-button class="btn-default text-custom br-0">Bonds</button>
+                            </div>
+                            <div class="col-md-6 right text-right  pr-0">
                                 <button mat-stroked-button [matMenuTriggerFor]="menu" class="ba-black br-0">Overview Report
                                     <mat-icon aria-hidden="false" aria-label="Example home icon">keyboard_arrow_down</mat-icon>
                                 </button>
