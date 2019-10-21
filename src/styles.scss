@@ -606,7 +606,7 @@ mat-tab-group[vertical] {
 
 }
 
-.real-estate{
+.real-estate,.fixed-deposite{
     tr.mat-header-row {
         height: 40px;
         padding: 10px 8px !important;
@@ -616,6 +616,6 @@ mat-tab-group[vertical] {
     height: 40px !important;
   }
   #table-low tbody td{
-        padding: 6px 8px !important;
-    }
+      padding: 6px 8px !important
+  }
 }
