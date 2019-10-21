@@ -14,31 +14,40 @@ export class CreateSubscriptionComponent implements OnInit {
   @Input() modifyFeeTabChange;
   feeStructureData;
   clientData;
-  constructor(public subInjectService: SubscriptionInject, private eventService: EventService, private fb: FormBuilder,private subService:SubscriptionService) { 
+  feeMode;
+  billersData;
+  payeesData;
+  constructor(public subInjectService: SubscriptionInject, private eventService: EventService, private fb: FormBuilder, private subService: SubscriptionService) {
     this.subInjectService.singleProfileData.subscribe(
-      data =>this.getSubStartDetails(data)
+      data => this.getSubStartDetails(data)
     )
   }
   isLinear = false;
   step1Completed = true;
   ngOnInit() {
   }
-  getSubStartDetails(data)
-  {
-    this.clientData=data
-    let obj={
-      "advisorId":2808,
-      "clientId":data.clientId,
-      "subId":data.id
+  getSubStartDetails(data) {
+    this.clientData = data
+    let obj = {
+      "advisorId": 2808,
+      "clientId": data.clientId,
+      "subId": data.id
     }
-  this.subService.getSubscriptionStartData(obj).subscribe(
-    data=>this.getSubStartDetailsResponse(data)
-  )
+    this.subService.getSubscriptionStartData(obj).subscribe(
+      data => this.getSubStartDetailsResponse(data)
+    )
 
   }
-  getSubStartDetailsResponse(data)
+  select(data)
   {
-    this.feeStructureData=data.fees;
+   (data.selected==0)?data.selected=1:data.selected=0
+  }
+  getSubStartDetailsResponse(data) {
+    console.log(data)
+    this.feeStructureData = data;
+    this.subscriptionDetails.controls.subscription.setValue(data.subscriptionNo)
+    this.billersData = data.billers
+    this.payeesData = data.payees
   }
   subscriptionDetails = this.fb.group({
     subscription: [, [Validators.required]],
@@ -47,8 +56,8 @@ export class CreateSubscriptionComponent implements OnInit {
     feeCollectionMode: [, [Validators.required]],
     dueDateFrequency: [, [Validators.required]]
   })
-  feeStructure=this.fb.group({
-    
+  feeStructure = this.fb.group({
+
   })
   Close(state) {
     this.subInjectService.rightSideData(state);

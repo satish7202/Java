@@ -95,6 +95,8 @@ export const appConfig = {
   GET_SERVICE_MODULE: 'subscription/service/module/get',
   MAP_MODULE_TO_PLANS: 'subscription/subscription/service/module-list/edit',
   GET_BILLER_PROFILE: 'subscription/biller/profiles/get',
+  GET_SERVICES_LIST : '/subscription/invoice-service/get',
+  ADD_INVOICE : '/subscription/invoice/manual/add',
   GET_PAYEE_PROFILE: 'subscription/client-biller/profiles/get',
   MAP_DOCUMENTS_TO_SERVICE: 'subscription/mapped/document/service/insert',
   GET_DATA_FOR_CREATE_SERVICE: 'subscription/service/create/details/get',

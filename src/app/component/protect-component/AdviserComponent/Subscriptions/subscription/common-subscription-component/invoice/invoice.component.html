@@ -609,20 +609,25 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <input type="text"class="form-control br-0" formControlName="clientName">
+                <input type="text"class="form-control br-0" formControlName="clientName" maxlength="{{getFormControledit().clientName.maxLength}}">
             </div>
+            <div class="col-md-12">
+                    <p class="mb-0 f-12 text-custom text-right pt-4">{{getFormControledit().clientName.value?.length?getFormControledit().clientName.value.length:0}}/{{getFormControledit().clientName.maxLength}}</p>
+                </div>
             <div class="row pt-20">
                 <div class="col-md-6 p-0">
                     <p class="m-0 text-custom f-12">BILLER ADDRESS</p>
                     <p *ngIf="editAdd1 == false" class="m-0 text-black w-60">{{storeData.billerAddress}}</p>
-                    <textarea rows="5" *ngIf="editAdd1 == true" class="form-control br-0" formControlName="billerAddress"></textarea>  
+                    <textarea rows="5" *ngIf="editAdd1 == true" class="form-control br-0" formControlName="billerAddress" maxlength="{{getFormControledit().billerAddress.maxLength}}"></textarea>  
                     <p class="m-0 text-primary" (click)="onclickChangeAdd1(editAdd1)">CHANGE</p>
+                    <p class="mb-0 f-12 text-custom text-right pt-4">{{getFormControledit().billerAddress.value?.length?getFormControledit().billerAddress.value.length:0}}/{{getFormControledit().billerAddress.maxLength}}</p>
                 </div>
                 <div class="col-md-6 p-0">
                     <p class="m-0 text-custom f-12">PAYEE ADDRESS</p>
                     <p *ngIf="editAdd2 == false" class="m-0 text-black w-60">{{storeData.billingAddress}}</p>
-                    <textarea rows="5"*ngIf="editAdd2 == true" class="form-control br-0" formControlName="billingAddress"></textarea>
+                    <textarea rows="5"*ngIf="editAdd2 == true" class="form-control br-0" formControlName="billingAddress" maxlength="{{getFormControledit().billingAddress.maxLength}}"></textarea>
                     <p class="m-0 text-primary" (click)="onclickChangeAdd2(editAdd2)">CHANGE</p>
+                    <p class="mb-0 f-12 text-custom text-right pt-4">{{getFormControledit().billingAddress.value?.length?getFormControledit().billingAddress.value.length:0}}/{{getFormControledit().billingAddress.maxLength}}</p>
                 </div>
             </div>
         </div>
@@ -637,10 +642,10 @@
                         </div>
                         <div class="col-md-7 p-0">
                             <div class="form-group mb-0">
-                                <input type="email" class="form-control br-0"formControlName="invoiceNumber">
+                                <input type="email" class="form-control br-0"formControlName="invoiceNumber" maxlength="{{getFormControledit().invoiceNumber.maxLength}}"> 
                             </div>
                             <div class="col-md-12">
-                                <p class="m-0 text-custom f-12 text-right pt-4"> 0 / 10</p>
+                                    <p class="mb-0 f-12 text-custom text-right pt-4">{{getFormControledit().invoiceNumber.value?.length?getFormControledit().invoiceNumber.value.length:0}}/{{getFormControledit().invoiceNumber.maxLength}}</p>
                             </div>
                         </div>
                     </div>
@@ -652,7 +657,7 @@
                         </div>
                         <div class="col-md-6 pr-0">
                             <div class="form-group mb-0">
-                                <input type="date" class="form-control br-0" formControlName="invoiceDate">
+                                <input type="date" value="storeData.invoiceDate | date: 'MM/dd/yyyy'" class="form-control br-0" formControlName="invoiceDate">
                             </div>
                         </div>
                     </div>
@@ -690,12 +695,13 @@
                     <div class="col-md-6 p-0">
                             <div class="row">
                                 <div class="col-md-9 p-0" >
-                                    <!-- <p class="m-0 text-black pl-16 pb-0 f-500">Investment management fees</p> -->
                                     <div class="form-group"> 
-                                      <select id="serviceName" [disabled]="storeData.auto == true" class="form-control">
-                                        <option *ngFor="let s of storeData.services" [ngValue]="s.serviceName">{{ s.serviceName }}</option>
-                                    </select>
-                                    </div>
+                                    <input type="text" list = "serviceName"*ngIf="auto == true"  placeholder="You can search service..."  class="form-control br-0" formControlName="serviceName"  autocomplete="off">  
+                                      <datalist  *ngIf="auto == true" id="serviceName"  class="form-control">
+                                        <option *ngFor="let s of serviceList"value="{{s.serviceName}}"></option>
+                                      </datalist>
+                                    <h5 *ngIf="auto != true" class="m-0 text-center pr-8">{{storeData.services[0].serviceName}}</h5>
+                                </div>
                                 </div>
                             </div> 
                     </div>
@@ -739,8 +745,8 @@
                     <h5 class="m-0">Discount</h5>
                 </div>
                 <div class="col-md-2 p-0">
-                    <input type="text" *ngIf="auto == true" class="form-control br-0" formControlName="discount">
-                     <h5 class="m-0 text-right pr-8" *ngIf="auto == false">₹{{storeData.discount}}</h5>
+                    <input type="text" class="form-control br-0" formControlName="discount">
+                     <!-- <h5 class="m-0 text-right pr-8" *ngIf="auto == false">₹{{storeData.discount}}</h5> -->
                 </div>
             </div>
             <div class="row pt-20 pb-12">
@@ -765,9 +771,7 @@
                     <h5 class="m-0 text-black pt-8 f-500">Total</h5>
                 </div>
                 <div class="col-md-2 bt-grey p-0">
-                    <h5  *ngIf="storeData.sgst != undefined && auto != true"class="m-0 text-right pr-8 pt-8 text-black f-500">{{storeData.subTotal+storeData.sgstTaxAmount+storeData.cgstTaxAmount}}</h5>
-                    <h5  *ngIf="storeData.igst != undefined && auto != true"class="m-0 text-right pr-8 pt-8 text-black f-500">{{storeData.subTotal+storeData.igstTaxAmount}}</h5>
-                    <input type="text"*ngIf="auto == true" class="form-control br-0" formControlName="total">
+                    <input type="text" class="form-control br-0" formControlName="total">
                 </div>
             </div>
             <div class="row pb-8">
@@ -776,7 +780,7 @@
                     <h5 class="m-0 text-black pt-8 f-500">Balance due</h5>
                 </div>
                 <div class="col-md-2 bt-grey p-0">
-                    <h5 class="m-0 text-right pr-8 pt-8 text-black f-500" *ngIf="auto == false">{{storeData.balanceDue}}</h5>
+                    <h5 class="m-0 text-right pr-8 pt-8 text-black f-500" *ngIf="auto != true">{{storeData.balanceDue}}</h5>
                     <input type="text" *ngIf="auto == true"class="form-control br-0" formControlName="balanceDue">
                 </div>
             </div>
@@ -791,14 +795,14 @@
                     </div>
                     <div class="col-md-9 p-0">
                             <div class="form-group mb-0">
-                                    <textarea class="form-control" rows="5" formControlName = "footnote"></textarea>
+                                    <textarea class="form-control" rows="5" formControlName = "footnote" maxlength="{{getFormControledit().footnote.maxLength}}"></textarea>
                                   </div>
                                   <div class="row">
                                       <div class="col-md-6">
                                           <p class="f-12 m-0 text-custom roboto">Optional</p>
                                       </div>
                                       <div class="col-md-6">
-                                            <p class="f-12 m-0 text-custom roboto">0 / 10</p>
+                                            <p class="mb-0 f-12 text-custom text-right pt-4">{{getFormControledit().footnote.value?.length?getFormControledit().footnote.value.length:0}}/{{getFormControledit().footnote.maxLength}}</p>
                                       </div>
                                   </div>
                     </div>
@@ -811,14 +815,14 @@
                             </div>
                             <div class="col-md-9 p-0">
                                     <div class="form-group mb-0">
-                                            <textarea class="form-control" rows="5" formControlName = "terms"></textarea>
+                                            <textarea class="form-control" rows="5" formControlName = "terms" maxlength="{{getFormControledit().terms.maxLength}}"></textarea>
                                           </div>
                                           <div class="row">
                                                 <div class="col-md-6">
                                                     <p class="f-12 m-0 text-custom roboto">Optional</p>
                                                 </div>
                                                 <div class="col-md-6">
-                                                      <p class="f-12 text-custom m-0 roboto">0 / 10</p>
+                                                        <p class="mb-0 f-12 text-custom text-right pt-4">{{getFormControledit().terms.value?.length?getFormControledit().terms.value.length:0}}/{{getFormControledit().terms.maxLength}}</p>
                                                 </div>
                                             </div>
                             </div>
@@ -843,5 +847,5 @@
             </div>
         </div>
     </div>
-</div>
+
 

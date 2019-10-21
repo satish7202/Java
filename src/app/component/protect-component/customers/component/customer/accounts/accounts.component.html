@@ -5,11 +5,15 @@
 </div>
 <mat-tab-group mat-align-tabs="center" id="ui-account-second-head" animationDuration="0ms">
             <mat-tab label="SUMMARY">
+                    <ng-template matTabContent>
                 <app-summary></app-summary>
+                </ng-template>
                 <!-- <app-assets></app-assets> -->
             </mat-tab>
         <mat-tab label="ASSETS">
+                <ng-template matTabContent>
             <app-assets></app-assets>
+            </ng-template>
         </mat-tab>
         <mat-tab label="LIABILITIES">
            <app-liabilities></app-liabilities>

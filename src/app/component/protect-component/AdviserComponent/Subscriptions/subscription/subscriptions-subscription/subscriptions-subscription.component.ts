@@ -69,14 +69,22 @@ export class SubscriptionsSubscriptionComponent implements OnInit {
     this.DataToSend = data;
   }
 
-  openPlanSlider(value, state) {
+  openPlanSlider(value, state,data) {
     this.eventService.sidebarData(value);
     this.subInjectService.rightSideData(state);
+    this.subInjectService.addSingleProfile(data);
   }
 
-  Open(value, state, data) {
-    this.eventService.sidebarData(value);
-    this.subscriptionValue = value;
+  Open(state, data) {
+    let feeMode;
+    if(data.feeMode=="FIXED")
+    {
+      feeMode='fixedModifyFees'
+    }
+    else{
+      feeMode='variableModifyFees'
+    }
+    this.eventService.sidebarData(feeMode);
     this.subInjectService.rightSideData(state);
     this.subInjectService.addSingleProfile(data);
 
