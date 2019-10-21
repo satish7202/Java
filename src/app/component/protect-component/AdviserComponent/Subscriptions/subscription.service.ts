@@ -263,6 +263,13 @@ export class SubscriptionService {
   updateInvoiceInfo(data){
     return this.http.put(apiConfig.MAIN_URL + appConfig.UPDATE_INVOICE,data)
   }
+  getServicesListForInvoice(data){
+    let httpParams=new HttpParams().set('advisorId',data.advisorId);
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_SERVICES_LIST,httpParams) 
+  }
+  addInvoice(data){
+    return this.http.post(apiConfig.MAIN_URL + appConfig.ADD_INVOICE,data)
+  }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data, 10000);
   }

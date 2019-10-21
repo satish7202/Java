@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {SubscriptionService} from '../../subscription.service';
 import {SubscriptionInject} from '../../subscription-inject.service';
 import {EventService} from 'src/app/Data-service/event.service';
@@ -24,6 +24,7 @@ export interface PeriodicElement {
   styleUrls: ['./invoices-subscription.component.scss']
 })
 export class InvoicesSubscriptionComponent implements OnInit {
+  invoiceDesign: string;
 
   constructor(public dialog: MatDialog, public subInjectService: SubscriptionInject,
               private eventService: EventService, public subscription: SubscriptionService) {
@@ -36,16 +37,18 @@ export class InvoicesSubscriptionComponent implements OnInit {
   invoiceSubscription: string;
   invoiceClientData: any;
   dataCount: any;
-
+  showEdit: boolean;
   showPdfInvoice;
   singleInvoiceData;
   showLoader = true;
 
   displayedColumns: string[] = ['checkbox', 'date', 'invoicenum', 'name', 'status', 'email', 'duedate', 'amt', 'balance'];
-
+  @Input() invoiceValue
   ngOnInit() {
     this.getInvoiceSubData();
+    this.showEdit = false;
     this.invoiceSubscription = 'false';
+    this.invoiceDesign='true';
     this.dataCount = 0;
   }
 
@@ -59,7 +62,11 @@ export class InvoicesSubscriptionComponent implements OnInit {
       data => this.getInvoiceResponseData(data)
     );
   }
-
+  addInvoice(edit){
+    this.invoiceSubscription = edit;
+    // this.invoiceDesign = edit;
+    console.log("edit",edit)
+  }
   getInvoiceResponseData(data) {
     console.log(data);
     const ELEMENT_DATA = data;

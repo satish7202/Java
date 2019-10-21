@@ -36,3 +36,10 @@
     max-height: calc(100vh - 9rem);
     overflow-y: auto;
   }
+  .select2-container .select2-selection--single{
+    height:34px !important;
+}
+.select2-container--default .select2-selection--single{
+         border: 1px solid #ccc !important; 
+     border-radius: 0px !important; 
+}
