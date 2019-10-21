@@ -1,15 +1,16 @@
-<div class="row bb-1 popup-header-fix-60">
-    <div class="col-md-8 p-0">
-        <h4 class="wrapper-20 m-0 lh-23">MODIFY FEE STRUCTURE</h4>
-    </div>
-    <div class="col-md-4 text-right">
-        <div class="wrapper-12 pb-10">
-            <button mat-stroked-button class="br-0 btn-primary mr-20">EDIT</button>
-            <i class="material-icons c-p v-middle" (click)="Close('close')"> clear</i>
+
+ <div *ngIf="!createSubData" class="row bb-1 popup-header-fix-60">
+        <div class="col-md-8 p-0">
+            <h4 class="wrapper-20 m-0 lh-23">MODIFY FEE STRUCTURE</h4>
+        </div>
+        <div class="col-md-4 text-right">
+            <div class="wrapper-12 pb-10">
+                <button mat-stroked-button class="br-0 btn-primary mr-20">EDIT</button>
+                <i class="material-icons c-p v-middle" (click)="Close('close')"> clear</i>
+            </div>
         </div>
     </div>
-</div>
-<div *ngIf="ModifyFeesChange=='variableModifyFees'" [formGroup]="feeStructureForm" class="wrapper-20 pt-36 mb-44 pb-44">
+<div *ngIf="ModifyFeesChange=='variableModifyFees' || createSubData" [formGroup]="feeStructureForm" class="wrapper-20 pt-36 mb-44 pb-44">
     <p class="text-primary">VARIABLE </p>
     <h4 class="mb-0 pt-16">Investment management - AUM Linked fee</h4>
 
@@ -154,16 +155,6 @@
             </div>
         </div>
     </div>
-    <div class="bottom-fixed wrapper-12">
-        <div class="row">
-            <div class="col-md-4">
-                <h5 class="mb-0 pt-8 text-white c-p" (click)="Close('close')">Cancel</h5>
-            </div>
-            <div class="col-md-8 right text-right">
-                <button mat-button (click)="saveModifyFees()" class="btn-bottom br-0 text-inherit">Save</button>
-            </div>
-        </div>
-    </div>
 </div>
 <div *ngIf="ModifyFeesChange=='fixedModifyFees'" class="wrapper-20 pt-36 mb-44 pb-44">
     <p class="text-primary">FIXED </p>
@@ -225,14 +216,17 @@
             </mat-radio-group>
         </div>
     </div>
-    <div class="bottom-fixed wrapper-12">
+</div>
+<div class="bottom-fixed wrapper-12">
         <div class="row">
             <div class="col-md-4">
                 <h5 class="mb-0 pt-8 text-white c-p" (click)="Close('close')">Cancel</h5>
             </div>
-            <div class="col-md-8 right text-right">
+            <div *ngIf="ModifyFeesChange=='fixedModifyFees'" class="col-md-8 right text-right">
                 <button mat-button (click)="saveModifyFees()" class="btn-bottom br-0 text-inherit">Save</button>
             </div>
+            <div *ngIf="ModifyFeesChange=='variableModifyFees' || createSubData" class="col-md-8 right text-right">
+                    <button mat-button (click)="saveModifyFees()" class="btn-bottom br-0 text-inherit">Save</button>
+                </div>
         </div>
     </div>
-</div>
