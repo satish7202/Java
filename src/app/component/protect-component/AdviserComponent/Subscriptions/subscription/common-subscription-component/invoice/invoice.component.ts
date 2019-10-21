@@ -184,9 +184,9 @@ export class InvoiceComponent implements OnInit {
         footnote:this.editPayment.value.footnote,
         terms:this.editPayment.value.terms
       }
-      this.subService.updateInvoiceInfo(obj).subscribe(
-        data => this.updateInvoiceInfoRes(data)
-      );
+      // this.subService.updateInvoiceInfo(obj).subscribe(
+      //   data => this.updateInvoiceInfoRes(data)
+      // );
     }
   }
   updateInvoiceInfoRes(data){
