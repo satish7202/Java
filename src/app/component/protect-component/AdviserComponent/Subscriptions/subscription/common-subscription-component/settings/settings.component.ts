@@ -34,7 +34,7 @@ export class SettingsComponent implements OnInit {
   setAsPrimaryRes(data){
     console.log('setAsPrimaryRes',data)
       this.SettingProfileData.forEach(element => {
-      if(data.id == element.id){
+      if(data == element.id){
         element.isPrimary = true
       }else{
         element.isPrimary = false

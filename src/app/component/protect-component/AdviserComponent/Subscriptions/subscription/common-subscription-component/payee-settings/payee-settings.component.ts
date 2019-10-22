@@ -14,6 +14,7 @@ export class PayeeSettingsComponent implements OnInit {
   settingsModal;
   payeeSettingsForm;
   sendData;
+  updatedData: any;
   
   constructor(public subInjectService:SubscriptionInject, private eventService:EventService,private subService:SubscriptionService,private fb:FormBuilder) {
     // this.eventService.rightSliderData.subscribe(
@@ -227,10 +228,10 @@ export class PayeeSettingsComponent implements OnInit {
   }
   addClientBillerProfileRes(data){
     console.log("addClientBillerProfileRes",data)
-    if(data == true){
+    this.updatedData = data
       this.eventService.openSnackBar("Family member added successfully","OK")
       this.Close('close')
-     }
+     
   }
   editSettingResData(data) {
    if(data == true){
