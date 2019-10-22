@@ -217,7 +217,7 @@
                                                                 more_vert
                                                                 </i>
                                 <mat-menu #menu="matMenu">
-                                    <a mat-menu-item (click)="changeDisplay('documentUpperSlider',element)">View & Modify document</a>
+                                    <a mat-menu-item (click)="changeDisplay('documentUpper',element)">View & Modify document</a>
                                     <a mat-menu-item class="bt-1"(click)="deleteModal('DOCUMENT')">Delete document</a>
                                 </mat-menu>
                             </td>
@@ -267,6 +267,9 @@
         <div class="pt-60 pr-0">
             <app-email-only  [emailDocumentSend]="documentDesign" *ngIf="documentDesign=='documentUpperSlider'" (valueChange)='display($event)'></app-email-only>
         </div>
-        <div >
+        <div>
                 <app-email-only  [emailDocument]="documentDesign" *ngIf="documentDesign=='readyToSend'" (valueChange)='display($event)'></app-email-only>
+        </div>
+        <div>
+                <app-email-only  [emailDocument]="documentDesign" *ngIf="documentDesign=='documentUpper'" (valueChange)='display($event)'></app-email-only>
         </div>
