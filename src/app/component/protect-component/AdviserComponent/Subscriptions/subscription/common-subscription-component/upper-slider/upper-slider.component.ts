@@ -29,6 +29,7 @@ import {SubscriptionInject} from '../../../subscription-inject.service';
 
 export class UpperSliderComponent implements OnInit {
   fragmentData;
+  selectedServiceTab = 0;
 
   constructor(private eventService: EventService, private subinject: SubscriptionInject
               // public dialogRef: MatDialogRef<UpperSliderComponent>,
@@ -53,9 +54,11 @@ export class UpperSliderComponent implements OnInit {
         this.State = 'close';
         if (this.fragmentData.Flag === 'plan') {
           this.upperData = this.fragmentData.planData;
-        }
-        if (this.fragmentData.Flag === 'services') {
+        } else if (this.fragmentData.Flag == 'services') {
           this.upperData = this.fragmentData.FeeData;
+          this.selectedServiceTab = 1;
+        } else {
+          this.upperData = null;
         }
         console.log('upperData: ', this.upperData);
         console.log(this.fragmentData);

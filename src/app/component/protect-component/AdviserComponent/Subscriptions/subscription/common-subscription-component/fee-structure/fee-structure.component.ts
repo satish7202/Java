@@ -12,10 +12,18 @@ export class FeeStructureComponent implements OnInit {
   constructor(public subInjectService: SubscriptionInject, private eventService: EventService) {
   }
 
-  @Input() upperData;
+  _upperData;
   selectedFee;
 
   ngOnInit() {
+    console.log('FeeStructureComponent init', this.upperData);
+  }
+
+  @Input()
+  set upperData(upperData) {
+    console.log('FeeStructureComponent upperData set : ', this.upperData);
+
+    this._upperData = upperData;
   }
 
   selectedFees(feeType) {
