@@ -26,34 +26,50 @@ export class BillerProfileAdvisorComponent implements OnInit {
   ngOnInit() {
 
   }
-
+  getFormControl() {
+    return this.billerProfileForm.controls;
+  }
+  
   getSingleBillerProfileData(data) {
+    if(data == ""){
+    data = {}
+    }
     this.billerProfileForm = this.fb.group({
       profileDetailsForm: this.fb.group({
-        gstinNum: [data.gstin],
-        panNum: [data.pan],
-        Address: [data.billerAddress],
-        state: [data.state],
-        zipCode: [data.zipCode],
-        country: [data.country],
-        city: [data.city]
+        gstinNum: [(data.gstin == undefined)?"":data.gstin],
+        panNum: [(data.pan == undefined)?"":data.pan],
+        Address: [(data.billerAddress == undefined)?"":data.billerAddress],
+        state: [(data.state == undefined)?"":data.state],
+        zipCode: [(data.zipCode == undefined)?"":data.zipCode],
+        country: [(data.country == undefined)?"":data.country],
+        city: [(data.city == undefined)?"":data.city]
       }),
       bankDetailsForm: this.fb.group({
-        nameOnBank: [data.nameAsPerBank],
-        bankName: [data.bankName],
-        acNo: [data.acNumber],
-        ifscCode: [data.ifscCode],
-        address: [data.bankCity],
-        state: [data.state],
-        pincode: [data.bankZipCode],
-        country: [data.country]
+        nameOnBank: [(data == undefined)?"":data.nameAsPerBank],
+        bankName: [(data == undefined)?"":data.bankName],
+        acNo: [(data == undefined)?"":data.acNumber],
+        ifscCode: [(data == undefined)?"":data.ifscCode],
+        address: [(data == undefined)?"":data.bankCity],
+        state: [(data == undefined)?"":data.state],
+        pincode: [(data == undefined)?"":data.bankZipCode],
+        country: [(data == undefined)?"":data.country]
       }),
       MiscellaneousData: this.fb.group({
-        footnote: [data.footnote],
-        terms: [data.terms]
+        footnote: [(data == undefined)?"":data.footnote],
+        terms: [(data == undefined)?"":data.terms]
       })
     });
-
+    this.getFormControl().gstinNum.maxLength = 15;
+    this.getFormControl().panNum.maxLength = 10;
+    this.getFormControl().Address.maxLength = 150;
+    this.getFormControl().nameOnBank.maxLength = 25;
+    this.getFormControl().bankName.maxLength = 35;
+    this.getFormControl().acNo.maxLength = 16;
+    this.getFormControl().ifscCode.maxLength = 11;
+    this.getFormControl().address.maxLength = 150;
+    this.getFormControl().footnote.maxLength = 150;
+    this.getFormControl().terms.maxLength = 150;
+    
   }
 
   Close(value) {
