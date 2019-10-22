@@ -273,6 +273,10 @@ export class SubscriptionService {
   setAsPrimary(data){
     return this.http.put(apiConfig.MAIN_URL + appConfig.SET_AS_PRIMARY,data)
   }
+  getDocumentData(data){
+    let httpParams=new HttpParams().set('advisorId',data.advisorId).set('clientId',data.clientId).set('flag',data.flag);;
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_DOCUMENT_GET,httpParams) 
+  }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data, 10000);
   }
