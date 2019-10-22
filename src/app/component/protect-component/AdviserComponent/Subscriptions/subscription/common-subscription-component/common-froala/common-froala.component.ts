@@ -36,6 +36,8 @@ import {Component, Input, Output, forwardRef, OnInit} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {SubscriptionInject} from '../../../subscription-inject.service';
 import { EventService } from 'src/app/Data-service/event.service';
+import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-common-froala',
@@ -53,7 +55,7 @@ export class CommonFroalaComponent implements ControlValueAccessor, OnInit {
   dataSub: any;
   storeData: any;
 
-  constructor(public subInjectService: SubscriptionInject , public eventService:EventService) {
+  constructor(public subInjectService: SubscriptionInject , public eventService:EventService ,public dialog:MatDialog) {
     this.dataSub = this.subInjectService.singleProfileData.subscribe(
       data=>this.getcommanFroalaData(data)
     );
@@ -129,5 +131,28 @@ export class CommonFroalaComponent implements ControlValueAccessor, OnInit {
   save(){
     console.log("here is saved data",this.storeData.documentText);
     this.Close('close');
+  }
+  deleteModal(value)
+  {
+    let dialogData = {
+      data:value,
+      header: 'DELETE',
+      body:'Are you sure you want to delete the document?',
+      body2:'This cannot be undone',
+      btnYes:'CANCEL',
+      btnNo:'DELETE'
+    }
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+       width: '400px',
+       data: dialogData,
+       autoFocus:false,
+
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+  
+    });
+  
   }
 }
