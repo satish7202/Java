@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MatDialogRef, MatDialog } from '@angular/material';
-import { SubscriptionInject } from '../../../subscription-inject.service';
-import { EventService } from 'src/app/Data-service/event.service';
-import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
+import {Component, OnInit, Input} from '@angular/core';
+import {MatDialogRef, MatDialog} from '@angular/material';
+import {SubscriptionInject} from '../../../subscription-inject.service';
+import {EventService} from 'src/app/Data-service/event.service';
+import {ConfirmDialogComponent} from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-overview',
@@ -11,49 +11,53 @@ import { ConfirmDialogComponent } from 'src/app/component/protect-component/comm
 })
 export class OverviewComponent implements OnInit {
   overviewDesign: any;
-  singlePlanData={
-    name:'Starter Plan',
-    code:'PLA123',
-    description:'This plan is ideal for young people who are just starting off their financial journey and want to start saving with a smaller investment amount.'
+  singlePlanData = {
+    name: 'Starter Plan',
+    code: 'PLA123',
+    description: 'This plan is ideal for young people who are just starting off their financial journey and want to start saving with a smaller investment amount.'
+  };
+
+  constructor(public dialog: MatDialog, private eventService: EventService, private subinject: SubscriptionInject) {
   }
-  constructor(public dialog:MatDialog,private eventService: EventService, private subinject: SubscriptionInject, public dialogRef: MatDialogRef<OverviewComponent>) { }
 
 
   @Input() componentFlag: string;
   @Input() upperData;
+
   ngOnInit() {
-    this.overviewDesign='true';
+    this.overviewDesign = 'true';
     // this.openForm('','addPlanDetails','open');
   }
+
   dialogClose() {
-    this.dialogRef.close();
+    this.eventService.changeUpperSliderState({state: 'close'});
   }
-  changeDisplay()
-  {
-    this.overviewDesign='false';
+
+  changeDisplay() {
+    this.overviewDesign = 'false';
   }
-  openForm(data,value, state)
-  {
+
+  openForm(data, value, state) {
     this.eventService.sliderData(value);
-    this.subinject.rightSliderData(state)
-    this.subinject.rightSideData(data)
+    this.subinject.rightSliderData(state);
+    this.subinject.rightSideData(data);
   }
-  deleteModal(singlePlan,value)
-  {
-    let dialogData = {
-      data:value,
+
+  deleteModal(singlePlan, value) {
+    const dialogData = {
+      data: value,
       header: 'DELETE',
-      body:'Are you sure you want to delete the document?',
-      body2:'This cannot be undone',
-      btnYes:'CANCEL',
-      btnNo:'DELETE',
-      planData:singlePlan
-    }
+      body: 'Are you sure you want to delete the document?',
+      body2: 'This cannot be undone',
+      btnYes: 'CANCEL',
+      btnNo: 'DELETE',
+      planData: singlePlan
+    };
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-       width: '400px',
-       data: dialogData,
-       autoFocus:false,
+      width: '400px',
+      data: dialogData,
+      autoFocus: false,
 
     });
 
