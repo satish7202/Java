@@ -17,7 +17,7 @@ export class EmailQuotationComponent implements OnInit {
   showSent='false';
   ngOnInit() {
     this.showSent='false';
-
+    console.log('this.headerData',this.headerData)
   }
   Close(state)
   {
