@@ -1,12 +1,12 @@
-import {Component, OnInit, Input} from '@angular/core';
-import { MatDialog} from '@angular/material';
-import {SubscriptionInject} from '../../../subscription-inject.service';
-import {ConfirmDialogComponent} from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
-import {EventService} from 'src/app/Data-service/event.service';
-import {SubscriptionPopupComponent} from '../subscription-popup/subscription-popup.component';
-import {SubscriptionService} from '../../../subscription.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { SubscriptionInject } from '../../../subscription-inject.service';
+import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
+import { EventService } from 'src/app/Data-service/event.service';
+import { SubscriptionPopupComponent } from '../subscription-popup/subscription-popup.component';
+import { SubscriptionService } from '../../../subscription.service';
 import * as _ from 'lodash';
-import {AddDocumentComponent} from '../add-document/add-document.component';
+import { AddDocumentComponent } from '../add-document/add-document.component';
 // import {element} from 'protractor';
 // import {timingSafeEqual} from 'crypto';
 
@@ -45,7 +45,7 @@ export class DocumentComponent implements OnInit {
   @Input() upperData;
 
   constructor(public subInjectService: SubscriptionInject,
-              private eventService: EventService, public dialog: MatDialog, private subService: SubscriptionService) {
+    private eventService: EventService, public dialog: MatDialog, private subService: SubscriptionService) {
     this.subInjectService.rightSliderDocument.subscribe(
       data => this.getDocumentsDesignData(data)
     );
@@ -100,7 +100,7 @@ export class DocumentComponent implements OnInit {
   }
 
   dialogClose() {
-    this.eventService.changeUpperSliderState({state: 'close'});
+    this.eventService.changeUpperSliderState({ state: 'close' });
 
     // this.dialogRef.close();
   }
@@ -130,10 +130,10 @@ export class DocumentComponent implements OnInit {
     this.documentDesign = data;
   }
 
-  changeDisplay(value,data) {
+  changeDisplay(value, data) {
     this.documentDesign = value;
     this.quotationDesignEmail = this.documentDesign;
-    data.documentText="helooooooo....."
+    data.documentText = "helooooooo....."
     this.subInjectService.addSingleProfile(data);
   }
 
@@ -154,6 +154,12 @@ export class DocumentComponent implements OnInit {
     });
     console.log('document Data', data);
     this.planDocumentData = data;
+    this.planDocumentData.forEach(element => {
+      if (element.selected == true) {
+        this.mappedData.push(element);
+      }
+    });
+   
   }
 
   getServiceDocumentData() {

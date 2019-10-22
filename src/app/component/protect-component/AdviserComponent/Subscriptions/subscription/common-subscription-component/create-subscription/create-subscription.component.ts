@@ -4,6 +4,9 @@ import { EventService } from 'src/app/Data-service/event.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SubscriptionService } from '../../../subscription.service';
 import { MatStepper } from '@angular/material';
+import { EnumServiceService } from '../../enum-service.service';
+import * as _ from 'lodash';
+
 
 @Component({
   selector: 'app-create-subscription',
@@ -13,20 +16,27 @@ import { MatStepper } from '@angular/material';
 export class CreateSubscriptionComponent implements OnInit {
 
   @Input() modifyFeeTabChange;
+
   @ViewChild('stepper') stepper: MatStepper;
   feeStructureData;
   clientData;
   feeMode;
   billersData;
   payeesData;
-  constructor(public subInjectService: SubscriptionInject, private eventService: EventService, private fb: FormBuilder, private subService: SubscriptionService) {
+  feeCollectionMode;
+  feeStructureFormData;
+  selectedBiller;
+  selectedPayee=[];
+  constructor(private enumService: EnumServiceService, public subInjectService: SubscriptionInject, private eventService: EventService, private fb: FormBuilder, private subService: SubscriptionService) {
     this.subInjectService.singleProfileData.subscribe(
       data => this.getSubStartDetails(data)
     )
   }
 
   ngOnInit() {
-    this.stepper.selectedIndex=0
+    this.stepper.selectedIndex = 0
+    this.feeCollectionMode = this.enumService.getFeeCollectionModeData();
+    console.log(this.feeCollectionMode)
   }
   goForward(stepper: MatStepper) {
     this.stepper.next();
@@ -38,33 +48,65 @@ export class CreateSubscriptionComponent implements OnInit {
     feeCollectionMode: [, [Validators.required]],
     dueDateFrequency: [, [Validators.required]]
   })
-  feeStructureForm=this.fb.group({
-    feeStructure:['',[Validators.required]]
+  feeStructureForm = this.fb.group({
+    feeStructure: ['', [Validators.required]]
   })
-  billerSetting=this.fb.group({
-    billerSetting:['',[Validators.required]]
+  billerSetting = this.fb.group({
+    billerSetting: ['', [Validators.required]]
   })
-  payeeSetting=this.fb.group({
-    payeeSetting:['',[Validators.required]]
+  payeeSetting = this.fb.group({
+    payeeSetting: ['', [Validators.required]]
   })
-  create=this.fb.group({
-    create:['',[Validators.required]]
+  create = this.fb.group({
+    create: ['', [Validators.required]]
   })
   getSubStartDetails(data) {
     this.clientData = data
-    let obj = {
-      "advisorId": 2808,
-      "clientId": data.clientId,
-      "subId": data.id
+    console.log(this.clientData, "client Data")
+    if (data.feeMode) {
+      let obj = {
+        "advisorId": 2808,
+        "clientId": data.clientId,
+        "subId": data.id
+      }
+      this.subService.getSubscriptionStartData(obj).subscribe(
+        data => this.getSubStartDetailsResponse(data)
+      )
     }
-    this.subService.getSubscriptionStartData(obj).subscribe(
-      data => this.getSubStartDetailsResponse(data)
-    )
+    else {
+      this.feeStructureFormData = data;
+      this.stepper.next();
+      console.log(this.feeStructureFormData, "feeStructureData")
+    }
+
 
   }
-  select(data)
-  {
-   (data.selected==0)?data.selected=1:data.selected=0
+  select(value, data) {
+    if (value == 'biller') {
+      this.selectedBiller = data;
+      this.billersData.forEach(element => {
+        (element.id == data.id) ? element.selected = true : element.selected = false;
+      });
+    }
+    else {
+     (data.selected==1)?this.unselectPayee(data):this.selectPayee(data)
+    }
+  }
+  selectPayee(data) {
+   data.selected=1;
+   this.selectedPayee.push(data)
+  }
+  unselectPayee(data) {
+    if(this.selectedPayee.length==0)
+    {
+       return;  
+    }
+    else{
+      data.selected=0
+      _.remove(this.selectedPayee, function(delData) {
+        return delData.id == data.id;
+      });
+    }
   }
   getSubStartDetailsResponse(data) {
     console.log(data)
@@ -79,15 +121,15 @@ export class CreateSubscriptionComponent implements OnInit {
   Close(state) {
     this.subInjectService.rightSideData(state);
     this.subInjectService.rightSliderData(state);
-    this.stepper.selectedIndex=0
-
+    this.stepper.selectedIndex = 0
+    this.subscriptionDetails.reset();
   }
 
   startSubscsription() {
     let obj = {
-      "id": 1,
+      "id": this.clientData.id,
       "advisorId": 2808,
-      "billerProfileId": 1,
+      "billerProfileId": this.selectedBiller.id,
       "clientBillerProfiles": [
         {
           "id": 5,
@@ -98,12 +140,12 @@ export class CreateSubscriptionComponent implements OnInit {
           "share": 50
         }
       ],
-      "clientId": 2970,
+      "clientId": this.clientData.clientId,
       "dueDateFrequency": 30,
       "startsOn": "2019-10-16",
       "fromDate": "2019-10-16T13:54:25.983Z",
-      "subscriptionNumber": "SUB-123",
-      "feeMode": 1,
+      "subscriptionNumber":this.feeStructureData.subscriptionNo,
+      "feeMode":this.clientData.subscriptionPricing.feeTypeId,
       "Status": 1,
       "subscriptionPricing": {
         "autoRenew": 0,
@@ -138,6 +180,7 @@ export class CreateSubscriptionComponent implements OnInit {
         ]
       }
     }
+    console.log(obj,"start subscription")
   }
 
 }

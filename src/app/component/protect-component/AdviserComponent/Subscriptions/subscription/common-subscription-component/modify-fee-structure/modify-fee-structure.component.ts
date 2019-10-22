@@ -56,14 +56,13 @@ export class ModifyFeeStructureComponent implements OnInit {
 
   ngOnInit() {
     this.setValidation(false);
-    // this.setFeeStructureForm('')
     // this.otherAssetData = [];
-    // this.enumService.getOtherAssetData().forEach(element => {
-    //   this.otherAssetData.push(Object.assign({}, element));
-    // });
     // console.log(this.otherAssetData)
   }
-
+  getDirectFees()
+  {
+    return
+  }
   getSubscribeData(data) {
     console.log(data);
     console.log(this.variableFeeStructureForm);
@@ -78,9 +77,9 @@ export class ModifyFeeStructureComponent implements OnInit {
       this.getVariableFee().billEvery.setValue(data.subscriptionPricing.billEvery);
       this.getVariableFee().Duration.setValue(data.subscriptionPricing.billingCycle);
       /*//TODO commented for now*/
-      // this.getVariableFee().directFees.controls.equity.setValue(data.subscriptionPricing.subscriptionAssetPricingList[0].equityAllocation)
-      // this.getVariableFee().directFees.controls.debt.setValue(data.subscriptionPricing.subscriptionAssetPricingList[0].equityAllocation)
-      // this.getVariableFee().directFees.controls.liquid.setValue(data.subscriptionPricing.subscriptionAssetPricingList[0].equityAllocation)
+      this.getVariableFee().directFees.controls.equity.setValue(data.subscriptionPricing.subscriptionAssetPricingList[0].equityAllocation)
+      this.getVariableFee().directFees.controls.debt.setValue(data.subscriptionPricing.subscriptionAssetPricingList[0].equityAllocation)
+      this.getVariableFee().directFees.controls.liquid.setValue(data.subscriptionPricing.subscriptionAssetPricingList[0].equityAllocation)
       this.getVariableFee().pricing.setValue(data.subscriptionPricing.pricing);
       this.getVariableFee().otherAssetClassFees.setValue(data.subscriptionPricing.subscriptionAssetPricingList[0].subscriptionSubAssets);
       this.otherAssetData = data.subscriptionPricing.subscriptionAssetPricingList[0].subscriptionSubAssets;
@@ -105,6 +104,9 @@ export class ModifyFeeStructureComponent implements OnInit {
     (this.ModifyFeesChange == 'createSub') ? this.subInjectService.rightSliderData(state) : this.subInjectService.rightSideData(state),
       (this.ModifyFeesChange === 'modifyFees') ? this.subInjectService.rightSliderData(state) :
         this.subInjectService.rightSideData(state);
+
+        this.variableFeeStructureForm.reset();
+        this.fixedFeeStructureForm.reset();
 
   }
 
@@ -175,7 +177,11 @@ export class ModifyFeeStructureComponent implements OnInit {
           }
         ]
       };
-      console.log();
+      if(this.createSubData)
+      {
+        console.log(this.variableData);
+        this.subInjectService.addSingleProfile(this.variableData)
+      }
     }
   }
 
@@ -204,6 +210,6 @@ export class ModifyFeeStructureComponent implements OnInit {
       };
       console.log('fixed fees', obj);
     }
-
+     
   }
 }
