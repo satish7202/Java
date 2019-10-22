@@ -1,6 +1,6 @@
 <div *ngIf="!createSubData" class="row bb-1 popup-header-fix-60">
     <div class="col-md-8 p-0">
-        <h4 class="wrapper-20 m-0 l-22">MODIFY FEE STRUCTURE</h4>
+        <h4 class="wrapper-20 m-0">MODIFY FEE STRUCTURE</h4>
     </div>
     <div class="col-md-4 text-right">
         <div class="wrapper-12 pb-10">
@@ -238,10 +238,10 @@
         </div>
     </div>
 </div>
-<div class="bottom-fixed wrapper-12">
+<div class="bottom-fixed wrapper-16">
     <div class="row">
-        <div class="col-md-4">
-            <h5 class="mb-0 pt-8 text-white c-p" (click)="Close('close')">Cancel</h5>
+        <div class="col-md-4 pl-8">
+            <h5 class="mb-0 pt-4 text-white c-p" (click)="Close('close')">Cancel</h5>
         </div>
         <div *ngIf="ModifyFeesChange=='fixedModifyFees'" class="col-md-8 right text-right">
             <button mat-button (click)="saveFixedModifyFees()" class="btn-bottom br-0 text-inherit">Save</button>

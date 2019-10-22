@@ -43,3 +43,11 @@
          border: 1px solid #ccc !important; 
      border-radius: 0px !important; 
 }
+.table-container {
+  height: 300px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}

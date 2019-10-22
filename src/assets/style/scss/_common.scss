@@ -9,9 +9,9 @@ h1, h2, h3, h4, h5 {
     letter-spacing: 0.2px;
     text-transform: capitalize;
 }
-label{
-    margin: 0 !important;
-}
+// label{
+//     margin: 0 !important;
+// }
 h1 {
     font-size: $textlg;
     line-height: 35px;
@@ -40,7 +40,7 @@ p {
     letter-spacing: 0.2px;
     font-family: "proxima-nova", sans-serif;
 }
-.mat-checkbox-frame{
+.mat-checkbox-background, .mat-checkbox-frame{
     border-radius: 0px !important;
 }
 a,a:hover{
