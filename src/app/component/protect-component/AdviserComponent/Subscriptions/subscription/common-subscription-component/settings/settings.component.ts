@@ -14,7 +14,8 @@ import { ConfirmDialogComponent } from 'src/app/component/protect-component/comm
 export class SettingsComponent implements OnInit {
   SettingProfileData: any;
 
-  constructor(public dialog: MatDialog,private fb:FormBuilder,public subInjectService:SubscriptionInject, private eventService:EventService, private subService:SubscriptionService) { }
+  constructor(public dialog: MatDialog,private fb:FormBuilder,public subInjectService:SubscriptionInject,
+              private eventService:EventService, private subService:SubscriptionService) { }
 
   ngOnInit() {
     this.getSettingProfileData();
@@ -37,7 +38,7 @@ export class SettingsComponent implements OnInit {
   openPayeeSettings(profileData,value,state)
   {
     this.eventService.sliderData(value);
-    this.subInjectService.rightSliderData(state)
+    this.subInjectService.rightSliderData(state);
     this.subInjectService.rightSideData(profileData);
     console.log("profileData*********",profileData)
   }

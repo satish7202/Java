@@ -9,7 +9,7 @@ import { EventService } from 'src/app/Data-service/event.service';
   styleUrls: ['./change-payee.component.scss']
 })
 export class ChangePayeeComponent implements OnInit {
-  
+
   @Input() upperData;
   PayeeSettingData: any;
   dataSub: any;
@@ -17,7 +17,7 @@ export class ChangePayeeComponent implements OnInit {
   getRowData: any;
   isSelectedPlan: any;
   arraTosend: any;
-  constructor(public subInjectService: SubscriptionInject,public subService:SubscriptionService,public eventService:EventService) { 
+  constructor(public subInjectService: SubscriptionInject,public subService:SubscriptionService,public eventService:EventService) {
     this.dataSub = this.subInjectService.singleProfileData.subscribe(
       data=>this.getPayeeData(data)
     );
@@ -28,11 +28,11 @@ export class ChangePayeeComponent implements OnInit {
   }
   Close(state)
   {
-    this.subInjectService.rightSideData(state)
-    this.subInjectService.rightSliderData(state)
+    this.subInjectService.rightSideData(state);
+    this.subInjectService.rightSliderData(state);
   }
   getPayeeData(data){
-    this.getRowData = data 
+    this.getRowData = data
     this.dataObj={
       'clientId': this.getRowData.clientId,
       'subId':this.getRowData.id
@@ -40,7 +40,7 @@ export class ChangePayeeComponent implements OnInit {
     this.subService.getPayeerProfile(this.dataObj).subscribe(
       data=> this.getPayeeProfileRes(data)
     )
-   
+
     }
 
   getPayeeProfileRes(data){
@@ -57,7 +57,7 @@ export class ChangePayeeComponent implements OnInit {
         subscriptionId:this.getRowData.id
       }
       obj.push(obj1)
-     } 
+     }
     });
     console.log('obj ====',obj)
     this.subService.changePayeeSetting(obj).subscribe(

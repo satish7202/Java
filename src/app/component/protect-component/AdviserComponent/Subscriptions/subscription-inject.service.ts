@@ -28,6 +28,8 @@ export class SubscriptionInject {
   singleProfileData = this.billerData.asObservable();
 
   rightSideData(msg) {
+    console.log('dialog-container rightSideData: ', msg);
+
     this.openCloseRightSlider.next(msg);
   }
 

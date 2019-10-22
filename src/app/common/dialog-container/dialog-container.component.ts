@@ -98,13 +98,14 @@ export class DialogContainerComponent implements OnInit {
   dialogState;
 
   upperSliderData;
-  headerData='EMAIL QUOTATION';
-  headerDataDocuments='EMAIL DOCS WITH E-SIGN REQUEST';
+  headerData = 'EMAIL QUOTATION';
+  headerDataDocuments = 'EMAIL DOCS WITH E-SIGN REQUEST';
 
   ngOnInit() {
   }
 
   getRightSliderData(value) {
+    console.log('dialog-container getRightSliderData: ', value);
     if (value === 'close') {
       this.currentState = value;
       setTimeout(() => {
