@@ -1,7 +1,7 @@
-import { Component, OnInit, Inject, Input } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { SubscriptionService } from '../../AdviserComponent/Subscriptions/subscription.service';
-import { UpperSliderComponent } from '../../AdviserComponent/Subscriptions/subscription/common-subscription-component/upper-slider/upper-slider.component';
+import {Component, OnInit, Inject, Input} from '@angular/core';
+import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {SubscriptionService} from '../../AdviserComponent/Subscriptions/subscription.service';
+import {UpperSliderComponent} from '../../AdviserComponent/Subscriptions/subscription/common-subscription-component/upper-slider/upper-slider.component';
 
 @Component({
   selector: 'app-confirm-dialog',
@@ -22,7 +22,7 @@ export class ConfirmDialogComponent implements OnInit {
   public negativeMethod: Function;
 
   constructor(public dialogRef: MatDialogRef<ConfirmDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public dialogData: any, private subscription: SubscriptionService,public dialogUppRef: MatDialogRef<UpperSliderComponent>) {
+              @Inject(MAT_DIALOG_DATA) public dialogData: any, private subscription: SubscriptionService) {
   }
 
   ngOnInit() {
@@ -51,23 +51,23 @@ export class ConfirmDialogComponent implements OnInit {
       console.log('positive not defined 11111111111111111111111111111111111111111111');
 
     }
-    if(this.dialogData.data=="SUBSCRIPTION")
-    {
+    if (this.dialogData.data == 'SUBSCRIPTION') {
       this.subscription.deleteSubscriptionData(this.advisorId).subscribe(
         data => this.deletedData(data)
-      )
+      );
     }
-    if (this.dialogData.data == "PLAN") {
-      let obj = {
-        'advisorId': 12345,
-        'planId': this.dialogData.planData.id
-      }
+    if (this.dialogData.data == 'PLAN') {
+      const obj = {
+        advisorId: 12345,
+        planId: this.dialogData.planData.id
+      };
       this.subscription.deleteSubscriptionPlan(obj).subscribe(
         data => this.deletedData(data)
-      )
+      );
     }
   }
+
   deletedData(data) {
-    this.dialogUppRef.close();
+    // this.dialogUppRef.close();
   }
 }

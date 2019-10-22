@@ -12,9 +12,10 @@ import {SubscriptionInject} from '../../../subscription-inject.service';
 })
 export class PlansSettingsComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private subService: SubscriptionService, private dataService: EventService,
-              private subinject: SubscriptionInject) {
+  constructor(public dialog: MatDialog, private subService: SubscriptionService,
+              private dataService: EventService, private eventService: EventService, private subinject: SubscriptionInject) {
   }
+
   button: any;
 
   showLoader;
@@ -50,21 +51,23 @@ export class PlansSettingsComponent implements OnInit {
   openFragment(singlePlan, data) {
     this.subinject.pushUpperData(singlePlan);
 
-    const Fragmentdata = {
+    const fragmentData = {
       Flag: data,
-      planData: singlePlan
+      planData: singlePlan,
+      state: 'open'
     };
+    this.eventService.changeUpperSliderState(fragmentData);
 
-    const dialogRef = this.dialog.open(UpperSliderComponent, {
-      width: '1400px',
-      data: Fragmentdata,
-      autoFocus: false,
-      panelClass: 'dialogBox',
-
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-
-    });
+    // /* const dialogRef = this.dialog.open(UpperSliderComponent, {
+    //    width: '1400px',
+    //    data: Fragmentdata,
+    //    autoFocus: false,
+    //    panelClass: 'dialogBox',
+    //
+    //  });
+    //
+    //  dialogRef.afterClosed().subscribe(result => {
+    //
+    //  });*/
   }
 }

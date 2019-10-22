@@ -61,11 +61,11 @@ registerOnTouched(fn: () => void): void {
 Close(value) {
   this.valueChange.emit(this.emailSend);
 }
-openEmailQuot(value,state,data)
+openEmailQuot(value,state)
 {
   this.eventService.sliderData(value);
   this.subInjectService.rightSliderData(state)
-  this.subInjectService.addSingleProfile(data)
+ // this.subInjectService.addSingleProfile(data)
 }
 getcommanFroalaData(data){
   console.log(data)
