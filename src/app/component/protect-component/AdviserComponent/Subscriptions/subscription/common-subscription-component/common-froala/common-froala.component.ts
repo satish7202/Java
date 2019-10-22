@@ -38,6 +38,7 @@ import {SubscriptionInject} from '../../../subscription-inject.service';
 import { EventService } from 'src/app/Data-service/event.service';
 import { ConfirmDialogComponent } from 'src/app/component/protect-component/common-component/confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material';
+import { SubscriptionService } from '../../../subscription.service';
 
 @Component({
   selector: 'app-common-froala',
@@ -55,7 +56,7 @@ export class CommonFroalaComponent implements ControlValueAccessor, OnInit {
   dataSub: any;
   storeData: any;
 
-  constructor(public subInjectService: SubscriptionInject , public eventService:EventService ,public dialog:MatDialog) {
+  constructor(public subscription:SubscriptionService,public subInjectService: SubscriptionInject , public eventService:EventService ,public dialog:MatDialog) {
     this.dataSub = this.subInjectService.singleProfileData.subscribe(
       data=>this.getcommanFroalaData(data)
     );
@@ -77,7 +78,7 @@ export class CommonFroalaComponent implements ControlValueAccessor, OnInit {
   ngOnInit() {
     this.showActivityLog = false;
     console.log('CommonFroalaComponent ngOnInit screenType: ', this.screenType);
-    console.log(this.changeEmailOnly)
+    console.log(this.changeFooter)
   }
   getcommanFroalaData(data)
   {
@@ -129,8 +130,25 @@ export class CommonFroalaComponent implements ControlValueAccessor, OnInit {
     this.storeData.documentText=data;
   }
   save(){
-    console.log("here is saved data",this.storeData.documentText);
+    console.log("here is saved data",this.storeData);
+    this.updateData(this.storeData);
     this.Close('close');
+  }
+  updateData(data) {
+    const obj = {
+      documentRepositoryId: data.documentRepositoryId, // pass here advisor id for Invoice advisor
+      docText: data.documentText
+    };
+    // this.subscription.updateQuotationData(obj).subscribe(
+    //   data => this.getResponseData(data)
+    // );
+
+    this.subscription.updateDocumentData(obj).subscribe(
+      data => this.getResponseData(data)
+    );
+  }
+  getResponseData(data){
+    console.log(data);
   }
   deleteModal(value)
   {

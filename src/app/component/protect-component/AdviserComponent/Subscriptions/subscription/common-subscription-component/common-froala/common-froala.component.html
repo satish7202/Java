@@ -22,7 +22,7 @@
   <div class="wrapper-20">
     <div class="row">
       <div class="col-md-9 p-0">
-        <h3 class="mb-8 mt-20">Terms of agreement</h3>
+        <h3 class="mb-8 mt-20">{{storeData.documentName}}</h3>
         <!-- <textarea [froalaEditor]="config" (froalaModelChange)="onChange($event)" [(froalaModel)]="model"></textarea> -->
         <app-froala [(model)]="storeData.documentText" modelChange="saveData($event)"></app-froala>
         <!-- <div id="ui-froala">
@@ -79,7 +79,7 @@
     </div>
   </div>
 </div>
-<div class="bottom-fixed wrapper-12">
+<div class="bottom-fixed wrapper-12" *ngIf="changeFooter!='viewDoc'">
   <div class="row">
     <div class="col-md-4">
       <h5 class="mb-0 pt-8 text-white c-p" (click)="Close('close')">Cancel</h5>
@@ -91,7 +91,7 @@
               class="material-icons">
               arrow_drop_up
             </i></button>  
-        <button mat-button class="btn-bottom br-0 text-inherit" *ngIf="changeFooter=='viewQuotation'" (click)="Open('eSignRequest','open',element)">Email with eSign Request <i
+        <button mat-button class="btn-bottom br-0 text-inherit" *ngIf="changeFooter=='viewQuotation' " (click)="Open('eSignRequest','open',element)">Email with eSign Request <i
         class="material-icons">
         arrow_drop_up 
       </i></button>
@@ -104,3 +104,14 @@
     </div>
   </div>
 </div>
+<div class="bottom-fixed wrapper-12" *ngIf="changeFooter=='viewDoc'">
+    <div class="row">
+        <div class="col-md-4">
+          <h5 class="mb-0 pt-8 text-white c-p" (click)="Close('close')">Cancel</h5>
+        </div>
+        <div class="col-md-8 right text-right">
+            <button mat-button class="btn-bottom br-0 text-inherit" (click)="save()">SAVE</button>
+
+        </div>
+      </div>
+  </div>
