@@ -21,10 +21,30 @@ export class SettingsComponent implements OnInit {
     this.getSettingProfileData();
   }
   @Input() upperData;
+
+  setPrimaryField(profileData){
+    let obj = {
+      clientId : this.upperData.id,
+      id: profileData.id  
+    }
+    this.subService.setAsPrimary(obj).subscribe(
+      data => this.setAsPrimaryRes(data)
+     )
+  }
+  setAsPrimaryRes(data){
+    console.log('setAsPrimaryRes',data)
+      this.SettingProfileData.forEach(element => {
+      if(data.id == element.id){
+        element.isPrimary = true
+      }else{
+        element.isPrimary = false
+      }
+    });  
+  }
   getSettingProfileData()
   {
     let obj={
-    'clientId':2970
+    'clientId':this.upperData.id,
     }
     this.subService.getSubscriptionClientsSettingProfile(obj).subscribe(
      data => this.getSettingProfileDataResponse(data)

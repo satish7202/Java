@@ -270,6 +270,9 @@ export class SubscriptionService {
   addInvoice(data){
     return this.http.post(apiConfig.MAIN_URL + appConfig.ADD_INVOICE,data)
   }
+  setAsPrimary(data){
+    return this.http.put(apiConfig.MAIN_URL + appConfig.SET_AS_PRIMARY,data)
+  }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data, 10000);
   }

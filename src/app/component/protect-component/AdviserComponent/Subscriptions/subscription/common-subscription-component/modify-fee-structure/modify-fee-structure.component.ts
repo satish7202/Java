@@ -74,9 +74,9 @@ export class ModifyFeeStructureComponent implements OnInit {
       this.getVariableFee().billingNature.setValue(data.subscriptionPricing.billingNature);
       this.getVariableFee().billEvery.setValue(data.subscriptionPricing.billEvery);
       this.getVariableFee().Duration.setValue(data.subscriptionPricing.billingCycle);
-      this.getVariableFee().directFees.controls.equity.setValue(data.subscriptionPricing.subscriptionAssetPricingList[0].equityAllocation)
-      this.getVariableFee().directFees.controls.debt.setValue(data.subscriptionPricing.subscriptionAssetPricingList[0].equityAllocation)
-      this.getVariableFee().directFees.controls.liquid.setValue(data.subscriptionPricing.subscriptionAssetPricingList[0].equityAllocation)
+      // this.getVariableFee().directFees.controls.equity.setValue(data.subscriptionPricing.subscriptionAssetPricingList[0].equityAllocation)
+      // this.getVariableFee().directFees.controls.debt.setValue(data.subscriptionPricing.subscriptionAssetPricingList[0].equityAllocation)
+      // this.getVariableFee().directFees.controls.liquid.setValue(data.subscriptionPricing.subscriptionAssetPricingList[0].equityAllocation)
       this.getVariableFee().pricing.setValue(data.subscriptionPricing.pricing);
       this.getVariableFee().otherAssetClassFees.setValue(data.subscriptionPricing.subscriptionAssetPricingList[0].subscriptionSubAssets)
       this.otherAssetData = data.subscriptionPricing.subscriptionAssetPricingList[0].subscriptionSubAssets

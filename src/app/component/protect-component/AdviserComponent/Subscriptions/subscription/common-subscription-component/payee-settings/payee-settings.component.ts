@@ -189,7 +189,7 @@ export class PayeeSettingsComponent implements OnInit {
         "state": this.payeeSettingsForm.controls.state.value,
         "zipCode": this.payeeSettingsForm.controls.pincode.value,
         "id":this.payeeSettingsForm.controls.id.value,
-        "clientId": 2970
+        "clientId": 2978
       }
       this.sendData = obj1;
       this.subService.editPayeeSettings(obj1).subscribe(
@@ -214,7 +214,7 @@ export class PayeeSettingsComponent implements OnInit {
           "pan":this.getFormControl().pan.value,
           "country": this.getFormControl().country.value,
           "zipCode": this.getFormControl().pincode.value,
-          "clientId": 2970,
+          "clientId": 2978,
           
         }
         this.subService.addClientBillerProfile(obj).subscribe(
