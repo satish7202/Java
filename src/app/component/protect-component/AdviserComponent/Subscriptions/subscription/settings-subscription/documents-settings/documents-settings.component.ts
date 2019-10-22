@@ -162,44 +162,25 @@ export class DocumentsSettingsComponent implements OnInit {
   }
 
   Open(value, state) {
-    this.eventService.sidebarData(value)
+    this.eventService.sidebarData(value);
     this.subInjectService.rightSideData(state);
   }
 
   openFragment(data, singleDocument) {
-    let Fragmentdata = {
+    let fragmentData = {
       Flag: data,
       data: singleDocument,
-      id: 1
-    }
-    if (Fragmentdata.Flag == 'documents') {
-      const dialogRef = this.dialog.open(UpperSliderComponent, {
-        width: '1400px',
-        data: Fragmentdata,
-        autoFocus: false,
-        panelClass: 'dialogBox',
-        //  position: {
-        //    top: `30px`,
-        //    right: `40px`
-        //   },
-        // openFrom:'{
-        //   top: -50,
-        //   width: 30,
-        //   height: 80
-        // }',
-        // closeTo({
-        //   left: 1500
-        // })
-        // hasBackdrop: false,
-      });
+      id: 1,
+      state: 'open'
+    };
+    if (fragmentData.Flag == 'documents') {
+      this.eventService.changeUpperSliderState(fragmentData);
 
-      dialogRef.afterClosed().subscribe(result => {
 
-      });
     } else {
       const dialogRef = this.dialog.open(ModifyFeeDialogComponent, {
         width: '1400px',
-        data: Fragmentdata,
+        data: fragmentData,
         autoFocus: false,
         panelClass: 'dialogBox',
         //  position: {

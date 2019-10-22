@@ -1,5 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import {Component, OnInit, Inject} from '@angular/core';
+import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {EventService} from "../../../../../../../Data-service/event.service";
 
 @Component({
   selector: 'app-preference-email-invoice',
@@ -8,12 +9,14 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 export class PreferenceEmailInvoiceComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<PreferenceEmailInvoiceComponent>,@Inject(MAT_DIALOG_DATA) public fragmentData: any) { }
-  ngOnInit() {
-    console.log(this.fragmentData)
+  constructor(private eventService: EventService) {
   }
+
+  ngOnInit() {
+  }
+
   dialogClose() {
-    this.dialogRef.close();
+    this.eventService.changeUpperSliderState({state: 'close'});
   }
 
 }
