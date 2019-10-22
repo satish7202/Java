@@ -176,7 +176,6 @@ export class ModifyFeeStructureComponent implements OnInit {
         ]
       };
       console.log();
-      this.startSubData.emit(this.variableData);
     }
   }
 

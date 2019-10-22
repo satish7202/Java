@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { SubscriptionInject } from '../../../subscription-inject.service';
 import { EventService } from 'src/app/Data-service/event.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SubscriptionService } from '../../../subscription.service';
+import { MatStepper } from '@angular/material';
 
 @Component({
   selector: 'app-create-subscription',
@@ -12,6 +13,7 @@ import { SubscriptionService } from '../../../subscription.service';
 export class CreateSubscriptionComponent implements OnInit {
 
   @Input() modifyFeeTabChange;
+  @ViewChild('stepper') stepper: MatStepper;
   feeStructureData;
   clientData;
   feeMode;
@@ -22,9 +24,12 @@ export class CreateSubscriptionComponent implements OnInit {
       data => this.getSubStartDetails(data)
     )
   }
-  isLinear = false;
-  step1Completed = true;
+
   ngOnInit() {
+    this.stepper.selectedIndex=0
+  }
+  goForward(stepper: MatStepper) {
+    this.stepper.next();
   }
   subscriptionDetails = this.fb.group({
     subscription: [, [Validators.required]],
@@ -41,6 +46,9 @@ export class CreateSubscriptionComponent implements OnInit {
   })
   payeeSetting=this.fb.group({
     payeeSetting:['',[Validators.required]]
+  })
+  create=this.fb.group({
+    create:['',[Validators.required]]
   })
   getSubStartDetails(data) {
     this.clientData = data
@@ -71,6 +79,8 @@ export class CreateSubscriptionComponent implements OnInit {
   Close(state) {
     this.subInjectService.rightSideData(state);
     this.subInjectService.rightSliderData(state);
+    this.stepper.selectedIndex=0
+
   }
 
   startSubscsription() {
