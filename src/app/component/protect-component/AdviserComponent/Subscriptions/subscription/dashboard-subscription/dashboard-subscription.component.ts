@@ -53,12 +53,24 @@ export class DashboardSubscriptionComponent implements OnInit {
     this.getDataForCreateService();
   }
 
-  Open(value, state,data) {
-    this.eventService.sidebarData(value)
+  Open(state,data) {
+    let feeMode;
+    if(data.feeMode=="FIXED")
+    {
+      feeMode='fixedModifyFees'
+    }
+    else{
+      feeMode='variableModifyFees'
+    }
+    this.eventService.sidebarData(feeMode);
     this.subInjectService.rightSideData(state);
     this.subInjectService.addSingleProfile(data);
   }
-
+  openPlanSlider(value, state,data) {
+    this.eventService.sidebarData(value);
+    this.subInjectService.rightSideData(state);
+    this.subInjectService.addSingleProfile(data);
+  }
   showSubscriptionSteps() {
     this.showSubStep = true;
   }

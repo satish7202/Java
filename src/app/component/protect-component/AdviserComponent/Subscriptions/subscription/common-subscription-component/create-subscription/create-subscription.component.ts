@@ -26,6 +26,22 @@ export class CreateSubscriptionComponent implements OnInit {
   step1Completed = true;
   ngOnInit() {
   }
+  subscriptionDetails = this.fb.group({
+    subscription: [, [Validators.required]],
+    activationDate: [, [Validators.required]],
+    invoiceSendingMode: [1, [Validators.required]],
+    feeCollectionMode: [, [Validators.required]],
+    dueDateFrequency: [, [Validators.required]]
+  })
+  feeStructureForm=this.fb.group({
+    feeStructure:['',[Validators.required]]
+  })
+  billerSetting=this.fb.group({
+    billerSetting:['',[Validators.required]]
+  })
+  payeeSetting=this.fb.group({
+    payeeSetting:['',[Validators.required]]
+  })
   getSubStartDetails(data) {
     this.clientData = data
     let obj = {
@@ -49,13 +65,6 @@ export class CreateSubscriptionComponent implements OnInit {
     this.billersData = data.billers
     this.payeesData = data.payees
   }
-  subscriptionDetails = this.fb.group({
-    subscription: [, [Validators.required]],
-    activationDate: [, [Validators.required]],
-    invoiceSendingMode: [1, [Validators.required]],
-    feeCollectionMode: [, [Validators.required]],
-    dueDateFrequency: [, [Validators.required]]
-  })
   feeStructure = this.fb.group({
 
   })
