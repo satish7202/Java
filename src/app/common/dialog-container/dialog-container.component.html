@@ -2,7 +2,8 @@
 </div>
 
 <div [@openClose]="currentState" class="right_sidenav">
-  <app-common-froala *ngIf="subscriptionTab=='viewDocuments'" [screenType]="subscriptionTab"></app-common-froala>
+  <app-common-froala [changeFooter]='subscriptionTab'  *ngIf="subscriptionTab=='viewDocuments'" [screenType]="subscriptionTab"></app-common-froala>
+  <app-common-froala [changeFooter]='subscriptionTab'  *ngIf="subscriptionTab=='viewDoc'" [screenType]="subscriptionTab"></app-common-froala>
   <app-common-froala [changeEmailOnly]='subscriptionTab' *ngIf="subscriptionTab=='openEmailQuot'"></app-common-froala>
   <app-common-froala [changeFooter]='subscriptionTab' *ngIf="subscriptionTab=='emailQuotation'"></app-common-froala>
   <app-common-froala [changeFooter]='subscriptionTab' *ngIf="subscriptionTab=='viewQuotation'"></app-common-froala>

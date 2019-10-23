@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { SubscriptionInject } from '../../../subscription-inject.service';
-import { EventService } from 'src/app/Data-service/event.service';
+import {Component, OnInit, Input} from '@angular/core';
+import {SubscriptionInject} from '../../../subscription-inject.service';
+import {EventService} from 'src/app/Data-service/event.service';
 
 @Component({
   selector: 'app-fee-structure',
@@ -9,22 +9,34 @@ import { EventService } from 'src/app/Data-service/event.service';
 })
 export class FeeStructureComponent implements OnInit {
 
-  constructor(public subInjectService: SubscriptionInject, private eventService: EventService) { }
-  @Input() upperData;
+  constructor(public subInjectService: SubscriptionInject, private eventService: EventService) {
+  }
+
+  _upperData;
   selectedFee;
+
   ngOnInit() {
+    console.log('FeeStructureComponent init', this.upperData);
   }
-  selectedFees(feeType)
-  {
-    this.selectedFee=feeType
+
+  @Input()
+  set upperData(upperData) {
+    console.log('FeeStructureComponent upperData set : ', this.upperData);
+
+    this._upperData = upperData;
   }
+
+  selectedFees(feeType) {
+    this.selectedFee = feeType;
+  }
+
   openPlanSliderFee(data, value, state) {
     this.eventService.sliderData(value);
     this.subInjectService.rightSideData(data);
     this.subInjectService.rightSliderData(state);
   }
-  deleteService(feeData)
-  {
-    
+
+  deleteService(feeData) {
+
   }
 }

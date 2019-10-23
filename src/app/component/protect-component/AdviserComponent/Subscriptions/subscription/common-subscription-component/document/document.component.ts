@@ -45,7 +45,11 @@ export class DocumentComponent implements OnInit {
   @Input() upperData;
 
   constructor(public subInjectService: SubscriptionInject,
+<<<<<<< HEAD
     private eventService: EventService, public dialog: MatDialog, private subService: SubscriptionService) {
+=======
+              private eventService: EventService, public dialog: MatDialog, private subService: SubscriptionService,public subscription:SubscriptionService) {
+>>>>>>> 951d8d2a7d30b57b407cd3683743a919636ab550
     this.subInjectService.rightSliderDocument.subscribe(
       data => this.getDocumentsDesignData(data)
     );
@@ -64,11 +68,22 @@ export class DocumentComponent implements OnInit {
   ngOnInit() {
     this.getplanDocumentData();
     this.getServiceDocumentData();
+    this.getdocumentSubData();
     this.documentDesign = 'true';
     console.log('upperData', this.upperData);
     this.dataCount = 0;
   }
+  getdocumentSubData() {
+    const obj = {
+      advisorId: 12345, // pass here advisor id for Invoice advisor
+      clientId: 79187,
+      flag:4
+    };
 
+    this.subscription.getDocumentData(obj).subscribe(
+      data => this.getdocumentResponseData(data)
+    );
+  }
   openDocument(data) {
     const Fragmentdata = {
       Flag: data,
@@ -83,7 +98,13 @@ export class DocumentComponent implements OnInit {
 
     });
   }
-
+  getdocumentResponseData(data){
+    console.log(data);
+    data.forEach(singleData => {
+      singleData.documentText = singleData.docText;
+    });
+    this.dataSource=data;
+    }
   openPopup(data) {
     const Fragmentdata = {
       Flag: data,
@@ -133,7 +154,6 @@ export class DocumentComponent implements OnInit {
   changeDisplay(value, data) {
     this.documentDesign = value;
     this.quotationDesignEmail = this.documentDesign;
-    data.documentText = "helooooooo....."
     this.subInjectService.addSingleProfile(data);
   }
 

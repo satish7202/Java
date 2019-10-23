@@ -40,7 +40,7 @@ export class InvoiceComponent implements OnInit {
     this.dataSub = this.subInjectService.singleProfileData.subscribe(
       data => this.getInvoiceData(data)
     );
-    this.subInjectService.rightSideBarData.subscribe(
+    this.subInjectService.singleProfileData.subscribe(
       data => this.getRecordPayment(data)
     );
   }
@@ -85,6 +85,14 @@ export class InvoiceComponent implements OnInit {
       this.storeData = 
       this.taxStatus = ['IGST(18%)']
       
+    }
+  }
+  keyPress(event: any) {
+    const pattern = /[0-9\+\-\ ]/;
+
+    let inputChar = String.fromCharCode(event.charCode);
+    if (event.keyCode != 8 && !pattern.test(inputChar)) {
+      event.preventDefault();
     }
   }
   getServicesList(){
@@ -154,7 +162,6 @@ export class InvoiceComponent implements OnInit {
       taxStatus :['IGST(18%)'],
       balanceDue :[(data == undefined)?'':data.balanceDue] ,
       serviceName :[(data == undefined)?'':data.serviceName],
-      total:[(data == undefined)?'':data.total] ,
       subTotal:[(data == undefined)?'':data.subTotal] ,
       igstTaxAmount:[data.igstTaxAmount],
       auto:[data.auto]
@@ -184,6 +191,7 @@ export class InvoiceComponent implements OnInit {
         subTotal:this.editPayment.value.subTotal,
         total:this.editPayment.value.total,
         discount:this.editPayment.value.discount,
+        finalAmount:this.editPayment.value.finalAmount,
         invoiceDate:this.editPayment.value.invoiceDate,
         DueDate:this.editPayment.value.DueDate,
         igst:(this.editPayment.value.tax == 'IGST(18%)')?18:18,
@@ -205,6 +213,7 @@ export class InvoiceComponent implements OnInit {
         clientName : this.editPayment.value.clientName,
         billerAddress :this.editPayment.value.billerAddress,
         billingAddress :this.editPayment.value.billingAddress,
+        finalAmount:this.editPayment.value.finalAmount,
         invoiceNumber :this.editPayment.value.invoiceNumber,
         subTotal:this.editPayment.value.subTotal,
         total:this.editPayment.value.total,

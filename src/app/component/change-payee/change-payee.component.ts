@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { SubscriptionInject } from '../protect-component/AdviserComponent/Subscriptions/subscription-inject.service';
 import { SubscriptionService } from '../protect-component/AdviserComponent/Subscriptions/subscription.service';
 import { EventService } from 'src/app/Data-service/event.service';
+import { MatSliderChange } from '@angular/material';
 
 @Component({
   selector: 'app-change-payee',
@@ -17,6 +18,7 @@ export class ChangePayeeComponent implements OnInit {
   getRowData: any;
   isSelectedPlan: any;
   arraTosend: any;
+  dataMatSlider: any;
   constructor(public subInjectService: SubscriptionInject,public subService:SubscriptionService,public eventService:EventService) {
     this.dataSub = this.subInjectService.singleProfileData.subscribe(
       data=>this.getPayeeData(data)
@@ -47,7 +49,11 @@ export class ChangePayeeComponent implements OnInit {
     console.log("getPayeeProfileRes data",data)
     this.PayeeSettingData=data;
   }
-
+  onInputChange(event: MatSliderChange,singlePlan) {
+    console.log("This is emitted as the thumb slides");
+    console.log(event.value);
+    this.dataMatSlider = event.value
+  }
   saveChangePayeeSetting(){
     let obj = []
     this.PayeeSettingData.forEach(element => {
