@@ -1,6 +1,6 @@
 <div class="row bb-1 popup-header-fix-60">
   <div class="col-md-10 p-0">
-    <h4 class="mb-1 wrapper-20" >CREATE SUBSCRIPTION FOR Ronak</h4>{{msg}}
+    <h4 class="mb-1 wrapper-20">CREATE SUBSCRIPTION FOR Ronak</h4>{{msg}}
   </div>
   <div class="col-md-2 text-right">
     <i class="material-icons pt-16 pr-16 c-p" (click)="Close('close')">
@@ -10,9 +10,19 @@
 </div>
 <mat-horizontal-stepper [@.disabled]="true" [linear]="isLinear" #stepper id="ui-stepper" class="pt-72">
   <!-- TODO   <mat-step  [stepControl]="firstFormGroup">-->
-  <mat-step [stepControl]="feeStructure">
-      <ng-template matStepLabel>Fee Structure</ng-template>
-    <app-modify-fee-structure [createSubData]="feeStructureData"></app-modify-fee-structure>
+  <mat-step [stepControl]="feeStructureForm">
+    <ng-template matStepLabel>Fee Structure</ng-template>
+    <app-modify-fee-structure [createSubData]='feeStructureData'></app-modify-fee-structure>
+    <!-- <div class="bottom-fixed wrapper-12">
+      <div class="row">
+        <div class="col-md-4">
+          <h5 class="mb-0 pt-8 text-white c-p" (click)="Close('close')">Cancel</h5>
+        </div>
+        <div class="col-md-8 right text-right">
+          <button mat-button class="btn-bottom br-0 text-inherit" (click)="goForward()">NEXT STEP</button>
+        </div>
+      </div>
+    </div> -->
   </mat-step>
 
   <!-- TODO   <mat-step [stepControl]="secondFormGroup">-->
@@ -25,9 +35,12 @@
           <h5 class="text-right m-0 pt-8">Subscription #</h5>
         </div>
         <div class="col-md-6">
-          <div class="form-group">
+          <div class="form-group mb-0">
             <input type="text" formControlName="subscription" class="form-control t-50 br-0" placeholder="SUB-0001">
           </div>
+          <mat-error
+            [ngClass]="{'v-h':subscriptionDetails.get('subscription').untouched || subscriptionDetails.get('subscription').valid}"
+            class="f-12 pt-4">Subscription code is required</mat-error>
         </div>
       </div>
       <div class="row pt-40">
@@ -35,9 +48,12 @@
           <h5 class="text-right m-0 pt-8">Activation date</h5>
         </div>
         <div class="col-md-6">
-          <div class="form-group">
-            <input type="text" formControlName="activationDate" class="form-control t-50 br-0" placeholder="29/08/2019">
+          <div class="form-group mb-0">
+            <input type="text" formControlName="activationDate" class="form-control t-50 br-0">
           </div>
+          <mat-error
+            [ngClass]="{'v-h':subscriptionDetails.get('activationDate').untouched || subscriptionDetails.get('activationDate').valid}"
+            class="f-12 pt-4">Activation date is required</mat-error>
         </div>
       </div>
       <div class="row pt-40">
@@ -46,9 +62,13 @@
         </div>
         <div class="col-md-6">
           <mat-radio-group formControlName="invoiceSendingMode" aria-label="Select an option">
-            <mat-radio-button value="1" [ngClass]="{'b-a-custom':subscriptionDetails.get('invoiceSendingMode').value==1,'text-primary':subscriptionDetails.get('invoiceSendingMode').value==1,'b-a':subscriptionDetails.get('invoiceSendingMode').value==2}" checked="true" class="pt-8 pb-8 pr-40 pl-20 custom-radio">Automatic
+            <mat-radio-button value="1"
+              [ngClass]="{'b-a-custom':subscriptionDetails.get('invoiceSendingMode').value==1,'text-primary':subscriptionDetails.get('invoiceSendingMode').value==1,'b-a':subscriptionDetails.get('invoiceSendingMode').value==2}"
+              checked="true" class="pt-8 pb-8 pr-40 pl-20 custom-radio">Automatic
             </mat-radio-button>
-            <mat-radio-button value="2" [ngClass]="{'b-a-custom':subscriptionDetails.get('invoiceSendingMode').value==2,'text-primary':subscriptionDetails.get('invoiceSendingMode').value==2,'b-a':subscriptionDetails.get('invoiceSendingMode').value==1}" class=" pt-8 pr-40 pb-8 pl-20 custom-radio">Manual
+            <mat-radio-button value="2"
+              [ngClass]="{'b-a-custom':subscriptionDetails.get('invoiceSendingMode').value==2,'text-primary':subscriptionDetails.get('invoiceSendingMode').value==2,'b-a':subscriptionDetails.get('invoiceSendingMode').value==1}"
+              class=" pt-8 pr-40 pb-8 pl-20 custom-radio">Manual
             </mat-radio-button>
           </mat-radio-group>
         </div>
@@ -57,27 +77,34 @@
         <div class="col-md-5">
           <h5 class="text-right m-0 pt-8">Fee collection mode</h5>
         </div>
-        <div class="col-md-3">
-          <div class="form-group">
-              <select class="form-control" formControlName="feeCollectionMode" id="sel1">
-                  <option value="1">Monthly</option>
-                  <option value="12">Yearly</option>
-              </select>
+        <div class="col-md-3 mb-0">
+          <div class="form-group mb-0">
+            <select class="form-control" id="Category" formControlName="feeCollectionMode" id="sel1">
+              <option *ngFor="let feeMode of feeCollectionMode" value="{{feeMode.value}}">{{feeMode.name}}</option>
+            </select>
           </div>
+          <mat-error
+            [ngClass]="{'v-h':subscriptionDetails.get('feeCollectionMode').untouched || subscriptionDetails.get('feeCollectionMode').valid}"
+            class="f-12 pt-4">Fee mode is required</mat-error>
+        </div>
       </div>
-      </div>
-      <div class="row pt-40"> 
+      <div class="row pt-40">
         <div class="col-md-5">
           <h5 class="text-right m-0 pt-8">Due date frequency</h5>
         </div>
         <div class="col-md-3">
-          <div class="form-group">
-              <select class="form-control" formControlName="dueDateFrequency" id="sel1">
-                  <option value="1">Monthly</option>
-                  <option value="12">Yearly</option>
-              </select>
+          <div class="form-group mb-0">
+            <select class="form-control" formControlName="dueDateFrequency" id="sel1">
+              <option value="5">After 5 Days</option>
+              <option value="10">After 10 Days</option>
+              <option value="15">After 15 Days</option>
+
+            </select>
           </div>
-      </div>
+          <mat-error
+            [ngClass]="{'v-h':subscriptionDetails.get('dueDateFrequency').untouched || subscriptionDetails.get('dueDateFrequency').valid}"
+            class="f-12 pt-4"> Due date is required</mat-error>
+        </div>
       </div>
     </div>
     <div class="bottom-fixed wrapper-12">
@@ -86,13 +113,16 @@
           <h5 class="mb-0 pt-8 text-white c-p" (click)="Close('close')">Cancel</h5>
         </div>
         <div class="col-md-8 right text-right">
-          <button mat-button class="btn-bottom br-0 text-inherit">NEXT STEP</button>
+          <button mat-button class="btn-bottom br-0 text-inherit" *ngIf="subscriptionDetails.valid"
+            (click)="goForward()">NEXT STEP</button>
+          <button class="btn-bottom br-0 text-inherit" disabled *ngIf="subscriptionDetails.invalid"
+            [disabled]="subscriptionDetails.invalid" (click)="goForward()">NEXT STEP</button>
         </div>
       </div>
     </div>
   </mat-step>
 
-  <mat-step>
+  <mat-step [stepControl]="billerSetting">
     <ng-template matStepLabel>Biller Settings</ng-template>
     <div class="wrapper-16 pb-44 mb-44">
       <div class="row">
@@ -101,11 +131,12 @@
         </div>
       </div>
       <div class="row pt-16">
-        <div (click)="select(singleBiller)" *ngFor="let singleBiller of billersData" class="col-md-6">
-          <mat-card class="p-0" [ngClass]="{'ba-blue':singleBiller.selected==1,'b-ua':singleBiller.selected==0}">
+        <div (click)="select('biller',singleBiller)" *ngFor="let singleBiller of billersData" class="col-md-6 mt-20">
+          <mat-card class="p-0" [ngClass]="{'ba-blue':singleBiller.selected==1,'mb-20':true ,'b-ua':singleBiller.selected==0}">
             <div class="row bg-grey lter">
               <div class="col-md-12 p-0">
-                <mat-checkbox class="custom-checkbox" [ngClass]="{'v-h':singleBiller.selected==0}" checked="false"></mat-checkbox>
+                <mat-checkbox class="custom-checkbox" [ngClass]="{'v-h':singleBiller.selected==0}" checked="false">
+                </mat-checkbox>
               </div>
               <div class="col-md-12 p-0">
                 <h3 class="m-0 pt-18 pl-24">{{singleBiller.companyDisplayName}}</h3>
@@ -135,13 +166,13 @@
           <h5 class="mb-0 pt-8 text-white c-p" (click)="Close('close')">Cancel</h5>
         </div>
         <div class="col-md-8 right text-right">
-          <button mat-button class="btn-bottom br-0 text-inherit">NEXT STEP</button>
+          <button mat-button class="btn-bottom br-0 text-inherit" [disabled]="!selectedBiller" (click)="goForward()">NEXT STEP</button>
         </div>
       </div>
     </div>
   </mat-step>
 
-  <mat-step>
+  <mat-step [stepControl]="payeeSetting">
     <ng-template matStepLabel>Payee Settings</ng-template>
     <div class="wrapper-16 pb-44 mb-44">
       <div class="row">
@@ -150,11 +181,12 @@
         </div>
       </div>
       <div class="row pt-16">
-        <div (click)="select(singlePayee)" *ngFor="let singlePayee of payeesData" class="col-md-6">
-          <mat-card class="p-0" [ngClass]="{'ba-blue':singlePayee.selected==1,'b-ua':singlePayee.selected==0}">
+        <div (click)="select('singlePayee',singlePayee)" *ngFor="let singlePayee of payeesData" class="col-md-6">
+          <mat-card class="p-0 mb-32" [ngClass]="{'ba-blue':singlePayee.selected==1,'b-ua':singlePayee.selected==0}">
             <div class="row bg-grey lter">
               <div class="col-md-12 p-0">
-                <mat-checkbox class="custom-checkbox" [ngClass]="{'v-h':singlePayee.selected==0}" checked="false"></mat-checkbox>
+                <mat-checkbox class="custom-checkbox" [ngClass]="{'v-h':singlePayee.selected==0}" checked="false">
+                </mat-checkbox>
               </div>
               <div class="col-md-12 p-0">
                 <h3 class="m-0 pt-18 pl-24">{{singlePayee.companyDisplayName}}</h3>
@@ -193,13 +225,13 @@
           <h5 class="mb-0 pt-8 text-white c-p" (click)="Close('close')">Cancel</h5>
         </div>
         <div class="col-md-8 right text-right">
-          <button mat-button class="btn-bottom br-0 text-inherit">NEXT STEP</button>
+          <button mat-button class="btn-bottom br-0 text-inherit" (click)="goForward()">NEXT STEP</button>
         </div>
       </div>
     </div>
   </mat-step>
 
-  <mat-step>
+  <mat-step [stepControl]="create">
     <ng-template matStepLabel>Create</ng-template>
     <div class="wrapper-100 pt-44">
       <div class="row">
@@ -226,7 +258,7 @@
           <h5 class="mb-0 pt-8 text-white c-p" (click)="Close('close')">Cancel</h5>
         </div>
         <div class="col-md-8 right text-right">
-          <button mat-button class="btn-bottom br-0 text-inherit">NEXT STEP</button>
+          <button mat-button class="btn-bottom br-0 text-inherit" (click)="startSubscsription()">SAVE</button>
         </div>
       </div>
     </div>

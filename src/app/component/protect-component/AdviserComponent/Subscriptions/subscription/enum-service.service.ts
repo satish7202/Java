@@ -22,4 +22,8 @@ export class EnumServiceService {
   getOtherAssetData() {
     return this.globalEnumData.otherAssetTypes;
   }
+  getFeeCollectionModeData()
+  {
+    return this.globalEnumData.feeCollectionMode;
+  }
 }

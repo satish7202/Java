@@ -44,7 +44,7 @@
                 <div *ngFor="let documentData of planDocumentData" class="col-md-4 c-p pl-10 mb-20 pr-10">
                     <div class="example-card">
                     <div (click)="selectDocument(documentData)"
-                        [ngClass]="{'box': documentData.selected,'active': documentData.selected,'b-a':documentData.selected==false}">
+                        [ngClass]="{'ba-blue': documentData.selected,'active': documentData.selected,'b-a':documentData.selected==false}">
                         <mat-checkbox class="custom-checkbox" checked="false" *ngIf="documentData.selected">
                         </mat-checkbox>
                         <img src="{{documentData.src}}">
