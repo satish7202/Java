@@ -45,11 +45,7 @@ export class DocumentComponent implements OnInit {
   @Input() upperData;
 
   constructor(public subInjectService: SubscriptionInject,
-<<<<<<< HEAD
-    private eventService: EventService, public dialog: MatDialog, private subService: SubscriptionService) {
-=======
               private eventService: EventService, public dialog: MatDialog, private subService: SubscriptionService,public subscription:SubscriptionService) {
->>>>>>> 951d8d2a7d30b57b407cd3683743a919636ab550
     this.subInjectService.rightSliderDocument.subscribe(
       data => this.getDocumentsDesignData(data)
     );
