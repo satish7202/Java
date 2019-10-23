@@ -46,6 +46,7 @@ export class InvoiceHistoryComponent implements OnInit {
     this.invoiceData=value;
     console.log(this.invoiceData)
     this.showSubscription=false;
+    this.subInjectService.addSingleProfile(value);
     
   }
   @Input()

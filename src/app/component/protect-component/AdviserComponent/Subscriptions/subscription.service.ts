@@ -120,8 +120,8 @@ export class SubscriptionService {
   }
 
   deleteSubscriptionData(data) {
-    const httpParams = new HttpParams().set('advisorId', data);
-    return this.http.put(apiConfig.MAIN_URL + appConfig.DELETE_SUBSCRIPTION, httpParams);
+    // const httpParams = new HttpParams().set('advisorId',data.advisorId).set('subscriptionId',data.subscriptionId);
+    return this.http.put(apiConfig.MAIN_URL + appConfig.DELETE_SUBSCRIPTION, data);
   }
 
   saveBillerProfileSettings(data) {
@@ -148,7 +148,7 @@ export class SubscriptionService {
 
   docSentSignedCount(data) {
     const httpParams = new HttpParams().set('advisorId', data.advisorId);
-    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_DOCUMENT_COUNT_SIGNED, httpParams);
+    return this.http.get(apiConfig.MAIN_URL+ appConfig.GET_DOCUMENT_COUNT_SIGNED, httpParams);
   }
 
   clientWithSubcribe(data) {
@@ -274,7 +274,7 @@ export class SubscriptionService {
     return this.http.put(apiConfig.MAIN_URL + appConfig.SET_AS_PRIMARY,data)
   }
   getDocumentData(data){
-    let httpParams=new HttpParams().set('advisorId',data.advisorId).set('clientId',data.clientId).set('flag',data.flag);;
+    let httpParams=new HttpParams().set('advisorId',data.advisorId).set('clientId',data.clientId).set('flag',data.flag);
     return this.http.get(apiConfig.MAIN_URL + appConfig.GET_DOCUMENT_GET,httpParams) 
   }
   updateDocumentData(data){
@@ -282,6 +282,10 @@ export class SubscriptionService {
   }
   updateQuotationData(data){
     return this.http.put(apiConfig.MAIN_URL + appConfig.UPDATE_SUBSCRIPTION_QUOTATIONS,data) 
+  }
+  getEmailTemplate(data){
+    let httpParams=new HttpParams().set('advisorId',data.advisorId);
+    return this.http.get(apiConfig.MAIN_URL + appConfig.GET_EMAIL_TEMPLATE,httpParams) 
   }
   base_64Data(data) {
     return this.http.getEncoded(apiConfig.MAIN_URL + appConfig.GET_BASE_64, data, 10000);

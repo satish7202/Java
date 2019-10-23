@@ -106,5 +106,6 @@ export const appConfig = {
   GET_SUBSCRIPTION_START_DATA:'subscription/start/subscription/detail/get',
   GET_DOCUMENT_GET:'subscription/document/get',
   GET_DOCUMENT_UPDATE:'subscription/document/edit',
+  GET_EMAIL_TEMPLATE:'subscription/email-template/list/get',
   GET_BASE_64: 'api/v1/test/base64/decode'
 };

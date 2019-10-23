@@ -3,6 +3,7 @@ import {FormGroup, FormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {SubscriptionInject} from '../../../subscription-inject.service';
 import {HowToUseDialogComponent} from '../how-to-use-dialog/how-to-use-dialog.component';
 import {MatDialog} from '@angular/material';
+import { SubscriptionService } from '../../../subscription.service';
 
 @Component({
   selector: 'app-terms-agreement',
@@ -21,7 +22,7 @@ export class TermsAgreementComponent implements OnInit {
   dataSub: any;
   storeData: any;
 
-  constructor(public subInjectService: SubscriptionInject, public dialog: MatDialog) {
+  constructor(public subInjectService: SubscriptionInject, public dialog: MatDialog ,public subService:SubscriptionService) {
     this.dataSub = this.subInjectService.singleProfileData.subscribe(
       data=>this.getcommanFroalaData(data)
     );
@@ -53,7 +54,6 @@ export class TermsAgreementComponent implements OnInit {
   ngOnInit() {
     console.log('quotationDesign', this.quotationDesignE);
   }
-
   Close(value) {
     this.subInjectService.rightSideData(value);
     this.valueChange.emit(this.quotationDesignE);
