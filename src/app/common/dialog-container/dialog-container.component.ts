@@ -65,6 +65,7 @@ import {SubscriptionInject} from '../../component/protect-component/AdviserCompo
 })
 //
 export class DialogContainerComponent implements OnInit {
+  invoiceHisData: any;
 
   constructor(private eventService: EventService, private subinject: SubscriptionInject) {
     this.eventService.overlayVisibleData.subscribe(
@@ -87,6 +88,9 @@ export class DialogContainerComponent implements OnInit {
         this.upperSliderData = data;
       }
     );
+    this.subinject.singleProfileData.subscribe(
+      data =>this.getInvoiceHistoryData(data)
+    );
     // this.eventService.changeUpperSliderState()
   }
 
@@ -103,7 +107,9 @@ export class DialogContainerComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  getInvoiceHistoryData(data){
+    this.invoiceHisData = data
+  }
   getRightSliderData(value) {
     console.log('dialog-container getRightSliderData: ', value);
     if (value === 'close') {

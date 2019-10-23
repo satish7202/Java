@@ -30,6 +30,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./dashboard-subscription.component.scss']
 })
 export class DashboardSubscriptionComponent implements OnInit {
+  invoiceHisData: any;
 
   constructor(private enumService: EnumServiceService,
               public subInjectService: SubscriptionInject, public eventService: EventService,
@@ -57,12 +58,12 @@ export class DashboardSubscriptionComponent implements OnInit {
     this.eventService.sidebarData(value)
     this.subInjectService.rightSideData(state);
     this.subInjectService.addSingleProfile(data);
+    this.invoiceHisData = data
   }
 
   showSubscriptionSteps() {
     this.showSubStep = true;
   }
-
   delete(data) {
     const Fragmentdata = {
       Flag: data,
