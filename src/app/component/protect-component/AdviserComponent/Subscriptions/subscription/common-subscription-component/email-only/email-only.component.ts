@@ -2,6 +2,7 @@ import { Component, OnInit, forwardRef, Input, EventEmitter, Output } from '@ang
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { EventService } from 'src/app/Data-service/event.service';
 import { SubscriptionInject } from '../../../subscription-inject.service';
+import { SubscriptionService } from '../../../subscription.service';
 
 @Component({
   selector: 'app-email-only',
@@ -20,7 +21,7 @@ export class EmailOnlyComponent implements OnInit {
   dataSub: any;
   storeData: any;
 
-  constructor(public eventService:EventService,public subInjectService:SubscriptionInject) { 
+  constructor(public eventService:EventService,public subInjectService:SubscriptionInject,public subscription:SubscriptionService) { 
     this.dataSub = this.subInjectService.singleProfileData.subscribe(
       data=>this.getcommanFroalaData(data)
     );
@@ -75,5 +76,26 @@ saveData(data)
   {
     console.log(data);
     this.storeData.documentText=data;
+  }
+  save(){
+    console.log("here is saved data",this.storeData);
+    this.updateData(this.storeData);
+    this.Close('close');
+  }
+  updateData(data) {
+    const obj = {
+      documentRepositoryId: data.documentRepositoryId, // pass here advisor id for Invoice advisor
+      docText: data.documentText
+    };
+    // this.subscription.updateQuotationData(obj).subscribe(
+    //   data => this.getResponseData(data)
+    // );
+
+    this.subscription.updateDocumentData(obj).subscribe(
+      data => this.getResponseData(data)
+    );
+  }
+  getResponseData(data){
+    console.log(data);
   }
 }

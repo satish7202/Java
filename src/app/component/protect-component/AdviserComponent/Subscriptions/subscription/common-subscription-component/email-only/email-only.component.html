@@ -2,7 +2,7 @@
         <div class="wrapper-100 justify-content-center">
           <div class="row">
             <div class="col-md-4 p-0">
-           <h3 class="mb-8 mt-20">Terms of agreement</h3>
+           <h3 class="mb-8 mt-20">{{storeData.documentName}}</h3>
             </div>
           <div class="col-md-8 pt-4 pr-0 pb-12 text-right">
             <img src="assets/images/svg/pencil.svg" class="c-p"> 
@@ -49,7 +49,7 @@
         </div>
       </div>
       
-       <div class="bottom-fixed wrapper-12 w-100" >
+       <div class="bottom-fixed wrapper-12 w-100" *ngIf="emailDocument!='documentUpper'">
                     <div class="row">
                       <div class="col-md-6">
                         <h5 class="mb-0 pt-8 text-white c-p" (click)="Close('close')">Cancel</h5>
@@ -70,7 +70,7 @@
                               </div>
                     </div>
                     <div class="col-md-4  right text-right" *ngIf="emailSendfooter!=undefined || emailSend!=undefined">
-                        <button mat-button class="btn-bottom br-0 text-inherit" *ngIf="emailSendfooter!='footerChange' ">SAVE</button>
+                        <button mat-button class="btn-bottom br-0 text-inherit" *ngIf="emailSendfooter!='footerChange'" (click)="save()">SAVE</button>
                         <div *ngIf="emailSendfooter=='footerChange'">
                             <button mat-button class="btn-bottom br-0 text-inherit mr-20">Email only <i
                               class="material-icons">
@@ -82,5 +82,18 @@
                           </i></button>
                           </div>
                 </div>
-                  </div>
+             </div>
         </div>
+        <div class="bottom-fixed wrapper-12 w-100" *ngIf="emailDocument=='documentUpper'">
+            <div class="row">
+              <div class="col-md-6">
+                <h5 class="mb-0 pt-8 text-white c-p" (click)="Close('close')">Cancel</h5>
+              </div>
+              <div class="col-md-2 p-0">
+                    <h5 class="m-0 pt-8 text-white c-p ">Help</h5>
+              </div>
+            <div class="col-md-4  right text-right">
+                <button mat-button class="btn-bottom br-0 text-inherit" (click)="save()">SAVE</button>
+        </div>
+     </div>
+      </div>

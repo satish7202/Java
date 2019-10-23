@@ -40,6 +40,11 @@ export class ServicesComponent implements OnInit {
   getPlanServiceDataResponse(data) {
     console.log('plan service', data);
     this.planServiceData = data;
+    this.planServiceData.forEach(element => {
+      if (element.selected == true) {
+        this.mappedData.push(element);
+      }
+    });
   }
 
   selectService(data, index) {

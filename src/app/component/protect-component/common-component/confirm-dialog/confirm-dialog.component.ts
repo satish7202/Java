@@ -15,7 +15,6 @@ export class ConfirmDialogComponent implements OnInit {
   btn1NoData: any;
   btn2YesData: any;
   data: any;
-  advisorId = 2735;
   @Input()
   public positiveMethod: Function;
   @Input()
@@ -45,6 +44,10 @@ export class ConfirmDialogComponent implements OnInit {
   }
 
   deleteSubscription() {
+    let obj={
+      advisorId:12345,
+      subscriptionId:18
+    }
     if (this.dialogData.positiveMethod) {
       this.dialogData.positiveMethod();
     } else {
@@ -52,7 +55,7 @@ export class ConfirmDialogComponent implements OnInit {
 
     }
     if (this.dialogData.data == 'SUBSCRIPTION') {
-      this.subscription.deleteSubscriptionData(this.advisorId).subscribe(
+      this.subscription.deleteSubscriptionData(obj).subscribe(
         data => this.deletedData(data)
       );
     }

@@ -9,13 +9,15 @@ import { SubscriptionService } from '../../../subscription.service';
 export class DeleteSubscriptionComponent implements OnInit {
 
   constructor(public dialogRef:MatDialogRef<DeleteSubscriptionComponent>,@Inject(MAT_DIALOG_DATA) public fragmentData: any ,private subscription:SubscriptionService) { }
-  advisorId=2753;
   ngOnInit() {
     console.log("fragmentData",this.fragmentData);
   }
   cancelSubscription()
   {
-    this.subscription.cancelSubscriptionData(this.advisorId).subscribe(
+    let obj={
+      advisorId:12345
+    }
+    this.subscription.cancelSubscriptionData(obj).subscribe(
       data => this.canceledData(data)
     )
   }

@@ -59,6 +59,7 @@ export const appConfig = {
   GET_CLIENT_SUBSCRIPTION_INVOICES_LIST: 'subscription/client/invoice/get',
   GET_CLIENT_SUBSCRIPTION_SETTING_PROFILE: 'subscription/client/setting/profile/get',
   GET_SUBSCRIPTION_QUOTATIONS: 'subscription/quotation/get',
+  UPDATE_SUBSCRIPTION_QUOTATIONS: 'subscription/quotation/edit',
   GET_SUBSCRIPTION_SUBSCRIPTION: 'subscription/subscription/get',
   GET_SUBSCRIPTION_PLAN_SERVICE: 'subscription/setting/plan-services/get',
   ADD_SETTING_PLAN_OVERVIEW: 'subscription/plan/add',
@@ -98,10 +99,13 @@ export const appConfig = {
   GET_SERVICES_LIST : '/subscription/invoice-service/get',
   ADD_INVOICE : '/subscription/invoice/manual/add',
   GET_PAYEE_PROFILE: 'subscription/client-biller/profiles/get',
+  SET_AS_PRIMARY:'/subscription/clients/settings/profile/setprimary',
   MAP_DOCUMENTS_TO_SERVICE: 'subscription/mapped/document/service/insert',
   GET_DATA_FOR_CREATE_SERVICE: 'subscription/service/create/details/get',
   EDIT_FEE_MODIFY_STRUCTURE:'subscription/client/subscription/fees/edit',
   GET_SUBSCRIPTION_START_DATA:'subscription/start/subscription/detail/get',
   GET_DOCUMENT_GET:'subscription/document/get',
+  GET_DOCUMENT_UPDATE:'subscription/document/edit',
+  GET_EMAIL_TEMPLATE:'subscription/email-template/list/get',
   GET_BASE_64: 'api/v1/test/base64/decode'
 };

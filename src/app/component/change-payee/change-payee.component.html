@@ -17,7 +17,7 @@
       </div>
   </div>
   <div class="row">
-    <div class="col-md-6 mt-20 hover c-p" *ngFor="let singlePlan of PayeeSettingData">
+    <div class="col-md-6 mt-20 hover c-p" *ngFor="let singlePlan of PayeeSettingData;  let i = index">
               <mat-card class="p-0 b-ua" [ngClass]="singlePlan.selected == true || singlePlan.selected == 1 ? 'ba-blue' : 'b-ua'" (click)="selectedPayee(singlePlan.selected,singlePlan)">
                   <div class="row bg-grey lter">
                       <div class="col-md-12 p-0">
@@ -41,10 +41,10 @@
                           <p class="text-custom m-0 f-12 pl-24"> SPLITTING RATIO (%)</p>
                             <div class="row">
                               <div class="col-md-8">
-                                  <mat-slider class="ml-24" id="custom-mat-slider"></mat-slider>
+                                  <mat-slider class="ml-24" id="custom-mat-slider" thumbLabel min="1" max="100" (input)="onInputChange($event,singlePlan)"></mat-slider>
                               </div>
                               <div class="col-md-4 pr-0 pt-8">
-                                      <p class="m-0 f-13 text-black b-a wrapper-8">{{singlePlan.share}}</p>
+                                      <p class="m-0 f-13 text-black b-a wrapper-8">{{dataMatSlider}}</p>
                               </div>
                             </div>
                         </div>

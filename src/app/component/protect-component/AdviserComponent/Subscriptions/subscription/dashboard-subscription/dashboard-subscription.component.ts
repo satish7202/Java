@@ -30,6 +30,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./dashboard-subscription.component.scss']
 })
 export class DashboardSubscriptionComponent implements OnInit {
+  invoiceHisData: any;
 
   constructor(private enumService: EnumServiceService,
               public subInjectService: SubscriptionInject, public eventService: EventService,
@@ -53,16 +54,28 @@ export class DashboardSubscriptionComponent implements OnInit {
     this.getDataForCreateService();
   }
 
-  Open(value, state,data) {
-    this.eventService.sidebarData(value)
+  Open(state,data) {
+    let feeMode;
+    if(data.feeMode=="FIXED")
+    {
+      feeMode='fixedModifyFees'
+    }
+    else{
+      feeMode='variableModifyFees'
+    }
+    this.eventService.sidebarData(feeMode);
     this.subInjectService.rightSideData(state);
     this.subInjectService.addSingleProfile(data);
   }
-
+  openPlanSlider(value, state,data) {
+    this.eventService.sidebarData(value);
+    this.subInjectService.rightSideData(state);
+    this.subInjectService.addSingleProfile(data);
+    this.invoiceHisData = data
+  }
   showSubscriptionSteps() {
     this.showSubStep = true;
   }
-
   delete(data) {
     const Fragmentdata = {
       Flag: data,
@@ -190,14 +203,15 @@ export class DashboardSubscriptionComponent implements OnInit {
           assetTypes: [],
           feeTypes: [],
           billingNature: [],
-          otherAssetTypes: []
+          otherAssetTypes: [],
+          feeCollectionMode:[]
         };
         newJsonForConsumption.billingNature = UtilService.convertObjectToArray(data.billingNature);
         newJsonForConsumption.otherAssetTypes = UtilService.convertObjectToCustomArray(data.otherAssetTypes,'subAssetClassName','subAssetClassId');
         newJsonForConsumption.feeTypes = UtilService.convertObjectToArray(data.feeTypes);
         newJsonForConsumption.assetTypes = UtilService.convertObjectToArray(data.assetTypes);
         newJsonForConsumption.billingMode = UtilService.convertObjectToArray(data.billingMode);
-
+        newJsonForConsumption.feeCollectionMode=UtilService.convertObjectToArray(data.paymentModes)
         console.log('data newJsonForConsumption ', newJsonForConsumption);
 
         this.enumService.setGlobalEnumData(newJsonForConsumption);

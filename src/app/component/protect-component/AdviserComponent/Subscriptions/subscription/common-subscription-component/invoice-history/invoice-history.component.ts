@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SubscriptionComponent } from '../../subscription.component';
 import { SubscriptionInject } from '../../../subscription-inject.service';
+import { SubscriptionService } from '../../../subscription.service';
 
 
 export interface PeriodicElement {
@@ -24,13 +25,13 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class InvoiceHistoryComponent implements OnInit {
 
-  constructor(public subInjectService:SubscriptionInject) { 
+  constructor(public subInjectService:SubscriptionInject, private subService: SubscriptionService) { 
     this.dataSub = this.subInjectService.singleProfileData.subscribe(
-      data=>console.log(data)
+      data=>this.invoiceDataGet(data)
     );
   }
   displayedColumns: string[] = ['date', 'invoice', 'status', 'ddate','amount','balance'];
-  dataSource = ELEMENT_DATA;
+  dataSource;
   showSubscription;
   invoiceData;
   dataSub
@@ -39,12 +40,32 @@ export class InvoiceHistoryComponent implements OnInit {
     this.showSubscription=true;
     console.log('this.dataSub',this.dataSub)
   }
+ invoiceHisData;
   showInvoice(value)
   {
     this.invoiceData=value;
     console.log(this.invoiceData)
     this.showSubscription=false;
+    this.subInjectService.addSingleProfile(value);
     
+  }
+  @Input()
+   invoiceHistoryData(invoiceHistoryData:object){
+    this.invoiceHisData = invoiceHistoryData
+  }
+
+  invoiceDataGet(data){
+    let obj = {
+      module : 3,
+       id : data.id
+    }
+    this.subService.getInvoices(obj).subscribe(
+      data => this.getInvoiceResponseData(data)
+    );
+  }
+  getInvoiceResponseData(data){
+    console.log('getInvoiceResponseData',data)
+    this.dataSource = data
   }
   Close(state)
   {
