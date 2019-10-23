@@ -20,14 +20,15 @@
       <div class="col-md-9">
         <h3 class="mb-8 mt-20">Subject
         </h3>
-        <input type="text" class="form-control"> 
+        <input type="text" class="form-control">
         <!-- <form [formGroup]="mailForm" id="ui-froala"> -->
             <form [formGroup]="mailForm">
-  
+
   <!--        formControlName="mail_body"-->
   <!--        <textarea [froalaEditor]='froalaEditorOptions'  [(froalaModel)]="froalaEditorContent"></textarea>-->
                 <app-froala></app-froala>
-          <button type="submit" (click)="onSubmit()" [disabled]="!mailForm.valid" mat-stroked-button
+<!--              (click)="onSubmit()"-->
+          <button type="submit"  [disabled]="!mailForm.valid" mat-stroked-button
                   class="mt-16 btn-primary br-0">Submit
           </button>
         </form>
@@ -36,7 +37,8 @@
         <h5 class="m-0 pb-8 roboto pt-32">Insert Placeholders</h5>
         <div class="b-a">
           <div class="row">
-            <div class="col-md-12" (click)="openDialog('howToUse')">
+<!--            (click)="openDialog('howToUse')"-->
+            <div class="col-md-12">
               <p class="text-primary m-0 pt-8 text-right c-p roboto">How to use?</p>
             </div>
           </div>
@@ -80,7 +82,7 @@
             <h5 class="m-0 pt-20 pb-12 text-black">Services - Fee details</h5>
             <div class="row b-a">
               <div class="col-md-12 p-0">
-  
+
                 <div class="bg-grey lter wrapper-12 pt-16">
                   <p class="m-0 text-black">Investment management & financial planning</p>
                 </div>
@@ -109,11 +111,12 @@
   <div class="bottom-fixed wrapper-12 w-100">
     <div class="row">
       <div class="col-md-6">
-        <h5 class="mb-0 pt-8 text-white c-p" (click)="Close('close')">Cancel</h5>
+<!--        (click)="Close('close')"-->
+        <h5 class="mb-0 pt-8 text-white c-p" >Cancel</h5>
       </div>
       <!-- <div class="col-md-2 pl-0">
         <p class="m-0 c-p text-white pt-8">Help</p>
-  
+
       </div> -->
       <div class="col-md-4 p-0">
         <div class="row">
@@ -128,4 +131,3 @@
     </div>
   </div>
 </div>
-  
